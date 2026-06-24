@@ -2,6 +2,7 @@ node_modules/
 dist/
 test-artifacts/
 .agents/
+.vercel/
 .server.err
 .server.log
 *.map

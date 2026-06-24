@@ -6,9 +6,12 @@ const { minify: minifyHtml } = require("html-minifier-terser");
 
 const root = path.resolve(__dirname, "..");
 const outDir = path.join(root, "dist");
+const vercelOutputDir = path.join(root, ".vercel", "output");
+const vercelStaticDir = path.join(vercelOutputDir, "static");
 const excludedNames = new Set([
   ".agents",
   ".git",
+  ".vercel",
   "dist",
   "node_modules",
   "scripts",
@@ -73,6 +76,24 @@ async function walk(dir) {
   return files;
 }
 
+async function copyDirectory(source, target) {
+  const stat = await fs.stat(source);
+
+  if (stat.isDirectory()) {
+    await fs.mkdir(target, { recursive: true });
+    const entries = await fs.readdir(source);
+    for (const entry of entries) {
+      await copyDirectory(path.join(source, entry), path.join(target, entry));
+    }
+    return;
+  }
+
+  if (stat.isFile()) {
+    await fs.mkdir(path.dirname(target), { recursive: true });
+    await fs.copyFile(source, target);
+  }
+}
+
 async function minifyJs(filePath) {
   const code = await fs.readFile(filePath, "utf8");
   const isModule = /\b(import|export)\s/.test(code);
@@ -126,6 +147,9 @@ async function main() {
   if (await exists(outDir)) {
     await fs.rm(outDir, { recursive: true, force: true });
   }
+  if (await exists(vercelOutputDir)) {
+    await fs.rm(vercelOutputDir, { recursive: true, force: true });
+  }
 
   const entries = await fs.readdir(root);
   for (const entry of entries) {
@@ -145,6 +169,8 @@ async function main() {
     note: "Production build contains only public browser assets. Do not place secrets in frontend code."
   };
   await fs.writeFile(path.join(outDir, "BUILD_MANIFEST.json"), JSON.stringify(manifest, null, 2), "utf8");
+  await copyDirectory(outDir, vercelStaticDir);
+  await fs.writeFile(path.join(vercelOutputDir, "config.json"), JSON.stringify({ version: 3 }, null, 2), "utf8");
   console.log(`Production build written to ${outDir}`);
 }
 
