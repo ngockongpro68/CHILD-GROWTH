@@ -970,10 +970,13 @@ button {
   display: grid;
   gap: 4px;
   margin: 16px 0;
-  padding: 18px;
-  border: 1px solid var(--soft);
+  padding: 20px;
+  border: 1px solid #dbeafe;
   border-radius: 8px;
-  background: #fbfcfe;
+  background:
+    radial-gradient(circle at 92% 0%, rgba(37, 99, 235, 0.14), transparent 38%),
+    linear-gradient(180deg, #ffffff 0%, #f8fbff 100%);
+  box-shadow: 0 18px 45px rgba(15, 23, 42, 0.08);
 }
 
 .snapshot-result span {
@@ -984,13 +987,13 @@ button {
 
 .snapshot-result strong {
   color: var(--text);
-  font-size: clamp(2.2rem, 10vw, 3.4rem);
+  font-size: clamp(2rem, 8vw, 3rem);
   line-height: 1;
   letter-spacing: 0;
 }
 
 .snapshot-result p {
-  margin: 0;
+  margin: 4px 0 0;
   color: #334155;
   font-weight: 750;
 }
