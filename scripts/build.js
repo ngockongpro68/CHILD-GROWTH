@@ -8,6 +8,7 @@ const root = path.resolve(__dirname, "..");
 const outDir = path.join(root, "dist");
 const vercelOutputDir = path.join(root, ".vercel", "output");
 const vercelStaticDir = path.join(vercelOutputDir, "static");
+const languageCodes = ["en", "vi", "es", "hi", "id", "fr", "pt", "ar", "zh", "ja"];
 const excludedNames = new Set([
   ".agents",
   ".git",
@@ -144,6 +145,23 @@ async function minifyHtmlFile(filePath) {
   await fs.writeFile(filePath, result, "utf8");
 }
 
+async function createLocalizedStaticRoutes() {
+  const entries = await fs.readdir(outDir, { withFileTypes: true });
+  const routeDirectories = entries
+    .filter((entry) => entry.isDirectory() && !languageCodes.includes(entry.name) && entry.name !== "assets")
+    .map((entry) => entry.name);
+
+  for (const language of languageCodes) {
+    const languageRoot = path.join(outDir, language);
+    await fs.mkdir(languageRoot, { recursive: true });
+    await fs.copyFile(path.join(outDir, "index.html"), path.join(languageRoot, "index.html"));
+
+    for (const route of routeDirectories) {
+      await copyDirectory(path.join(outDir, route), path.join(languageRoot, route));
+    }
+  }
+}
+
 async function main() {
   if (await exists(outDir)) {
     await fs.rm(outDir, { recursive: true, force: true });
@@ -163,6 +181,8 @@ async function main() {
     else if (file.endsWith(".css")) await minifyCss(file);
     else if (file.endsWith(".html")) await minifyHtmlFile(file);
   }
+
+  await createLocalizedStaticRoutes();
 
   const manifest = {
     builtAt: new Date().toISOString(),
