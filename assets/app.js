@@ -98,13 +98,13 @@
       "WHO Growth Charts": "Biểu đồ tăng trưởng WHO",
       "View percentile curves, z-score bands, and a current measurement point in a clean chart-first layout.": "Xem đường bách phân vị, dải z-score và điểm đo hiện tại trong bố cục ưu tiên biểu đồ.",
       "SEO-ready educational content for parents searching for child growth calculators, percentiles, and WHO chart explanations.": "Nội dung giáo dục sẵn sàng cho SEO dành cho phụ huynh tìm công cụ tăng trưởng, bách phân vị và giải thích biểu đồ WHO.",
-      "A global healthcare SaaS interface for child growth tracking": "Giao diện SaaS y tế toàn cầu để theo dõi tăng trưởng trẻ em",
-      "GrowthKid is designed to feel more like a modern US healthcare startup than a hospital portal: minimal, fast, private, and clear on mobile.": "GrowthKid được thiết kế giống một startup y tế hiện đại của Mỹ hơn là cổng thông tin bệnh viện: tối giản, nhanh, riêng tư và rõ ràng trên di động.",
-      "Design principles": "Nguyên tắc thiết kế",
-      "Mobile-first calculator flow.": "Luồng tính toán ưu tiên di động.",
-      "Clean result cards with status colors.": "Thẻ kết quả rõ ràng với màu trạng thái.",
-      "SEO landing pages for each growth tool.": "Landing page SEO cho từng công cụ tăng trưởng.",
-      "No stock medical photography or visual clutter.": "Không dùng ảnh y tế stock hoặc chi tiết gây rối.",
+      "Understand each step of your child's growth": "Hiểu rõ hơn từng bước tăng trưởng của con",
+      "GrowthKid helps turn everyday measurements into WHO-based context, so parents can follow trends, save results, and know what to discuss at the next pediatric visit.": "GrowthKid giúp chuyển các số đo hằng ngày thành thông tin dễ hiểu theo chuẩn WHO, để ba mẹ theo dõi xu hướng, lưu kết quả và biết nên trao đổi gì trong lần khám nhi tiếp theo.",
+      "What GrowthKid helps with": "GrowthKid giúp bạn",
+      "Enter weight, height, and measurement dates in seconds.": "Nhập cân nặng, chiều cao và ngày đo trong vài giây.",
+      "See z-scores, percentiles, and plain-language status.": "Xem điểm z, bách phân vị và trạng thái bằng ngôn ngữ dễ hiểu.",
+      "Follow trends instead of focusing on one measurement.": "Theo dõi xu hướng thay vì chỉ nhìn một lần đo.",
+      "Save or share results when talking with a pediatrician.": "Lưu hoặc chia sẻ kết quả khi cần trao đổi với bác sĩ nhi.",
       "Child growth FAQ": "FAQ tăng trưởng trẻ em",
       "BMI calculator FAQ": "FAQ máy tính BMI",
       "Weight-for-age FAQ": "FAQ cân nặng theo tuổi",
@@ -231,13 +231,13 @@
       "WHO Growth Charts": "Gráficas de crecimiento OMS",
       "View percentile curves, z-score bands, and a current measurement point in a clean chart-first layout.": "Ve curvas percentilares, bandas z-score y el punto actual en una vista centrada en la gráfica.",
       "SEO-ready educational content for parents searching for child growth calculators, percentiles, and WHO chart explanations.": "Contenido educativo listo para SEO sobre calculadoras, percentiles y gráficas OMS.",
-      "A global healthcare SaaS interface for child growth tracking": "Una interfaz SaaS de salud global para seguir el crecimiento infantil",
-      "GrowthKid is designed to feel more like a modern US healthcare startup than a hospital portal: minimal, fast, private, and clear on mobile.": "GrowthKid se siente como una startup moderna de salud: mínima, rápida, privada y clara en móvil.",
-      "Design principles": "Principios de diseño",
-      "Mobile-first calculator flow.": "Flujo móvil primero.",
-      "Clean result cards with status colors.": "Tarjetas de resultado limpias con colores de estado.",
-      "SEO landing pages for each growth tool.": "Landing pages SEO para cada herramienta.",
-      "No stock medical photography or visual clutter.": "Sin fotos médicas de stock ni ruido visual.",
+      "Understand each step of your child's growth": "Entiende cada paso del crecimiento de tu hijo",
+      "GrowthKid helps turn everyday measurements into WHO-based context, so parents can follow trends, save results, and know what to discuss at the next pediatric visit.": "GrowthKid convierte las mediciones diarias en contexto basado en la OMS para que las familias sigan tendencias, guarden resultados y sepan qué comentar en la próxima visita pediátrica.",
+      "What GrowthKid helps with": "Cómo ayuda GrowthKid",
+      "Enter weight, height, and measurement dates in seconds.": "Registra peso, talla y fecha de medición en segundos.",
+      "See z-scores, percentiles, and plain-language status.": "Consulta z-scores, percentiles y un estado fácil de entender.",
+      "Follow trends instead of focusing on one measurement.": "Sigue tendencias sin quedarte solo con una medición.",
+      "Save or share results when talking with a pediatrician.": "Guarda o comparte resultados al hablar con el pediatra.",
       "Child growth FAQ": "FAQ de crecimiento infantil",
       "BMI calculator FAQ": "FAQ de calculadora IMC",
       "Weight-for-age FAQ": "FAQ de peso para la edad",
@@ -352,13 +352,13 @@
       "WHO Growth Charts": "WHO विकास चार्ट",
       "View percentile curves, z-score bands, and a current measurement point in a clean chart-first layout.": "साफ chart-first layout में percentile curves, z-score bands और वर्तमान measurement point देखें।",
       "SEO-ready educational content for parents searching for child growth calculators, percentiles, and WHO chart explanations.": "child growth calculators, percentiles और WHO chart explanations खोजने वाले माता-पिता के लिए SEO-ready educational content।",
-      "A global healthcare SaaS interface for child growth tracking": "बच्चों की growth tracking के लिए global healthcare SaaS interface",
-      "GrowthKid is designed to feel more like a modern US healthcare startup than a hospital portal: minimal, fast, private, and clear on mobile.": "GrowthKid को hospital portal के बजाय modern US healthcare startup जैसा महसूस कराने के लिए बनाया गया है: minimal, तेज, private और mobile पर स्पष्ट।",
-      "Design principles": "डिज़ाइन सिद्धांत",
-      "Mobile-first calculator flow.": "Mobile-first calculator flow.",
-      "Clean result cards with status colors.": "status colors के साथ साफ result cards.",
-      "SEO landing pages for each growth tool.": "हर growth tool के लिए SEO landing pages.",
-      "No stock medical photography or visual clutter.": "कोई stock medical photography या visual clutter नहीं।",
+      "Understand each step of your child's growth": "अपने बच्चे की वृद्धि को हर माप के साथ बेहतर समझें",
+      "GrowthKid helps turn everyday measurements into WHO-based context, so parents can follow trends, save results, and know what to discuss at the next pediatric visit.": "GrowthKid रोज़मर्रा के मापों को WHO-आधारित संदर्भ में बदलता है, ताकि माता-पिता रुझान देख सकें, परिणाम सहेज सकें और अगली बाल रोग विशेषज्ञ की मुलाकात में बेहतर सवाल पूछ सकें।",
+      "What GrowthKid helps with": "GrowthKid किन चीज़ों में मदद करता है",
+      "Enter weight, height, and measurement dates in seconds.": "वज़न, लंबाई और माप की तारीख कुछ सेकंड में दर्ज करें।",
+      "See z-scores, percentiles, and plain-language status.": "z-score, percentile और आसान भाषा में स्थिति देखें।",
+      "Follow trends instead of focusing on one measurement.": "सिर्फ एक माप पर नहीं, पूरी प्रवृत्ति पर ध्यान दें।",
+      "Save or share results when talking with a pediatrician.": "बाल रोग विशेषज्ञ से बात करते समय परिणाम सहेजें या साझा करें।",
       "Recent Articles": "नए लेख",
       "Short, practical content designed for international search traffic.": "अंतरराष्ट्रीय search traffic के लिए छोटा और उपयोगी content।",
       "Growth charts": "विकास चार्ट",
@@ -494,13 +494,13 @@
       "WHO Growth Charts": "Grafik Pertumbuhan WHO",
       "View percentile curves, z-score bands, and a current measurement point in a clean chart-first layout.": "Lihat kurva persentil, rentang z-score, dan titik pengukuran saat ini dalam tampilan yang mengutamakan grafik.",
       "SEO-ready educational content for parents searching for child growth calculators, percentiles, and WHO chart explanations.": "Konten edukasi siap SEO untuk orang tua yang mencari kalkulator pertumbuhan, persentil, dan penjelasan grafik WHO.",
-      "A global healthcare SaaS interface for child growth tracking": "Antarmuka SaaS kesehatan global untuk memantau pertumbuhan anak",
-      "GrowthKid is designed to feel more like a modern US healthcare startup than a hospital portal: minimal, fast, private, and clear on mobile.": "GrowthKid dirancang seperti startup kesehatan modern: minimal, cepat, privat, dan jelas di perangkat seluler.",
-      "Design principles": "Prinsip desain",
-      "Mobile-first calculator flow.": "Alur kalkulator yang mengutamakan seluler.",
-      "Clean result cards with status colors.": "Kartu hasil yang bersih dengan warna status.",
-      "SEO landing pages for each growth tool.": "Landing page SEO untuk setiap alat pertumbuhan.",
-      "No stock medical photography or visual clutter.": "Tanpa foto medis stok atau tampilan yang ramai.",
+      "Understand each step of your child's growth": "Pahami setiap langkah pertumbuhan anak",
+      "GrowthKid helps turn everyday measurements into WHO-based context, so parents can follow trends, save results, and know what to discuss at the next pediatric visit.": "GrowthKid mengubah pengukuran harian menjadi konteks berbasis WHO, sehingga orang tua bisa melihat tren, menyimpan hasil, dan tahu apa yang perlu dibahas saat konsultasi anak berikutnya.",
+      "What GrowthKid helps with": "Yang dibantu oleh GrowthKid",
+      "Enter weight, height, and measurement dates in seconds.": "Masukkan berat, tinggi, dan tanggal pengukuran dalam hitungan detik.",
+      "See z-scores, percentiles, and plain-language status.": "Lihat z-score, persentil, dan status dengan bahasa yang mudah dipahami.",
+      "Follow trends instead of focusing on one measurement.": "Ikuti tren, bukan hanya satu hasil pengukuran.",
+      "Save or share results when talking with a pediatrician.": "Simpan atau bagikan hasil saat berdiskusi dengan dokter anak.",
       "Child growth FAQ": "FAQ pertumbuhan anak",
       "BMI calculator FAQ": "FAQ kalkulator BMI",
       "Weight-for-age FAQ": "FAQ berat menurut umur",
@@ -2755,16 +2755,16 @@
           <div class="container page-hero-row">
             <div>
               <span class="eyebrow">About</span>
-              <h1>A global healthcare SaaS interface for child growth tracking</h1>
-              <p class="page-copy">GrowthKid is designed to feel more like a modern US healthcare startup than a hospital portal: minimal, fast, private, and clear on mobile.</p>
+              <h1>Understand each step of your child's growth</h1>
+              <p class="page-copy">GrowthKid helps turn everyday measurements into WHO-based context, so parents can follow trends, save results, and know what to discuss at the next pediatric visit.</p>
             </div>
             <div class="side-panel">
-              <h2>Design principles</h2>
+              <h2>What GrowthKid helps with</h2>
               <ul>
-                <li>Mobile-first calculator flow.</li>
-                <li>Clean result cards with status colors.</li>
-                <li>SEO landing pages for each growth tool.</li>
-                <li>No stock medical photography or visual clutter.</li>
+                <li>Enter weight, height, and measurement dates in seconds.</li>
+                <li>See z-scores, percentiles, and plain-language status.</li>
+                <li>Follow trends instead of focusing on one measurement.</li>
+                <li>Save or share results when talking with a pediatrician.</li>
               </ul>
             </div>
           </div>
