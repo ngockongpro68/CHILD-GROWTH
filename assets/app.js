@@ -4664,7 +4664,6 @@
   }
 
   function drawSocialSnapshotChart(ctx, result, indicator, left, top, width, height) {
-    const sex = result.sex || "boy";
     const metric = result.metrics.find((item) => item.key === indicator);
     if (metric && metric.status === "notAvailable") return;
     const domain = chartDomain(result, indicator);
@@ -4675,21 +4674,17 @@
       { z: -1, color: "#2563eb" },
       { z: -2, color: "#ef4444" }
     ];
-    const allValues = [];
-    for (let m = domain.start; m <= domain.end; m += domain.end > underFiveMaxMonths ? 6 : 3) {
-      bands.forEach((band) => allValues.push(chartReferenceValue(sex, indicator, m, band.z, result.ageMonths || 24)));
-    }
-    const childValue = indicator === "bmi" ? result.bmi : result[indicator];
-    if (Number.isFinite(childValue)) allValues.push(childValue);
-    const values = allValues.filter(Number.isFinite);
-    const min = Math.min(...values) * 0.94;
-    const max = Math.max(...values) * 1.06;
     const plotLeft = left + 28;
     const plotTop = top + 16;
     const plotWidth = width - 34;
     const plotHeight = height - 54;
     const x = (month) => plotLeft + ((month - domain.start) / (domain.end - domain.start)) * plotWidth;
-    const y = (value) => plotTop + plotHeight - ((value - min) / (max - min || 1)) * plotHeight;
+    const zToY = (zValue) => plotTop + ((3 - zValue) / 6) * plotHeight;
+    const curveZ = (month, zBand) => {
+      const progress = clamp((month - domain.start) / (domain.end - domain.start || 1), 0, 1);
+      const base = -2.1 + 3.4 * Math.pow(progress, 0.42);
+      return base + zBand * 0.45;
+    };
 
     ctx.fillStyle = "#334155";
     ctx.font = "800 10px Inter, sans-serif";
@@ -4734,11 +4729,11 @@
       ctx.lineJoin = "round";
       ctx.beginPath();
       let started = false;
-      for (let m = domain.start; m <= domain.end; m += domain.end > underFiveMaxMonths ? 6 : 3) {
-        const value = chartReferenceValue(sex, indicator, m, band.z, result.ageMonths || 24);
-        if (!Number.isFinite(value)) continue;
+      const steps = 48;
+      for (let step = 0; step <= steps; step += 1) {
+        const m = domain.start + ((domain.end - domain.start) * step) / steps;
         const px = x(m);
-        const py = y(value);
+        const py = zToY(curveZ(m, band.z));
         if (!started) {
           ctx.moveTo(px, py);
           started = true;
@@ -4751,7 +4746,8 @@
 
     const childMonth = clamp(result.ageMonths || 24, domain.start, domain.end);
     const childX = x(childMonth);
-    const childY = y(childValue || chartReferenceValue(sex, indicator, childMonth, 0, result.ageMonths || 24));
+    const childZ = metric && Number.isFinite(metric.z) ? clamp(metric.z, -2.8, 2.8) : 0;
+    const childY = zToY(curveZ(childMonth, 0) + childZ * 0.45);
     ctx.strokeStyle = "#94a3b8";
     ctx.setLineDash([4, 4]);
     ctx.lineWidth = 1;
