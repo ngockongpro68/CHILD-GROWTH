@@ -1,0 +1,7 @@
+node_modules/
+dist/
+test-artifacts/
+.agents/
+.server.err
+.server.log
+*.map
