@@ -9,6 +9,7 @@ const outDir = path.join(root, "dist");
 const vercelOutputDir = path.join(root, ".vercel", "output");
 const vercelStaticDir = path.join(vercelOutputDir, "static");
 const languageCodes = ["en", "vi", "es", "hi", "id", "fr", "pt", "ar", "zh", "ja"];
+const siteOriginPlaceholder = "__SITE_ORIGIN__";
 const excludedNames = new Set([
   ".agents",
   ".git",
@@ -145,6 +146,28 @@ async function minifyHtmlFile(filePath) {
   await fs.writeFile(filePath, result, "utf8");
 }
 
+function resolveSiteOrigin() {
+  const rawOrigin = process.env.SITE_ORIGIN
+    || process.env.VERCEL_PROJECT_PRODUCTION_URL
+    || process.env.VERCEL_BRANCH_URL
+    || process.env.VERCEL_URL
+    || "child-growth-umber.vercel.app";
+  const withProtocol = /^https?:\/\//i.test(rawOrigin) ? rawOrigin : `https://${rawOrigin}`;
+  return withProtocol.replace(/\/+$/, "");
+}
+
+async function replaceSiteOriginPlaceholders() {
+  const siteOrigin = resolveSiteOrigin();
+  const files = await walk(outDir);
+
+  for (const file of files) {
+    if (!file.endsWith(".html")) continue;
+    const content = await fs.readFile(file, "utf8");
+    if (!content.includes(siteOriginPlaceholder)) continue;
+    await fs.writeFile(file, content.replaceAll(siteOriginPlaceholder, siteOrigin), "utf8");
+  }
+}
+
 async function createLocalizedStaticRoutes() {
   const entries = await fs.readdir(outDir, { withFileTypes: true });
   const routeDirectories = entries
@@ -183,6 +206,7 @@ async function main() {
   }
 
   await createLocalizedStaticRoutes();
+  await replaceSiteOriginPlaceholders();
 
   const manifest = {
     builtAt: new Date().toISOString(),
