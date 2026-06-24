@@ -107,6 +107,8 @@
       "Save or share results when talking with a pediatrician.": "Lưu hoặc chia sẻ kết quả khi cần trao đổi với bác sĩ nhi.",
       "Social snapshot": "Ảnh chia sẻ",
       "Growth snapshot": "Ảnh tóm tắt tăng trưởng",
+      "Growth check-in": "Tóm tắt tăng trưởng",
+      "Private, name-free growth snapshot": "Ảnh tóm tắt riêng tư, không kèm tên trẻ",
       "Designed as a clean, name-free card for stories, messages, and private family sharing.": "Thiết kế gọn, không có tên trẻ, phù hợp để gửi tin nhắn, đăng story hoặc chia sẻ riêng trong gia đình.",
       "A quick growth check, made easy to share": "Một tóm tắt tăng trưởng gọn gàng, dễ chia sẻ",
       "Name-free snapshot for family updates. Educational use only.": "Ảnh tóm tắt không kèm tên trẻ. Chỉ dùng cho mục đích tham khảo.",
@@ -3396,14 +3398,16 @@
       <div class="share-preview-top">
         <div>
           <span class="eyebrow">${t("Social snapshot")}</span>
-          <h2>${metric.percentile === null ? t("Growth snapshot") : `${t(titleFor(metric.key))}: ${percentileLabel}`}</h2>
+          <h2>${t("Growth check-in")}</h2>
         </div>
         ${statusPill(metric.status)}
       </div>
       <div class="snapshot-result">
-        <span>${t(titleFor(metric.key))}</span>
-        <strong>${percentileLabel}</strong>
-        <p>${t(statusText)} · ${t("Z-score")} ${metric.z === null ? "--" : signed(metric.z)}</p>
+        <strong>${metric.percentile === null ? "--" : Math.round(metric.percentile)}</strong>
+        <div>
+          <span>${percentileLabel}</span>
+          <p>${t(titleFor(metric.key))} - ${t("Z-score")} ${metric.z === null ? "--" : signed(metric.z)}</p>
+        </div>
       </div>
       <p class="source-note">${t("Designed as a clean, name-free card for stories, messages, and private family sharing.")}</p>
     `;
@@ -4179,104 +4183,104 @@
       metricSnapshotItem(result, "head", result.head ? `${result.head.toFixed(1)} cm` : t("Not entered"))
     ];
 
-    ctx.fillStyle = "#f6f8fb";
+    ctx.fillStyle = "#f7f9fc";
     ctx.fillRect(0, 0, canvas.width, canvas.height);
 
-    const bgGradient = ctx.createRadialGradient(930, 120, 40, 930, 120, 720);
-    bgGradient.addColorStop(0, "rgba(37, 99, 235, 0.22)");
-    bgGradient.addColorStop(0.42, "rgba(125, 211, 252, 0.12)");
+    const bgGradient = ctx.createRadialGradient(880, 180, 20, 880, 180, 700);
+    bgGradient.addColorStop(0, "rgba(37, 99, 235, 0.16)");
+    bgGradient.addColorStop(0.42, "rgba(14, 165, 233, 0.08)");
     bgGradient.addColorStop(1, "rgba(248, 250, 252, 0)");
     ctx.fillStyle = bgGradient;
     ctx.fillRect(0, 0, canvas.width, canvas.height);
 
-    ctx.fillStyle = "rgba(37, 99, 235, 0.08)";
-    ctx.beginPath();
-    ctx.arc(128, 1112, 210, 0, Math.PI * 2);
-    ctx.fill();
-    ctx.fillStyle = "rgba(15, 23, 42, 0.035)";
-    ctx.beginPath();
-    ctx.arc(964, 1054, 280, 0, Math.PI * 2);
-    ctx.fill();
-
-    ctx.shadowColor = "rgba(15, 23, 42, 0.12)";
-    ctx.shadowBlur = 36;
-    ctx.shadowOffsetY = 18;
+    ctx.shadowColor = "rgba(15, 23, 42, 0.10)";
+    ctx.shadowBlur = 42;
+    ctx.shadowOffsetY = 20;
     ctx.fillStyle = "#ffffff";
-    roundRect(ctx, 58, 58, 964, 1234, 30);
+    roundRect(ctx, 64, 64, 952, 1222, 36);
     ctx.fill();
     ctx.shadowColor = "transparent";
     ctx.shadowBlur = 0;
     ctx.shadowOffsetY = 0;
-    ctx.strokeStyle = "#dbe7f5";
+    ctx.strokeStyle = "#dce6f2";
     ctx.lineWidth = 2;
     ctx.stroke();
 
-    ctx.fillStyle = "#0f172a";
-    ctx.font = "800 24px Inter, sans-serif";
-    ctx.fillText("GrowthKid", 132, 126);
     ctx.fillStyle = "#2563eb";
-    roundRect(ctx, 92, 98, 26, 26, 8);
+    roundRect(ctx, 104, 106, 34, 34, 10);
     ctx.fill();
     ctx.fillStyle = "#ffffff";
-    ctx.font = "800 17px Inter, sans-serif";
-    ctx.fillText("✦", 98, 118);
+    ctx.font = "900 18px Inter, sans-serif";
+    ctx.fillText("G", 114, 130);
+    ctx.fillStyle = "#0f172a";
+    ctx.font = "850 27px Inter, sans-serif";
+    ctx.fillText("GrowthKid", 154, 130);
+    ctx.fillStyle = "#64748b";
+    ctx.font = "700 18px Inter, sans-serif";
+    ctx.fillText(t("Private, name-free growth snapshot"), 104, 170);
 
     ctx.fillStyle = "#f1f5f9";
-    roundRect(ctx, 760, 88, 208, 52, 26);
+    roundRect(ctx, 760, 102, 208, 50, 25);
     ctx.fill();
     ctx.fillStyle = "#334155";
     ctx.font = "800 19px Inter, sans-serif";
-    ctx.fillText(t("WHO-based"), 808, 122);
+    ctx.fillText(t("WHO-based"), 808, 135);
 
     ctx.fillStyle = "#0f172a";
-    ctx.font = "850 64px Inter, sans-serif";
-    drawWrappedText(ctx, t("A quick growth check, made easy to share"), 92, 238, 820, 72, 2);
-    ctx.fillStyle = "#526173";
+    ctx.font = "850 70px Inter, sans-serif";
+    ctx.fillText(t("Growth check-in"), 104, 282);
+    ctx.fillStyle = "#5b687a";
     ctx.font = "650 25px Inter, sans-serif";
-    drawWrappedText(ctx, `${sexLabel(result.sex)} · ${ageLabel(result.ageMonths)} · ${formatDate(result.measureDate)}`, 94, 388, 860, 34, 2);
+    drawWrappedText(ctx, `${sexLabel(result.sex)} - ${ageLabel(result.ageMonths)} - ${formatDate(result.measureDate)}`, 108, 330, 820, 34, 2);
+
+    ctx.fillStyle = "#f8fafc";
+    roundRect(ctx, 104, 402, 872, 298, 30);
+    ctx.fill();
+    ctx.strokeStyle = "#e2e8f0";
+    ctx.stroke();
 
     ctx.fillStyle = "#0f172a";
-    ctx.font = "850 132px Inter, sans-serif";
-    ctx.fillText(percentileNumber, 92, 568);
+    ctx.font = "900 176px Inter, sans-serif";
+    ctx.fillText(percentileNumber, 146, 594);
     ctx.fillStyle = "#64748b";
-    ctx.font = "800 28px Inter, sans-serif";
-    ctx.fillText(t("Percentile"), 96, 616);
+    ctx.font = "850 31px Inter, sans-serif";
+    ctx.fillText(t("Percentile"), 156, 640);
     ctx.fillStyle = "#0f172a";
-    ctx.font = "850 32px Inter, sans-serif";
-    drawWrappedText(ctx, t(titleFor(metric.key)), 416, 506, 350, 38, 2);
+    ctx.font = "850 36px Inter, sans-serif";
+    drawWrappedText(ctx, t(titleFor(metric.key)), 500, 502, 370, 42, 2);
 
     ctx.font = "850 24px Inter, sans-serif";
     const badgeWidth = Math.min(250, Math.max(164, ctx.measureText(t(statusText)).width + 62));
     ctx.fillStyle = statusBg;
-    roundRect(ctx, 92, 654, badgeWidth, 56, 28);
+    roundRect(ctx, 500, 596, badgeWidth, 54, 27);
     ctx.fill();
     ctx.fillStyle = statusColor;
-    ctx.fillText(t(statusText), 124, 690);
+    ctx.fillText(t(statusText), 532, 631);
     ctx.fillStyle = "#334155";
-    ctx.font = "800 24px Inter, sans-serif";
-    ctx.fillText(`${t("Z-score")} ${metric.z === null ? "--" : signed(metric.z)}`, 92 + badgeWidth + 28, 690);
+    ctx.font = "800 23px Inter, sans-serif";
+    ctx.fillText(`${t("Z-score")} ${metric.z === null ? "--" : signed(metric.z)}`, 500, 678);
 
     const cardW = 426;
-    const cardH = 142;
+    const cardH = 118;
     metrics.forEach((item, index) => {
       const col = index % 2;
       const row = Math.floor(index / 2);
-      drawMetricSnapshotCard(ctx, 94 + col * 466, 760 + row * 164, cardW, cardH, item);
+      drawMetricSnapshotCard(ctx, 104 + col * 466, 748 + row * 138, cardW, cardH, item);
     });
 
-    ctx.fillStyle = "#f8fbff";
-    roundRect(ctx, 94, 1100, 892, 98, 24);
+    ctx.fillStyle = "#ffffff";
+    roundRect(ctx, 104, 1046, 872, 122, 28);
     ctx.fill();
     ctx.strokeStyle = "#dbeafe";
     ctx.stroke();
-    drawSnapshotChart(ctx, result, metric.key, 132, 1130, 792, 36);
+    drawSnapshotChart(ctx, result, metric.key, 146, 1088, 788, 44);
 
     ctx.fillStyle = "#475569";
-    ctx.font = "700 21px Inter, sans-serif";
-    drawWrappedText(ctx, t("Name-free snapshot for family updates. Educational use only."), 94, 1240, 720, 30, 2);
+    ctx.font = "700 20px Inter, sans-serif";
+    drawWrappedText(ctx, t("Name-free snapshot for family updates. Educational use only."), 104, 1234, 700, 28, 2);
     ctx.fillStyle = "#2563eb";
     ctx.font = "850 22px Inter, sans-serif";
-    ctx.fillText("growthkid.app", 824, 1268);
+    ctx.fillText("growthkid.app", 820, 1262);
     return canvas;
   }
 
@@ -4301,8 +4305,8 @@
     const status = statusLabel(item.status);
     const color = status === "Normal" ? "#16a34a" : status === "Monitor" ? "#d97706" : status === "Consult a healthcare professional" ? "#dc2626" : "#64748b";
 
-    ctx.fillStyle = "#f9fbff";
-    roundRect(ctx, x, y, width, height, 22);
+    ctx.fillStyle = "#ffffff";
+    roundRect(ctx, x, y, width, height, 24);
     ctx.fill();
     ctx.strokeStyle = "#e2e8f0";
     ctx.lineWidth = 2;
@@ -4310,17 +4314,17 @@
 
     ctx.fillStyle = color;
     ctx.beginPath();
-    ctx.arc(x + 32, y + 35, 8, 0, Math.PI * 2);
+    ctx.arc(x + 32, y + 32, 7, 0, Math.PI * 2);
     ctx.fill();
     ctx.fillStyle = "#64748b";
-    ctx.font = "800 18px Inter, sans-serif";
-    drawWrappedText(ctx, item.title, x + 52, y + 42, width - 82, 22, 1);
+    ctx.font = "800 17px Inter, sans-serif";
+    drawWrappedText(ctx, item.title, x + 52, y + 38, width - 82, 20, 1);
     ctx.fillStyle = "#0f172a";
-    ctx.font = "850 36px Inter, sans-serif";
-    ctx.fillText(item.value, x + 28, y + 92);
+    ctx.font = "850 31px Inter, sans-serif";
+    ctx.fillText(item.value, x + 28, y + 80);
     ctx.fillStyle = "#64748b";
-    ctx.font = "700 18px Inter, sans-serif";
-    ctx.fillText(`${item.percentile} · z ${item.z}`, x + 28, y + 122);
+    ctx.font = "700 17px Inter, sans-serif";
+    ctx.fillText(`${item.percentile} - z ${item.z}`, x + 28, y + 106);
   }
 
   function drawSnapshotChart(ctx, result, indicator, left, top, width, height) {
