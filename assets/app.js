@@ -4254,24 +4254,20 @@
     drawSnapshotPanel(ctx, 44, 304, 992, 204);
     drawMeasurementSummary(ctx, result, 72, 332);
 
-    drawSnapshotPanel(ctx, 44, 528, 992, 244);
-    ctx.fillStyle = "#0f766e";
-    ctx.font = "900 22px Inter, sans-serif";
-    centerText(ctx, t("WHO-based growth assessment").toUpperCase(), 540, 566);
-    resultItems.forEach((item, index) => drawResultSnapshotTile(ctx, 64 + index * 324, 590, 300, 154, item, index));
+    resultItems.forEach((item, index) => drawResultSnapshotTile(ctx, 44 + index * 338, 532, 328, 184, item, index));
 
-    drawSnapshotPanel(ctx, 44, 794, 992, 356);
+    drawSnapshotPanel(ctx, 44, 742, 992, 366);
     ctx.fillStyle = "#0f172a";
     ctx.font = "900 22px Inter, sans-serif";
-    ctx.fillText(t("Growth Curves"), 72, 832);
-    drawGrowthChartLegend(ctx, 72, 852);
-    drawZScoreLegend(ctx, 620, 824);
-    drawChartPreview(ctx, result, "height", 72, 884, 282, 210, "#14b8a6");
-    drawChartPreview(ctx, result, "weight", 398, 884, 282, 210, "#2563eb");
-    drawChartPreview(ctx, result, "bmi", 724, 884, 282, 210, "#7c3aed");
+    ctx.fillText(t("Growth Curves"), 72, 784);
+    drawGrowthChartLegend(ctx, 72, 804);
+    drawZScoreLegend(ctx, 620, 778);
+    drawChartPreview(ctx, result, "height", 72, 840, 282, 214, "#14b8a6");
+    drawChartPreview(ctx, result, "weight", 398, 840, 282, 214, "#2563eb");
+    drawChartPreview(ctx, result, "bmi", 724, 840, 282, 214, "#7c3aed");
     ctx.fillStyle = "#64748b";
     ctx.font = "750 15px Inter, sans-serif";
-    centerText(ctx, `${t("WHO standards")} - ${t("Your child")} - ${t("Educational use only - not medical advice")}`, 540, 1122);
+    centerText(ctx, `${t("WHO standards")} - ${t("Your child")} - ${t("Educational use only - not medical advice")}`, 540, 1082);
 
     drawSnapshotPanel(ctx, 44, 1170, 992, 198);
     drawSnapshotAdvice(ctx, primary, 84, 1208);
@@ -4403,33 +4399,90 @@
 
   function drawResultSnapshotTile(ctx, x, y, width, height, item, index) {
     const palettes = [
-      { bg: "#ecfdf5", fg: "#16a34a" },
-      { bg: "#eff6ff", fg: "#2563eb" },
-      { bg: "#faf5ff", fg: "#7c3aed" }
+      { bg: "#f0fdf8", fg: "#0f9f8f", border: "#99f6e4" },
+      { bg: "#f7fbff", fg: "#2563eb", border: "#bfdbfe" },
+      { bg: "#fdf8ff", fg: "#7c3aed", border: "#e9d5ff" }
     ];
     const palette = palettes[index] || palettes[0];
     const status = statusLabel(item.status);
-    const statusColor = status === "Normal" ? "#16a34a" : status === "Monitor" ? "#d97706" : status === "Consult a healthcare professional" ? "#dc2626" : "#64748b";
+    const statusColor = status === "Normal" ? "#14b8a6" : status === "Monitor" ? "#d97706" : status === "Consult a healthcare professional" ? "#dc2626" : "#64748b";
+    const badgeText = status === "Normal" ? "Within range" : status === "Monitor" ? "Monitor" : status === "Consult a healthcare professional" ? "Consult" : status;
+    ctx.save();
+    ctx.shadowColor = "rgba(15, 23, 42, 0.06)";
+    ctx.shadowBlur = 12;
+    ctx.shadowOffsetY = 6;
     ctx.fillStyle = palette.bg;
-    roundRect(ctx, x, y, width, height, 16);
+    roundRect(ctx, x, y, width, height, 10);
     ctx.fill();
+    ctx.restore();
+    ctx.strokeStyle = palette.border;
+    ctx.lineWidth = 1.5;
+    roundRect(ctx, x, y, width, height, 10);
+    ctx.stroke();
+
     ctx.fillStyle = palette.fg;
-    ctx.font = "900 17px Inter, sans-serif";
-    centerText(ctx, item.title, x + width / 2, y + 30);
+    ctx.font = "900 16px Inter, sans-serif";
+    centerText(ctx, item.title, x + width / 2, y + 26);
+
     ctx.strokeStyle = `${palette.fg}33`;
-    ctx.lineWidth = 4;
+    ctx.lineWidth = 3;
     ctx.beginPath();
-    ctx.arc(x + 58, y + 86, 38, 0, Math.PI * 2);
+    ctx.arc(x + 66, y + 78, 36, 0, Math.PI * 2);
     ctx.stroke();
     ctx.fillStyle = palette.fg;
-    ctx.font = "900 34px Inter, sans-serif";
-    centerText(ctx, item.z, x + width / 2, y + 86);
+    drawSnapshotMetricIcon(ctx, x + 66, y + 78, palette.fg, index);
+
+    ctx.fillStyle = palette.fg;
+    ctx.font = "900 38px Inter, sans-serif";
+    centerText(ctx, item.z, x + width / 2 + 42, y + 84);
+
     ctx.fillStyle = statusColor;
-    ctx.font = "900 12px Inter, sans-serif";
-    centerText(ctx, t(compactStatusLabel(status)), x + width / 2, y + 114);
-    ctx.fillStyle = "#0f766e";
-    ctx.font = "800 14px Inter, sans-serif";
-    centerText(ctx, `${t("Percentile")}: ${item.percentileNumber}`, x + width / 2, y + 140);
+    roundRect(ctx, x + width / 2 + 4, y + 100, 122, 26, 13);
+    ctx.fill();
+    ctx.fillStyle = "#ffffff";
+    ctx.font = "850 12px Inter, sans-serif";
+    centerText(ctx, `✓ ${badgeText}`, x + width / 2 + 65, y + 118);
+
+    ctx.strokeStyle = "#dbe4f0";
+    ctx.lineWidth = 1;
+    ctx.beginPath();
+    ctx.moveTo(x + 24, y + 136);
+    ctx.lineTo(x + width - 24, y + 136);
+    ctx.stroke();
+
+    ctx.fillStyle = "#334155";
+    ctx.font = "750 14px Inter, sans-serif";
+    centerText(ctx, t("Percentile"), x + width / 2, y + 158);
+    ctx.fillStyle = palette.fg;
+    ctx.font = "900 24px Inter, sans-serif";
+    centerText(ctx, item.percentileNumber, x + width / 2, y + 181);
+  }
+
+  function drawSnapshotMetricIcon(ctx, x, y, color, index) {
+    ctx.save();
+    ctx.fillStyle = color;
+    if (index === 1) {
+      roundRect(ctx, x - 13, y - 12, 26, 26, 6);
+      ctx.fill();
+      ctx.fillStyle = "#ffffff";
+      ctx.beginPath();
+      ctx.arc(x, y - 3, 4, 0, Math.PI * 2);
+      ctx.fill();
+    } else {
+      ctx.beginPath();
+      ctx.arc(x, y - 15, 6, 0, Math.PI * 2);
+      ctx.fill();
+      ctx.fillRect(x - 6, y - 6, 12, 28);
+      ctx.fillRect(x - 16, y - 2, 8, 22);
+      ctx.fillRect(x + 8, y - 2, 8, 22);
+      if (index === 0) {
+        ctx.fillRect(x + 24, y - 28, 3, 54);
+        for (let i = 0; i < 6; i += 1) {
+          ctx.fillRect(x + 31, y - 24 + i * 9, 5, 2);
+        }
+      }
+    }
+    ctx.restore();
   }
 
   function drawChartPreview(ctx, result, indicator, x, y, width, height, color) {
