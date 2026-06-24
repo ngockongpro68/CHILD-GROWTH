@@ -11,6 +11,7 @@ const vercelStaticDir = path.join(vercelOutputDir, "static");
 const excludedNames = new Set([
   ".agents",
   ".git",
+  ".gitignore",
   ".vercel",
   "dist",
   "node_modules",
