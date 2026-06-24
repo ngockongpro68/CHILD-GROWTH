@@ -109,6 +109,9 @@
       "Growth snapshot": "Ảnh tóm tắt tăng trưởng",
       "Growth Snapshot": "Tóm tắt tăng trưởng",
       "WHO-based growth check": "Đánh giá tăng trưởng dựa trên WHO",
+      "Growth Curves": "Đường cong tăng trưởng",
+      "Your measurement": "Điểm đo của bé",
+      "Median (0)": "Trung vị (0)",
       "Measured on": "Ngày đo",
       "Age at measurement": "Tuổi khi đo",
       "Growth check-in": "Tóm tắt tăng trưởng",
@@ -4258,12 +4261,14 @@
     resultItems.forEach((item, index) => drawResultSnapshotTile(ctx, 64 + index * 324, 590, 300, 154, item, index));
 
     drawSnapshotPanel(ctx, 44, 794, 992, 356);
-    ctx.fillStyle = "#0f766e";
+    ctx.fillStyle = "#0f172a";
     ctx.font = "900 22px Inter, sans-serif";
-    centerText(ctx, t("WHO Growth Chart").toUpperCase(), 540, 830);
-    drawChartPreview(ctx, result, "height", 72, 864, 282, 210, "#16a34a");
-    drawChartPreview(ctx, result, "weight", 398, 864, 282, 210, "#2563eb");
-    drawChartPreview(ctx, result, "bmi", 724, 864, 282, 210, "#7c3aed");
+    ctx.fillText(t("Growth Curves"), 72, 832);
+    drawGrowthChartLegend(ctx, 72, 852);
+    drawZScoreLegend(ctx, 620, 824);
+    drawChartPreview(ctx, result, "height", 72, 884, 282, 210, "#14b8a6");
+    drawChartPreview(ctx, result, "weight", 398, 884, 282, 210, "#2563eb");
+    drawChartPreview(ctx, result, "bmi", 724, 884, 282, 210, "#7c3aed");
     ctx.fillStyle = "#64748b";
     ctx.font = "750 15px Inter, sans-serif";
     centerText(ctx, `${t("WHO standards")} - ${t("Your child")} - ${t("Educational use only - not medical advice")}`, 540, 1122);
@@ -4437,6 +4442,45 @@
     drawSocialSnapshotChart(ctx, result, indicator, x, y, width, height);
   }
 
+  function drawGrowthChartLegend(ctx, x, y) {
+    ctx.fillStyle = "#0f172a";
+    ctx.font = "800 12px Inter, sans-serif";
+    ctx.beginPath();
+    ctx.arc(x + 6, y, 4, 0, Math.PI * 2);
+    ctx.fill();
+    ctx.fillText(t("Your measurement"), x + 18, y + 4);
+    ctx.strokeStyle = "#94a3b8";
+    ctx.lineWidth = 2;
+    ctx.beginPath();
+    ctx.moveTo(x + 142, y);
+    ctx.lineTo(x + 170, y);
+    ctx.stroke();
+    ctx.fillStyle = "#64748b";
+    ctx.fillText(t("Median (0)"), x + 178, y + 4);
+  }
+
+  function drawZScoreLegend(ctx, x, y) {
+    const items = [
+      ["+2", "#ef4444"],
+      ["+1", "#f97316"],
+      ["0", "#64748b"],
+      ["-1", "#14b8a6"],
+      ["-2", "#2563eb"]
+    ];
+    items.forEach((item, index) => {
+      const xx = x + index * 72;
+      ctx.strokeStyle = item[1];
+      ctx.lineWidth = 2;
+      ctx.beginPath();
+      ctx.moveTo(xx, y);
+      ctx.lineTo(xx + 24, y);
+      ctx.stroke();
+      ctx.fillStyle = "#334155";
+      ctx.font = "800 11px Inter, sans-serif";
+      ctx.fillText(item[0], xx + 30, y + 4);
+    });
+  }
+
   function drawSnapshotAdvice(ctx, metric, x, y) {
     const status = statusLabel(metric.status);
     ctx.fillStyle = "#14b8a6";
@@ -4587,31 +4631,52 @@
     const values = allValues.filter(Number.isFinite);
     const min = Math.min(...values) * 0.94;
     const max = Math.max(...values) * 1.06;
-    const x = (month) => left + ((month - domain.start) / (domain.end - domain.start)) * width;
-    const y = (value) => top + height - ((value - min) / (max - min || 1)) * height;
+    const plotLeft = left + 28;
+    const plotTop = top + 16;
+    const plotWidth = width - 34;
+    const plotHeight = height - 54;
+    const x = (month) => plotLeft + ((month - domain.start) / (domain.end - domain.start)) * plotWidth;
+    const y = (value) => plotTop + plotHeight - ((value - min) / (max - min || 1)) * plotHeight;
+
+    ctx.fillStyle = "#334155";
+    ctx.font = "800 10px Inter, sans-serif";
+    ctx.fillText("Z-score", left, top + 2);
 
     ctx.strokeStyle = "#dbe4f0";
-    ctx.lineWidth = 1.5;
-    ctx.setLineDash([5, 6]);
-    for (let i = 0; i <= 4; i += 1) {
-      const yy = top + (height / 4) * i;
+    ctx.lineWidth = 1;
+    ctx.setLineDash([]);
+    for (let i = 0; i <= 6; i += 1) {
+      const z = 3 - i;
+      const yy = plotTop + (plotHeight / 6) * i;
+      ctx.fillStyle = "#475569";
+      ctx.font = "800 10px Inter, sans-serif";
+      ctx.fillText(String(z), left + 4, yy + 3);
+      ctx.strokeStyle = i === 3 ? "#cbd5e1" : "#e2e8f0";
       ctx.beginPath();
-      ctx.moveTo(left, yy);
-      ctx.lineTo(left + width, yy);
+      ctx.moveTo(plotLeft, yy);
+      ctx.lineTo(plotLeft + plotWidth, yy);
       ctx.stroke();
     }
     for (let i = 0; i <= 5; i += 1) {
-      const xx = left + (width / 5) * i;
+      const xx = plotLeft + (plotWidth / 5) * i;
+      ctx.strokeStyle = "#eef2f7";
       ctx.beginPath();
-      ctx.moveTo(xx, top);
-      ctx.lineTo(xx, top + height);
+      ctx.moveTo(xx, plotTop);
+      ctx.lineTo(xx, plotTop + plotHeight);
       ctx.stroke();
     }
-    ctx.setLineDash([]);
+
+    ctx.strokeStyle = "#cbd5e1";
+    ctx.lineWidth = 1.5;
+    ctx.beginPath();
+    ctx.moveTo(plotLeft, plotTop);
+    ctx.lineTo(plotLeft, plotTop + plotHeight);
+    ctx.lineTo(plotLeft + plotWidth, plotTop + plotHeight);
+    ctx.stroke();
 
     bands.forEach((band) => {
       ctx.strokeStyle = band.color;
-      ctx.lineWidth = band.z === 0 ? 3 : 2;
+      ctx.lineWidth = band.z === 0 ? 2.2 : 1.4;
       ctx.lineCap = "round";
       ctx.lineJoin = "round";
       ctx.beginPath();
@@ -4634,22 +4699,35 @@
     const childMonth = clamp(result.ageMonths || 24, domain.start, domain.end);
     const childX = x(childMonth);
     const childY = y(childValue || chartReferenceValue(sex, indicator, childMonth, 0, result.ageMonths || 24));
-    ctx.strokeStyle = "#60a5fa";
-    ctx.setLineDash([6, 5]);
-    ctx.lineWidth = 1.5;
+    ctx.strokeStyle = "#94a3b8";
+    ctx.setLineDash([4, 4]);
+    ctx.lineWidth = 1;
     ctx.beginPath();
-    ctx.moveTo(left, childY);
+    ctx.moveTo(childX, plotTop);
+    ctx.lineTo(childX, plotTop + plotHeight);
+    ctx.stroke();
+    ctx.beginPath();
+    ctx.moveTo(plotLeft, childY);
     ctx.lineTo(childX, childY);
-    ctx.lineTo(childX, top + height);
     ctx.stroke();
     ctx.setLineDash([]);
-    ctx.fillStyle = "#2563eb";
+    ctx.fillStyle = "#0f172a";
     ctx.beginPath();
-    ctx.arc(childX, childY, 9, 0, Math.PI * 2);
+    ctx.arc(childX, childY, 5, 0, Math.PI * 2);
     ctx.fill();
     ctx.strokeStyle = "#ffffff";
-    ctx.lineWidth = 4;
+    ctx.lineWidth = 2;
     ctx.stroke();
+
+    ctx.fillStyle = "#334155";
+    ctx.font = "800 10px Inter, sans-serif";
+    const ageTicks = [0, 12, 24, 36, 48, 60];
+    ageTicks.forEach((month) => {
+      const tickMonth = domain.end <= 60 ? month : Math.round(domain.start + (domain.end - domain.start) * (month / 60));
+      const xx = x(clamp(tickMonth, domain.start, domain.end));
+      centerText(ctx, String(tickMonth), xx, plotTop + plotHeight + 16);
+    });
+    centerText(ctx, t("Age (months)"), plotLeft + plotWidth / 2, plotTop + plotHeight + 34);
   }
 
   function drawGrowthKidCanvasMark(ctx, x, y, size) {
