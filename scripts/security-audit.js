@@ -2,7 +2,7 @@ const fs = require("fs/promises");
 const path = require("path");
 
 const root = path.resolve(__dirname, "..");
-const ignoredDirs = new Set([".git", ".agents", "dist", "node_modules", "test-artifacts"]);
+const ignoredDirs = new Set([".git", ".agents", ".vercel", "dist", "node_modules", "test-artifacts"]);
 const ignoredFiles = new Set(["package-lock.json"]);
 const suspiciousPatterns = [
   { name: "OpenAI-style secret key", pattern: /\bsk-[A-Za-z0-9_-]{20,}\b/g },

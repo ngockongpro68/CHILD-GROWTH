@@ -107,8 +107,22 @@
       "Save or share results when talking with a pediatrician.": "Lưu hoặc chia sẻ kết quả khi cần trao đổi với bác sĩ nhi.",
       "Social snapshot": "Ảnh chia sẻ",
       "Growth snapshot": "Ảnh tóm tắt tăng trưởng",
+      "Growth Snapshot": "Tóm tắt tăng trưởng",
+      "WHO-based growth check": "Đánh giá tăng trưởng dựa trên WHO",
+      "Measured on": "Ngày đo",
+      "Age at measurement": "Tuổi khi đo",
       "Growth check-in": "Tóm tắt tăng trưởng",
       "Private, name-free growth snapshot": "Ảnh tóm tắt riêng tư, không kèm tên trẻ",
+      "Child Growth": "Tăng trưởng",
+      "Snapshot": "Tóm tắt",
+      "Tips": "Gợi ý",
+      "Your child's growth is within the normal range.": "Các chỉ số đang nằm trong khoảng bình thường theo chuẩn WHO.",
+      "Review the trend and measure again consistently.": "Nên theo dõi xu hướng và đo lại định kỳ với cùng cách đo.",
+      "Track trends over time.": "Theo dõi xu hướng qua nhiều lần đo.",
+      "Use accurate weight and height measurements.": "Đo cân nặng và chiều cao đúng cách.",
+      "Talk to a pediatrician if results change quickly.": "Hỏi bác sĩ nếu chỉ số thay đổi nhanh.",
+      "Educational use only - not medical advice": "Chỉ dùng tham khảo - không thay thế tư vấn y tế",
+      "Source: World Health Organization (WHO)": "Nguồn: Tổ chức Y tế Thế giới (WHO)",
       "Designed as a clean, name-free card for stories, messages, and private family sharing.": "Thiết kế gọn, không có tên trẻ, phù hợp để gửi tin nhắn, đăng story hoặc chia sẻ riêng trong gia đình.",
       "A quick growth check, made easy to share": "Một tóm tắt tăng trưởng gọn gàng, dễ chia sẻ",
       "Name-free snapshot for family updates. Educational use only.": "Ảnh tóm tắt không kèm tên trẻ. Chỉ dùng cho mục đích tham khảo.",
@@ -4165,122 +4179,110 @@
     }, 1600);
   }
 
-  function createSnapshotCanvas(result) {
+  async function createSnapshotCanvas(result) {
     const canvas = document.createElement("canvas");
     canvas.width = 1080;
-    canvas.height = 1350;
+    canvas.height = 1530;
     const ctx = canvas.getContext("2d");
-    const metric = highlightMetric(result);
-    const status = statusLabel(metric.status);
-    const statusText = compactStatusLabel(status);
-    const statusColor = status === "Normal" ? "#16a34a" : status === "Monitor" ? "#d97706" : "#dc2626";
-    const statusBg = status === "Normal" ? "#dcfce7" : status === "Monitor" ? "#fef3c7" : "#fee2e2";
-    const percentileNumber = metric.percentile === null ? "--" : String(Math.round(metric.percentile));
-    const metrics = [
-      metricSnapshotItem(result, "weight", `${result.weight.toFixed(1)} kg`),
-      metricSnapshotItem(result, "height", `${result.height.toFixed(1)} cm`),
-      metricSnapshotItem(result, "bmi", result.bmi.toFixed(1)),
-      metricSnapshotItem(result, "head", result.head ? `${result.head.toFixed(1)} cm` : t("Not entered"))
-    ];
+    const primary = highlightMetric(result);
+    const resultItems = ["height", "weight", "bmi"].map((key) => metricSnapshotItem(
+      result,
+      key,
+      key === "weight" ? `${result.weight.toFixed(1)} kg` : key === "height" ? `${result.height.toFixed(1)} cm` : result.bmi.toFixed(1)
+    ));
 
-    ctx.fillStyle = "#f7f9fc";
-    ctx.fillRect(0, 0, canvas.width, canvas.height);
-
-    const bgGradient = ctx.createRadialGradient(880, 180, 20, 880, 180, 700);
-    bgGradient.addColorStop(0, "rgba(37, 99, 235, 0.16)");
-    bgGradient.addColorStop(0.42, "rgba(14, 165, 233, 0.08)");
-    bgGradient.addColorStop(1, "rgba(248, 250, 252, 0)");
-    ctx.fillStyle = bgGradient;
-    ctx.fillRect(0, 0, canvas.width, canvas.height);
-
-    ctx.shadowColor = "rgba(15, 23, 42, 0.10)";
-    ctx.shadowBlur = 42;
-    ctx.shadowOffsetY = 20;
     ctx.fillStyle = "#ffffff";
-    roundRect(ctx, 64, 64, 952, 1222, 36);
-    ctx.fill();
-    ctx.shadowColor = "transparent";
-    ctx.shadowBlur = 0;
-    ctx.shadowOffsetY = 0;
-    ctx.strokeStyle = "#dce6f2";
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+    ctx.strokeStyle = "#14b8a6";
     ctx.lineWidth = 2;
+    roundRect(ctx, 18, 18, 1044, 1494, 18);
     ctx.stroke();
+
+    ctx.fillStyle = "#eefcf8";
+    ctx.beginPath();
+    ctx.moveTo(18, 320);
+    ctx.bezierCurveTo(240, 382, 430, 384, 620, 346);
+    ctx.bezierCurveTo(830, 304, 950, 296, 1062, 250);
+    ctx.lineTo(1062, 18);
+    ctx.lineTo(18, 18);
+    ctx.closePath();
+    ctx.fill();
 
     ctx.fillStyle = "#2563eb";
-    roundRect(ctx, 104, 106, 34, 34, 10);
+    roundRect(ctx, 54, 48, 54, 54, 14);
     ctx.fill();
-    ctx.fillStyle = "#ffffff";
-    ctx.font = "900 18px Inter, sans-serif";
-    ctx.fillText("G", 114, 130);
+    drawGrowthKidCanvasMark(ctx, 64, 57, 34);
     ctx.fillStyle = "#0f172a";
-    ctx.font = "850 27px Inter, sans-serif";
-    ctx.fillText("GrowthKid", 154, 130);
+    ctx.font = "900 30px Inter, sans-serif";
+    ctx.fillText("GrowthKid", 124, 74);
     ctx.fillStyle = "#64748b";
-    ctx.font = "700 18px Inter, sans-serif";
-    ctx.fillText(t("Private, name-free growth snapshot"), 104, 170);
+    ctx.font = "750 13px Inter, sans-serif";
+    ctx.fillText(t("WHO-based growth assessment"), 126, 96);
 
-    ctx.fillStyle = "#f1f5f9";
-    roundRect(ctx, 760, 102, 208, 50, 25);
-    ctx.fill();
+    ctx.fillStyle = "#0f172a";
+    ctx.font = "900 60px Inter, sans-serif";
+    ctx.fillText(t("Growth Snapshot"), 54, 164);
     ctx.fillStyle = "#334155";
-    ctx.font = "800 19px Inter, sans-serif";
-    ctx.fillText(t("WHO-based"), 808, 135);
+    ctx.font = "750 28px Inter, sans-serif";
+    ctx.fillText(t("WHO-based growth check"), 56, 210);
 
-    ctx.fillStyle = "#0f172a";
-    ctx.font = "850 70px Inter, sans-serif";
-    ctx.fillText(t("Growth check-in"), 104, 282);
-    ctx.fillStyle = "#5b687a";
-    ctx.font = "650 25px Inter, sans-serif";
-    drawWrappedText(ctx, `${sexLabel(result.sex)} - ${ageLabel(result.ageMonths)} - ${formatDate(result.measureDate)}`, 108, 330, 820, 34, 2);
-
-    ctx.fillStyle = "#f8fafc";
-    roundRect(ctx, 104, 402, 872, 298, 30);
+    const roundedAgeMonths = Math.round(result.ageMonths || 0);
+    const compactAge = `${roundedAgeMonths} ${t(roundedAgeMonths === 1 ? "month" : "months")}`;
+    ctx.fillStyle = "#ecfdf5";
+    roundRect(ctx, 54, 236, 286, 40, 20);
     ctx.fill();
-    ctx.strokeStyle = "#e2e8f0";
+    ctx.strokeStyle = "#99f6e4";
     ctx.stroke();
+    ctx.fillStyle = "#0f766e";
+    ctx.font = "850 15px Inter, sans-serif";
+    centerText(ctx, `${t("Measured on")} ${formatDate(result.measureDate)}`, 197, 262);
+    ctx.fillStyle = "#ecfdf5";
+    roundRect(ctx, 356, 236, 244, 40, 20);
+    ctx.fill();
+    ctx.strokeStyle = "#99f6e4";
+    ctx.stroke();
+    ctx.fillStyle = "#0f766e";
+    ctx.font = "850 15px Inter, sans-serif";
+    centerText(ctx, `${t("Age at measurement")} ${compactAge}`, 478, 262);
 
-    ctx.fillStyle = "#0f172a";
-    ctx.font = "900 176px Inter, sans-serif";
-    ctx.fillText(percentileNumber, 146, 594);
+    drawSnapshotHeaderDecoration(ctx, 710, 54);
+
+    drawSnapshotPanel(ctx, 44, 304, 992, 204);
+    drawMeasurementSummary(ctx, result, 72, 332);
+
+    drawSnapshotPanel(ctx, 44, 528, 992, 244);
+    ctx.fillStyle = "#0f766e";
+    ctx.font = "900 22px Inter, sans-serif";
+    centerText(ctx, t("WHO-based growth assessment").toUpperCase(), 540, 566);
+    resultItems.forEach((item, index) => drawResultSnapshotTile(ctx, 64 + index * 324, 590, 300, 154, item, index));
+
+    drawSnapshotPanel(ctx, 44, 794, 992, 356);
+    ctx.fillStyle = "#0f766e";
+    ctx.font = "900 22px Inter, sans-serif";
+    centerText(ctx, t("WHO Growth Chart").toUpperCase(), 540, 830);
+    drawChartPreview(ctx, result, "height", 72, 864, 282, 210, "#16a34a");
+    drawChartPreview(ctx, result, "weight", 398, 864, 282, 210, "#2563eb");
+    drawChartPreview(ctx, result, "bmi", 724, 864, 282, 210, "#7c3aed");
     ctx.fillStyle = "#64748b";
-    ctx.font = "850 31px Inter, sans-serif";
-    ctx.fillText(t("Percentile"), 156, 640);
-    ctx.fillStyle = "#0f172a";
-    ctx.font = "850 36px Inter, sans-serif";
-    drawWrappedText(ctx, t(titleFor(metric.key)), 500, 502, 370, 42, 2);
+    ctx.font = "750 15px Inter, sans-serif";
+    centerText(ctx, `${t("WHO standards")} - ${t("Your child")} - ${t("Educational use only - not medical advice")}`, 540, 1122);
 
-    ctx.font = "850 24px Inter, sans-serif";
-    const badgeWidth = Math.min(250, Math.max(164, ctx.measureText(t(statusText)).width + 62));
-    ctx.fillStyle = statusBg;
-    roundRect(ctx, 500, 596, badgeWidth, 54, 27);
-    ctx.fill();
-    ctx.fillStyle = statusColor;
-    ctx.fillText(t(statusText), 532, 631);
-    ctx.fillStyle = "#334155";
-    ctx.font = "800 23px Inter, sans-serif";
-    ctx.fillText(`${t("Z-score")} ${metric.z === null ? "--" : signed(metric.z)}`, 500, 678);
-
-    const cardW = 426;
-    const cardH = 118;
-    metrics.forEach((item, index) => {
-      const col = index % 2;
-      const row = Math.floor(index / 2);
-      drawMetricSnapshotCard(ctx, 104 + col * 466, 748 + row * 138, cardW, cardH, item);
-    });
-
-    ctx.fillStyle = "#ffffff";
-    roundRect(ctx, 104, 1046, 872, 122, 28);
-    ctx.fill();
-    ctx.strokeStyle = "#dbeafe";
-    ctx.stroke();
-    drawSnapshotChart(ctx, result, metric.key, 146, 1088, 788, 44);
+    drawSnapshotPanel(ctx, 44, 1170, 992, 198);
+    drawSnapshotAdvice(ctx, primary, 84, 1208);
 
     ctx.fillStyle = "#475569";
-    ctx.font = "700 20px Inter, sans-serif";
-    drawWrappedText(ctx, t("Name-free snapshot for family updates. Educational use only."), 104, 1234, 700, 28, 2);
+    ctx.font = "750 16px Inter, sans-serif";
+    drawWrappedText(ctx, t("Name-free snapshot for family updates. Educational use only."), 72, 1430, 520, 22, 2);
+    ctx.fillStyle = "#64748b";
+    ctx.font = "750 15px Inter, sans-serif";
+    ctx.fillText(t("Source: World Health Organization (WHO)"), 72, 1480);
     ctx.fillStyle = "#2563eb";
-    ctx.font = "850 22px Inter, sans-serif";
-    ctx.fillText("growthkid.app", 820, 1262);
+    ctx.font = "900 24px Inter, sans-serif";
+    ctx.fillText("GrowthKid", 760, 1438);
+    ctx.fillStyle = "#64748b";
+    ctx.font = "750 16px Inter, sans-serif";
+    ctx.fillText("growthkid.app", 760, 1464);
     return canvas;
   }
 
@@ -4291,9 +4293,194 @@
       title: t(titleFor(key)),
       value,
       percentile: metric.percentile === null || metric.percentile === undefined ? "--" : ordinal(metric.percentile),
+      percentileNumber: metric.percentile === null || metric.percentile === undefined ? "--" : String(Math.round(metric.percentile)),
       z: metric.z === null || metric.z === undefined ? "--" : signed(metric.z),
       status: label
     };
+  }
+
+  function centerText(ctx, text, x, y) {
+    ctx.fillText(String(text), x - ctx.measureText(String(text)).width / 2, y);
+  }
+
+  function drawSnapshotPanel(ctx, x, y, width, height) {
+    ctx.save();
+    ctx.shadowColor = "rgba(15, 23, 42, 0.10)";
+    ctx.shadowBlur = 18;
+    ctx.shadowOffsetY = 8;
+    ctx.fillStyle = "#ffffff";
+    roundRect(ctx, x, y, width, height, 18);
+    ctx.fill();
+    ctx.restore();
+    ctx.strokeStyle = "#e2e8f0";
+    ctx.lineWidth = 1.5;
+    roundRect(ctx, x, y, width, height, 18);
+    ctx.stroke();
+  }
+
+  function drawSnapshotHeaderDecoration(ctx, x, y) {
+    ctx.fillStyle = "rgba(37, 99, 235, 0.08)";
+    ctx.beginPath();
+    ctx.arc(x + 150, y + 90, 78, 0, Math.PI * 2);
+    ctx.fill();
+    ctx.beginPath();
+    ctx.arc(x + 42, y + 82, 28, 0, Math.PI * 2);
+    ctx.fill();
+    ctx.strokeStyle = "#93c5fd";
+    ctx.lineWidth = 4;
+    ctx.beginPath();
+    ctx.moveTo(x + 260, y + 16);
+    ctx.lineTo(x + 260, y + 224);
+    ctx.stroke();
+    ctx.strokeStyle = "#bfdbfe";
+    ctx.lineWidth = 2;
+    for (let i = 0; i < 12; i += 1) {
+      const yy = y + 34 + i * 14;
+      ctx.beginPath();
+      ctx.moveTo(x + 260, yy);
+      ctx.lineTo(x + 292 - (i % 2) * 12, yy);
+      ctx.stroke();
+    }
+    ctx.strokeStyle = "#14b8a6";
+    ctx.lineWidth = 5;
+    ctx.lineCap = "round";
+    ctx.beginPath();
+    ctx.moveTo(x + 112, y + 220);
+    ctx.bezierCurveTo(x + 118, y + 162, x + 138, y + 120, x + 174, y + 92);
+    ctx.stroke();
+    const leaves = [
+      [x + 126, y + 166, -0.7],
+      [x + 158, y + 134, 0.6],
+      [x + 176, y + 102, -0.3],
+      [x + 198, y + 150, 0.8],
+      [x + 138, y + 204, 0.4]
+    ];
+    leaves.forEach(([lx, ly, rotation]) => {
+      ctx.save();
+      ctx.translate(lx, ly);
+      ctx.rotate(rotation);
+      ctx.fillStyle = "rgba(20, 184, 166, 0.56)";
+      ctx.beginPath();
+      ctx.ellipse(0, 0, 13, 28, 0, 0, Math.PI * 2);
+      ctx.fill();
+      ctx.restore();
+    });
+  }
+
+  function drawMeasurementSummary(ctx, result, x, y) {
+    const columns = [
+      { label: t("Age"), value: ageLabel(result.ageMonths), color: "#0f766e" },
+      { label: t("Sex"), value: sexLabel(result.sex), color: "#2563eb" },
+      { label: t("Weight (kg)"), value: `${result.weight.toFixed(1)} kg`, color: "#0f766e" },
+      { label: t("Height (cm)"), value: `${result.height.toFixed(1)} cm`, color: "#2563eb" },
+      { label: t("BMI"), value: result.bmi.toFixed(1), color: "#7c3aed" }
+    ];
+    columns.forEach((item, index) => {
+      const col = index % 3;
+      const row = Math.floor(index / 3);
+      const xx = x + col * 315;
+      const yy = y + row * 82;
+      ctx.fillStyle = item.color;
+      ctx.beginPath();
+      ctx.arc(xx + 18, yy + 18, 14, 0, Math.PI * 2);
+      ctx.fill();
+      ctx.fillStyle = "#ffffff";
+      ctx.font = "900 16px Inter, sans-serif";
+      centerText(ctx, index + 1, xx + 18, yy + 24);
+      ctx.fillStyle = "#64748b";
+      ctx.font = "750 17px Inter, sans-serif";
+      ctx.fillText(item.label, xx + 48, yy + 18);
+      ctx.fillStyle = "#0f172a";
+      ctx.font = "900 22px Inter, sans-serif";
+      ctx.fillText(item.value, xx + 48, yy + 48);
+    });
+  }
+
+  function drawResultSnapshotTile(ctx, x, y, width, height, item, index) {
+    const palettes = [
+      { bg: "#ecfdf5", fg: "#16a34a" },
+      { bg: "#eff6ff", fg: "#2563eb" },
+      { bg: "#faf5ff", fg: "#7c3aed" }
+    ];
+    const palette = palettes[index] || palettes[0];
+    const status = statusLabel(item.status);
+    const statusColor = status === "Normal" ? "#16a34a" : status === "Monitor" ? "#d97706" : status === "Consult a healthcare professional" ? "#dc2626" : "#64748b";
+    ctx.fillStyle = palette.bg;
+    roundRect(ctx, x, y, width, height, 16);
+    ctx.fill();
+    ctx.fillStyle = palette.fg;
+    ctx.font = "900 17px Inter, sans-serif";
+    centerText(ctx, item.title, x + width / 2, y + 30);
+    ctx.strokeStyle = `${palette.fg}33`;
+    ctx.lineWidth = 4;
+    ctx.beginPath();
+    ctx.arc(x + 58, y + 86, 38, 0, Math.PI * 2);
+    ctx.stroke();
+    ctx.fillStyle = palette.fg;
+    ctx.font = "900 34px Inter, sans-serif";
+    centerText(ctx, item.z, x + width / 2, y + 86);
+    ctx.fillStyle = statusColor;
+    ctx.font = "900 12px Inter, sans-serif";
+    centerText(ctx, t(compactStatusLabel(status)), x + width / 2, y + 114);
+    ctx.fillStyle = "#0f766e";
+    ctx.font = "800 14px Inter, sans-serif";
+    centerText(ctx, `${t("Percentile")}: ${item.percentileNumber}`, x + width / 2, y + 140);
+  }
+
+  function drawChartPreview(ctx, result, indicator, x, y, width, height, color) {
+    ctx.fillStyle = `${color}1f`;
+    roundRect(ctx, x + 38, y - 32, width - 76, 28, 14);
+    ctx.fill();
+    ctx.fillStyle = color;
+    ctx.font = "900 15px Inter, sans-serif";
+    centerText(ctx, `${t(titleFor(indicator))}`, x + width / 2, y - 13);
+    drawSocialSnapshotChart(ctx, result, indicator, x, y, width, height);
+  }
+
+  function drawSnapshotAdvice(ctx, metric, x, y) {
+    const status = statusLabel(metric.status);
+    ctx.fillStyle = "#14b8a6";
+    ctx.font = "900 26px Inter, sans-serif";
+    ctx.fillText(t("Interpretation"), x + 180, y + 8);
+    ctx.fillStyle = "#0f766e";
+    ctx.beginPath();
+    ctx.arc(x + 70, y + 58, 52, 0, Math.PI * 2);
+    ctx.strokeStyle = "#99f6e4";
+    ctx.lineWidth = 14;
+    ctx.stroke();
+    ctx.fillStyle = "#14b8a6";
+    ctx.font = "900 54px Inter, sans-serif";
+    centerText(ctx, "✓", x + 70, y + 78);
+
+    ctx.fillStyle = "#334155";
+    ctx.font = "750 17px Inter, sans-serif";
+    const interpretationText = status === "Normal"
+      ? `${t("Normal")}: ${t("Your child's growth is within the normal range.")}`
+      : status === "Monitor"
+        ? `${t("Monitor")}: ${t("Review the trend and measure again consistently.")}`
+        : `${t("Consult a healthcare professional")}.`;
+    drawWrappedText(ctx, interpretationText, x + 180, y + 44, 295, 26, 4);
+
+    ctx.strokeStyle = "#dbe4f0";
+    ctx.beginPath();
+    ctx.moveTo(x + 512, y);
+    ctx.lineTo(x + 512, y + 132);
+    ctx.stroke();
+    ctx.fillStyle = "#14b8a6";
+    ctx.font = "900 26px Inter, sans-serif";
+    ctx.fillText(t("Tips"), x + 560, y + 8);
+    const tips = [
+      t("Track trends over time."),
+      t("Use accurate weight and height measurements."),
+      t("Talk to a pediatrician if results change quickly.")
+    ];
+    ctx.fillStyle = "#334155";
+    ctx.font = "750 17px Inter, sans-serif";
+    tips.forEach((tip, index) => {
+      const yy = y + 44 + index * 35;
+      ctx.fillText("✓", x + 560, yy);
+      drawWrappedText(ctx, tip, x + 588, yy, 330, 22, 1);
+    });
   }
 
   function compactStatusLabel(status) {
@@ -4379,6 +4566,138 @@
     ctx.stroke();
   }
 
+  function drawSocialSnapshotChart(ctx, result, indicator, left, top, width, height) {
+    const sex = result.sex || "boy";
+    const metric = result.metrics.find((item) => item.key === indicator);
+    if (metric && metric.status === "notAvailable") return;
+    const domain = chartDomain(result, indicator);
+    const bands = [
+      { z: 2, color: "#ef4444" },
+      { z: 1, color: "#f97316" },
+      { z: 0, color: "#16a34a" },
+      { z: -1, color: "#2563eb" },
+      { z: -2, color: "#ef4444" }
+    ];
+    const allValues = [];
+    for (let m = domain.start; m <= domain.end; m += domain.end > underFiveMaxMonths ? 6 : 3) {
+      bands.forEach((band) => allValues.push(chartReferenceValue(sex, indicator, m, band.z, result.ageMonths || 24)));
+    }
+    const childValue = indicator === "bmi" ? result.bmi : result[indicator];
+    if (Number.isFinite(childValue)) allValues.push(childValue);
+    const values = allValues.filter(Number.isFinite);
+    const min = Math.min(...values) * 0.94;
+    const max = Math.max(...values) * 1.06;
+    const x = (month) => left + ((month - domain.start) / (domain.end - domain.start)) * width;
+    const y = (value) => top + height - ((value - min) / (max - min || 1)) * height;
+
+    ctx.strokeStyle = "#dbe4f0";
+    ctx.lineWidth = 1.5;
+    ctx.setLineDash([5, 6]);
+    for (let i = 0; i <= 4; i += 1) {
+      const yy = top + (height / 4) * i;
+      ctx.beginPath();
+      ctx.moveTo(left, yy);
+      ctx.lineTo(left + width, yy);
+      ctx.stroke();
+    }
+    for (let i = 0; i <= 5; i += 1) {
+      const xx = left + (width / 5) * i;
+      ctx.beginPath();
+      ctx.moveTo(xx, top);
+      ctx.lineTo(xx, top + height);
+      ctx.stroke();
+    }
+    ctx.setLineDash([]);
+
+    bands.forEach((band) => {
+      ctx.strokeStyle = band.color;
+      ctx.lineWidth = band.z === 0 ? 3 : 2;
+      ctx.lineCap = "round";
+      ctx.lineJoin = "round";
+      ctx.beginPath();
+      let started = false;
+      for (let m = domain.start; m <= domain.end; m += domain.end > underFiveMaxMonths ? 6 : 3) {
+        const value = chartReferenceValue(sex, indicator, m, band.z, result.ageMonths || 24);
+        if (!Number.isFinite(value)) continue;
+        const px = x(m);
+        const py = y(value);
+        if (!started) {
+          ctx.moveTo(px, py);
+          started = true;
+        } else {
+          ctx.lineTo(px, py);
+        }
+      }
+      ctx.stroke();
+    });
+
+    const childMonth = clamp(result.ageMonths || 24, domain.start, domain.end);
+    const childX = x(childMonth);
+    const childY = y(childValue || chartReferenceValue(sex, indicator, childMonth, 0, result.ageMonths || 24));
+    ctx.strokeStyle = "#60a5fa";
+    ctx.setLineDash([6, 5]);
+    ctx.lineWidth = 1.5;
+    ctx.beginPath();
+    ctx.moveTo(left, childY);
+    ctx.lineTo(childX, childY);
+    ctx.lineTo(childX, top + height);
+    ctx.stroke();
+    ctx.setLineDash([]);
+    ctx.fillStyle = "#2563eb";
+    ctx.beginPath();
+    ctx.arc(childX, childY, 9, 0, Math.PI * 2);
+    ctx.fill();
+    ctx.strokeStyle = "#ffffff";
+    ctx.lineWidth = 4;
+    ctx.stroke();
+  }
+
+  function drawGrowthKidCanvasMark(ctx, x, y, size) {
+    const scale = size / 64;
+    ctx.save();
+    ctx.translate(x, y);
+    ctx.scale(scale, scale);
+    ctx.fillStyle = "#ffffff";
+    ctx.beginPath();
+    ctx.arc(34, 16, 6, 0, Math.PI * 2);
+    ctx.fill();
+    ctx.beginPath();
+    ctx.moveTo(18, 28);
+    ctx.bezierCurveTo(18, 24, 21.2, 20.8, 25.2, 20.8);
+    ctx.lineTo(42.8, 20.8);
+    ctx.bezierCurveTo(46.8, 20.8, 50, 24, 50, 28);
+    ctx.lineTo(50, 29.2);
+    ctx.bezierCurveTo(50, 31.6, 48, 33.6, 45.6, 33.6);
+    ctx.lineTo(38, 33.6);
+    ctx.lineTo(38, 38.8);
+    ctx.lineTo(46.8, 47.6);
+    ctx.bezierCurveTo(48.6, 49.4, 48.6, 52.2, 46.8, 54);
+    ctx.bezierCurveTo(45, 55.8, 42.2, 55.8, 40.4, 54);
+    ctx.lineTo(32, 45.6);
+    ctx.lineTo(23.6, 54);
+    ctx.bezierCurveTo(21.8, 55.8, 19, 55.8, 17.2, 54);
+    ctx.bezierCurveTo(15.4, 52.2, 15.4, 49.4, 17.2, 47.6);
+    ctx.lineTo(26, 38.8);
+    ctx.lineTo(26, 33.6);
+    ctx.lineTo(22.4, 33.6);
+    ctx.bezierCurveTo(20, 33.6, 18, 31.6, 18, 29.2);
+    ctx.closePath();
+    ctx.fill();
+    ctx.fillStyle = "#bfdbfe";
+    ctx.beginPath();
+    ctx.moveTo(55, 12);
+    ctx.lineTo(58, 19);
+    ctx.lineTo(65, 22);
+    ctx.lineTo(58, 25);
+    ctx.lineTo(55, 32);
+    ctx.lineTo(52, 25);
+    ctx.lineTo(45, 22);
+    ctx.lineTo(52, 19);
+    ctx.closePath();
+    ctx.fill();
+    ctx.restore();
+  }
+
   function drawWrappedText(ctx, text, x, y, maxWidth, lineHeight, maxLines) {
     const words = String(text).split(/\s+/);
     let line = "";
@@ -4425,9 +4744,9 @@
     }, "image/png");
   }
 
-  function downloadSnapshot() {
+  async function downloadSnapshot() {
     const result = readSavedResult() || sampleResult();
-    const canvas = createSnapshotCanvas(result);
+    const canvas = await createSnapshotCanvas(result);
     downloadCanvas(canvas, `growthkid-snapshot-${result.measureDate || "result"}.png`);
   }
 
@@ -4435,7 +4754,7 @@
     const result = readSavedResult() || sampleResult();
     const text = resultSummaryText(result);
     try {
-      const canvas = createSnapshotCanvas(result);
+      const canvas = await createSnapshotCanvas(result);
       const blob = await new Promise((resolve) => canvas.toBlob(resolve, "image/png"));
       const file = blob ? new File([blob], `growthkid-snapshot-${result.measureDate || "result"}.png`, { type: "image/png" }) : null;
       if (file && navigator.canShare && navigator.canShare({ files: [file] })) {
