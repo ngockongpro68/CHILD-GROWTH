@@ -2608,7 +2608,7 @@
         <div class="form-grid">
           <div class="field">
             <label for="dob">Date of Birth</label>
-            <input id="dob" name="dob" type="date" value="2022-05-15" required>
+            <input id="dob" name="dob" type="text" inputmode="numeric" autocomplete="bday" placeholder="DD/MM/YYYY" pattern="\\d{2}/\\d{2}/\\d{4}" value="15/05/2022" required>
           </div>
           <div class="field">
             <label for="sex">Sex</label>
@@ -2619,7 +2619,7 @@
           </div>
           <div class="field">
             <label for="measureDate">Measurement Date</label>
-            <input id="measureDate" name="measureDate" type="date" value="2024-05-15" required>
+            <input id="measureDate" name="measureDate" type="text" inputmode="numeric" placeholder="DD/MM/YYYY" pattern="\\d{2}/\\d{2}/\\d{4}" value="15/05/2024" required>
           </div>
           <div class="field">
             <label for="weight">Weight (kg)</label>
@@ -3570,8 +3570,8 @@
   }
 
   function calculateGrowthData(data) {
-    const dob = new Date(data.dob);
-    const measureDate = new Date(data.measureDate);
+    const dob = parseInputDate(data.dob);
+    const measureDate = parseInputDate(data.measureDate);
     const weight = Number(data.weight);
     const height = Number(data.height);
     const head = data.head ? Number(data.head) : null;
@@ -3613,7 +3613,7 @@
       sex,
       ageMonths,
       ageLabel: ageLabel(ageMonths),
-      measureDate: data.measureDate,
+      measureDate: toIsoDate(measureDate),
       referenceLabel: referenceLabel(ageMonths),
       weight,
       height,
@@ -3621,6 +3621,30 @@
       head,
       metrics
     };
+  }
+
+  function parseInputDate(value) {
+    const raw = String(value || "").trim();
+    const dmy = raw.match(/^(\d{1,2})\/(\d{1,2})\/(\d{4})$/);
+    const iso = raw.match(/^(\d{4})-(\d{1,2})-(\d{1,2})$/);
+    const parts = dmy
+      ? { day: Number(dmy[1]), month: Number(dmy[2]), year: Number(dmy[3]) }
+      : iso
+        ? { day: Number(iso[3]), month: Number(iso[2]), year: Number(iso[1]) }
+        : null;
+    if (!parts) return new Date(NaN);
+    const date = new Date(parts.year, parts.month - 1, parts.day);
+    if (date.getFullYear() !== parts.year || date.getMonth() !== parts.month - 1 || date.getDate() !== parts.day) {
+      return new Date(NaN);
+    }
+    return date;
+  }
+
+  function toIsoDate(date) {
+    const year = date.getFullYear();
+    const month = String(date.getMonth() + 1).padStart(2, "0");
+    const day = String(date.getDate()).padStart(2, "0");
+    return `${year}-${month}-${day}`;
   }
 
   function metric(key, label, iconName, sex, ageMonths, value) {
@@ -3798,48 +3822,40 @@
     ];
     const domain = chartDomain(result, indicator);
     const ticks = chartTicks(domain);
-    const refAt = (month, z) => chartReferenceValue(sex, indicator, month, z, result.ageMonths || 24);
-
-    const values = [];
-    for (let m = domain.start; m <= domain.end; m += domain.step) {
-      zLines.forEach((line) => {
-        const value = refAt(m, line.z);
-        if (Number.isFinite(value)) values.push(value);
-      });
-    }
     const childValue = indicator === "bmi" ? result.bmi : result[indicator];
-    if (metric && metric.z !== null && childValue) values.push(childValue);
-
-    if (!values.length) {
+    const hasChartPoint = metric && metric.status !== "notAvailable";
+    if (!hasChartPoint) {
       return unavailableChartSvg(indicator, compact, "WHO reference is not available for the selected age range.");
     }
 
-    const min = Math.floor(Math.min(...values) * 0.92);
-    const max = Math.ceil(Math.max(...values) * 1.08);
-
     const x = (months) => padding.left + ((months - domain.start) / (domain.end - domain.start)) * (width - padding.left - padding.right);
-    const y = (value) => height - padding.bottom - ((value - min) / (max - min)) * (height - padding.top - padding.bottom);
+    const yForZ = (zValue) => padding.top + ((3 - zValue) / 6) * (height - padding.top - padding.bottom);
+    const curveZ = (month, zBand) => {
+      const progress = clamp((month - domain.start) / (domain.end - domain.start || 1), 0, 1);
+      const base = -2.15 + 3.35 * progress;
+      return base + zBand * 0.45;
+    };
     const pathFor = (z) => {
       const points = [];
       for (let m = domain.start; m <= domain.end; m += domain.pathStep) {
-        const value = refAt(m, z);
-        if (Number.isFinite(value)) points.push(`${x(m).toFixed(1)},${y(value).toFixed(1)}`);
+        points.push(`${x(m).toFixed(1)},${yForZ(curveZ(m, z)).toFixed(1)}`);
       }
       return points.map((point, index) => `${index === 0 ? "M" : "L"}${point}`).join(" ");
     };
 
-    const gridY = Array.from({ length: 5 }, (_, index) => min + ((max - min) / 4) * index);
+    const gridY = [3, 2, 1, 0, -1, -2, -3];
     const childMonth = clamp(result.ageMonths || 24, domain.start, domain.end);
     const childX = x(childMonth);
-    const childY = y(childValue || refAt(childMonth, 0));
+    const childZ = metric && Number.isFinite(metric.z) ? clamp(metric.z, -2.8, 2.8) : 0;
+    const childY = yForZ(curveZ(childMonth, 0) + childZ * 0.45);
     const unit = indicator === "weight" ? "kg" : indicator === "height" ? "cm" : "BMI";
 
     return `
       <svg viewBox="0 0 ${width} ${height}" role="img" aria-label="${indicator} growth chart">
         <rect x="0" y="0" width="${width}" height="${height}" fill="#ffffff"></rect>
         ${gridY.map((value) => `
-          <line x1="${padding.left}" y1="${y(value).toFixed(1)}" x2="${width - padding.right}" y2="${y(value).toFixed(1)}" stroke="#e2e8f0" stroke-width="1"></line>
-          <text x="${padding.left - 10}" y="${y(value).toFixed(1)}" text-anchor="end" dominant-baseline="middle" fill="#64748b" font-size="12">${Math.round(value)}</text>
+          <line x1="${padding.left}" y1="${yForZ(value).toFixed(1)}" x2="${width - padding.right}" y2="${yForZ(value).toFixed(1)}" stroke="#e2e8f0" stroke-width="1"></line>
+          <text x="${padding.left - 10}" y="${yForZ(value).toFixed(1)}" text-anchor="end" dominant-baseline="middle" fill="#64748b" font-size="12">${value}</text>
         `).join("")}
         ${ticks.map((month) => `
           <line x1="${x(month).toFixed(1)}" y1="${padding.top}" x2="${x(month).toFixed(1)}" y2="${height - padding.bottom}" stroke="#eef2f7" stroke-width="1"></line>
@@ -3849,7 +3865,7 @@
         <line x1="${padding.left}" y1="${padding.top}" x2="${padding.left}" y2="${height - padding.bottom}" stroke="#94a3b8" stroke-width="1.2"></line>
         ${zLines.map((line) => `
           <path d="${pathFor(line.z)}" fill="none" stroke="${line.color}" stroke-width="${line.z === 0 ? 2.4 : 1.6}" opacity="${line.z === 0 ? 0.95 : 0.72}"></path>
-          ${compact ? "" : `<text x="${width - padding.right + 16}" y="${y(refAt(domain.end, line.z)).toFixed(1)}" fill="#334155" font-size="12" dominant-baseline="middle">${line.label}</text>`}
+          ${compact ? "" : `<text x="${width - padding.right + 16}" y="${yForZ(curveZ(domain.end, line.z)).toFixed(1)}" fill="#334155" font-size="12" dominant-baseline="middle">${line.label}</text>`}
         `).join("")}
         ${metric && metric.z !== null ? `<circle cx="${childX.toFixed(1)}" cy="${childY.toFixed(1)}" r="${compact ? 5 : 6}" fill="#2563eb" stroke="#ffffff" stroke-width="3"></circle>` : ""}
         <text x="${padding.left}" y="${compact ? 20 : 22}" fill="#0f172a" font-size="${compact ? 14 : 16}" font-weight="800">${t(titleFor(indicator))} (${unit})</text>
@@ -4047,6 +4063,14 @@
   }
 
   function formatDate(value) {
+    if (activeLanguage === "vi") {
+      const date = parseInputDate(value);
+      if (Number.isFinite(date.getTime())) {
+        const day = String(date.getDate()).padStart(2, "0");
+        const month = String(date.getMonth() + 1).padStart(2, "0");
+        return `${day}/${month}/${date.getFullYear()}`;
+      }
+    }
     return new Date(value).toLocaleDateString(languageMeta().locale, { month: "long", day: "numeric", year: "numeric" });
   }
 
@@ -4682,7 +4706,7 @@
     const zToY = (zValue) => plotTop + ((3 - zValue) / 6) * plotHeight;
     const curveZ = (month, zBand) => {
       const progress = clamp((month - domain.start) / (domain.end - domain.start || 1), 0, 1);
-      const base = -2.1 + 3.4 * Math.pow(progress, 0.42);
+      const base = -2.15 + 3.35 * progress;
       return base + zBand * 0.45;
     };
 
