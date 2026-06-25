@@ -3802,6 +3802,13 @@
     return points[points.length - 1][1];
   }
 
+  function visualGrowthCurveZ(month, domain, zBand) {
+    const progress = clamp((month - domain.start) / (domain.end - domain.start || 1), 0, 1);
+    const eased = (1 - Math.exp(-2.35 * progress)) / (1 - Math.exp(-2.35));
+    const base = -2.45 + 3.65 * eased;
+    return base + zBand * 0.45;
+  }
+
   function chartSvg(result, indicator, compact) {
     const sex = result.sex || "boy";
     const width = compact ? 560 : 760;
@@ -3830,11 +3837,7 @@
 
     const x = (months) => padding.left + ((months - domain.start) / (domain.end - domain.start)) * (width - padding.left - padding.right);
     const yForZ = (zValue) => padding.top + ((3 - zValue) / 6) * (height - padding.top - padding.bottom);
-    const curveZ = (month, zBand) => {
-      const progress = clamp((month - domain.start) / (domain.end - domain.start || 1), 0, 1);
-      const base = -2.15 + 3.35 * progress;
-      return base + zBand * 0.45;
-    };
+    const curveZ = (month, zBand) => visualGrowthCurveZ(month, domain, zBand);
     const pathFor = (z) => {
       const points = [];
       for (let m = domain.start; m <= domain.end; m += domain.pathStep) {
@@ -4704,11 +4707,7 @@
     const plotHeight = height - 54;
     const x = (month) => plotLeft + ((month - domain.start) / (domain.end - domain.start)) * plotWidth;
     const zToY = (zValue) => plotTop + ((3 - zValue) / 6) * plotHeight;
-    const curveZ = (month, zBand) => {
-      const progress = clamp((month - domain.start) / (domain.end - domain.start || 1), 0, 1);
-      const base = -2.15 + 3.35 * progress;
-      return base + zBand * 0.45;
-    };
+    const curveZ = (month, zBand) => visualGrowthCurveZ(month, domain, zBand);
 
     ctx.fillStyle = "#334155";
     ctx.font = "800 10px Inter, sans-serif";
