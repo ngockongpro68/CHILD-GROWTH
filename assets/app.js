@@ -3805,8 +3805,8 @@
   function visualGrowthCurveZ(month, domain, zBand) {
     const progress = clamp((month - domain.start) / (domain.end - domain.start || 1), 0, 1);
     const eased = (1 - Math.exp(-2.35 * progress)) / (1 - Math.exp(-2.35));
-    const base = -2.45 + 3.65 * eased;
-    return base + zBand * 0.45;
+    const base = -1.2 + 1.95 * eased;
+    return base + zBand;
   }
 
   function chartSvg(result, indicator, compact) {
@@ -3850,7 +3850,7 @@
     const childMonth = clamp(result.ageMonths || 24, domain.start, domain.end);
     const childX = x(childMonth);
     const childZ = metric && Number.isFinite(metric.z) ? clamp(metric.z, -2.8, 2.8) : 0;
-    const childY = yForZ(curveZ(childMonth, 0) + childZ * 0.45);
+    const childY = yForZ(curveZ(childMonth, childZ));
     const unit = indicator === "weight" ? "kg" : indicator === "height" ? "cm" : "BMI";
 
     return `
@@ -4770,7 +4770,7 @@
     const childMonth = clamp(result.ageMonths || 24, domain.start, domain.end);
     const childX = x(childMonth);
     const childZ = metric && Number.isFinite(metric.z) ? clamp(metric.z, -2.8, 2.8) : 0;
-    const childY = zToY(curveZ(childMonth, 0) + childZ * 0.45);
+    const childY = zToY(curveZ(childMonth, childZ));
     ctx.strokeStyle = "#94a3b8";
     ctx.setLineDash([4, 4]);
     ctx.lineWidth = 1;
