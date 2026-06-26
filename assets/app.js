@@ -2608,7 +2608,11 @@
         <div class="form-grid">
           <div class="field">
             <label for="dob">Date of Birth</label>
-            <input id="dob" name="dob" type="text" inputmode="numeric" autocomplete="bday" placeholder="DD/MM/YYYY" pattern="\\d{2}/\\d{2}/\\d{4}" value="15/05/2022" required>
+            <div class="date-input-wrap">
+              <input id="dob" name="dob" type="text" inputmode="numeric" autocomplete="bday" placeholder="DD/MM/YYYY" pattern="\\d{2}/\\d{2}/\\d{4}" value="15/05/2022" data-date-text required>
+              <span class="date-calendar-icon" aria-hidden="true"></span>
+              <input class="date-picker-native" type="date" value="2022-05-15" aria-label="Choose date of birth" data-date-picker data-target="dob">
+            </div>
           </div>
           <div class="field">
             <label for="sex">Sex</label>
@@ -2619,7 +2623,11 @@
           </div>
           <div class="field">
             <label for="measureDate">Measurement Date</label>
-            <input id="measureDate" name="measureDate" type="text" inputmode="numeric" placeholder="DD/MM/YYYY" pattern="\\d{2}/\\d{2}/\\d{4}" value="15/05/2024" required>
+            <div class="date-input-wrap">
+              <input id="measureDate" name="measureDate" type="text" inputmode="numeric" placeholder="DD/MM/YYYY" pattern="\\d{2}/\\d{2}/\\d{4}" value="15/05/2024" data-date-text required>
+              <span class="date-calendar-icon" aria-hidden="true"></span>
+              <input class="date-picker-native" type="date" value="2024-05-15" aria-label="Choose measurement date" data-date-picker data-target="measureDate">
+            </div>
           </div>
           <div class="field">
             <label for="weight">Weight (kg)</label>
@@ -3626,9 +3634,12 @@
   function parseInputDate(value) {
     const raw = String(value || "").trim();
     const dmy = raw.match(/^(\d{1,2})\/(\d{1,2})\/(\d{4})$/);
+    const compact = raw.match(/^(\d{2})(\d{2})(\d{4})$/);
     const iso = raw.match(/^(\d{4})-(\d{1,2})-(\d{1,2})$/);
     const parts = dmy
       ? { day: Number(dmy[1]), month: Number(dmy[2]), year: Number(dmy[3]) }
+      : compact
+        ? { day: Number(compact[1]), month: Number(compact[2]), year: Number(compact[3]) }
       : iso
         ? { day: Number(iso[3]), month: Number(iso[2]), year: Number(iso[1]) }
         : null;
@@ -3638,6 +3649,21 @@
       return new Date(NaN);
     }
     return date;
+  }
+
+  function formatDateInputValue(value) {
+    const raw = String(value || "").trim();
+    const date = parseInputDate(raw);
+    if (Number.isFinite(date.getTime())) {
+      return `${String(date.getDate()).padStart(2, "0")}/${String(date.getMonth() + 1).padStart(2, "0")}/${date.getFullYear()}`;
+    }
+
+    const digits = raw.replace(/\D/g, "");
+    if (digits.length === 8) {
+      return `${digits.slice(0, 2)}/${digits.slice(2, 4)}/${digits.slice(4, 8)}`;
+    }
+
+    return raw;
   }
 
   function toIsoDate(date) {
@@ -5012,6 +5038,7 @@
 
     const form = document.getElementById("growthForm");
     if (form) {
+      bindDateInputs(form);
       form.addEventListener("submit", (event) => {
         event.preventDefault();
         const errorBox = document.getElementById("formError");
@@ -5082,6 +5109,41 @@
         setActionFeedback("copyEmbedCode", "Copied");
       });
     }
+  }
+
+  function bindDateInputs(scope) {
+    scope.querySelectorAll("[data-date-text]").forEach((input) => {
+      const picker = scope.querySelector(`[data-date-picker][data-target="${input.id}"]`);
+      const syncPicker = () => {
+        if (!picker) return;
+        const parsed = parseInputDate(input.value);
+        picker.value = Number.isFinite(parsed.getTime()) ? toIsoDate(parsed) : "";
+      };
+
+      input.addEventListener("input", () => {
+        const digits = input.value.replace(/\D/g, "");
+        if (digits.length === 8) {
+          input.value = formatDateInputValue(digits);
+          syncPicker();
+        }
+      });
+
+      input.addEventListener("blur", () => {
+        input.value = formatDateInputValue(input.value);
+        syncPicker();
+      });
+
+      syncPicker();
+    });
+
+    scope.querySelectorAll("[data-date-picker]").forEach((picker) => {
+      picker.addEventListener("change", () => {
+        const target = scope.querySelector(`#${picker.dataset.target}`);
+        if (!target || !picker.value) return;
+        target.value = formatDateInputValue(picker.value);
+        target.dispatchEvent(new Event("input", { bubbles: true }));
+      });
+    });
   }
 
   function render() {
