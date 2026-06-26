@@ -3856,19 +3856,45 @@
       const next = points[i + 1];
       if (months >= current[0] && months <= next[0]) {
         const t = (months - current[0]) / (next[0] - current[0]);
-        const eased = t * t * (3 - 2 * t);
-        return current[1] + (next[1] - current[1]) * eased;
+        const previous = points[Math.max(0, i - 1)][1];
+        const currentValue = current[1];
+        const nextValue = next[1];
+        const following = points[Math.min(points.length - 1, i + 2)][1];
+        const value = cubicInterpolate(previous, currentValue, nextValue, following, t);
+        return clamp(value, Math.min(currentValue, nextValue), Math.max(currentValue, nextValue));
       }
     }
 
     return points[points.length - 1][1];
   }
 
-  function visualGrowthCurveZ(month, domain, zBand) {
-    const progress = clamp((month - domain.start) / (domain.end - domain.start || 1), 0, 1);
-    const eased = (1 - Math.exp(-2.35 * progress)) / (1 - Math.exp(-2.35));
-    const base = -1.2 + 1.95 * eased;
-    return base + zBand;
+  function cubicInterpolate(previous, current, next, following, t) {
+    const t2 = t * t;
+    const t3 = t2 * t;
+    return 0.5 * (
+      (2 * current) +
+      (-previous + next) * t +
+      (2 * previous - 5 * current + 4 * next - following) * t2 +
+      (-previous + 3 * current - 3 * next + following) * t3
+    );
+  }
+
+  function chartScale(sex, indicator, domain, ageMonths) {
+    const values = [];
+    for (let m = domain.start; m <= domain.end; m += domain.pathStep) {
+      [-3, -2, -1, 0, 1, 2, 3].forEach((z) => {
+        const value = chartReferenceValue(sex, indicator, m, z, ageMonths);
+        if (Number.isFinite(value)) values.push(value);
+      });
+    }
+    const min = Math.min(...values);
+    const max = Math.max(...values);
+    const span = max - min || 1;
+    return { min: min - span * 0.04, max: max + span * 0.04 };
+  }
+
+  function chartValueToY(value, scale, top, bottom) {
+    return bottom - ((value - scale.min) / (scale.max - scale.min || 1)) * (bottom - top);
   }
 
   function chartSvg(result, indicator, compact) {
@@ -3898,29 +3924,36 @@
     }
 
     const x = (months) => padding.left + ((months - domain.start) / (domain.end - domain.start)) * (width - padding.left - padding.right);
-    const yForZ = (zValue) => padding.top + ((3 - zValue) / 6) * (height - padding.top - padding.bottom);
-    const curveZ = (month, zBand) => visualGrowthCurveZ(month, domain, zBand);
+    const scale = chartScale(sex, indicator, domain, result.ageMonths || 24);
+    const yForValue = (value) => chartValueToY(value, scale, padding.top, height - padding.bottom);
+    const yForZ = (month, zValue) => {
+      const value = chartReferenceValue(sex, indicator, month, zValue, result.ageMonths || 24);
+      return yForValue(value);
+    };
     const pathFor = (z) => {
       const points = [];
       for (let m = domain.start; m <= domain.end; m += domain.pathStep) {
-        points.push(`${x(m).toFixed(1)},${yForZ(curveZ(m, z)).toFixed(1)}`);
+        const value = chartReferenceValue(sex, indicator, m, z, result.ageMonths || 24);
+        if (Number.isFinite(value)) points.push(`${x(m).toFixed(1)},${yForValue(value).toFixed(1)}`);
       }
       return points.map((point, index) => `${index === 0 ? "M" : "L"}${point}`).join(" ");
     };
 
-    const gridY = [3, 2, 1, 0, -1, -2, -3];
+    const gridY = Array.from({ length: 5 }, (_, index) => scale.min + ((scale.max - scale.min) * index) / 4);
     const childMonth = clamp(result.ageMonths || 24, domain.start, domain.end);
     const childX = x(childMonth);
-    const childZ = metric && Number.isFinite(metric.z) ? clamp(metric.z, -2.8, 2.8) : 0;
-    const childY = yForZ(curveZ(childMonth, childZ));
+    const childReferenceValue = metric && Number.isFinite(metric.z)
+      ? chartReferenceValue(sex, indicator, childMonth, metric.z, result.ageMonths || 24)
+      : childValue;
+    const childY = yForValue(childReferenceValue || chartReferenceValue(sex, indicator, childMonth, 0, result.ageMonths || 24));
     const unit = indicator === "weight" ? "kg" : indicator === "height" ? "cm" : "BMI";
 
     return `
       <svg viewBox="0 0 ${width} ${height}" role="img" aria-label="${indicator} growth chart">
         <rect x="0" y="0" width="${width}" height="${height}" fill="#ffffff"></rect>
         ${gridY.map((value) => `
-          <line x1="${padding.left}" y1="${yForZ(value).toFixed(1)}" x2="${width - padding.right}" y2="${yForZ(value).toFixed(1)}" stroke="#e2e8f0" stroke-width="1"></line>
-          <text x="${padding.left - 10}" y="${yForZ(value).toFixed(1)}" text-anchor="end" dominant-baseline="middle" fill="#64748b" font-size="12">${value}</text>
+          <line x1="${padding.left}" y1="${yForValue(value).toFixed(1)}" x2="${width - padding.right}" y2="${yForValue(value).toFixed(1)}" stroke="#e2e8f0" stroke-width="1"></line>
+          <text x="${padding.left - 10}" y="${yForValue(value).toFixed(1)}" text-anchor="end" dominant-baseline="middle" fill="#64748b" font-size="12">${Math.round(value)}</text>
         `).join("")}
         ${ticks.map((month) => `
           <line x1="${x(month).toFixed(1)}" y1="${padding.top}" x2="${x(month).toFixed(1)}" y2="${height - padding.bottom}" stroke="#eef2f7" stroke-width="1"></line>
@@ -3930,7 +3963,7 @@
         <line x1="${padding.left}" y1="${padding.top}" x2="${padding.left}" y2="${height - padding.bottom}" stroke="#94a3b8" stroke-width="1.2"></line>
         ${zLines.map((line) => `
           <path d="${pathFor(line.z)}" fill="none" stroke="${line.color}" stroke-width="${line.z === 0 ? 2.4 : 1.6}" opacity="${line.z === 0 ? 0.95 : 0.72}"></path>
-          ${compact ? "" : `<text x="${width - padding.right + 16}" y="${yForZ(curveZ(domain.end, line.z)).toFixed(1)}" fill="#334155" font-size="12" dominant-baseline="middle">${line.label}</text>`}
+          ${compact ? "" : `<text x="${width - padding.right + 16}" y="${yForZ(domain.end, line.z).toFixed(1)}" fill="#334155" font-size="12" dominant-baseline="middle">${line.label}</text>`}
         `).join("")}
         ${metric && metric.z !== null ? `<circle cx="${childX.toFixed(1)}" cy="${childY.toFixed(1)}" r="${compact ? 5 : 6}" fill="#2563eb" stroke="#ffffff" stroke-width="3"></circle>` : ""}
         <text x="${padding.left}" y="${compact ? 20 : 22}" fill="#0f172a" font-size="${compact ? 14 : 16}" font-weight="800">${t(titleFor(indicator))} (${unit})</text>
@@ -4753,6 +4786,7 @@
   }
 
   function drawSocialSnapshotChart(ctx, result, indicator, left, top, width, height) {
+    const sex = result.sex || "boy";
     const metric = result.metrics.find((item) => item.key === indicator);
     if (metric && metric.status === "notAvailable") return;
     const domain = chartDomain(result, indicator);
@@ -4768,23 +4802,23 @@
     const plotWidth = width - 34;
     const plotHeight = height - 54;
     const x = (month) => plotLeft + ((month - domain.start) / (domain.end - domain.start)) * plotWidth;
-    const zToY = (zValue) => plotTop + ((3 - zValue) / 6) * plotHeight;
-    const curveZ = (month, zBand) => visualGrowthCurveZ(month, domain, zBand);
+    const scale = chartScale(sex, indicator, domain, result.ageMonths || 24);
+    const yForValue = (value) => chartValueToY(value, scale, plotTop, plotTop + plotHeight);
 
     ctx.fillStyle = "#334155";
     ctx.font = "800 10px Inter, sans-serif";
-    ctx.fillText("Z-score", left, top + 2);
+    ctx.fillText(indicator === "weight" ? "kg" : indicator === "height" ? "cm" : "BMI", left, top + 2);
 
     ctx.strokeStyle = "#dbe4f0";
     ctx.lineWidth = 1;
     ctx.setLineDash([]);
-    for (let i = 0; i <= 6; i += 1) {
-      const z = 3 - i;
-      const yy = plotTop + (plotHeight / 6) * i;
+    for (let i = 0; i <= 4; i += 1) {
+      const value = scale.min + ((scale.max - scale.min) * (4 - i)) / 4;
+      const yy = yForValue(value);
       ctx.fillStyle = "#475569";
       ctx.font = "800 10px Inter, sans-serif";
-      ctx.fillText(String(z), left + 4, yy + 3);
-      ctx.strokeStyle = i === 3 ? "#cbd5e1" : "#e2e8f0";
+      ctx.fillText(String(Math.round(value)), left + 4, yy + 3);
+      ctx.strokeStyle = "#e2e8f0";
       ctx.beginPath();
       ctx.moveTo(plotLeft, yy);
       ctx.lineTo(plotLeft + plotWidth, yy);
@@ -4817,8 +4851,10 @@
       const steps = 48;
       for (let step = 0; step <= steps; step += 1) {
         const m = domain.start + ((domain.end - domain.start) * step) / steps;
+        const value = chartReferenceValue(sex, indicator, m, band.z, result.ageMonths || 24);
+        if (!Number.isFinite(value)) continue;
         const px = x(m);
-        const py = zToY(curveZ(m, band.z));
+        const py = yForValue(value);
         if (!started) {
           ctx.moveTo(px, py);
           started = true;
@@ -4831,8 +4867,11 @@
 
     const childMonth = clamp(result.ageMonths || 24, domain.start, domain.end);
     const childX = x(childMonth);
-    const childZ = metric && Number.isFinite(metric.z) ? clamp(metric.z, -2.8, 2.8) : 0;
-    const childY = zToY(curveZ(childMonth, childZ));
+    const childValue = indicator === "bmi" ? result.bmi : result[indicator];
+    const childReferenceValue = metric && Number.isFinite(metric.z)
+      ? chartReferenceValue(sex, indicator, childMonth, metric.z, result.ageMonths || 24)
+      : childValue;
+    const childY = yForValue(childReferenceValue || chartReferenceValue(sex, indicator, childMonth, 0, result.ageMonths || 24));
     ctx.strokeStyle = "#94a3b8";
     ctx.setLineDash([4, 4]);
     ctx.lineWidth = 1;
