@@ -3666,6 +3666,42 @@
     return raw;
   }
 
+  function maskDateInputValue(value) {
+    const digits = String(value || "").replace(/\D/g, "").slice(0, 8);
+    if (digits.length <= 2) return digits;
+    if (digits.length <= 4) return `${digits.slice(0, 2)}/${digits.slice(2)}`;
+    return `${digits.slice(0, 2)}/${digits.slice(2, 4)}/${digits.slice(4)}`;
+  }
+
+  function dateInputValidationMessage(value) {
+    const raw = String(value || "").trim();
+    if (!raw) return "";
+
+    const digits = raw.replace(/\D/g, "");
+    const day = digits.length >= 2 ? Number(digits.slice(0, 2)) : null;
+    const month = digits.length >= 4 ? Number(digits.slice(2, 4)) : null;
+    const year = digits.length === 8 ? Number(digits.slice(4, 8)) : null;
+
+    if (day !== null && (day < 1 || day > 31)) return "Enter a valid day from 01 to 31.";
+    if (month !== null && (month < 1 || month > 12)) return "Enter a valid month from 01 to 12.";
+    if (year !== null) {
+      const parsed = parseInputDate(maskDateInputValue(digits));
+      if (!Number.isFinite(parsed.getTime())) return "Enter a valid date.";
+    }
+
+    return "";
+  }
+
+  function localizedDateValidationMessage(message) {
+    if (activeLanguage !== "vi") return t(message);
+    const messages = {
+      "Enter a valid day from 01 to 31.": "Ngay phai tu 01 den 31.",
+      "Enter a valid month from 01 to 12.": "Thang phai tu 01 den 12.",
+      "Enter a valid date.": "Vui long nhap ngay hop le."
+    };
+    return messages[message] || t(message);
+  }
+
   function toIsoDate(date) {
     const year = date.getFullYear();
     const month = String(date.getMonth() + 1).padStart(2, "0");
@@ -5114,6 +5150,11 @@
   function bindDateInputs(scope) {
     scope.querySelectorAll("[data-date-text]").forEach((input) => {
       const picker = scope.querySelector(`[data-date-picker][data-target="${input.id}"]`);
+      const validateInput = () => {
+        const message = dateInputValidationMessage(input.value);
+        input.setCustomValidity(message ? localizedDateValidationMessage(message) : "");
+        input.classList.toggle("is-invalid", Boolean(message));
+      };
       const syncPicker = () => {
         if (!picker) return;
         const parsed = parseInputDate(input.value);
@@ -5121,18 +5162,19 @@
       };
 
       input.addEventListener("input", () => {
-        const digits = input.value.replace(/\D/g, "");
-        if (digits.length === 8) {
-          input.value = formatDateInputValue(digits);
-          syncPicker();
-        }
+        const masked = maskDateInputValue(input.value);
+        input.value = masked.length === 2 || masked.length === 5 ? `${masked}/` : masked;
+        validateInput();
+        syncPicker();
       });
 
       input.addEventListener("blur", () => {
         input.value = formatDateInputValue(input.value);
+        validateInput();
         syncPicker();
       });
 
+      validateInput();
       syncPicker();
     });
 
