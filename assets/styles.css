@@ -151,15 +151,16 @@ button {
 .nav-links {
   display: none;
   align-items: center;
-  gap: 22px;
+  gap: 16px;
   color: #1e293b;
   font-weight: 650;
-  font-size: 0.93rem;
+  font-size: 0.9rem;
 }
 
 .nav-links a,
 .nav-links button {
   padding: 8px 2px;
+  white-space: nowrap;
 }
 
 .nav-links a:hover,
@@ -171,6 +172,16 @@ button {
   display: flex;
   align-items: center;
   gap: 10px;
+}
+
+.nav-links .nav-tool-button,
+.mobile-menu .nav-tool-button {
+  padding: 8px 12px;
+  border: 1px solid #bfdbfe;
+  border-radius: 999px;
+  color: #1d4ed8;
+  background: #eff6ff;
+  font-weight: 800;
 }
 
 .language {
@@ -583,6 +594,94 @@ button {
 
 .form-error.is-visible {
   display: block;
+}
+
+.pn-layout,
+.pn-result-stack {
+  display: grid;
+  gap: 18px;
+}
+
+.pn-card {
+  padding: 18px;
+}
+
+.pn-card .card-heading h2,
+.pn-table-card h2,
+.pn-summary-card h2,
+.pn-warning-panel h2,
+.pn-disclaimer h2 {
+  margin: 0 0 10px;
+  font-size: 1.08rem;
+  letter-spacing: 0;
+}
+
+.pn-card .card-heading p,
+.pn-disclaimer p {
+  margin: 0 0 16px;
+  color: var(--muted);
+}
+
+.pn-summary-card,
+.pn-table-card,
+.pn-warning-panel,
+.pn-disclaimer {
+  padding: 18px;
+}
+
+.pn-summary-grid {
+  margin-top: 14px;
+}
+
+.pn-mini-metric {
+  padding: 14px;
+  border: 1px solid var(--soft);
+  border-radius: 8px;
+  background: #fbfcfe;
+}
+
+.pn-mini-metric span {
+  display: block;
+  color: var(--muted);
+  font-size: 0.82rem;
+  font-weight: 750;
+}
+
+.pn-mini-metric strong {
+  display: block;
+  margin-top: 4px;
+  color: var(--text);
+  font-size: 1.15rem;
+}
+
+.pn-two-col {
+  display: grid;
+  gap: 18px;
+}
+
+.pn-table {
+  min-width: 0;
+}
+
+.pn-table th {
+  width: 58%;
+}
+
+.pn-table td {
+  text-align: right;
+  font-weight: 800;
+}
+
+.pn-warning-panel {
+  border-color: #fbbf24;
+  background: #fffbeb;
+}
+
+.pn-warning-panel ul {
+  margin: 0;
+  padding-left: 18px;
+  color: #92400e;
+  font-weight: 650;
 }
 
 .calc-submit {
@@ -1102,6 +1201,19 @@ button {
   font-weight: 800;
 }
 
+.trend-table.pn-table {
+  min-width: 0;
+}
+
+.trend-table.pn-table th {
+  width: 58%;
+}
+
+.trend-table.pn-table td {
+  text-align: right;
+  font-weight: 800;
+}
+
 .question-list {
   display: grid;
   gap: 10px;
@@ -1484,6 +1596,10 @@ button {
   .result-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
+
+  .pn-form-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
 }
 
 @media (min-width: 900px) {
@@ -1561,6 +1677,15 @@ button {
 
   .result-grid {
     grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+
+  .pn-layout {
+    grid-template-columns: minmax(320px, 0.72fr) minmax(0, 1fr);
+    align-items: start;
+  }
+
+  .pn-two-col {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   .chart-and-panel {

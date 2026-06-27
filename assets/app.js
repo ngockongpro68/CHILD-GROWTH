@@ -2068,7 +2068,8 @@
     { label: "Calculator", href: "/child-growth-calculator/" },
     { label: "Growth Charts", href: "/growth-charts/" },
     { label: "Articles", href: "/articles/" },
-    { label: "About", href: "/about/" }
+    { label: "About", href: "/about/" },
+    { label: "Pha d&#7883;ch nu&#244;i &#259;n t&#297;nh m&#7841;ch", href: "/parenteral-nutrition-calculator/", cta: true }
   ];
 
   const tools = [
@@ -2181,7 +2182,22 @@
       title: "Head Circumference Calculator",
       copy: "Track head circumference-for-age together with other growth measurements.",
       eyebrow: "Head circumference"
+    },
+    pn: {
+      title: "Pha d&#7883;ch nu&#244;i &#259;n t&#297;nh m&#7841;ch",
+      copy: "T&#237;nh d&#7883;ch duy tr&#236;, t&#250;i ch&#237;nh, lipid truy&#7873;n ri&#234;ng, &#273;i&#7879;n gi&#7843;i, n&#259;ng l&#432;&#7907;ng v&#224; GIR cho tr&#7867; em.",
+      eyebrow: "Parenteral nutrition calculator"
     }
+  };
+
+  const pnProducts = {
+    NaCl09: { label: "NaCl 0.9%", Na: 0.154, Cl: 0.154 },
+    NaCl10: { label: "NaCl 10%", Na: 1.71, Cl: 1.71 },
+    KCl10: { label: "KCl 10%", K: 1.34, Cl: 1.34 },
+    CaCl2_10: { label: "CaCl2 10%", Ca: 1.4, Cl: 1.4 },
+    D10: { label: "D10", glucose: 0.10 },
+    D30: { label: "D30", glucose: 0.30 },
+    Lipid20: { label: "Lipid 20%", lipid: 0.20, kcal: 2 }
   };
 
   const refs = {
@@ -2545,7 +2561,7 @@
             <span>GrowthKid</span>
           </a>
           <nav class="nav-links" aria-label="Primary navigation">
-            ${navItems.map((item) => `<a href="${localizedHref(item.href)}">${item.label}</a>`).join("")}
+            ${navItems.map((item) => `<a class="${item.cta ? "nav-tool-button" : ""}" href="${localizedHref(item.href)}">${item.label}</a>`).join("")}
           </nav>
           <div class="nav-actions">
             <label class="language" aria-label="Language selector">
@@ -2565,7 +2581,7 @@
               ${languageSelectOptions()}
             </select>
           </label>
-          ${navItems.map((item) => `<a href="${localizedHref(item.href)}">${item.label}</a>`).join("")}
+          ${navItems.map((item) => `<a class="${item.cta ? "nav-tool-button" : ""}" href="${localizedHref(item.href)}">${item.label}</a>`).join("")}
           <a href="${localizedHref("/child-growth-calculator/")}">Start Calculator</a>
         </div>
       </header>
@@ -2808,6 +2824,314 @@
         ${seoLinksSection()}
       </main>
     `);
+  }
+
+  function pnCalculatorPage() {
+    const cfg = pageConfig.pn;
+    return shell(`
+      <main>
+        <section class="page-hero">
+          <div class="growth-3d-scene" data-growth-3d aria-hidden="true"></div>
+          <div class="container page-hero-row">
+            <div>
+              <span class="eyebrow">${cfg.eyebrow}</span>
+              <h1>${cfg.title}</h1>
+              <p class="page-copy">${cfg.copy}</p>
+            </div>
+            <div class="side-panel pn-disclaimer">
+              <h2>L&#432;u &#253; an to&#224;n</h2>
+              <p>C&#244;ng c&#7909; ch&#7881; h&#7895; tr&#7907; t&#237;nh to&#225;n. Kh&#244;ng thay th&#7871; y l&#7879;nh, quy tr&#236;nh pha ch&#7871; khoa d&#432;&#7907;c, x&#233;t nghi&#7879;m v&#224; &#273;&#225;nh gi&#225; l&#226;m s&#224;ng.</p>
+            </div>
+          </div>
+        </section>
+        <section class="section section-soft">
+          <div class="container pn-layout">
+            ${pnCalculatorForm()}
+            <div id="pnResults" class="pn-results"></div>
+          </div>
+        </section>
+      </main>
+    `);
+  }
+
+  function pnCalculatorForm() {
+    return `
+      <form class="calculator-card pn-card" id="pnForm">
+        <div class="card-heading">
+          <span class="eyebrow">Mode 1</span>
+          <h2>NaCl 0.9% b&#249; th&#7875; t&#237;ch c&#242;n l&#7841;i</h2>
+          <p>Nh&#7853;p nhu c&#7847;u trong ng&#224;y. Lipid 20% &#273;&#432;&#7907;c t&#237;nh truy&#7873;n ri&#234;ng, kh&#244;ng n&#7857;m trong b&#7843;ng t&#250;i ch&#237;nh.</p>
+        </div>
+        <div class="form-grid pn-form-grid">
+          ${pnNumberField("weightKg", "C&#226;n n&#7863;ng (kg)", "10", "0.1")}
+          ${pnNumberField("proteinGPerKgDay", "&#272;&#7841;m (g/kg/ng&#224;y)", "2", "0.1")}
+          <div class="field">
+            <label for="aminoAcidPercent">Amino acid</label>
+            <select id="aminoAcidPercent" name="aminoAcidPercent">
+              <option value="5">Amino acid 5%</option>
+              <option value="10" selected>Amino acid 10%</option>
+              <option value="20">Amino acid 20%</option>
+            </select>
+          </div>
+          ${pnNumberField("lipidGPerKgDay", "Lipid (g/kg/ng&#224;y)", "2", "0.1")}
+          ${pnNumberField("naMEqPerKgDay", "Na (mEq/kg/ng&#224;y)", "2", "0.1")}
+          ${pnNumberField("kMEqPerKgDay", "K (mEq/kg/ng&#224;y)", "2", "0.1")}
+          ${pnNumberField("caMEqPerKgDay", "Ca (mEq/kg/ng&#224;y)", "0.5", "0.1")}
+          ${pnNumberField("targetDextrosePercent", "Glucose m&#7909;c ti&#234;u trong t&#250;i ch&#237;nh (%)", "12.5", "0.1")}
+          ${pnNumberField("otherIVFluidMlDay", "D&#7883;ch kh&#225;c ngo&#224;i PN (mL/ng&#224;y)", "0", "1")}
+          ${pnNumberField("otherAdditivesMlDay", "Ph&#7909; gia kh&#225;c trong t&#250;i ch&#237;nh (mL/ng&#224;y)", "0", "1")}
+          ${pnNumberField("infusionHoursMainBag", "Gi&#7901; truy&#7873;n t&#250;i ch&#237;nh", "24", "1")}
+          ${pnNumberField("infusionHoursLipid", "Gi&#7901; truy&#7873;n lipid", "24", "1")}
+        </div>
+        <div class="form-error" id="pnFormError"></div>
+        <button class="btn btn-primary calc-submit" type="submit">T&#237;nh pha d&#7883;ch ${icon("arrow")}</button>
+      </form>
+    `;
+  }
+
+  function pnNumberField(name, label, value, step) {
+    return `
+      <div class="field">
+        <label for="${name}">${label}</label>
+        <input id="${name}" name="${name}" type="number" inputmode="decimal" min="0" step="${step}" value="${value}" required>
+      </div>
+    `;
+  }
+
+  function calculateMaintenanceFluidMlDay(weightKg) {
+    if (weightKg <= 0) throw new Error("Can nang phai > 0.");
+    if (weightKg <= 10) return weightKg * 100;
+    if (weightKg <= 20) return 1000 + (weightKg - 10) * 50;
+    return 1500 + (weightKg - 20) * 20;
+  }
+
+  function calculatePn(input) {
+    const weightKg = pnPositive(input.weightKg, "Can nang phai > 0.");
+    const infusionHoursMainBag = pnPositive(input.infusionHoursMainBag, "Gio truyen tui chinh phai > 0.");
+    const infusionHoursLipid = pnPositive(input.infusionHoursLipid, "Gio truyen lipid phai > 0.");
+    const proteinGPerKgDay = pnNonNegative(input.proteinGPerKgDay, "Dam khong duoc am.");
+    const aminoAcidPercent = pnPositive(input.aminoAcidPercent, "Chon nong do amino acid.");
+    const lipidGPerKgDay = pnNonNegative(input.lipidGPerKgDay, "Lipid khong duoc am.");
+    const naMEqPerKgDay = pnNonNegative(input.naMEqPerKgDay, "Na khong duoc am.");
+    const kMEqPerKgDay = pnNonNegative(input.kMEqPerKgDay, "K khong duoc am.");
+    const caMEqPerKgDay = pnNonNegative(input.caMEqPerKgDay, "Ca khong duoc am.");
+    const targetDextrosePercent = pnNonNegative(input.targetDextrosePercent, "Glucose khong duoc am.");
+    const otherIVFluidMlDay = pnNonNegative(input.otherIVFluidMlDay, "Dich khac khong duoc am.");
+    const otherAdditivesMlDay = pnNonNegative(input.otherAdditivesMlDay, "Phu gia khac khong duoc am.");
+    const warnings = [];
+
+    const totalFluidMlDay = calculateMaintenanceFluidMlDay(weightKg);
+    const lipidGDay = weightKg * lipidGPerKgDay;
+    const lipidVolumeMl = lipidGDay / pnProducts.Lipid20.lipid;
+    const lipidRateMlHour = lipidVolumeMl / infusionHoursLipid;
+    const lipidKcal = lipidVolumeMl * pnProducts.Lipid20.kcal;
+    const mainBagTargetVolumeMl = totalFluidMlDay - lipidVolumeMl - otherIVFluidMlDay;
+    if (mainBagTargetVolumeMl <= 0) {
+      throw new Error("The tich lipid va dich khac da vuot hoac bang tong dich duy tri. Khong the tinh tui chinh.");
+    }
+
+    const mainBagRateMlHour = mainBagTargetVolumeMl / infusionHoursMainBag;
+    const proteinGDay = weightKg * proteinGPerKgDay;
+    const aminoAcidVolumeMl = proteinGDay / (aminoAcidPercent / 100);
+    const proteinKcal = proteinGDay * 4;
+    const targetNaMEqDay = weightKg * naMEqPerKgDay;
+    const targetKMEqDay = weightKg * kMEqPerKgDay;
+    const targetCaMEqDay = weightKg * caMEqPerKgDay;
+    const KCl10VolumeMl = targetKMEqDay / pnProducts.KCl10.K;
+    const CaCl2VolumeMl = targetCaMEqDay / pnProducts.CaCl2_10.Ca;
+    const targetDextroseG = targetDextrosePercent * mainBagTargetVolumeMl / 100;
+    const remainingAfterFixedMl = mainBagTargetVolumeMl - aminoAcidVolumeMl - KCl10VolumeMl - CaCl2VolumeMl - otherAdditivesMlDay;
+    if (remainingAfterFixedMl <= 0) {
+      throw new Error("The tich amino acid, KCl, CaCl2 va phu gia da vuot tui chinh.");
+    }
+
+    const minDextroseSolutionVolumeMl = targetDextroseG / pnProducts.D30.glucose;
+    const maxDextroseSolutionVolumeMl = targetDextroseG / pnProducts.D10.glucose;
+    if (minDextroseSolutionVolumeMl > remainingAfterFixedMl + 0.000001) {
+      throw new Error("Khong du the tich de dat nong do glucose muc tieu bang D30.");
+    }
+
+    const dextroseVolumeNoNaOverTargetMl = targetNaMEqDay > 0
+      ? remainingAfterFixedMl - (targetNaMEqDay / pnProducts.NaCl09.Na)
+      : remainingAfterFixedMl;
+    let dextroseSolutionVolumeMl = clamp(
+      dextroseVolumeNoNaOverTargetMl,
+      minDextroseSolutionVolumeMl,
+      Math.min(maxDextroseSolutionVolumeMl, remainingAfterFixedMl)
+    );
+    if (!Number.isFinite(dextroseSolutionVolumeMl)) dextroseSolutionVolumeMl = minDextroseSolutionVolumeMl;
+
+    let D30VolumeMl = (targetDextroseG - pnProducts.D10.glucose * dextroseSolutionVolumeMl) / (pnProducts.D30.glucose - pnProducts.D10.glucose);
+    let D10VolumeMl = dextroseSolutionVolumeMl - D30VolumeMl;
+    if (D10VolumeMl < -0.000001 || D30VolumeMl < -0.000001) {
+      throw new Error("Khong the dat nong do glucose muc tieu chi voi D10 va D30.");
+    }
+    D10VolumeMl = Math.max(0, D10VolumeMl);
+    D30VolumeMl = Math.max(0, D30VolumeMl);
+
+    let NaCl09VolumeMl = remainingAfterFixedMl - D10VolumeMl - D30VolumeMl;
+    if (NaCl09VolumeMl < -0.000001) {
+      throw new Error("Tong the tich thanh phan vuot tui chinh.");
+    }
+    NaCl09VolumeMl = Math.max(0, NaCl09VolumeMl);
+
+    let NaCl10VolumeMl = 0;
+    const baseNaBeforeNaCl10MEq = NaCl09VolumeMl * pnProducts.NaCl09.Na;
+    if (targetNaMEqDay > baseNaBeforeNaCl10MEq) {
+      NaCl10VolumeMl = (targetNaMEqDay - baseNaBeforeNaCl10MEq) / (pnProducts.NaCl10.Na - pnProducts.NaCl09.Na);
+      NaCl09VolumeMl -= NaCl10VolumeMl;
+      if (NaCl09VolumeMl < -0.000001) {
+        throw new Error("Khong du the tich NaCl 0.9% de thay bang NaCl 10%. Can xem lai glucose, tong dich hoac dien giai.");
+      }
+      NaCl09VolumeMl = Math.max(0, NaCl09VolumeMl);
+    } else if (baseNaBeforeNaCl10MEq >= targetNaMEqDay && targetNaMEqDay > 0) {
+      warnings.push("Na tu NaCl 0.9% da bang hoac vuot nhu cau Na muc tieu. Khong them NaCl 10%.");
+    }
+
+    const baseNaMEq = NaCl09VolumeMl * pnProducts.NaCl09.Na;
+    const NaFromNaCl10MEq = NaCl10VolumeMl * pnProducts.NaCl10.Na;
+    const actualNaMEqDay = baseNaMEq + NaFromNaCl10MEq;
+    const NaDifferenceMEq = actualNaMEqDay - targetNaMEqDay;
+    const NaDifferenceMEqKgDay = NaDifferenceMEq / weightKg;
+    if (actualNaMEqDay > targetNaMEqDay + 0.000001) {
+      warnings.push("Na thuc nhan cao hon Na muc tieu, chu yeu do NaCl 0.9% trong tui chinh. Can kiem tra lai.");
+    }
+    if (Math.abs(NaDifferenceMEqKgDay) > 0.2) {
+      warnings.push("Na thuc nhan lech dang ke so voi Na muc tieu. Can kiem tra lai.");
+    }
+
+    const ClFromNaCl09 = NaCl09VolumeMl * pnProducts.NaCl09.Cl;
+    const ClFromNaCl10 = NaCl10VolumeMl * pnProducts.NaCl10.Cl;
+    const ClFromKCl10 = KCl10VolumeMl * pnProducts.KCl10.Cl;
+    const ClFromCaCl2 = CaCl2VolumeMl * pnProducts.CaCl2_10.Cl;
+    const totalClMEqDay = ClFromNaCl09 + ClFromNaCl10 + ClFromKCl10 + ClFromCaCl2;
+    const totalClMEqKgDay = totalClMEqDay / weightKg;
+    const GIR_mg_kg_min = targetDextroseG * 1000 / weightKg / infusionHoursMainBag / 60;
+    const dextroseKcal = targetDextroseG * 3.4;
+    const totalKcalDay = dextroseKcal + proteinKcal + lipidKcal;
+    const finalMainBagVolumeMl = NaCl10VolumeMl + KCl10VolumeMl + CaCl2VolumeMl + D10VolumeMl + D30VolumeMl + aminoAcidVolumeMl + NaCl09VolumeMl + otherAdditivesMlDay;
+    const roundingDifferenceMl = mainBagTargetVolumeMl - finalMainBagVolumeMl;
+
+    if (Math.abs(roundingDifferenceMl) > 0.5) warnings.push("Tong the tich thanh phan chua khop voi the tich tui chinh muc tieu. Can kiem tra lai lam tron hoac du lieu nhap.");
+    if (GIR_mg_kg_min > 12) warnings.push("GIR cao, can kiem tra nguy co tang duong huyet, tang CO2, gan nhiem mo hoac tang triglyceride.");
+    if (totalClMEqKgDay > 6) warnings.push("Tai chloride cao, can kiem tra nguy co tang Cl mau/toan chuyen hoa.");
+    if (KCl10VolumeMl > 0) warnings.push("KCl dam dac bat buoc phai pha loang. Khong truyen nhanh. Can kiem tra kali mau, chuc nang than va toc do truyen theo quy trinh benh vien.");
+    if (CaCl2VolumeMl > 0) warnings.push("Can kiem tra tuong hop CaCl2, dac biet neu sau nay them phosphate.");
+
+    return {
+      input: { weightKg, proteinGPerKgDay, aminoAcidPercent, lipidGPerKgDay, naMEqPerKgDay, kMEqPerKgDay, caMEqPerKgDay, targetDextrosePercent, otherIVFluidMlDay, otherAdditivesMlDay, infusionHoursMainBag, infusionHoursLipid },
+      fluid: { totalFluidMlDay, totalFluidRateMlHour: totalFluidMlDay / 24, mainBagTargetVolumeMl, mainBagRateMlHour, infusionHoursMainBag, lipidVolumeMl, lipidRateMlHour, infusionHoursLipid },
+      mainBagComposition: { NaCl10VolumeMl, KCl10VolumeMl, CaCl2VolumeMl, D10VolumeMl, D30VolumeMl, aminoAcidVolumeMl, NaCl09VolumeMl, otherAdditivesMlDay, finalMainBagVolumeMl, roundingDifferenceMl },
+      macronutrients: { proteinGDay, proteinGPerKgDay, aminoAcidPercent, lipidGDay, lipidGPerKgDay, lipidVolumeMl, targetDextrosePercent, targetDextroseG, GIR_mg_kg_min },
+      electrolytes: { targetNaMEqDay, actualNaMEqDay, baseNaFromNaCl09MEq: baseNaMEq, NaFromNaCl10MEq, NaDifferenceMEq, NaDifferenceMEqKgDay, targetKMEqDay, actualKMEqDay: targetKMEqDay, KCl10VolumeMl, targetCaMEqDay, actualCaMEqDay: targetCaMEqDay, CaCl2VolumeMl, totalClMEqDay, totalClMEqKgDay },
+      calories: { dextroseKcal, proteinKcal, lipidKcal, totalKcalDay, totalKcalKgDay: totalKcalDay / weightKg, nonProteinKcal: dextroseKcal + lipidKcal },
+      warnings
+    };
+  }
+
+  function pnPositive(value, message) {
+    const number = Number(value);
+    if (!Number.isFinite(number) || number <= 0) throw new Error(message);
+    return number;
+  }
+
+  function pnNonNegative(value, message) {
+    const number = Number(value || 0);
+    if (!Number.isFinite(number) || number < 0) throw new Error(message);
+    return number;
+  }
+
+  function renderPnResults(result) {
+    return `
+      <div class="pn-result-stack">
+        <div class="result-card pn-summary-card">
+          <h2>K&#7871;t qu&#7843; pha d&#7883;ch</h2>
+          <div class="result-grid pn-summary-grid">
+            ${pnMetric("C&#226;n n&#7863;ng", `${pnFmt(result.input.weightKg, 1)} kg`)}
+            ${pnMetric("T&#7893;ng d&#7883;ch", `${pnFmt(result.fluid.totalFluidMlDay, 0)} mL/ng&#224;y`)}
+            ${pnMetric("T&#250;i ch&#237;nh", `${pnFmt(result.fluid.mainBagTargetVolumeMl, 1)} mL/ng&#224;y`)}
+            ${pnMetric("T&#7889;c &#273;&#7897; t&#250;i ch&#237;nh", `${pnFmt(result.fluid.mainBagRateMlHour, 2)} mL/gi&#7901;`)}
+          </div>
+        </div>
+
+        ${pnTable("T&#250;i ch&#237;nh", [
+          ["NaCl 10%", `${pnFmt(result.mainBagComposition.NaCl10VolumeMl, 2)} mL`],
+          ["KCl 10%", `${pnFmt(result.mainBagComposition.KCl10VolumeMl, 2)} mL`],
+          ["CaCl2 10%", `${pnFmt(result.mainBagComposition.CaCl2VolumeMl, 2)} mL`],
+          ["D10", `${pnFmt(result.mainBagComposition.D10VolumeMl, 2)} mL`],
+          ["D30", `${pnFmt(result.mainBagComposition.D30VolumeMl, 2)} mL`],
+          [`Amino acid ${pnFmt(result.macronutrients.aminoAcidPercent, 0)}%`, `${pnFmt(result.mainBagComposition.aminoAcidVolumeMl, 2)} mL`],
+          ["NaCl 0.9%", `${pnFmt(result.mainBagComposition.NaCl09VolumeMl, 2)} mL`],
+          ["T&#7893;ng t&#250;i ch&#237;nh", `${pnFmt(result.mainBagComposition.finalMainBagVolumeMl, 2)} mL/ng&#224;y`],
+          ["T&#7889;c &#273;&#7897; truy&#7873;n t&#250;i ch&#237;nh", `${pnFmt(result.fluid.mainBagRateMlHour, 2)} mL/gi&#7901;`],
+          ["N&#7891;ng &#273;&#7897; glucose cu&#7889;i c&#249;ng", `D${pnFmt(result.macronutrients.targetDextrosePercent, 1)}%`],
+          ["GIR", `${pnFmt(result.macronutrients.GIR_mg_kg_min, 2)} mg/kg/ph&#250;t`]
+        ])}
+
+        <div class="pn-two-col">
+          ${pnTable("Lipid truy&#7873;n ri&#234;ng", [
+            ["Lipid 20%", `${pnFmt(result.fluid.lipidVolumeMl, 2)} mL/ng&#224;y`],
+            ["T&#7889;c &#273;&#7897; truy&#7873;n lipid", `${pnFmt(result.fluid.lipidRateMlHour, 2)} mL/gi&#7901;`],
+            ["N&#259;ng l&#432;&#7907;ng lipid", `${pnFmt(result.calories.lipidKcal, 1)} kcal/ng&#224;y`]
+          ])}
+          ${pnTable("&#272;i&#7879;n gi&#7843;i", [
+            ["Na m&#7909;c ti&#234;u", `${pnFmt(result.electrolytes.targetNaMEqDay, 2)} mEq/ng&#224;y`],
+            ["Na th&#7921;c nh&#7853;n", `${pnFmt(result.electrolytes.actualNaMEqDay, 2)} mEq/ng&#224;y`],
+            ["Na t&#7915; NaCl 0.9%", `${pnFmt(result.electrolytes.baseNaFromNaCl09MEq, 2)} mEq/ng&#224;y`],
+            ["Na t&#7915; NaCl 10%", `${pnFmt(result.electrolytes.NaFromNaCl10MEq, 2)} mEq/ng&#224;y`],
+            ["K m&#7909;c ti&#234;u", `${pnFmt(result.electrolytes.targetKMEqDay, 2)} mEq/ng&#224;y`],
+            ["Ca m&#7909;c ti&#234;u", `${pnFmt(result.electrolytes.targetCaMEqDay, 2)} mEq/ng&#224;y`],
+            ["T&#7893;ng Cl", `${pnFmt(result.electrolytes.totalClMEqDay, 2)} mEq/ng&#224;y`],
+            ["T&#7893;ng Cl", `${pnFmt(result.electrolytes.totalClMEqKgDay, 2)} mEq/kg/ng&#224;y`]
+          ])}
+        </div>
+
+        ${pnTable("N&#259;ng l&#432;&#7907;ng", [
+          ["Glucose", `${pnFmt(result.calories.dextroseKcal, 1)} kcal/ng&#224;y`],
+          ["&#272;&#7841;m", `${pnFmt(result.calories.proteinKcal, 1)} kcal/ng&#224;y`],
+          ["Lipid", `${pnFmt(result.calories.lipidKcal, 1)} kcal/ng&#224;y`],
+          ["T&#7893;ng n&#259;ng l&#432;&#7907;ng", `${pnFmt(result.calories.totalKcalDay, 1)} kcal/ng&#224;y`],
+          ["T&#7893;ng n&#259;ng l&#432;&#7907;ng", `${pnFmt(result.calories.totalKcalKgDay, 1)} kcal/kg/ng&#224;y`],
+          ["Non-protein kcal", `${pnFmt(result.calories.nonProteinKcal, 1)} kcal/ng&#224;y`]
+        ])}
+
+        ${result.warnings.length ? `
+          <div class="side-panel pn-warning-panel">
+            <h2>C&#7843;nh b&#225;o c&#7847;n ki&#7875;m tra</h2>
+            <ul>${result.warnings.map((warning) => `<li>${escapeHtml(warning)}</li>`).join("")}</ul>
+          </div>
+        ` : ""}
+
+        <div class="side-panel pn-disclaimer">
+          <h2>Disclaimer</h2>
+          <p>C&#244;ng c&#7909; ch&#7881; h&#7895; tr&#7907; t&#237;nh to&#225;n. Kh&#244;ng thay th&#7871; y l&#7879;nh c&#7911;a b&#225;c s&#297;, quy tr&#236;nh pha ch&#7871; c&#7911;a khoa d&#432;&#7907;c v&#224; ki&#7875;m tra l&#226;m s&#224;ng/x&#233;t nghi&#7879;m. C&#7847;n x&#225;c nh&#7853;n n&#7891;ng &#273;&#7897; th&#7921;c t&#7871; c&#7911;a t&#7915;ng s&#7843;n ph&#7849;m t&#7841;i c&#417; s&#7903; tr&#432;&#7899;c khi s&#7917; d&#7909;ng.</p>
+        </div>
+      </div>
+    `;
+  }
+
+  function pnMetric(label, value) {
+    return `<div class="pn-mini-metric"><span>${label}</span><strong>${value}</strong></div>`;
+  }
+
+  function pnTable(title, rows) {
+    return `
+      <div class="result-card pn-table-card">
+        <h2>${title}</h2>
+        <div class="trend-table-wrap">
+          <table class="trend-table pn-table">
+            <tbody>
+              ${rows.map(([label, value]) => `<tr><th>${label}</th><td>${value}</td></tr>`).join("")}
+            </tbody>
+          </table>
+        </div>
+      </div>
+    `;
+  }
+
+  function pnFmt(value, digits) {
+    if (!Number.isFinite(value)) return "-";
+    return value.toLocaleString("en-US", { minimumFractionDigits: digits, maximumFractionDigits: digits });
   }
 
   function contentPage(config) {
@@ -4059,7 +4383,8 @@
       bmi: "BMI Calculator for Kids | GrowthKid",
       weight: "Weight-for-age Calculator | GrowthKid",
       height: "Height-for-age Calculator | GrowthKid",
-      head: "Head Circumference Calculator | GrowthKid"
+      head: "Head Circumference Calculator | GrowthKid",
+      pn: "Pediatric Parenteral Nutrition Calculator | GrowthKid"
     };
     return titles[page] || titles.home;
   }
@@ -5134,6 +5459,31 @@
       });
     }
 
+    const pnForm = document.getElementById("pnForm");
+    if (pnForm) {
+      const renderPn = () => {
+        const errorBox = document.getElementById("pnFormError");
+        const results = document.getElementById("pnResults");
+        try {
+          const result = calculatePn(Object.fromEntries(new FormData(pnForm).entries()));
+          if (errorBox) errorBox.classList.remove("is-visible");
+          if (results) results.innerHTML = renderPnResults(result);
+        } catch (error) {
+          if (errorBox) {
+            errorBox.textContent = error.message;
+            errorBox.classList.add("is-visible");
+          }
+          if (results) results.innerHTML = "";
+        }
+      };
+
+      pnForm.addEventListener("submit", (event) => {
+        event.preventDefault();
+        renderPn();
+      });
+      renderPn();
+    }
+
     document.querySelectorAll(".chart-tab").forEach((button) => {
       button.addEventListener("click", () => {
         const indicator = button.dataset.chart;
@@ -5239,6 +5589,7 @@
     else if (page === "charts") app.innerHTML = chartsPage();
     else if (page === "articles") app.innerHTML = articlesPage();
     else if (page === "about") app.innerHTML = aboutPage();
+    else if (page === "pn") app.innerHTML = pnCalculatorPage();
     else if (page === "methodology") app.innerHTML = methodologyPage();
     else if (page === "privacy") app.innerHTML = privacyPage();
     else if (page === "medical-disclaimer") app.innerHTML = medicalDisclaimerPage();
