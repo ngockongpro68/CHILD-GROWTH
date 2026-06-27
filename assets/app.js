@@ -3988,6 +3988,9 @@
 
   function chartDomain(result, indicator) {
     if ((result.ageMonths || 24) <= underFiveMaxMonths) {
+      if (indicator === "bmi" && (result.ageMonths || 24) >= 6) {
+        return { start: 3, end: underFiveMaxMonths, step: 3, pathStep: 1 };
+      }
       return { start: 0, end: underFiveMaxMonths, step: 3, pathStep: 2 };
     }
 
@@ -3999,6 +4002,7 @@
   }
 
   function chartTicks(domain) {
+    if (domain.start === 3 && domain.end === underFiveMaxMonths) return [3, 12, 24, 36, 48, 60];
     if (domain.end === underFiveMaxMonths) return [0, 12, 24, 36, 48, 60];
     if (domain.end === who2007WeightMaxMonths) return [60, 72, 84, 96, 108, 120];
     return [60, 96, 132, 168, 204, 228];
@@ -4894,11 +4898,10 @@
 
     ctx.fillStyle = "#334155";
     ctx.font = "800 10px Inter, sans-serif";
-    const ageTicks = [0, 12, 24, 36, 48, 60];
+    const ageTicks = chartTicks(domain);
     ageTicks.forEach((month) => {
-      const tickMonth = domain.end <= 60 ? month : Math.round(domain.start + (domain.end - domain.start) * (month / 60));
-      const xx = x(clamp(tickMonth, domain.start, domain.end));
-      centerText(ctx, String(tickMonth), xx, plotTop + plotHeight + 16);
+      const xx = x(clamp(month, domain.start, domain.end));
+      centerText(ctx, String(month), xx, plotTop + plotHeight + 16);
     });
     centerText(ctx, t("Age (months)"), plotLeft + plotWidth / 2, plotTop + plotHeight + 34);
   }
