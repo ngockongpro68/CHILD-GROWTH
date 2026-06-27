@@ -2056,6 +2056,63 @@
     translations[language] = { ...(translations[language] || {}), ...values };
   });
 
+  const pnTranslations = {
+    vi: {
+      "Parenteral Nutrition": "Pha d&#7883;ch nu&#244;i &#259;n t&#297;nh m&#7841;ch",
+      "Pediatric Parenteral Nutrition Calculator | GrowthKid": "Pha d&#7883;ch nu&#244;i &#259;n t&#297;nh m&#7841;ch | GrowthKid",
+      "Pediatric Parenteral Nutrition Calculator": "Pha d&#7883;ch nu&#244;i &#259;n t&#297;nh m&#7841;ch",
+      "Calculate daily maintenance fluid, main bag, separate lipid infusion, electrolytes, calories, and GIR for children.": "T&#237;nh d&#7883;ch duy tr&#236;, t&#250;i ch&#237;nh, lipid truy&#7873;n ri&#234;ng, &#273;i&#7879;n gi&#7843;i, n&#259;ng l&#432;&#7907;ng v&#224; GIR cho tr&#7867; em.",
+      "Safety note": "L&#432;u &#253; an to&#224;n",
+      "This calculator supports calculations only. It does not replace medical orders, pharmacy compounding protocols, laboratory review, or clinical assessment.": "C&#244;ng c&#7909; ch&#7881; h&#7895; tr&#7907; t&#237;nh to&#225;n. Kh&#244;ng thay th&#7871; y l&#7879;nh, quy tr&#236;nh pha ch&#7871; khoa d&#432;&#7907;c, x&#233;t nghi&#7879;m v&#224; &#273;&#225;nh gi&#225; l&#226;m s&#224;ng.",
+      "Calculate main bag and separate lipid": "T&#237;nh t&#250;i ch&#237;nh v&#224; lipid truy&#7873;n ri&#234;ng",
+      "Defaults are calculated over 24 hours. Lipid 20% is calculated as a separate infusion and is not included in the main bag table.": "M&#7863;c &#273;&#7883;nh t&#237;nh cho 24 gi&#7901;. Lipid 20% &#273;&#432;&#7907;c t&#237;nh truy&#7873;n ri&#234;ng, kh&#244;ng n&#7857;m trong b&#7843;ng t&#250;i ch&#237;nh.",
+      "Mode 1: NaCl 0.9% fills remaining volume": "Mode 1: NaCl 0.9% b&#249; th&#7875; t&#237;ch",
+      "Mode 2: Prioritize target sodium": "Mode 2: &#431;u ti&#234;n &#273;&#250;ng Na m&#7909;c ti&#234;u",
+      "Weight (kg)": "C&#226;n n&#7863;ng (kg)",
+      "Protein (g/kg/day)": "&#272;&#7841;m (g/kg/ng&#224;y)",
+      "Lipid (g/kg/day)": "Lipid (g/kg/ng&#224;y)",
+      "Na (mEq/kg/day)": "Na (mEq/kg/ng&#224;y)",
+      "K (mEq/kg/day)": "K (mEq/kg/ng&#224;y)",
+      "Ca (mEq/kg/day)": "Ca (mEq/kg/ng&#224;y)",
+      "Target glucose in main bag (%)": "Glucose m&#7909;c ti&#234;u trong t&#250;i ch&#237;nh (%)",
+      "Compound volume for scaling (mL)": "Th&#7875; t&#237;ch mu&#7889;n pha tam su&#7845;t (mL)",
+      "Calculate PN": "T&#237;nh pha d&#7883;ch",
+      "PN results": "K&#7871;t qu&#7843; pha d&#7883;ch",
+      "Mode": "Ch&#7871; &#273;&#7897;",
+      "Mode 1: NaCl 0.9% fill": "Mode 1: NaCl 0.9% b&#249;",
+      "Mode 2: target sodium": "Mode 2: Na m&#7909;c ti&#234;u",
+      "Total fluid": "T&#7893;ng d&#7883;ch",
+      "Main bag": "T&#250;i ch&#237;nh",
+      "Main bag rate": "T&#7889;c &#273;&#7897; t&#250;i ch&#237;nh",
+      "Total main bag": "T&#7893;ng t&#250;i ch&#237;nh",
+      "Main bag infusion rate": "T&#7889;c &#273;&#7897; truy&#7873;n t&#250;i ch&#237;nh",
+      "Final glucose concentration": "N&#7891;ng &#273;&#7897; glucose cu&#7889;i c&#249;ng",
+      "Scaled compound": "Tam su&#7845;t pha",
+      "Total compound": "T&#7893;ng pha",
+      "Scale ratio": "T&#7927; l&#7879; quy &#273;&#7893;i",
+      "Separate lipid infusion": "Lipid truy&#7873;n ri&#234;ng",
+      "Lipid rate": "T&#7889;c &#273;&#7897; truy&#7873;n lipid",
+      "Lipid calories": "N&#259;ng l&#432;&#7907;ng lipid",
+      "Electrolytes": "&#272;i&#7879;n gi&#7843;i",
+      "Target Na": "Na m&#7909;c ti&#234;u",
+      "Actual Na": "Na th&#7921;c nh&#7853;n",
+      "Na from NaCl 0.9%": "Na t&#7915; NaCl 0.9%",
+      "Na from NaCl 10%": "Na t&#7915; NaCl 10%",
+      "Target K": "K m&#7909;c ti&#234;u",
+      "Target Ca": "Ca m&#7909;c ti&#234;u",
+      "Total Cl": "T&#7893;ng Cl",
+      "Calories": "N&#259;ng l&#432;&#7907;ng",
+      "Glucose": "Glucose",
+      "Protein": "&#272;&#7841;m",
+      "Total calories": "T&#7893;ng n&#259;ng l&#432;&#7907;ng",
+      "Warnings to review": "C&#7843;nh b&#225;o c&#7847;n ki&#7875;m tra"
+    }
+  };
+
+  Object.entries(pnTranslations).forEach(([language, values]) => {
+    translations[language] = { ...(translations[language] || {}), ...values };
+  });
+
   let activeLanguage = languageFromPath() || readLanguage();
   let formDraft = null;
   let resultsVisible = page === "results" || page === "charts";
@@ -2069,7 +2126,7 @@
     { label: "Growth Charts", href: "/growth-charts/" },
     { label: "Articles", href: "/articles/" },
     { label: "About", href: "/about/" },
-    { label: "Pha d&#7883;ch nu&#244;i &#259;n t&#297;nh m&#7841;ch", href: "/parenteral-nutrition-calculator/", cta: true }
+    { label: "Parenteral Nutrition", href: "/parenteral-nutrition-calculator/" }
   ];
 
   const tools = [
@@ -2184,8 +2241,8 @@
       eyebrow: "Head circumference"
     },
     pn: {
-      title: "Pha d&#7883;ch nu&#244;i &#259;n t&#297;nh m&#7841;ch",
-      copy: "T&#237;nh d&#7883;ch duy tr&#236;, t&#250;i ch&#237;nh, lipid truy&#7873;n ri&#234;ng, &#273;i&#7879;n gi&#7843;i, n&#259;ng l&#432;&#7907;ng v&#224; GIR cho tr&#7867; em.",
+      title: "Pediatric Parenteral Nutrition Calculator",
+      copy: "Calculate daily maintenance fluid, main bag, separate lipid infusion, electrolytes, calories, and GIR for children.",
       eyebrow: "Parenteral nutrition calculator"
     }
   };
@@ -2561,7 +2618,7 @@
             <span>GrowthKid</span>
           </a>
           <nav class="nav-links" aria-label="Primary navigation">
-            ${navItems.map((item) => `<a class="${item.cta ? "nav-tool-button" : ""}" href="${localizedHref(item.href)}">${item.label}</a>`).join("")}
+            ${navItems.map((item) => `<a href="${localizedHref(item.href)}">${t(item.label)}</a>`).join("")}
           </nav>
           <div class="nav-actions">
             <label class="language" aria-label="Language selector">
@@ -2581,7 +2638,7 @@
               ${languageSelectOptions()}
             </select>
           </label>
-          ${navItems.map((item) => `<a class="${item.cta ? "nav-tool-button" : ""}" href="${localizedHref(item.href)}">${item.label}</a>`).join("")}
+          ${navItems.map((item) => `<a href="${localizedHref(item.href)}">${t(item.label)}</a>`).join("")}
           <a href="${localizedHref("/child-growth-calculator/")}">Start Calculator</a>
         </div>
       </header>
@@ -2834,13 +2891,13 @@
           <div class="growth-3d-scene" data-growth-3d aria-hidden="true"></div>
           <div class="container page-hero-row">
             <div>
-              <span class="eyebrow">${cfg.eyebrow}</span>
-              <h1>${cfg.title}</h1>
-              <p class="page-copy">${cfg.copy}</p>
+              <span class="eyebrow">${t(cfg.eyebrow)}</span>
+              <h1>${t(cfg.title)}</h1>
+              <p class="page-copy">${t(cfg.copy)}</p>
             </div>
             <div class="side-panel pn-disclaimer">
-              <h2>L&#432;u &#253; an to&#224;n</h2>
-              <p>C&#244;ng c&#7909; ch&#7881; h&#7895; tr&#7907; t&#237;nh to&#225;n. Kh&#244;ng thay th&#7871; y l&#7879;nh, quy tr&#236;nh pha ch&#7871; khoa d&#432;&#7907;c, x&#233;t nghi&#7879;m v&#224; &#273;&#225;nh gi&#225; l&#226;m s&#224;ng.</p>
+              <h2>${t("Safety note")}</h2>
+              <p>${t("This calculator supports calculations only. It does not replace medical orders, pharmacy compounding protocols, laboratory review, or clinical assessment.")}</p>
             </div>
           </div>
         </section>
@@ -2859,16 +2916,16 @@
       <form class="calculator-card pn-card" id="pnForm">
         <div class="card-heading">
           <span class="eyebrow">PN calculator</span>
-          <h2>T&#237;nh t&#250;i ch&#237;nh v&#224; lipid truy&#7873;n ri&#234;ng</h2>
-          <p>M&#7863;c &#273;&#7883;nh t&#237;nh cho 24 gi&#7901;. Lipid 20% &#273;&#432;&#7907;c t&#237;nh truy&#7873;n ri&#234;ng, kh&#244;ng n&#7857;m trong b&#7843;ng t&#250;i ch&#237;nh.</p>
+          <h2>${t("Calculate main bag and separate lipid")}</h2>
+          <p>${t("Defaults are calculated over 24 hours. Lipid 20% is calculated as a separate infusion and is not included in the main bag table.")}</p>
           <div class="pn-mode-control" role="radiogroup" aria-label="Calculation mode">
-            <label><input type="radio" name="sodiumMode" value="baseFill" checked> <span>Mode 1: NaCl 0.9% b&#249; th&#7875; t&#237;ch</span></label>
-            <label><input type="radio" name="sodiumMode" value="targetNa"> <span>Mode 2: &#431;u ti&#234;n &#273;&#250;ng Na m&#7909;c ti&#234;u</span></label>
+            <label><input type="radio" name="sodiumMode" value="baseFill" checked> <span>${t("Mode 1: NaCl 0.9% fills remaining volume")}</span></label>
+            <label><input type="radio" name="sodiumMode" value="targetNa"> <span>${t("Mode 2: Prioritize target sodium")}</span></label>
           </div>
         </div>
         <div class="form-grid pn-form-grid">
-          ${pnNumberField("weightKg", "C&#226;n n&#7863;ng (kg)", "10", "0.1")}
-          ${pnNumberField("proteinGPerKgDay", "&#272;&#7841;m (g/kg/ng&#224;y)", "2", "0.1")}
+          ${pnNumberField("weightKg", "Weight (kg)", "10", "0.1")}
+          ${pnNumberField("proteinGPerKgDay", "Protein (g/kg/day)", "2", "0.1")}
           <div class="field">
             <label for="aminoAcidPercent">Amino acid</label>
             <select id="aminoAcidPercent" name="aminoAcidPercent">
@@ -2877,15 +2934,15 @@
               <option value="20">Amino acid 20%</option>
             </select>
           </div>
-          ${pnNumberField("lipidGPerKgDay", "Lipid (g/kg/ng&#224;y)", "2", "0.1")}
-          ${pnNumberField("naMEqPerKgDay", "Na (mEq/kg/ng&#224;y)", "2", "0.1")}
-          ${pnNumberField("kMEqPerKgDay", "K (mEq/kg/ng&#224;y)", "2", "0.1")}
-          ${pnNumberField("caMEqPerKgDay", "Ca (mEq/kg/ng&#224;y)", "0.5", "0.1")}
-          ${pnNumberField("targetDextrosePercent", "Glucose m&#7909;c ti&#234;u trong t&#250;i ch&#237;nh (%)", "12.5", "0.1")}
-          ${pnNumberField("desiredCompoundVolumeMl", "Th&#7875; t&#237;ch mu&#7889;n pha tam su&#7845;t (mL)", "500", "1")}
+          ${pnNumberField("lipidGPerKgDay", "Lipid (g/kg/day)", "2", "0.1")}
+          ${pnNumberField("naMEqPerKgDay", "Na (mEq/kg/day)", "2", "0.1")}
+          ${pnNumberField("kMEqPerKgDay", "K (mEq/kg/day)", "2", "0.1")}
+          ${pnNumberField("caMEqPerKgDay", "Ca (mEq/kg/day)", "0.5", "0.1")}
+          ${pnNumberField("targetDextrosePercent", "Target glucose in main bag (%)", "12.5", "0.1")}
+          ${pnNumberField("desiredCompoundVolumeMl", "Compound volume for scaling (mL)", "500", "1")}
         </div>
         <div class="form-error" id="pnFormError"></div>
-        <button class="btn btn-primary calc-submit" type="submit">T&#237;nh pha d&#7883;ch ${icon("arrow")}</button>
+        <button class="btn btn-primary calc-submit" type="submit">${t("Calculate PN")} ${icon("arrow")}</button>
       </form>
     `;
   }
@@ -2893,7 +2950,7 @@
   function pnNumberField(name, label, value, step) {
     return `
       <div class="field">
-        <label for="${name}">${label}</label>
+        <label for="${name}">${t(label)}</label>
         <input id="${name}" name="${name}" type="number" inputmode="decimal" min="0" step="${step}" value="${value}" required>
       </div>
     `;
@@ -3111,17 +3168,17 @@
     return `
       <div class="pn-result-stack">
         <div class="result-card pn-summary-card">
-          <h2>K&#7871;t qu&#7843; pha d&#7883;ch</h2>
+          <h2>${t("PN results")}</h2>
           <div class="result-grid pn-summary-grid">
-            ${pnMetric("C&#226;n n&#7863;ng", `${pnFmt(result.input.weightKg, 1)} kg`)}
-            ${pnMetric("Ch&#7871; &#273;&#7897;", result.input.sodiumMode === "targetNa" ? "Mode 2: Na m&#7909;c ti&#234;u" : "Mode 1: NaCl 0.9% b&#249;")}
-            ${pnMetric("T&#7893;ng d&#7883;ch", `${pnFmt(result.fluid.totalFluidMlDay, 0)} mL/ng&#224;y`)}
-            ${pnMetric("T&#250;i ch&#237;nh", `${pnFmt(result.fluid.mainBagTargetVolumeMl, 1)} mL/ng&#224;y`)}
-            ${pnMetric("T&#7889;c &#273;&#7897; t&#250;i ch&#237;nh", `${pnFmt(result.fluid.mainBagRateMlHour, 2)} mL/gi&#7901;`)}
+            ${pnMetric("Weight", `${pnFmt(result.input.weightKg, 1)} kg`)}
+            ${pnMetric("Mode", result.input.sodiumMode === "targetNa" ? t("Mode 2: target sodium") : t("Mode 1: NaCl 0.9% fill"))}
+            ${pnMetric("Total fluid", `${pnFmt(result.fluid.totalFluidMlDay, 0)} mL/day`)}
+            ${pnMetric("Main bag", `${pnFmt(result.fluid.mainBagTargetVolumeMl, 1)} mL/day`)}
+            ${pnMetric("Main bag rate", `${pnFmt(result.fluid.mainBagRateMlHour, 2)} mL/hour`)}
           </div>
         </div>
 
-        ${pnTable("T&#250;i ch&#237;nh", [
+        ${pnTable("Main bag", [
           ["NaCl 10%", `${pnFmt(result.mainBagComposition.NaCl10VolumeMl, 2)} mL`],
           ["KCl 10%", `${pnFmt(result.mainBagComposition.KCl10VolumeMl, 2)} mL`],
           ["CaCl2 10%", `${pnFmt(result.mainBagComposition.CaCl2VolumeMl, 2)} mL`],
@@ -3129,13 +3186,13 @@
           ["D30", `${pnFmt(result.mainBagComposition.D30VolumeMl, 2)} mL`],
           [`Amino acid ${pnFmt(result.macronutrients.aminoAcidPercent, 0)}%`, `${pnFmt(result.mainBagComposition.aminoAcidVolumeMl, 2)} mL`],
           ["NaCl 0.9%", `${pnFmt(result.mainBagComposition.NaCl09VolumeMl, 2)} mL`],
-          ["T&#7893;ng t&#250;i ch&#237;nh", `${pnFmt(result.mainBagComposition.finalMainBagVolumeMl, 2)} mL/ng&#224;y`],
-          ["T&#7889;c &#273;&#7897; truy&#7873;n t&#250;i ch&#237;nh", `${pnFmt(result.fluid.mainBagRateMlHour, 2)} mL/gi&#7901;`],
-          ["N&#7891;ng &#273;&#7897; glucose cu&#7889;i c&#249;ng", `D${pnFmt(result.macronutrients.targetDextrosePercent, 1)}%`],
-          ["GIR", `${pnFmt(result.macronutrients.GIR_mg_kg_min, 2)} mg/kg/ph&#250;t`]
+          ["Total main bag", `${pnFmt(result.mainBagComposition.finalMainBagVolumeMl, 2)} mL/day`],
+          ["Main bag infusion rate", `${pnFmt(result.fluid.mainBagRateMlHour, 2)} mL/hour`],
+          ["Final glucose concentration", `D${pnFmt(result.macronutrients.targetDextrosePercent, 1)}%`],
+          ["GIR", `${pnFmt(result.macronutrients.GIR_mg_kg_min, 2)} mg/kg/min`]
         ])}
 
-        ${pnTable(`Tam su&#7845;t pha ${pnFmt(result.scaling.desiredVolumeMl, 0)} mL`, [
+        ${pnTable(`${t("Scaled compound")} ${pnFmt(result.scaling.desiredVolumeMl, 0)} mL`, [
           ["NaCl 10%", `${pnFmt(result.scaling.NaCl10VolumeMl, 2)} mL`],
           ["KCl 10%", `${pnFmt(result.scaling.KCl10VolumeMl, 2)} mL`],
           ["CaCl2 10%", `${pnFmt(result.scaling.CaCl2VolumeMl, 2)} mL`],
@@ -3143,64 +3200,64 @@
           ["D30", `${pnFmt(result.scaling.D30VolumeMl, 2)} mL`],
           [`Amino acid ${pnFmt(result.macronutrients.aminoAcidPercent, 0)}%`, `${pnFmt(result.scaling.aminoAcidVolumeMl, 2)} mL`],
           ["NaCl 0.9%", `${pnFmt(result.scaling.NaCl09VolumeMl, 2)} mL`],
-          ["T&#7893;ng pha", `${pnFmt(result.scaling.desiredVolumeMl, 2)} mL`],
-          ["T&#7927; l&#7879; quy &#273;&#7893;i", `${pnFmt(result.scaling.ratio, 4)} x`]
+          ["Total compound", `${pnFmt(result.scaling.desiredVolumeMl, 2)} mL`],
+          ["Scale ratio", `${pnFmt(result.scaling.ratio, 4)} x`]
         ])}
 
         <div class="pn-two-col">
-          ${pnTable("Lipid truy&#7873;n ri&#234;ng", [
-            ["Lipid 20%", `${pnFmt(result.fluid.lipidVolumeMl, 2)} mL/ng&#224;y`],
-            ["T&#7889;c &#273;&#7897; truy&#7873;n lipid", `${pnFmt(result.fluid.lipidRateMlHour, 2)} mL/gi&#7901;`],
-            ["N&#259;ng l&#432;&#7907;ng lipid", `${pnFmt(result.calories.lipidKcal, 1)} kcal/ng&#224;y`]
+          ${pnTable("Separate lipid infusion", [
+            ["Lipid 20%", `${pnFmt(result.fluid.lipidVolumeMl, 2)} mL/day`],
+            ["Lipid rate", `${pnFmt(result.fluid.lipidRateMlHour, 2)} mL/hour`],
+            ["Lipid calories", `${pnFmt(result.calories.lipidKcal, 1)} kcal/day`]
           ])}
-          ${pnTable("&#272;i&#7879;n gi&#7843;i", [
-            ["Na m&#7909;c ti&#234;u", `${pnFmt(result.electrolytes.targetNaMEqDay, 2)} mEq/ng&#224;y`],
-            ["Na th&#7921;c nh&#7853;n", `${pnFmt(result.electrolytes.actualNaMEqDay, 2)} mEq/ng&#224;y`],
-            ["Na t&#7915; NaCl 0.9%", `${pnFmt(result.electrolytes.baseNaFromNaCl09MEq, 2)} mEq/ng&#224;y`],
-            ["Na t&#7915; NaCl 10%", `${pnFmt(result.electrolytes.NaFromNaCl10MEq, 2)} mEq/ng&#224;y`],
-            ["K m&#7909;c ti&#234;u", `${pnFmt(result.electrolytes.targetKMEqDay, 2)} mEq/ng&#224;y`],
-            ["Ca m&#7909;c ti&#234;u", `${pnFmt(result.electrolytes.targetCaMEqDay, 2)} mEq/ng&#224;y`],
-            ["T&#7893;ng Cl", `${pnFmt(result.electrolytes.totalClMEqDay, 2)} mEq/ng&#224;y`],
-            ["T&#7893;ng Cl", `${pnFmt(result.electrolytes.totalClMEqKgDay, 2)} mEq/kg/ng&#224;y`]
+          ${pnTable("Electrolytes", [
+            ["Target Na", `${pnFmt(result.electrolytes.targetNaMEqDay, 2)} mEq/day`],
+            ["Actual Na", `${pnFmt(result.electrolytes.actualNaMEqDay, 2)} mEq/day`],
+            ["Na from NaCl 0.9%", `${pnFmt(result.electrolytes.baseNaFromNaCl09MEq, 2)} mEq/day`],
+            ["Na from NaCl 10%", `${pnFmt(result.electrolytes.NaFromNaCl10MEq, 2)} mEq/day`],
+            ["Target K", `${pnFmt(result.electrolytes.targetKMEqDay, 2)} mEq/day`],
+            ["Target Ca", `${pnFmt(result.electrolytes.targetCaMEqDay, 2)} mEq/day`],
+            ["Total Cl", `${pnFmt(result.electrolytes.totalClMEqDay, 2)} mEq/day`],
+            ["Total Cl", `${pnFmt(result.electrolytes.totalClMEqKgDay, 2)} mEq/kg/day`]
           ])}
         </div>
 
-        ${pnTable("N&#259;ng l&#432;&#7907;ng", [
-          ["Glucose", `${pnFmt(result.calories.dextroseKcal, 1)} kcal/ng&#224;y`],
-          ["&#272;&#7841;m", `${pnFmt(result.calories.proteinKcal, 1)} kcal/ng&#224;y`],
-          ["Lipid", `${pnFmt(result.calories.lipidKcal, 1)} kcal/ng&#224;y`],
-          ["T&#7893;ng n&#259;ng l&#432;&#7907;ng", `${pnFmt(result.calories.totalKcalDay, 1)} kcal/ng&#224;y`],
-          ["T&#7893;ng n&#259;ng l&#432;&#7907;ng", `${pnFmt(result.calories.totalKcalKgDay, 1)} kcal/kg/ng&#224;y`],
-          ["Non-protein kcal", `${pnFmt(result.calories.nonProteinKcal, 1)} kcal/ng&#224;y`]
+        ${pnTable("Calories", [
+          ["Glucose", `${pnFmt(result.calories.dextroseKcal, 1)} kcal/day`],
+          ["Protein", `${pnFmt(result.calories.proteinKcal, 1)} kcal/day`],
+          ["Lipid", `${pnFmt(result.calories.lipidKcal, 1)} kcal/day`],
+          ["Total calories", `${pnFmt(result.calories.totalKcalDay, 1)} kcal/day`],
+          ["Total calories", `${pnFmt(result.calories.totalKcalKgDay, 1)} kcal/kg/day`],
+          ["Non-protein kcal", `${pnFmt(result.calories.nonProteinKcal, 1)} kcal/day`]
         ])}
 
         ${result.warnings.length ? `
           <div class="side-panel pn-warning-panel">
-            <h2>C&#7843;nh b&#225;o c&#7847;n ki&#7875;m tra</h2>
-            <ul>${result.warnings.map((warning) => `<li>${escapeHtml(warning)}</li>`).join("")}</ul>
+            <h2>${t("Warnings to review")}</h2>
+            <ul>${result.warnings.map((warning) => `<li>${escapeHtml(t(warning))}</li>`).join("")}</ul>
           </div>
         ` : ""}
 
         <div class="side-panel pn-disclaimer">
           <h2>Disclaimer</h2>
-          <p>C&#244;ng c&#7909; ch&#7881; h&#7895; tr&#7907; t&#237;nh to&#225;n. Kh&#244;ng thay th&#7871; y l&#7879;nh c&#7911;a b&#225;c s&#297;, quy tr&#236;nh pha ch&#7871; c&#7911;a khoa d&#432;&#7907;c v&#224; ki&#7875;m tra l&#226;m s&#224;ng/x&#233;t nghi&#7879;m. C&#7847;n x&#225;c nh&#7853;n n&#7891;ng &#273;&#7897; th&#7921;c t&#7871; c&#7911;a t&#7915;ng s&#7843;n ph&#7849;m t&#7841;i c&#417; s&#7903; tr&#432;&#7899;c khi s&#7917; d&#7909;ng.</p>
+          <p>${t("This calculator supports calculations only. It does not replace medical orders, pharmacy compounding protocols, laboratory review, or clinical assessment.")}</p>
         </div>
       </div>
     `;
   }
 
   function pnMetric(label, value) {
-    return `<div class="pn-mini-metric"><span>${label}</span><strong>${value}</strong></div>`;
+    return `<div class="pn-mini-metric"><span>${t(label)}</span><strong>${value}</strong></div>`;
   }
 
   function pnTable(title, rows) {
     return `
       <div class="result-card pn-table-card">
-        <h2>${title}</h2>
+        <h2>${t(title)}</h2>
         <div class="trend-table-wrap">
           <table class="trend-table pn-table">
             <tbody>
-              ${rows.map(([label, value]) => `<tr><th>${label}</th><td>${value}</td></tr>`).join("")}
+              ${rows.map(([label, value]) => `<tr><th>${t(label)}</th><td>${value}</td></tr>`).join("")}
             </tbody>
           </table>
         </div>
