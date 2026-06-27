@@ -2858,9 +2858,13 @@
     return `
       <form class="calculator-card pn-card" id="pnForm">
         <div class="card-heading">
-          <span class="eyebrow">Mode 1</span>
-          <h2>NaCl 0.9% b&#249; th&#7875; t&#237;ch c&#242;n l&#7841;i</h2>
-          <p>Nh&#7853;p nhu c&#7847;u trong ng&#224;y. Lipid 20% &#273;&#432;&#7907;c t&#237;nh truy&#7873;n ri&#234;ng, kh&#244;ng n&#7857;m trong b&#7843;ng t&#250;i ch&#237;nh.</p>
+          <span class="eyebrow">PN calculator</span>
+          <h2>T&#237;nh t&#250;i ch&#237;nh v&#224; lipid truy&#7873;n ri&#234;ng</h2>
+          <p>M&#7863;c &#273;&#7883;nh t&#237;nh cho 24 gi&#7901;. Lipid 20% &#273;&#432;&#7907;c t&#237;nh truy&#7873;n ri&#234;ng, kh&#244;ng n&#7857;m trong b&#7843;ng t&#250;i ch&#237;nh.</p>
+          <div class="pn-mode-control" role="radiogroup" aria-label="Calculation mode">
+            <label><input type="radio" name="sodiumMode" value="baseFill" checked> <span>Mode 1: NaCl 0.9% b&#249; th&#7875; t&#237;ch</span></label>
+            <label><input type="radio" name="sodiumMode" value="targetNa"> <span>Mode 2: &#431;u ti&#234;n &#273;&#250;ng Na m&#7909;c ti&#234;u</span></label>
+          </div>
         </div>
         <div class="form-grid pn-form-grid">
           ${pnNumberField("weightKg", "C&#226;n n&#7863;ng (kg)", "10", "0.1")}
@@ -2878,10 +2882,7 @@
           ${pnNumberField("kMEqPerKgDay", "K (mEq/kg/ng&#224;y)", "2", "0.1")}
           ${pnNumberField("caMEqPerKgDay", "Ca (mEq/kg/ng&#224;y)", "0.5", "0.1")}
           ${pnNumberField("targetDextrosePercent", "Glucose m&#7909;c ti&#234;u trong t&#250;i ch&#237;nh (%)", "12.5", "0.1")}
-          ${pnNumberField("otherIVFluidMlDay", "D&#7883;ch kh&#225;c ngo&#224;i PN (mL/ng&#224;y)", "0", "1")}
-          ${pnNumberField("otherAdditivesMlDay", "Ph&#7909; gia kh&#225;c trong t&#250;i ch&#237;nh (mL/ng&#224;y)", "0", "1")}
-          ${pnNumberField("infusionHoursMainBag", "Gi&#7901; truy&#7873;n t&#250;i ch&#237;nh", "24", "1")}
-          ${pnNumberField("infusionHoursLipid", "Gi&#7901; truy&#7873;n lipid", "24", "1")}
+          ${pnNumberField("desiredCompoundVolumeMl", "Th&#7875; t&#237;ch mu&#7889;n pha tam su&#7845;t (mL)", "500", "1")}
         </div>
         <div class="form-error" id="pnFormError"></div>
         <button class="btn btn-primary calc-submit" type="submit">T&#237;nh pha d&#7883;ch ${icon("arrow")}</button>
@@ -2907,8 +2908,9 @@
 
   function calculatePn(input) {
     const weightKg = pnPositive(input.weightKg, "Can nang phai > 0.");
-    const infusionHoursMainBag = pnPositive(input.infusionHoursMainBag, "Gio truyen tui chinh phai > 0.");
-    const infusionHoursLipid = pnPositive(input.infusionHoursLipid, "Gio truyen lipid phai > 0.");
+    const infusionHoursMainBag = 24;
+    const infusionHoursLipid = 24;
+    const sodiumMode = input.sodiumMode === "targetNa" ? "targetNa" : "baseFill";
     const proteinGPerKgDay = pnNonNegative(input.proteinGPerKgDay, "Dam khong duoc am.");
     const aminoAcidPercent = pnPositive(input.aminoAcidPercent, "Chon nong do amino acid.");
     const lipidGPerKgDay = pnNonNegative(input.lipidGPerKgDay, "Lipid khong duoc am.");
@@ -2916,8 +2918,9 @@
     const kMEqPerKgDay = pnNonNegative(input.kMEqPerKgDay, "K khong duoc am.");
     const caMEqPerKgDay = pnNonNegative(input.caMEqPerKgDay, "Ca khong duoc am.");
     const targetDextrosePercent = pnNonNegative(input.targetDextrosePercent, "Glucose khong duoc am.");
-    const otherIVFluidMlDay = pnNonNegative(input.otherIVFluidMlDay, "Dich khac khong duoc am.");
-    const otherAdditivesMlDay = pnNonNegative(input.otherAdditivesMlDay, "Phu gia khac khong duoc am.");
+    const otherIVFluidMlDay = 0;
+    const otherAdditivesMlDay = 0;
+    const desiredCompoundVolumeMl = pnPositive(input.desiredCompoundVolumeMl || 500, "The tich tam suat phai > 0.");
     const warnings = [];
 
     const totalFluidMlDay = calculateMaintenanceFluidMlDay(weightKg);
@@ -2951,15 +2954,13 @@
       throw new Error("Khong du the tich de dat nong do glucose muc tieu bang D30.");
     }
 
-    const dextroseVolumeNoNaOverTargetMl = targetNaMEqDay > 0
-      ? remainingAfterFixedMl - (targetNaMEqDay / pnProducts.NaCl09.Na)
-      : remainingAfterFixedMl;
-    let dextroseSolutionVolumeMl = clamp(
-      dextroseVolumeNoNaOverTargetMl,
+    const dextroseSolutionVolumeMl = choosePnDextroseVolume({
+      sodiumMode,
+      targetNaMEqDay,
+      remainingAfterFixedMl,
       minDextroseSolutionVolumeMl,
-      Math.min(maxDextroseSolutionVolumeMl, remainingAfterFixedMl)
-    );
-    if (!Number.isFinite(dextroseSolutionVolumeMl)) dextroseSolutionVolumeMl = minDextroseSolutionVolumeMl;
+      maxDextroseSolutionVolumeMl
+    });
 
     let D30VolumeMl = (targetDextroseG - pnProducts.D10.glucose * dextroseSolutionVolumeMl) / (pnProducts.D30.glucose - pnProducts.D10.glucose);
     let D10VolumeMl = dextroseSolutionVolumeMl - D30VolumeMl;
@@ -2976,17 +2977,11 @@
     NaCl09VolumeMl = Math.max(0, NaCl09VolumeMl);
 
     let NaCl10VolumeMl = 0;
-    const baseNaBeforeNaCl10MEq = NaCl09VolumeMl * pnProducts.NaCl09.Na;
-    if (targetNaMEqDay > baseNaBeforeNaCl10MEq) {
-      NaCl10VolumeMl = (targetNaMEqDay - baseNaBeforeNaCl10MEq) / (pnProducts.NaCl10.Na - pnProducts.NaCl09.Na);
-      NaCl09VolumeMl -= NaCl10VolumeMl;
-      if (NaCl09VolumeMl < -0.000001) {
-        throw new Error("Khong du the tich NaCl 0.9% de thay bang NaCl 10%. Can xem lai glucose, tong dich hoac dien giai.");
-      }
-      NaCl09VolumeMl = Math.max(0, NaCl09VolumeMl);
-    } else if (baseNaBeforeNaCl10MEq >= targetNaMEqDay && targetNaMEqDay > 0) {
-      warnings.push("Na tu NaCl 0.9% da bang hoac vuot nhu cau Na muc tieu. Khong them NaCl 10%.");
-    }
+    const sodiumMix = sodiumMode === "targetNa"
+      ? solveTargetSodiumMix(targetNaMEqDay, NaCl09VolumeMl)
+      : solveBaseFillSodiumMix(targetNaMEqDay, NaCl09VolumeMl, warnings);
+    NaCl10VolumeMl = sodiumMix.NaCl10VolumeMl;
+    NaCl09VolumeMl = sodiumMix.NaCl09VolumeMl;
 
     const baseNaMEq = NaCl09VolumeMl * pnProducts.NaCl09.Na;
     const NaFromNaCl10MEq = NaCl10VolumeMl * pnProducts.NaCl10.Na;
@@ -3019,13 +3014,84 @@
     if (CaCl2VolumeMl > 0) warnings.push("Can kiem tra tuong hop CaCl2, dac biet neu sau nay them phosphate.");
 
     return {
-      input: { weightKg, proteinGPerKgDay, aminoAcidPercent, lipidGPerKgDay, naMEqPerKgDay, kMEqPerKgDay, caMEqPerKgDay, targetDextrosePercent, otherIVFluidMlDay, otherAdditivesMlDay, infusionHoursMainBag, infusionHoursLipid },
+      input: { weightKg, proteinGPerKgDay, aminoAcidPercent, lipidGPerKgDay, naMEqPerKgDay, kMEqPerKgDay, caMEqPerKgDay, targetDextrosePercent, otherIVFluidMlDay, otherAdditivesMlDay, infusionHoursMainBag, infusionHoursLipid, sodiumMode, desiredCompoundVolumeMl },
       fluid: { totalFluidMlDay, totalFluidRateMlHour: totalFluidMlDay / 24, mainBagTargetVolumeMl, mainBagRateMlHour, infusionHoursMainBag, lipidVolumeMl, lipidRateMlHour, infusionHoursLipid },
       mainBagComposition: { NaCl10VolumeMl, KCl10VolumeMl, CaCl2VolumeMl, D10VolumeMl, D30VolumeMl, aminoAcidVolumeMl, NaCl09VolumeMl, otherAdditivesMlDay, finalMainBagVolumeMl, roundingDifferenceMl },
       macronutrients: { proteinGDay, proteinGPerKgDay, aminoAcidPercent, lipidGDay, lipidGPerKgDay, lipidVolumeMl, targetDextrosePercent, targetDextroseG, GIR_mg_kg_min },
       electrolytes: { targetNaMEqDay, actualNaMEqDay, baseNaFromNaCl09MEq: baseNaMEq, NaFromNaCl10MEq, NaDifferenceMEq, NaDifferenceMEqKgDay, targetKMEqDay, actualKMEqDay: targetKMEqDay, KCl10VolumeMl, targetCaMEqDay, actualCaMEqDay: targetCaMEqDay, CaCl2VolumeMl, totalClMEqDay, totalClMEqKgDay },
       calories: { dextroseKcal, proteinKcal, lipidKcal, totalKcalDay, totalKcalKgDay: totalKcalDay / weightKg, nonProteinKcal: dextroseKcal + lipidKcal },
+      scaling: calculatePnScaling({ NaCl10VolumeMl, KCl10VolumeMl, CaCl2VolumeMl, D10VolumeMl, D30VolumeMl, aminoAcidVolumeMl, NaCl09VolumeMl, finalMainBagVolumeMl }, desiredCompoundVolumeMl),
       warnings
+    };
+  }
+
+  function choosePnDextroseVolume({ sodiumMode, targetNaMEqDay, remainingAfterFixedMl, minDextroseSolutionVolumeMl, maxDextroseSolutionVolumeMl }) {
+    const upperDextrose = Math.min(maxDextroseSolutionVolumeMl, remainingAfterFixedMl);
+    if (sodiumMode !== "targetNa") {
+      const dextroseVolumeNoNaOverTargetMl = remainingAfterFixedMl - (targetNaMEqDay > 0 ? targetNaMEqDay / pnProducts.NaCl09.Na : 0);
+      return clamp(dextroseVolumeNoNaOverTargetMl, minDextroseSolutionVolumeMl, upperDextrose);
+    }
+
+    if (targetNaMEqDay <= 0) {
+      if (remainingAfterFixedMl > upperDextrose + 0.000001) {
+        throw new Error("Mode 2 khong the dat Na bang 0 vi van can dung NaCl 0.9% de bu the tich.");
+      }
+      return upperDextrose;
+    }
+
+    const dextroseLowerByNa = remainingAfterFixedMl - targetNaMEqDay / pnProducts.NaCl09.Na;
+    const dextroseUpperByNa = remainingAfterFixedMl - targetNaMEqDay / pnProducts.NaCl10.Na;
+    const lower = Math.max(minDextroseSolutionVolumeMl, dextroseLowerByNa, 0);
+    const upper = Math.min(upperDextrose, dextroseUpperByNa);
+    if (lower > upper + 0.000001) {
+      throw new Error("Mode 2 khong the vua dat Na muc tieu vua dat glucose bang D10/D30 voi the tich hien tai.");
+    }
+    return lower;
+  }
+
+  function solveBaseFillSodiumMix(targetNaMEqDay, initialNaCl09VolumeMl, warnings) {
+    let NaCl09VolumeMl = initialNaCl09VolumeMl;
+    let NaCl10VolumeMl = 0;
+    const baseNaBeforeNaCl10MEq = NaCl09VolumeMl * pnProducts.NaCl09.Na;
+    if (targetNaMEqDay > baseNaBeforeNaCl10MEq) {
+      NaCl10VolumeMl = (targetNaMEqDay - baseNaBeforeNaCl10MEq) / (pnProducts.NaCl10.Na - pnProducts.NaCl09.Na);
+      NaCl09VolumeMl -= NaCl10VolumeMl;
+      if (NaCl09VolumeMl < -0.000001) {
+        throw new Error("Khong du the tich NaCl 0.9% de thay bang NaCl 10%. Can xem lai glucose, tong dich hoac dien giai.");
+      }
+      NaCl09VolumeMl = Math.max(0, NaCl09VolumeMl);
+    } else if (baseNaBeforeNaCl10MEq >= targetNaMEqDay && targetNaMEqDay > 0) {
+      warnings.push("Na tu NaCl 0.9% da bang hoac vuot nhu cau Na muc tieu. Khong them NaCl 10%.");
+    }
+    return { NaCl10VolumeMl, NaCl09VolumeMl };
+  }
+
+  function solveTargetSodiumMix(targetNaMEqDay, sodiumVolumeMl) {
+    if (targetNaMEqDay <= 0) return { NaCl10VolumeMl: 0, NaCl09VolumeMl: sodiumVolumeMl };
+    const minNa = sodiumVolumeMl * pnProducts.NaCl09.Na;
+    const maxNa = sodiumVolumeMl * pnProducts.NaCl10.Na;
+    if (targetNaMEqDay < minNa - 0.000001) {
+      throw new Error("Mode 2 khong the dat Na muc tieu vi NaCl 0.9% da cung cap Na cao hon muc tieu. Hay giam the tich con lai hoac chon Mode 1.");
+    }
+    if (targetNaMEqDay > maxNa + 0.000001) {
+      throw new Error("Mode 2 khong the dat Na muc tieu voi the tich con lai. Can giam glucose, tang the tich tui chinh hoac xem lai Na muc tieu.");
+    }
+    const NaCl10VolumeMl = (targetNaMEqDay - minNa) / (pnProducts.NaCl10.Na - pnProducts.NaCl09.Na);
+    return { NaCl10VolumeMl, NaCl09VolumeMl: sodiumVolumeMl - NaCl10VolumeMl };
+  }
+
+  function calculatePnScaling(volumes, desiredVolumeMl) {
+    const ratio = desiredVolumeMl / (volumes.finalMainBagVolumeMl || 1);
+    return {
+      desiredVolumeMl,
+      ratio,
+      NaCl10VolumeMl: volumes.NaCl10VolumeMl * ratio,
+      KCl10VolumeMl: volumes.KCl10VolumeMl * ratio,
+      CaCl2VolumeMl: volumes.CaCl2VolumeMl * ratio,
+      D10VolumeMl: volumes.D10VolumeMl * ratio,
+      D30VolumeMl: volumes.D30VolumeMl * ratio,
+      aminoAcidVolumeMl: volumes.aminoAcidVolumeMl * ratio,
+      NaCl09VolumeMl: volumes.NaCl09VolumeMl * ratio
     };
   }
 
@@ -3048,6 +3114,7 @@
           <h2>K&#7871;t qu&#7843; pha d&#7883;ch</h2>
           <div class="result-grid pn-summary-grid">
             ${pnMetric("C&#226;n n&#7863;ng", `${pnFmt(result.input.weightKg, 1)} kg`)}
+            ${pnMetric("Ch&#7871; &#273;&#7897;", result.input.sodiumMode === "targetNa" ? "Mode 2: Na m&#7909;c ti&#234;u" : "Mode 1: NaCl 0.9% b&#249;")}
             ${pnMetric("T&#7893;ng d&#7883;ch", `${pnFmt(result.fluid.totalFluidMlDay, 0)} mL/ng&#224;y`)}
             ${pnMetric("T&#250;i ch&#237;nh", `${pnFmt(result.fluid.mainBagTargetVolumeMl, 1)} mL/ng&#224;y`)}
             ${pnMetric("T&#7889;c &#273;&#7897; t&#250;i ch&#237;nh", `${pnFmt(result.fluid.mainBagRateMlHour, 2)} mL/gi&#7901;`)}
@@ -3066,6 +3133,18 @@
           ["T&#7889;c &#273;&#7897; truy&#7873;n t&#250;i ch&#237;nh", `${pnFmt(result.fluid.mainBagRateMlHour, 2)} mL/gi&#7901;`],
           ["N&#7891;ng &#273;&#7897; glucose cu&#7889;i c&#249;ng", `D${pnFmt(result.macronutrients.targetDextrosePercent, 1)}%`],
           ["GIR", `${pnFmt(result.macronutrients.GIR_mg_kg_min, 2)} mg/kg/ph&#250;t`]
+        ])}
+
+        ${pnTable(`Tam su&#7845;t pha ${pnFmt(result.scaling.desiredVolumeMl, 0)} mL`, [
+          ["NaCl 10%", `${pnFmt(result.scaling.NaCl10VolumeMl, 2)} mL`],
+          ["KCl 10%", `${pnFmt(result.scaling.KCl10VolumeMl, 2)} mL`],
+          ["CaCl2 10%", `${pnFmt(result.scaling.CaCl2VolumeMl, 2)} mL`],
+          ["D10", `${pnFmt(result.scaling.D10VolumeMl, 2)} mL`],
+          ["D30", `${pnFmt(result.scaling.D30VolumeMl, 2)} mL`],
+          [`Amino acid ${pnFmt(result.macronutrients.aminoAcidPercent, 0)}%`, `${pnFmt(result.scaling.aminoAcidVolumeMl, 2)} mL`],
+          ["NaCl 0.9%", `${pnFmt(result.scaling.NaCl09VolumeMl, 2)} mL`],
+          ["T&#7893;ng pha", `${pnFmt(result.scaling.desiredVolumeMl, 2)} mL`],
+          ["T&#7927; l&#7879; quy &#273;&#7893;i", `${pnFmt(result.scaling.ratio, 4)} x`]
         ])}
 
         <div class="pn-two-col">
