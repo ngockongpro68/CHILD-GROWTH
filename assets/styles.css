@@ -1252,6 +1252,83 @@ button {
   gap: 14px;
 }
 
+.reference-comparison {
+  display: grid;
+  gap: 14px;
+  margin: 16px 0 18px;
+  padding: 16px;
+  border: 1px solid var(--soft);
+  border-radius: var(--radius);
+  background: rgba(255, 255, 255, 0.88);
+  box-shadow: var(--shadow-soft);
+}
+
+.reference-comparison-header h2 {
+  margin: 0;
+  font-size: 1rem;
+  line-height: 1.25;
+}
+
+.reference-comparison-header p {
+  margin: 6px 0 0;
+  color: var(--muted);
+  font-size: 0.9rem;
+  line-height: 1.55;
+}
+
+.reference-comparison-grid {
+  display: grid;
+  gap: 12px;
+}
+
+.reference-card {
+  display: grid;
+  gap: 12px;
+  padding: 14px;
+  border: 1px solid var(--soft);
+  border-radius: 8px;
+  background: #fbfcfe;
+}
+
+.reference-card-title {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 800;
+}
+
+.reference-values {
+  display: grid;
+  gap: 10px;
+}
+
+.reference-values div {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.reference-values div:last-child {
+  padding-bottom: 0;
+  border-bottom: 0;
+}
+
+.reference-values span,
+.reference-card p,
+.reference-unavailable {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.84rem;
+  font-weight: 700;
+}
+
+.reference-values strong {
+  color: var(--text);
+  text-align: right;
+}
+
 .result-card {
   display: grid;
   gap: 14px;
@@ -1608,6 +1685,10 @@ button {
   }
 
   .result-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .reference-comparison-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 

@@ -2113,6 +2113,94 @@
     translations[language] = { ...(translations[language] || {}), ...values };
   });
 
+  const referenceComparisonTranslations = {
+    vi: {
+      "WHO 50th percentile reference": "M&#7889;c tham chi&#7871;u WHO 50th percentile",
+      "A quick comparison with the WHO median for this age and sex. This is a reference point, not a required target.": "So s&#225;nh nhanh v&#7899;i trung v&#7883; WHO theo tu&#7893;i v&#224; gi&#7899;i t&#237;nh. &#272;&#226;y l&#224; m&#7889;c tham chi&#7871;u, kh&#244;ng ph&#7843;i m&#7909;c ti&#234;u b&#7855;t bu&#7897;c.",
+      "Current": "Hi&#7879;n t&#7841;i",
+      "Reference": "Tham chi&#7871;u",
+      "Difference": "Ch&#234;nh l&#7879;ch",
+      "WHO reference is not available for this age.": "WHO kh&#244;ng c&#243; m&#7889;c tham chi&#7871;u cho &#273;&#7897; tu&#7893;i n&#224;y.",
+      "Compared with WHO median": "So v&#7899;i trung v&#7883; WHO"
+    },
+    es: {
+      "WHO 50th percentile reference": "Referencia OMS del percentil 50",
+      "A quick comparison with the WHO median for this age and sex. This is a reference point, not a required target.": "Comparaci&#243;n r&#225;pida con la mediana OMS para esta edad y sexo. Es una referencia, no una meta obligatoria.",
+      "Current": "Actual",
+      "Reference": "Referencia",
+      "Difference": "Diferencia",
+      "WHO reference is not available for this age.": "No hay referencia OMS disponible para esta edad.",
+      "Compared with WHO median": "Comparado con la mediana OMS"
+    },
+    hi: {
+      "WHO 50th percentile reference": "WHO 50th percentile संदर्भ",
+      "A quick comparison with the WHO median for this age and sex. This is a reference point, not a required target.": "इस उम्र और लिंग के WHO median से आसान तुलना। यह सिर्फ संदर्भ है, जरूरी लक्ष्य नहीं।",
+      "Current": "मौजूदा",
+      "Reference": "संदर्भ",
+      "Difference": "अंतर",
+      "WHO reference is not available for this age.": "इस उम्र के लिए WHO संदर्भ उपलब्ध नहीं है।",
+      "Compared with WHO median": "WHO median से तुलना"
+    },
+    id: {
+      "WHO 50th percentile reference": "Acuan persentil ke-50 WHO",
+      "A quick comparison with the WHO median for this age and sex. This is a reference point, not a required target.": "Perbandingan cepat dengan median WHO untuk usia dan jenis kelamin ini. Ini acuan, bukan target wajib.",
+      "Current": "Saat ini",
+      "Reference": "Acuan",
+      "Difference": "Selisih",
+      "WHO reference is not available for this age.": "Acuan WHO tidak tersedia untuk usia ini.",
+      "Compared with WHO median": "Dibandingkan dengan median WHO"
+    },
+    fr: {
+      "WHO 50th percentile reference": "R&#233;f&#233;rence OMS du 50e percentile",
+      "A quick comparison with the WHO median for this age and sex. This is a reference point, not a required target.": "Comparaison rapide avec la m&#233;diane OMS pour cet &#226;ge et ce sexe. C'est un rep&#232;re, pas un objectif obligatoire.",
+      "Current": "Actuel",
+      "Reference": "R&#233;f&#233;rence",
+      "Difference": "&#201;cart",
+      "WHO reference is not available for this age.": "La r&#233;f&#233;rence OMS n'est pas disponible pour cet &#226;ge.",
+      "Compared with WHO median": "Compar&#233; &#224; la m&#233;diane OMS"
+    },
+    pt: {
+      "WHO 50th percentile reference": "Refer&#234;ncia OMS do percentil 50",
+      "A quick comparison with the WHO median for this age and sex. This is a reference point, not a required target.": "Compara&#231;&#227;o r&#225;pida com a mediana OMS para esta idade e sexo. &#201; uma refer&#234;ncia, n&#227;o uma meta obrigat&#243;ria.",
+      "Current": "Atual",
+      "Reference": "Refer&#234;ncia",
+      "Difference": "Diferen&#231;a",
+      "WHO reference is not available for this age.": "A refer&#234;ncia OMS n&#227;o est&#225; dispon&#237;vel para esta idade.",
+      "Compared with WHO median": "Comparado com a mediana OMS"
+    },
+    ar: {
+      "WHO 50th percentile reference": "مرجع منظمة الصحة العالمية للمئين 50",
+      "A quick comparison with the WHO median for this age and sex. This is a reference point, not a required target.": "مقارنة سريعة مع وسيط منظمة الصحة العالمية لهذا العمر والجنس. هذا مرجع فقط وليس هدفا إلزاميا.",
+      "Current": "الحالي",
+      "Reference": "المرجع",
+      "Difference": "الفرق",
+      "WHO reference is not available for this age.": "مرجع منظمة الصحة العالمية غير متاح لهذا العمر.",
+      "Compared with WHO median": "مقارنة بوسيط منظمة الصحة العالمية"
+    },
+    zh: {
+      "WHO 50th percentile reference": "WHO第50百分位参考值",
+      "A quick comparison with the WHO median for this age and sex. This is a reference point, not a required target.": "与相同年龄和性别的WHO中位数快速比较。这只是参考值，不是必须达到的目标。",
+      "Current": "当前",
+      "Reference": "参考值",
+      "Difference": "差值",
+      "WHO reference is not available for this age.": "WHO未提供该年龄的参考值。",
+      "Compared with WHO median": "与WHO中位数比较"
+    },
+    ja: {
+      "WHO 50th percentile reference": "WHO 50パーセンタイル基準",
+      "A quick comparison with the WHO median for this age and sex. This is a reference point, not a required target.": "この年齢と性別のWHO中央値との簡単な比較です。これは目安であり、必ず達成すべき目標ではありません。",
+      "Current": "現在",
+      "Reference": "目安",
+      "Difference": "差",
+      "WHO reference is not available for this age.": "この年齢のWHO基準は利用できません。",
+      "Compared with WHO median": "WHO中央値との比較"
+    }
+  };
+
+  Object.entries(referenceComparisonTranslations).forEach(([language, values]) => {
+    translations[language] = { ...(translations[language] || {}), ...values };
+  });
+
   let activeLanguage = languageFromPath() || readLanguage();
   let formDraft = null;
   let resultsVisible = page === "results" || page === "charts";
@@ -3848,6 +3936,7 @@
             </aside>
             <div>
               <div class="result-grid" id="resultCards">${resultCards(result)}</div>
+              <section class="reference-comparison" id="referenceComparison">${referenceComparison(result)}</section>
               <div class="chart-and-panel">
                 <section class="chart-card">
                   <div class="chart-card-header">
@@ -3967,6 +4056,73 @@
         </div>
       </article>
     `).join("");
+  }
+
+  function referenceComparison(result) {
+    const items = [
+      referenceComparisonItem(result, "weight", result.weight, "kg"),
+      referenceComparisonItem(result, "height", result.height, "cm")
+    ];
+
+    return `
+      <div class="reference-comparison-header">
+        <div>
+          <h2>${t("WHO 50th percentile reference")}</h2>
+          <p>${t("A quick comparison with the WHO median for this age and sex. This is a reference point, not a required target.")}</p>
+        </div>
+      </div>
+      <div class="reference-comparison-grid">
+        ${items.join("")}
+      </div>
+    `;
+  }
+
+  function referenceComparisonItem(result, key, currentValue, unit) {
+    const reference = idealReferenceValue(result, key);
+    const title = key === "weight" ? "Weight" : "Height";
+
+    if (!Number.isFinite(reference)) {
+      return `
+        <article class="reference-card">
+          <div class="reference-card-title">
+            <span class="icon-box">${icon(key === "weight" ? "chart" : "ruler")}</span>
+            <strong>${t(title)}</strong>
+          </div>
+          <p class="reference-unavailable">${t("WHO reference is not available for this age.")}</p>
+        </article>
+      `;
+    }
+
+    const difference = currentValue - reference;
+    return `
+      <article class="reference-card">
+        <div class="reference-card-title">
+          <span class="icon-box">${icon(key === "weight" ? "chart" : "ruler")}</span>
+          <strong>${t(title)}</strong>
+        </div>
+        <div class="reference-values">
+          <div><span>${t("Current")}</span><strong>${formatMeasurement(currentValue, unit)}</strong></div>
+          <div><span>${t("Reference")}</span><strong>${formatMeasurement(reference, unit)}</strong></div>
+          <div><span>${t("Difference")}</span><strong>${signedMeasurement(difference, unit)}</strong></div>
+        </div>
+        <p>${t("Compared with WHO median")}</p>
+      </article>
+    `;
+  }
+
+  function idealReferenceValue(result, key) {
+    const value = referenceValue(result.sex || "boy", key, result.ageMonths || 0, 0);
+    return Number.isFinite(value) ? value : null;
+  }
+
+  function formatMeasurement(value, unit) {
+    const digits = unit === "kg" ? 1 : 1;
+    return `${value.toFixed(digits)} ${unit}`;
+  }
+
+  function signedMeasurement(value, unit) {
+    const sign = value > 0 ? "+" : "";
+    return `${sign}${formatMeasurement(value, unit)}`;
   }
 
   function statusPill(status) {
@@ -5530,6 +5686,7 @@
   function renderResults(result) {
     const section = document.getElementById("results");
     const cards = document.getElementById("resultCards");
+    const referenceBox = document.getElementById("referenceComparison");
     const meta = document.getElementById("resultMeta");
     const chart = document.getElementById("growthChart");
     const interpretationBox = document.getElementById("interpretation");
@@ -5542,6 +5699,7 @@
     resultsVisible = true;
     lastChartIndicator = "height";
     cards.innerHTML = resultCards(result);
+    if (referenceBox) referenceBox.innerHTML = referenceComparison(result);
     meta.innerHTML = localizedResultMeta(result);
     chart.innerHTML = chartSvg(result, "height", false);
     if (interpretationBox) interpretationBox.innerHTML = interpretation(result, "height");
