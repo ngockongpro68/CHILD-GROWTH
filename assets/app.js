@@ -3018,6 +3018,7 @@
             <label for="aminoAcidPercent">Amino acid</label>
             <select id="aminoAcidPercent" name="aminoAcidPercent">
               <option value="5">Amino acid 5%</option>
+              <option value="6.5">Amino acid 6.5%</option>
               <option value="10" selected>Amino acid 10%</option>
               <option value="20">Amino acid 20%</option>
             </select>
@@ -3272,7 +3273,7 @@
           ["CaCl2 10%", `${pnFmt(result.mainBagComposition.CaCl2VolumeMl, 2)} mL`],
           ["D10", `${pnFmt(result.mainBagComposition.D10VolumeMl, 2)} mL`],
           ["D30", `${pnFmt(result.mainBagComposition.D30VolumeMl, 2)} mL`],
-          [`Amino acid ${pnFmt(result.macronutrients.aminoAcidPercent, 0)}%`, `${pnFmt(result.mainBagComposition.aminoAcidVolumeMl, 2)} mL`],
+          [`Amino acid ${pnPercent(result.macronutrients.aminoAcidPercent)}%`, `${pnFmt(result.mainBagComposition.aminoAcidVolumeMl, 2)} mL`],
           ["NaCl 0.9%", `${pnFmt(result.mainBagComposition.NaCl09VolumeMl, 2)} mL`],
           ["Total main bag", `${pnFmt(result.mainBagComposition.finalMainBagVolumeMl, 2)} mL/day`],
           ["Main bag infusion rate", `${pnFmt(result.fluid.mainBagRateMlHour, 2)} mL/hour`],
@@ -3286,7 +3287,7 @@
           ["CaCl2 10%", `${pnFmt(result.scaling.CaCl2VolumeMl, 2)} mL`],
           ["D10", `${pnFmt(result.scaling.D10VolumeMl, 2)} mL`],
           ["D30", `${pnFmt(result.scaling.D30VolumeMl, 2)} mL`],
-          [`Amino acid ${pnFmt(result.macronutrients.aminoAcidPercent, 0)}%`, `${pnFmt(result.scaling.aminoAcidVolumeMl, 2)} mL`],
+          [`Amino acid ${pnPercent(result.macronutrients.aminoAcidPercent)}%`, `${pnFmt(result.scaling.aminoAcidVolumeMl, 2)} mL`],
           ["NaCl 0.9%", `${pnFmt(result.scaling.NaCl09VolumeMl, 2)} mL`],
           ["Total compound", `${pnFmt(result.scaling.desiredVolumeMl, 2)} mL`],
           ["Scale ratio", `${pnFmt(result.scaling.ratio, 4)} x`]
@@ -3356,6 +3357,11 @@
   function pnFmt(value, digits) {
     if (!Number.isFinite(value)) return "-";
     return value.toLocaleString("en-US", { minimumFractionDigits: digits, maximumFractionDigits: digits });
+  }
+
+  function pnPercent(value) {
+    if (!Number.isFinite(value)) return "-";
+    return value.toLocaleString("en-US", { maximumFractionDigits: 1 });
   }
 
   function contentPage(config) {
