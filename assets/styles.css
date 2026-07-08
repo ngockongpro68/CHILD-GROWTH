@@ -151,10 +151,10 @@ button {
 .nav-links {
   display: none;
   align-items: center;
-  gap: 16px;
+  gap: 12px;
   color: #1e293b;
   font-weight: 650;
-  font-size: 0.9rem;
+  font-size: 0.86rem;
 }
 
 .nav-links a,
@@ -696,6 +696,57 @@ button {
   padding-left: 18px;
   color: #92400e;
   font-weight: 650;
+}
+
+.bilirubin-risk-note {
+  margin-top: 14px;
+  padding: 12px;
+  border: 1px solid var(--soft);
+  border-radius: 8px;
+  background: #fbfcfe;
+  color: #475569;
+  font-size: 0.88rem;
+  line-height: 1.55;
+}
+
+.bilirubin-risk-note strong {
+  color: #1f2937;
+}
+
+.bilirubin-action-card {
+  border-width: 1px;
+}
+
+.bilirubin-action-card p {
+  margin: 8px 0 0;
+  color: #334155;
+  font-weight: 650;
+}
+
+.bilirubin-ok {
+  border-color: #86efac;
+  background: #f0fdf4;
+}
+
+.bilirubin-treat {
+  border-color: #93c5fd;
+  background: #eff6ff;
+}
+
+.bilirubin-warn {
+  border-color: #fbbf24;
+  background: #fffbeb;
+}
+
+.bilirubin-danger {
+  border-color: #f87171;
+  background: #fef2f2;
+}
+
+.bilirubin-follow-panel,
+.bilirubin-labs-panel,
+.bilirubin-source-panel {
+  background: #fbfcfe;
 }
 
 .calc-submit {

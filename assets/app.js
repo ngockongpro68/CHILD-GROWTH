@@ -2059,6 +2059,17 @@
   const pnTranslations = {
     vi: {
       "Parenteral Nutrition": "Pha d&#7883;ch nu&#244;i &#259;n t&#297;nh m&#7841;ch",
+      "Neonatal Bilirubin": "&#272;&#225;nh gi&#225; bilirubin s&#417; sinh",
+      "Neonatal Bilirubin Assessment | GrowthKid": "&#272;&#225;nh gi&#225; bilirubin s&#417; sinh | GrowthKid",
+      "Neonatal Bilirubin Assessment": "&#272;&#225;nh gi&#225; bilirubin s&#417; sinh",
+      "A newborn bilirubin assessment workspace is being prepared for the next task.": "Khu v&#7921;c &#273;&#225;nh gi&#225; bilirubin s&#417; sinh &#273;ang &#273;&#432;&#7907;c chu&#7849;n b&#7883; cho task ti&#7871;p theo.",
+      "Feature placeholder": "M&#7909;c ch&#7901; t&#237;nh n&#259;ng",
+      "What will be added next": "Ph&#7847;n s&#7869; b&#7893; sung ti&#7871;p",
+      "Age in hours": "Tu&#7893;i theo gi&#7901;",
+      "Bilirubin value": "Gi&#225; tr&#7883; bilirubin",
+      "Risk and follow-up guidance": "&#272;&#225;nh gi&#225; nguy c&#417; v&#224; g&#7907;i &#253; theo d&#245;i",
+      "This page is ready for the bilirubin calculator details you will provide later.": "Trang n&#224;y &#273;&#227; s&#7861;n s&#224;ng &#273;&#7875; nh&#7853;n chi ti&#7871;t calculator bilirubin b&#7841;n s&#7869; g&#7917;i sau.",
+      "Related tools": "C&#244;ng c&#7909; li&#234;n quan",
       "Pediatric Parenteral Nutrition Calculator | GrowthKid": "Pha d&#7883;ch nu&#244;i &#259;n t&#297;nh m&#7841;ch | GrowthKid",
       "Pediatric Parenteral Nutrition Calculator": "Pha d&#7883;ch nu&#244;i &#259;n t&#297;nh m&#7841;ch",
       "Calculate daily maintenance fluid, main bag, separate lipid infusion, electrolytes, calories, and GIR for children.": "T&#237;nh d&#7883;ch duy tr&#236;, t&#250;i ch&#237;nh, lipid truy&#7873;n ri&#234;ng, &#273;i&#7879;n gi&#7843;i, n&#259;ng l&#432;&#7907;ng v&#224; GIR cho tr&#7867; em.",
@@ -2214,7 +2225,8 @@
     { label: "Growth Charts", href: "/growth-charts/" },
     { label: "Articles", href: "/articles/" },
     { label: "About", href: "/about/" },
-    { label: "Parenteral Nutrition", href: "/parenteral-nutrition-calculator/" }
+    { label: "Parenteral Nutrition", href: "/parenteral-nutrition-calculator/" },
+    { label: "Neonatal Bilirubin", href: "/neonatal-bilirubin-assessment/" }
   ];
 
   const tools = [
@@ -2997,6 +3009,275 @@
         </section>
       </main>
     `);
+  }
+
+  function bilirubinPlaceholderPage() {
+    return shell(`
+      <main>
+        <section class="page-hero">
+          <div class="growth-3d-scene" data-growth-3d aria-hidden="true"></div>
+          <div class="container page-hero-row">
+            <div>
+              <span class="eyebrow">${t("Neonatal Bilirubin")}</span>
+              <h1>${t("Neonatal Bilirubin Assessment")}</h1>
+              <p class="page-copy">&#272;&#225;nh gi&#225; TSB theo tu&#7893;i thai, gi&#7901; tu&#7893;i v&#224; y&#7871;u t&#7889; nguy c&#417; &#273;&#7897;c th&#7847;n kinh bilirubin.</p>
+            </div>
+            <div class="side-panel bilirubin-source-panel">
+              <h2>Ngu&#7891;n logic</h2>
+              <ul>
+                <li>&ge;35 tu&#7847;n: AAP 2022 qua b&#7843;ng ng&#432;&#7905;ng PediTools.</li>
+                <li>&lt;35 tu&#7847;n: b&#7843;ng tham kh&#7843;o sinh non Maisels 2012.</li>
+                <li>Escalation of care = ng&#432;&#7905;ng thay m&#225;u - 2 mg/dL.</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+        <section class="section section-soft">
+          <div class="container pn-layout bilirubin-layout">
+            ${bilirubinAssessmentForm()}
+            <div id="bilirubinResults" class="pn-results"></div>
+          </div>
+        </section>
+      </main>
+    `);
+  }
+
+  function bilirubinAssessmentForm() {
+    return `
+      <form class="calculator-card pn-card bilirubin-card" id="bilirubinForm">
+        <div class="card-heading">
+          <span class="eyebrow">Bilirubin calculator</span>
+          <h2>&#272;&#225;nh gi&#225; ng&#432;&#7905;ng &#273;i&#7873;u tr&#7883;</h2>
+          <p>Nh&#7853;p TSB mg/dL. V&#7899;i tr&#7867; &ge;35 tu&#7847;n, tu&#7893;i sau sinh h&#7907;p l&#7879; l&#224; 1-336 gi&#7901;.</p>
+        </div>
+        <div class="form-grid pn-form-grid">
+          ${bilirubinNumberField("gestationalAgeWeeks", "Tu&#7893;i thai l&#250;c sinh (tu&#7847;n)", "38", "0.1", "22", "42")}
+          ${bilirubinNumberField("postnatalAgeHours", "Tu&#7893;i sau sinh (gi&#7901;)", "48", "1", "0", "336")}
+          ${bilirubinNumberField("bilirubinMgDl", "TSB bilirubin (mg/dL)", "15", "0.1", "0", "60")}
+          <div class="field">
+            <label for="neurotoxicityRisk">Y&#7871;u t&#7889; nguy c&#417; &#273;&#7897;c th&#7847;n kinh</label>
+            <select id="neurotoxicityRisk" name="neurotoxicityRisk">
+              <option value="no" selected>Kh&#244;ng c&#243; / ch&#432;a ghi nh&#7853;n</option>
+              <option value="yes">C&#243; b&#7845;t k&#7923; y&#7871;u t&#7889; nguy c&#417;</option>
+            </select>
+          </div>
+        </div>
+        <div class="bilirubin-risk-note">
+          <strong>Y&#7871;u t&#7889; nguy c&#417;:</strong>
+          albumin &lt;3 g/dL, tan m&#225;u/DAT d&#432;&#417;ng, G6PD, sepsis, ho&#7863;c l&#226;m s&#224;ng kh&#244;ng &#7893;n &#273;&#7883;nh trong 24 gi&#7901; tr&#432;&#7899;c.
+        </div>
+        <div class="form-error" id="bilirubinFormError"></div>
+        <button class="btn btn-primary calc-submit" type="submit">T&#237;nh &#273;&#225;nh gi&#225; ${icon("arrow")}</button>
+      </form>
+    `;
+  }
+
+  function bilirubinNumberField(name, label, value, step, min, max) {
+    return `
+      <div class="field">
+        <label for="${name}">${label}</label>
+        <input id="${name}" name="${name}" type="number" inputmode="decimal" min="${min}" max="${max}" step="${step}" value="${value}" required>
+      </div>
+    `;
+  }
+
+  const bilirubinPretermThresholds = [
+    { maxGa: 28, label: "&lt;28 tu&#7847;n", photo: [5, 6], exchange: [11, 14] },
+    { maxGa: 30, label: "28-&lt;30 tu&#7847;n", photo: [6, 8], exchange: [12, 14] },
+    { maxGa: 32, label: "30-&lt;32 tu&#7847;n", photo: [8, 10], exchange: [13, 16] },
+    { maxGa: 34, label: "32-&lt;34 tu&#7847;n", photo: [10, 12], exchange: [15, 18] },
+    { maxGa: 35, label: "34-&lt;35 tu&#7847;n", photo: [12, 14], exchange: [17, 19] }
+  ];
+
+  const bilirubinAap2022Thresholds = {
+    none: {
+      35: [[1, 6.4, 14.9], [6, 7.4, 15.6], [12, 8.5, 16.4], [18, 9.6, 17.2], [24, 10.6, 17.9], [30, 11.6, 18.7], [36, 12.5, 19.4], [42, 13.4, 20], [48, 14.2, 20.7], [60, 15.6, 21.8], [72, 16.8, 22.9], [84, 17.8, 23.8], [96, 18.6, 24.5], [120, 18.7, 24.7], [144, 18.8, 24.9], [168, 18.9, 25.1], [192, 19, 25.3], [240, 19.2, 25.7], [288, 19.4, 26], [336, 19.6, 26.3]],
+      36: [[1, 6.9, 15.9], [6, 7.9, 16.7], [12, 9, 17.5], [18, 10.1, 18.3], [24, 11.2, 19.1], [30, 12.1, 19.9], [36, 13.1, 20.6], [42, 13.9, 21.3], [48, 14.8, 21.9], [60, 16.2, 23.1], [72, 17.5, 24.1], [84, 18.5, 24.9], [96, 19.3, 25.5], [120, 19.4, 25.7], [144, 19.5, 25.9], [168, 19.6, 26.1], [192, 19.7, 26.2], [240, 19.9, 26.5], [288, 20.2, 26.8], [336, 20.4, 27]],
+      37: [[1, 7.4, 17], [6, 8.4, 17.8], [12, 9.6, 18.7], [18, 10.7, 19.5], [24, 11.7, 20.3], [30, 12.7, 21.1], [36, 13.6, 21.8], [42, 14.5, 22.5], [48, 15.4, 23.1], [60, 16.9, 24.3], [72, 18.1, 25.2], [84, 19.2, 26], [96, 20, 26.6], [120, 20.2, 26.7], [144, 20.3, 26.9], [168, 20.4, 27], [192, 20.5, 27], [240, 20.7, 27], [288, 20.9, 27], [336, 21.1, 27]],
+      38: [[1, 7.9, 18], [6, 8.9, 18.8], [12, 10.1, 19.7], [18, 11.2, 20.6], [24, 12.3, 21.4], [30, 13.3, 22.1], [36, 14.2, 22.8], [42, 15.1, 23.4], [48, 16, 24], [60, 17.5, 25.1], [72, 18.8, 25.9], [84, 19.9, 26.6], [96, 20.7, 27], [120, 20.9, 27], [144, 21, 27], [168, 21.1, 27], [192, 21.2, 27], [240, 21.4, 27], [288, 21.6, 27], [336, 21.8, 27]],
+      39: [[1, 8.4, 18], [6, 9.5, 18.8], [12, 10.6, 19.7], [18, 11.8, 20.6], [24, 12.8, 21.4], [30, 13.8, 22.1], [36, 14.8, 22.8], [42, 15.7, 23.4], [48, 16.6, 24], [60, 18.1, 25.1], [72, 19.5, 25.9], [84, 20.6, 26.6], [96, 21.5, 27], [120, 21.6, 27], [144, 21.7, 27], [168, 21.8, 27], [192, 21.8, 27], [240, 21.8, 27], [288, 21.8, 27], [336, 21.8, 27]],
+      40: [[1, 8.9, 18], [6, 10, 18.8], [12, 11.1, 19.7], [18, 12.2, 20.6], [24, 13.3, 21.4], [30, 14.3, 22.1], [36, 15.3, 22.8], [42, 16.2, 23.4], [48, 17, 24], [60, 18.5, 25.1], [72, 19.8, 25.9], [84, 20.9, 26.6], [96, 21.8, 27], [120, 21.8, 27], [144, 21.8, 27], [168, 21.8, 27], [192, 21.8, 27], [240, 21.8, 27], [288, 21.8, 27], [336, 21.8, 27]]
+    },
+    any: {
+      35: [[1, 4.9, 13.1], [6, 5.8, 13.8], [12, 6.9, 14.6], [18, 7.9, 15.4], [24, 8.9, 16.1], [30, 9.8, 16.8], [36, 10.6, 17.4], [42, 11.4, 17.9], [48, 12.2, 18.5], [60, 13.5, 19.4], [72, 14.6, 20.1], [84, 15.5, 20.7], [96, 16.1, 21.1], [120, 16.3, 21.3], [144, 16.4, 21.5], [168, 16.5, 21.7], [192, 16.6, 21.9], [240, 16.9, 22.3], [288, 17.1, 22.6], [336, 17.4, 22.9]],
+      36: [[1, 5.4, 13.7], [6, 6.3, 14.4], [12, 7.4, 15.2], [18, 8.5, 15.9], [24, 9.4, 16.6], [30, 10.4, 17.3], [36, 11.2, 17.9], [42, 12.1, 18.5], [48, 12.8, 19.1], [60, 14.2, 20.1], [72, 15.4, 20.9], [84, 16.3, 21.6], [96, 17, 22.1], [120, 17.1, 22.3], [144, 17.3, 22.5], [168, 17.4, 22.6], [192, 17.5, 22.8], [240, 17.7, 23.1], [288, 18, 23.3], [336, 18.2, 23.5]],
+      37: [[1, 5.9, 14.3], [6, 6.9, 15], [12, 8, 15.7], [18, 9, 16.5], [24, 10, 17.2], [30, 11, 17.9], [36, 11.9, 18.5], [42, 12.7, 19.1], [48, 13.5, 19.7], [60, 14.9, 20.7], [72, 16.1, 21.7], [84, 17.1, 22.5], [96, 17.9, 23.1], [120, 18, 23.2], [144, 18.1, 23.4], [168, 18.2, 23.5], [192, 18.2, 23.5], [240, 18.2, 23.5], [288, 18.2, 23.5], [336, 18.2, 23.5]],
+      38: [[1, 6.4, 14.8], [6, 7.3, 15.5], [12, 8.5, 16.3], [18, 9.5, 17], [24, 10.5, 17.7], [30, 11.5, 18.3], [36, 12.4, 19], [42, 13.2, 19.6], [48, 14, 20.1], [60, 15.4, 21.2], [72, 16.6, 22.1], [84, 17.5, 22.9], [96, 18.2, 23.5], [120, 18.2, 23.5], [144, 18.2, 23.5], [168, 18.2, 23.5], [192, 18.2, 23.5], [240, 18.2, 23.5], [288, 18.2, 23.5], [336, 18.2, 23.5]],
+      39: [[1, 6.4, 14.8], [6, 7.3, 15.5], [12, 8.5, 16.3], [18, 9.5, 17], [24, 10.5, 17.7], [30, 11.5, 18.3], [36, 12.4, 19], [42, 13.2, 19.6], [48, 14, 20.1], [60, 15.4, 21.2], [72, 16.6, 22.1], [84, 17.5, 22.9], [96, 18.2, 23.5], [120, 18.2, 23.5], [144, 18.2, 23.5], [168, 18.2, 23.5], [192, 18.2, 23.5], [240, 18.2, 23.5], [288, 18.2, 23.5], [336, 18.2, 23.5]],
+      40: [[1, 6.4, 14.8], [6, 7.3, 15.5], [12, 8.5, 16.3], [18, 9.5, 17], [24, 10.5, 17.7], [30, 11.5, 18.3], [36, 12.4, 19], [42, 13.2, 19.6], [48, 14, 20.1], [60, 15.4, 21.2], [72, 16.6, 22.1], [84, 17.5, 22.9], [96, 18.2, 23.5], [120, 18.2, 23.5], [144, 18.2, 23.5], [168, 18.2, 23.5], [192, 18.2, 23.5], [240, 18.2, 23.5], [288, 18.2, 23.5], [336, 18.2, 23.5]]
+    }
+  };
+
+  function calculateBilirubin(input) {
+    const gestationalAgeWeeks = pnPositive(input.gestationalAgeWeeks, "Tuoi thai phai > 0.");
+    const postnatalAgeHours = pnNonNegative(input.postnatalAgeHours, "Gio tuoi khong duoc am.");
+    const bilirubinMgDl = pnNonNegative(input.bilirubinMgDl, "Bilirubin khong duoc am.");
+    const hasRisk = input.neurotoxicityRisk === "yes";
+    if (gestationalAgeWeeks < 22 || gestationalAgeWeeks > 42) throw new Error("Tuoi thai ngoai khoang ho tro 22-42 tuan.");
+    if (gestationalAgeWeeks >= 35 && (postnatalAgeHours < 1 || postnatalAgeHours > 336)) {
+      throw new Error("AAP 2022 chi ho tro gio tuoi 1-336 gio cho tre >=35 tuan.");
+    }
+
+    const threshold = gestationalAgeWeeks < 35
+      ? bilirubinPretermThreshold(gestationalAgeWeeks, hasRisk)
+      : bilirubinAapThreshold(gestationalAgeWeeks, postnatalAgeHours, hasRisk);
+    const escalationThreshold = Math.max(0, threshold.exchangeThreshold - 2);
+    const phototherapyGap = threshold.phototherapyThreshold - bilirubinMgDl;
+    const exchangeGap = threshold.exchangeThreshold - bilirubinMgDl;
+    const escalationGap = escalationThreshold - bilirubinMgDl;
+    const action = bilirubinAction(bilirubinMgDl, threshold.phototherapyThreshold, escalationThreshold, threshold.exchangeThreshold);
+
+    return {
+      input: { gestationalAgeWeeks, postnatalAgeHours, bilirubinMgDl, hasRisk },
+      threshold: { ...threshold, escalationThreshold },
+      gaps: { phototherapyGap, escalationGap, exchangeGap },
+      action,
+      followUp: bilirubinFollowUp(phototherapyGap, postnatalAgeHours),
+      labs: bilirubinLabs(action.key)
+    };
+  }
+
+  function bilirubinPretermThreshold(gestationalAgeWeeks, hasRisk) {
+    const band = bilirubinPretermThresholds.find((item) => gestationalAgeWeeks < item.maxGa) || bilirubinPretermThresholds[bilirubinPretermThresholds.length - 1];
+    const index = hasRisk ? 0 : 1;
+    return {
+      source: "Sinh non <35 tu&#7847;n: ng&#432;&#7905;ng tham kh&#7843;o Maisels 2012, c&#7847;n b&#225;c s&#297; s&#417; sinh quy&#7871;t &#273;&#7883;nh.",
+      gaLabel: band.label,
+      phototherapyRange: band.photo,
+      exchangeRange: band.exchange,
+      phototherapyThreshold: band.photo[index],
+      exchangeThreshold: band.exchange[index]
+    };
+  }
+
+  function bilirubinAapThreshold(gestationalAgeWeeks, postnatalAgeHours, hasRisk) {
+    const completedGa = clamp(Math.floor(gestationalAgeWeeks), 35, 40);
+    const points = bilirubinAap2022Thresholds[hasRisk ? "any" : "none"][completedGa];
+    const [phototherapyThreshold, exchangeThreshold] = interpolateBilirubinThreshold(points, postnatalAgeHours);
+    return {
+      source: "AAP 2022 cho tr&#7867; &ge;35 tu&#7847;n, b&#7843;ng c&#7909;c b&#7897; l&#7845;y m&#7851;u t&#7915; PediTools.",
+      gaLabel: `${completedGa} completed weeks`,
+      phototherapyThreshold,
+      exchangeThreshold
+    };
+  }
+
+  function interpolateBilirubinThreshold(points, ageHours) {
+    if (ageHours <= points[0][0]) return [points[0][1], points[0][2]];
+    for (let i = 1; i < points.length; i += 1) {
+      const previous = points[i - 1];
+      const next = points[i];
+      if (ageHours <= next[0]) {
+        const ratio = (ageHours - previous[0]) / (next[0] - previous[0]);
+        return [
+          previous[1] + (next[1] - previous[1]) * ratio,
+          previous[2] + (next[2] - previous[2]) * ratio
+        ];
+      }
+    }
+    const last = points[points.length - 1];
+    return [last[1], last[2]];
+  }
+
+  function bilirubinAction(bilirubinMgDl, phototherapyThreshold, escalationThreshold, exchangeThreshold) {
+    if (bilirubinMgDl >= exchangeThreshold) {
+      return {
+        key: "exchange",
+        tone: "danger",
+        title: "Ch&#7881; &#273;&#7883;nh thay m&#225;u / c&#7845;p c&#7913;u",
+        text: "TSB &#273;&#227; b&#7857;ng ho&#7863;c v&#432;&#7907;t ng&#432;&#7905;ng thay m&#225;u. Chuy&#7875;n NICU, chi&#7871;u &#273;&#232;n c&#432;&#7901;ng &#273;&#7897; cao trong l&#250;c chu&#7849;n b&#7883; thay m&#225;u."
+      };
+    }
+    if (bilirubinMgDl >= escalationThreshold) {
+      return {
+        key: "escalation",
+        tone: "warn",
+        title: "Escalation of care",
+        text: "TSB n&#7857;m trong v&#249;ng c&#225;ch ng&#432;&#7905;ng thay m&#225;u <=2 mg/dL. C&#7847;n NICU, chi&#7871;u &#273;&#232;n c&#432;&#7901;ng &#273;&#7897; cao t&#7889;i &#273;a, truy&#7873;n d&#7883;ch v&#224; l&#7863;p TSB m&#7895;i 2 gi&#7901;."
+      };
+    }
+    if (bilirubinMgDl >= phototherapyThreshold) {
+      return {
+        key: "phototherapy",
+        tone: "treat",
+        title: "Ch&#7881; &#273;&#7883;nh chi&#7871;u &#273;&#232;n",
+        text: "TSB &#273;&#227; b&#7857;ng ho&#7863;c v&#432;&#7907;t ng&#432;&#7905;ng chi&#7871;u &#273;&#232;n. D&#249;ng chi&#7871;u &#273;&#232;n c&#432;&#7901;ng &#273;&#7897; cao v&#224; ki&#7875;m tra TSB sau 4-12 gi&#7901; t&#249;y nguy c&#417;."
+      };
+    }
+    return {
+      key: "followup",
+      tone: "ok",
+      title: "Ch&#432;a &#273;&#7841;t ng&#432;&#7905;ng chi&#7871;u &#273;&#232;n",
+      text: "Theo d&#245;i l&#226;m s&#224;ng v&#224; l&#7863;p bilirubin theo kho&#7843;ng c&#225;ch so v&#7899;i ng&#432;&#7905;ng chi&#7871;u &#273;&#232;n."
+    };
+  }
+
+  function bilirubinFollowUp(phototherapyGap, postnatalAgeHours) {
+    if (phototherapyGap <= 0) return "Khi &#273;ang chi&#7871;u &#273;&#232;n: l&#7863;p TSB sau 4-12 gi&#7901;; n&#7871;u g&#7847;n ng&#432;&#7905;ng thay m&#225;u ho&#7863;c c&#242;n t&#259;ng nhanh, l&#7863;p m&#7895;i 2 gi&#7901;.";
+    if (phototherapyGap < 2) {
+      return postnatalAgeHours < 24
+        ? "Th&#7845;p h&#417;n ng&#432;&#7905;ng 0-1.9 mg/dL v&#224; <24 gi&#7901; tu&#7893;i: tr&#236; ho&#227;n xu&#7845;t vi&#7879;n, c&#226;n nh&#7855;c chi&#7871;u &#273;&#232;n, l&#7863;p TSB sau 4-8 gi&#7901;."
+        : "Th&#7845;p h&#417;n ng&#432;&#7905;ng 0-1.9 mg/dL: l&#7863;p TSB sau 4-24 gi&#7901;, c&#226;n nh&#7855;c chi&#7871;u &#273;&#232;n ho&#7863;c theo d&#245;i s&#225;t.";
+    }
+    if (phototherapyGap < 3.5) return "Th&#7845;p h&#417;n ng&#432;&#7905;ng 2.0-3.4 mg/dL: l&#7863;p TSB/TcB sau 4-24 gi&#7901;.";
+    if (phototherapyGap < 5.5) return "Th&#7845;p h&#417;n ng&#432;&#7905;ng 3.5-5.4 mg/dL: l&#7863;p bilirubin sau 1-2 ng&#224;y.";
+    if (phototherapyGap < 7) return postnatalAgeHours < 72 ? "Th&#7845;p h&#417;n ng&#432;&#7905;ng 5.5-6.9 mg/dL: n&#7871;u xu&#7845;t vi&#7879;n <72 gi&#7901;, t&#225;i kh&#225;m trong 2 ng&#224;y; TcB/TSB theo l&#226;m s&#224;ng." : "Th&#7845;p h&#417;n ng&#432;&#7905;ng 5.5-6.9 mg/dL: theo d&#245;i theo &#273;&#225;nh gi&#225; l&#226;m s&#224;ng.";
+    return postnatalAgeHours < 72 ? "Th&#7845;p h&#417;n ng&#432;&#7905;ng >=7 mg/dL: n&#7871;u xu&#7845;t vi&#7879;n <72 gi&#7901;, t&#225;i kh&#225;m trong 3 ng&#224;y; TcB/TSB theo l&#226;m s&#224;ng." : "Th&#7845;p h&#417;n ng&#432;&#7905;ng >=7 mg/dL: theo d&#245;i theo &#273;&#225;nh gi&#225; l&#226;m s&#224;ng.";
+  }
+
+  function bilirubinLabs(actionKey) {
+    if (actionKey === "exchange" || actionKey === "escalation") {
+      return ["TSB + bilirubin tr&#7921;c ti&#7871;p", "CBC, Hct/Hb, reticulocyte", "&#272;i&#7879;n gi&#7843;i, &#273;&#432;&#7901;ng huy&#7871;t, kh&#237; m&#225;u n&#7871;u n&#7863;ng", "Albumin", "Nh&#243;m m&#225;u m&#7865;/con, Rh, DAT", "Type & screen / crossmatch, chu&#7849;n b&#7883; m&#225;u thay"];
+    }
+    if (actionKey === "phototherapy") {
+      return ["TSB +/- bilirubin tr&#7921;c ti&#7871;p", "Nh&#243;m m&#225;u m&#7865;/con, Rh, DAT", "CBC, Hct/Hb, reticulocyte", "G6PD n&#7871;u c&#243; nguy c&#417; ho&#7863;c v&#224;ng da n&#7863;ng/kh&#243; gi&#7843;i th&#237;ch"];
+    }
+    return ["TSB ho&#7863;c TcB", "&#272;&#225;nh gi&#225; b&#250;, c&#226;n n&#7863;ng, m&#7845;t n&#432;&#7899;c", "Nh&#243;m m&#225;u m&#7865;/con n&#7871;u nghi b&#7845;t &#273;&#7891;ng", "DAT n&#7871;u nghi tan m&#225;u"];
+  }
+
+  function renderBilirubinResults(result) {
+    const threshold = result.threshold;
+    const isPreterm = result.input.gestationalAgeWeeks < 35;
+    const thresholdRows = [
+      ["Nh&#243;m tu&#7893;i thai", threshold.gaLabel],
+      ["Ngu&#7891;n", threshold.source],
+      ["Ng&#432;&#7905;ng chi&#7871;u &#273;&#232;n", `${pnFmt(threshold.phototherapyThreshold, 1)} mg/dL${isPreterm ? ` (${threshold.phototherapyRange[0]}-${threshold.phototherapyRange[1]})` : ""}`],
+      ["Ng&#432;&#7905;ng escalation", `${pnFmt(threshold.escalationThreshold, 1)} mg/dL`],
+      ["Ng&#432;&#7905;ng thay m&#225;u", `${pnFmt(threshold.exchangeThreshold, 1)} mg/dL${isPreterm ? ` (${threshold.exchangeRange[0]}-${threshold.exchangeRange[1]})` : ""}`]
+    ];
+
+    return `
+      <div class="pn-result-stack bilirubin-result-stack">
+        <div class="result-card pn-summary-card bilirubin-action-card bilirubin-${result.action.tone}">
+          <span class="eyebrow">K&#7871;t lu&#7853;n</span>
+          <h2>${result.action.title}</h2>
+          <p>${result.action.text}</p>
+          <div class="result-grid pn-summary-grid">
+            ${pnMetric("TSB", `${pnFmt(result.input.bilirubinMgDl, 1)} mg/dL`)}
+            ${pnMetric("C&#225;ch ng&#432;&#7905;ng chi&#7871;u", `${pnFmt(result.gaps.phototherapyGap, 1)} mg/dL`)}
+            ${pnMetric("C&#225;ch ng&#432;&#7905;ng thay m&#225;u", `${pnFmt(result.gaps.exchangeGap, 1)} mg/dL`)}
+          </div>
+        </div>
+
+        ${pnTable("Ng&#432;&#7905;ng &#273;i&#7873;u tr&#7883;", thresholdRows)}
+
+        <div class="pn-two-col">
+          <div class="side-panel bilirubin-follow-panel">
+            <h2>L&#7863;p bilirubin</h2>
+            <p>${result.followUp}</p>
+          </div>
+          <div class="side-panel bilirubin-labs-panel">
+            <h2>X&#233;t nghi&#7879;m g&#7907;i &#253;</h2>
+            <ul>${result.labs.map((item) => `<li>${item}</li>`).join("")}</ul>
+          </div>
+        </div>
+
+        <div class="side-panel pn-disclaimer">
+          <h2>C&#7843;nh b&#225;o l&#226;m s&#224;ng</h2>
+          <p>C&#244;ng c&#7909; n&#224;y ch&#7881; h&#7895; tr&#7907; quy&#7871;t &#273;&#7883;nh. Lu&#244;n x&#225;c nh&#7853;n v&#7899;i b&#225;c s&#297; s&#417; sinh/NICU, quy tr&#236;nh b&#7879;nh vi&#7879;n v&#224; t&#236;nh tr&#7841;ng l&#226;m s&#224;ng th&#7921;c t&#7871;.</p>
+        </div>
+      </div>
+    `;
   }
 
   function pnCalculatorForm() {
@@ -4682,7 +4963,8 @@
       weight: "Weight-for-age Calculator | GrowthKid",
       height: "Height-for-age Calculator | GrowthKid",
       head: "Head Circumference Calculator | GrowthKid",
-      pn: "Pediatric Parenteral Nutrition Calculator | GrowthKid"
+      pn: "Pediatric Parenteral Nutrition Calculator | GrowthKid",
+      bilirubin: "Neonatal Bilirubin Assessment | GrowthKid"
     };
     return titles[page] || titles.home;
   }
@@ -5784,6 +6066,31 @@
       renderPn();
     }
 
+    const bilirubinForm = document.getElementById("bilirubinForm");
+    if (bilirubinForm) {
+      const renderBilirubin = () => {
+        const errorBox = document.getElementById("bilirubinFormError");
+        const results = document.getElementById("bilirubinResults");
+        try {
+          const result = calculateBilirubin(Object.fromEntries(new FormData(bilirubinForm).entries()));
+          if (errorBox) errorBox.classList.remove("is-visible");
+          if (results) results.innerHTML = renderBilirubinResults(result);
+        } catch (error) {
+          if (errorBox) {
+            errorBox.textContent = error.message;
+            errorBox.classList.add("is-visible");
+          }
+          if (results) results.innerHTML = "";
+        }
+      };
+
+      bilirubinForm.addEventListener("submit", (event) => {
+        event.preventDefault();
+        renderBilirubin();
+      });
+      renderBilirubin();
+    }
+
     document.querySelectorAll(".chart-tab").forEach((button) => {
       button.addEventListener("click", () => {
         const indicator = button.dataset.chart;
@@ -5890,6 +6197,7 @@
     else if (page === "articles") app.innerHTML = articlesPage();
     else if (page === "about") app.innerHTML = aboutPage();
     else if (page === "pn") app.innerHTML = pnCalculatorPage();
+    else if (page === "bilirubin") app.innerHTML = bilirubinPlaceholderPage();
     else if (page === "methodology") app.innerHTML = methodologyPage();
     else if (page === "privacy") app.innerHTML = privacyPage();
     else if (page === "medical-disclaimer") app.innerHTML = medicalDisclaimerPage();
