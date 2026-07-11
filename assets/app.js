@@ -3025,9 +3025,10 @@
             <div class="side-panel bilirubin-source-panel">
               <h2>Ngu&#7891;n logic</h2>
               <ul>
-                <li>&ge;35 tu&#7847;n: AAP 2022 qua b&#7843;ng ng&#432;&#7905;ng PediTools.</li>
+                <li>&ge;35 tu&#7847;n: ng&#432;&#7905;ng v&#224; bi&#7875;u &#273;&#7891; &#273;i&#7873;u tr&#7883; AAP 2022.</li>
                 <li>&lt;35 tu&#7847;n: b&#7843;ng tham kh&#7843;o sinh non Maisels 2012.</li>
                 <li>Escalation of care = ng&#432;&#7905;ng thay m&#225;u - 2 mg/dL.</li>
+                <li>Bhutani 1999 ch&#7881; l&#224; to&#225;n &#273;&#7891; ti&#234;n l&#432;&#7907;ng tham kh&#7843;o, kh&#244;ng ph&#7843;i ng&#432;&#7905;ng &#273;i&#7873;u tr&#7883;.</li>
               </ul>
             </div>
           </div>
@@ -3108,6 +3109,12 @@
     }
   };
 
+  const bilirubinBhutaniNomogram = {
+    p40: [[12, 4], [18, 4.6], [24, 5.4], [30, 6.3], [36, 7.5], [42, 8.2], [48, 8.7], [54, 9.3], [60, 9.7], [66, 10.2], [72, 10.7], [78, 11.3], [84, 11.6], [90, 11.9], [96, 12.4], [102, 12.5], [108, 12.8], [114, 13], [120, 13.2], [126, 13.2], [132, 13.2], [138, 13.1], [144, 13.1]],
+    p75: [[12, 5], [18, 5.7], [24, 6.5], [30, 7.6], [36, 9.5], [42, 10.3], [48, 11], [54, 11.8], [60, 12.6], [66, 13.1], [72, 13.5], [78, 14.1], [84, 14.4], [90, 14.8], [96, 15], [102, 15.3], [108, 15.5], [114, 15.5], [120, 15.6], [126, 15.5], [132, 15.5], [138, 15.3], [144, 15.2]],
+    p95: [[12, 7], [18, 7.4], [24, 8.4], [30, 9.6], [36, 11.5], [42, 12.4], [48, 13.4], [54, 14.2], [60, 14.9], [66, 15.4], [72, 15.9], [78, 16.3], [84, 16.7], [90, 17.1], [96, 17.3], [102, 17.4], [108, 17.4], [114, 17.5], [120, 17.5], [126, 17.5], [132, 17.4], [138, 17.3], [144, 17.3]]
+  };
+
   function calculateBilirubin(input) {
     const gestationalAgeWeeks = pnPositive(input.gestationalAgeWeeks, "Tuoi thai phai > 0.");
     const postnatalAgeHours = pnNonNegative(input.postnatalAgeHours, "Gio tuoi khong duoc am.");
@@ -3133,7 +3140,74 @@
       gaps: { phototherapyGap, escalationGap, exchangeGap },
       action,
       followUp: bilirubinFollowUp(phototherapyGap, postnatalAgeHours),
-      labs: bilirubinLabs(action.key)
+      labs: bilirubinLabs(action.key),
+      bhutani: bilirubinBhutaniAssessment({ gestationalAgeWeeks, postnatalAgeHours, bilirubinMgDl })
+    };
+  }
+
+  function bilirubinBhutaniAssessment(input) {
+    const { gestationalAgeWeeks, postnatalAgeHours, bilirubinMgDl } = input;
+    if (gestationalAgeWeeks < 35) {
+      return {
+        available: false,
+        reason: "To&#225;n &#273;&#7891; Bhutani kh&#244;ng &#225;p d&#7909;ng cho tr&#7867; <35 tu&#7847;n."
+      };
+    }
+    if (postnatalAgeHours < 12 || postnatalAgeHours > 144) {
+      return {
+        available: false,
+        reason: "Gi&#7901; tu&#7893;i n&#7857;m ngo&#224;i kho&#7843;ng 12-144 gi&#7901; c&#7911;a to&#225;n &#273;&#7891; hi&#7875;n th&#7883;."
+      };
+    }
+
+    const p40 = interpolateBilirubinCurve(bilirubinBhutaniNomogram.p40, postnatalAgeHours);
+    const p75 = interpolateBilirubinCurve(bilirubinBhutaniNomogram.p75, postnatalAgeHours);
+    const p95 = interpolateBilirubinCurve(bilirubinBhutaniNomogram.p95, postnatalAgeHours);
+    const nearestBoundary = Math.min(Math.abs(bilirubinMgDl - p40), Math.abs(bilirubinMgDl - p75), Math.abs(bilirubinMgDl - p95));
+
+    if (nearestBoundary < 0.2) {
+      return {
+        available: true,
+        zoneKey: "boundary",
+        zoneLabel: "S&#225;t &#273;&#432;&#7901;ng ph&#226;n v&#249;ng",
+        zoneDetail: "Gi&#225; tr&#7883; n&#7857;m trong 0,2 mg/dL quanh m&#7897;t &#273;&#432;&#7901;ng b&#225;ch ph&#226;n v&#7883;; kh&#244;ng n&#234;n g&#225;n v&#249;ng b&#7857;ng s&#7889; h&#243;a &#273;&#7891; th&#7883;.",
+        thresholds: { p40, p75, p95 }
+      };
+    }
+
+    if (bilirubinMgDl >= p95) {
+      return {
+        available: true,
+        zoneKey: "high",
+        zoneLabel: "V&#249;ng nguy c&#417; cao (&ge;P95)",
+        zoneDetail: "Nguy c&#417; bilirubin sau &#273;&#243; v&#432;&#7907;t b&#225;ch ph&#226;n v&#7883; 95 cao h&#417;n trong qu&#7847;n th&#7875; nghi&#234;n c&#7913;u.",
+        thresholds: { p40, p75, p95 }
+      };
+    }
+    if (bilirubinMgDl >= p75) {
+      return {
+        available: true,
+        zoneKey: "high-intermediate",
+        zoneLabel: "V&#249;ng nguy c&#417; trung b&#236;nh-cao (P75-P95)",
+        zoneDetail: "&#272;&#226;y l&#224; ph&#226;n v&#249;ng ti&#234;n l&#432;&#7907;ng l&#7883;ch s&#7917;, kh&#244;ng ph&#7843;i ch&#7881; &#273;&#7883;nh chi&#7871;u &#273;&#232;n.",
+        thresholds: { p40, p75, p95 }
+      };
+    }
+    if (bilirubinMgDl >= p40) {
+      return {
+        available: true,
+        zoneKey: "low-intermediate",
+        zoneLabel: "V&#249;ng nguy c&#417; trung b&#236;nh-th&#7845;p (P40-P75)",
+        zoneDetail: "&#272;&#226;y l&#224; ph&#226;n v&#249;ng ti&#234;n l&#432;&#7907;ng l&#7883;ch s&#7917;, kh&#244;ng ph&#7843;i ch&#7881; &#273;&#7883;nh chi&#7871;u &#273;&#232;n.",
+        thresholds: { p40, p75, p95 }
+      };
+    }
+    return {
+      available: true,
+      zoneKey: "low",
+      zoneLabel: "V&#249;ng nguy c&#417; th&#7845;p (<P40)",
+      zoneDetail: "Nguy c&#417; &#7903; &#273;&#226;y l&#224; nguy c&#417; bilirubin sau &#273;&#243; v&#432;&#7907;t P95, kh&#244;ng c&#243; ngh&#297;a l&#224; kh&#244;ng c&#7847;n theo d&#245;i l&#226;m s&#224;ng.",
+      thresholds: { p40, p75, p95 }
     };
   }
 
@@ -3177,6 +3251,19 @@
     }
     const last = points[points.length - 1];
     return [last[1], last[2]];
+  }
+
+  function interpolateBilirubinCurve(points, ageHours) {
+    if (ageHours <= points[0][0]) return points[0][1];
+    for (let i = 1; i < points.length; i += 1) {
+      const previous = points[i - 1];
+      const next = points[i];
+      if (ageHours <= next[0]) {
+        const ratio = (ageHours - previous[0]) / (next[0] - previous[0]);
+        return previous[1] + (next[1] - previous[1]) * ratio;
+      }
+    }
+    return points[points.length - 1][1];
   }
 
   function bilirubinAction(bilirubinMgDl, phototherapyThreshold, escalationThreshold, exchangeThreshold) {
@@ -3235,6 +3322,214 @@
     return ["TSB ho&#7863;c TcB", "&#272;&#225;nh gi&#225; b&#250;, c&#226;n n&#7863;ng, m&#7845;t n&#432;&#7899;c", "Nh&#243;m m&#225;u m&#7865;/con n&#7871;u nghi b&#7845;t &#273;&#7891;ng", "DAT n&#7871;u nghi tan m&#225;u"];
   }
 
+  function bilirubinChartPath(points, x, y) {
+    return points.map((point, index) => `${index === 0 ? "M" : "L"}${x(point[0]).toFixed(1)},${y(point[1]).toFixed(1)}`).join(" ");
+  }
+
+  function bilirubinChartBandPath(upperPoints, lowerPoints, x, y) {
+    const upper = bilirubinChartPath(upperPoints, x, y);
+    const lower = [...lowerPoints].reverse().map((point) => `L${x(point[0]).toFixed(1)},${y(point[1]).toFixed(1)}`).join(" ");
+    return `${upper} ${lower} Z`;
+  }
+
+  function bilirubinAapVisiblePoints(points, domainEnd) {
+    const visible = points.filter((point) => point[0] <= domainEnd).map((point) => [...point]);
+    const last = visible[visible.length - 1];
+    if (last && last[0] < domainEnd) {
+      const [photo, exchange] = interpolateBilirubinThreshold(points, domainEnd);
+      visible.push([domainEnd, photo, exchange]);
+    }
+    return visible;
+  }
+
+  function bilirubinAapChartSvg(result) {
+    const width = 760;
+    const height = 430;
+    const padding = { left: 54, right: 28, top: 26, bottom: 58 };
+    const completedGa = clamp(Math.floor(result.input.gestationalAgeWeeks), 35, 40);
+    const sourcePoints = bilirubinAap2022Thresholds[result.input.hasRisk ? "any" : "none"][completedGa];
+    const domainStart = 1;
+    const domainEnd = clamp(Math.max(168, Math.ceil(result.input.postnatalAgeHours / 24) * 24), 168, 336);
+    const visible = bilirubinAapVisiblePoints(sourcePoints, domainEnd);
+    const yMax = clamp(Math.max(30, Math.ceil((result.input.bilirubinMgDl + 2) / 5) * 5), 30, 65);
+    const x = (hour) => padding.left + ((hour - domainStart) / (domainEnd - domainStart)) * (width - padding.left - padding.right);
+    const y = (value) => height - padding.bottom - (value / yMax) * (height - padding.top - padding.bottom);
+    const photo = visible.map((point) => [point[0], point[1]]);
+    const exchange = visible.map((point) => [point[0], point[2]]);
+    const escalation = visible.map((point) => [point[0], Math.max(0, point[2] - 2)]);
+    const chartTop = visible.map((point) => [point[0], yMax]);
+    const chartBottom = visible.map((point) => [point[0], 0]);
+    const xTicks = [1, ...Array.from({ length: Math.floor(domainEnd / 24) }, (_, index) => (index + 1) * 24)];
+    const yTicks = Array.from({ length: Math.floor(yMax / 5) + 1 }, (_, index) => index * 5);
+    const pointX = x(result.input.postnatalAgeHours);
+    const pointY = y(result.input.bilirubinMgDl);
+    const labelWidth = 94;
+    const labelHeight = 28;
+    const labelX = pointX > width - padding.right - labelWidth - 14 ? pointX - labelWidth - 10 : pointX + 10;
+    const labelY = pointY < padding.top + 42 ? pointY + 10 : pointY - 36;
+
+    return `
+      <svg viewBox="0 0 ${width} ${height}" role="img" aria-labelledby="bilirubinAapChartTitle bilirubinAapChartDesc">
+        <title id="bilirubinAapChartTitle">Bi&#7875;u &#273;&#7891; ng&#432;&#7905;ng &#273;i&#7873;u tr&#7883; bilirubin AAP 2022</title>
+        <desc id="bilirubinAapChartDesc">Tu&#7893;i thai ${completedGa} tu&#7847;n, ${result.input.hasRisk ? "c&#243;" : "kh&#244;ng c&#243;"} y&#7871;u t&#7889; nguy c&#417;, TSB ${pnFmt(result.input.bilirubinMgDl, 1)} mg/dL t&#7841;i ${pnFmt(result.input.postnatalAgeHours, 0)} gi&#7901;.</desc>
+        <rect width="${width}" height="${height}" fill="#ffffff"></rect>
+        <path d="${bilirubinChartBandPath(chartTop, exchange, x, y)}" fill="#fee2e2"></path>
+        <path d="${bilirubinChartBandPath(exchange, escalation, x, y)}" fill="#fef3c7"></path>
+        <path d="${bilirubinChartBandPath(escalation, photo, x, y)}" fill="#dbeafe"></path>
+        <path d="${bilirubinChartBandPath(photo, chartBottom, x, y)}" fill="#f0fdf4"></path>
+        ${yTicks.map((value) => `
+          <line x1="${padding.left}" y1="${y(value).toFixed(1)}" x2="${width - padding.right}" y2="${y(value).toFixed(1)}" stroke="#cbd5e1" stroke-width="1" opacity="0.72"></line>
+          <text x="${padding.left - 10}" y="${y(value).toFixed(1)}" text-anchor="end" dominant-baseline="middle" fill="#475569" font-size="12">${value}</text>
+        `).join("")}
+        ${xTicks.map((hour) => `
+          <line x1="${x(hour).toFixed(1)}" y1="${padding.top}" x2="${x(hour).toFixed(1)}" y2="${height - padding.bottom}" stroke="#e2e8f0" stroke-width="1"></line>
+          <text x="${x(hour).toFixed(1)}" y="${height - 34}" text-anchor="middle" fill="#475569" font-size="12">${hour}</text>
+        `).join("")}
+        <path d="${bilirubinChartPath(photo, x, y)}" fill="none" stroke="#2563eb" stroke-width="3" stroke-linejoin="round"></path>
+        <path d="${bilirubinChartPath(escalation, x, y)}" fill="none" stroke="#d97706" stroke-width="3" stroke-linejoin="round"></path>
+        <path d="${bilirubinChartPath(exchange, x, y)}" fill="none" stroke="#dc2626" stroke-width="3" stroke-linejoin="round"></path>
+        <line x1="${pointX.toFixed(1)}" y1="${padding.top}" x2="${pointX.toFixed(1)}" y2="${height - padding.bottom}" stroke="#0f172a" stroke-width="1.5" stroke-dasharray="5 5" opacity="0.55"></line>
+        <circle cx="${pointX.toFixed(1)}" cy="${pointY.toFixed(1)}" r="9" fill="#ffffff" stroke="#0f172a" stroke-width="3"></circle>
+        <circle cx="${pointX.toFixed(1)}" cy="${pointY.toFixed(1)}" r="4" fill="#0f172a"></circle>
+        <rect x="${labelX.toFixed(1)}" y="${labelY.toFixed(1)}" width="${labelWidth}" height="${labelHeight}" rx="6" fill="#0f172a"></rect>
+        <text x="${(labelX + 9).toFixed(1)}" y="${(labelY + 18).toFixed(1)}" fill="#ffffff" font-size="12" font-weight="700">TSB ${pnFmt(result.input.bilirubinMgDl, 1)}</text>
+        <line x1="${padding.left}" y1="${height - padding.bottom}" x2="${width - padding.right}" y2="${height - padding.bottom}" stroke="#64748b" stroke-width="1.3"></line>
+        <line x1="${padding.left}" y1="${padding.top}" x2="${padding.left}" y2="${height - padding.bottom}" stroke="#64748b" stroke-width="1.3"></line>
+        <text x="${padding.left}" y="16" fill="#334155" font-size="12" font-weight="700">TSB (mg/dL)</text>
+        <text x="${(padding.left + width - padding.right) / 2}" y="${height - 10}" text-anchor="middle" fill="#475569" font-size="12">Gi&#7901; tu&#7893;i sau sinh</text>
+      </svg>
+    `;
+  }
+
+  function bilirubinBhutaniChartSvg(result) {
+    const width = 760;
+    const height = 430;
+    const padding = { left: 54, right: 48, top: 26, bottom: 58 };
+    const domainStart = 12;
+    const domainEnd = 144;
+    const yMax = clamp(Math.max(25, Math.ceil((result.input.bilirubinMgDl + 2) / 5) * 5), 25, 65);
+    const x = (hour) => padding.left + ((hour - domainStart) / (domainEnd - domainStart)) * (width - padding.left - padding.right);
+    const y = (value) => height - padding.bottom - (value / yMax) * (height - padding.top - padding.bottom);
+    const chartTop = bilirubinBhutaniNomogram.p95.map((point) => [point[0], yMax]);
+    const chartBottom = bilirubinBhutaniNomogram.p40.map((point) => [point[0], 0]);
+    const xTicks = Array.from({ length: 12 }, (_, index) => (index + 1) * 12);
+    const yTicks = Array.from({ length: Math.floor(yMax / 5) + 1 }, (_, index) => index * 5);
+    const showPoint = result.bhutani.available;
+    const pointX = showPoint ? x(result.input.postnatalAgeHours) : 0;
+    const pointY = showPoint ? y(result.input.bilirubinMgDl) : 0;
+    const labelWidth = 94;
+    const labelHeight = 28;
+    const labelX = showPoint && pointX > width - padding.right - labelWidth - 14 ? pointX - labelWidth - 10 : pointX + 10;
+    const labelY = showPoint && pointY < padding.top + 42 ? pointY + 10 : pointY - 36;
+
+    return `
+      <svg viewBox="0 0 ${width} ${height}" role="img" aria-labelledby="bilirubinBhutaniChartTitle bilirubinBhutaniChartDesc">
+        <title id="bilirubinBhutaniChartTitle">To&#225;n &#273;&#7891; nguy c&#417; bilirubin Bhutani</title>
+        <desc id="bilirubinBhutaniChartDesc">B&#7889;n v&#249;ng nguy c&#417; l&#7883;ch s&#7917; theo b&#225;ch ph&#226;n v&#7883; 40, 75 v&#224; 95.${showPoint ? ` TSB ${pnFmt(result.input.bilirubinMgDl, 1)} mg/dL t&#7841;i ${pnFmt(result.input.postnatalAgeHours, 0)} gi&#7901;.` : ""}</desc>
+        <rect width="${width}" height="${height}" fill="#ffffff"></rect>
+        <path d="${bilirubinChartBandPath(chartTop, bilirubinBhutaniNomogram.p95, x, y)}" fill="#fee2e2"></path>
+        <path d="${bilirubinChartBandPath(bilirubinBhutaniNomogram.p95, bilirubinBhutaniNomogram.p75, x, y)}" fill="#ffedd5"></path>
+        <path d="${bilirubinChartBandPath(bilirubinBhutaniNomogram.p75, bilirubinBhutaniNomogram.p40, x, y)}" fill="#fef9c3"></path>
+        <path d="${bilirubinChartBandPath(bilirubinBhutaniNomogram.p40, chartBottom, x, y)}" fill="#dcfce7"></path>
+        ${yTicks.map((value) => `
+          <line x1="${padding.left}" y1="${y(value).toFixed(1)}" x2="${width - padding.right}" y2="${y(value).toFixed(1)}" stroke="#cbd5e1" stroke-width="1" opacity="0.72"></line>
+          <text x="${padding.left - 10}" y="${y(value).toFixed(1)}" text-anchor="end" dominant-baseline="middle" fill="#475569" font-size="12">${value}</text>
+        `).join("")}
+        ${xTicks.map((hour) => `
+          <line x1="${x(hour).toFixed(1)}" y1="${padding.top}" x2="${x(hour).toFixed(1)}" y2="${height - padding.bottom}" stroke="#e2e8f0" stroke-width="1"></line>
+          <text x="${x(hour).toFixed(1)}" y="${height - 34}" text-anchor="middle" fill="#475569" font-size="12">${hour}</text>
+        `).join("")}
+        <path d="${bilirubinChartPath(bilirubinBhutaniNomogram.p40, x, y)}" fill="none" stroke="#15803d" stroke-width="2.6" stroke-linejoin="round"></path>
+        <path d="${bilirubinChartPath(bilirubinBhutaniNomogram.p75, x, y)}" fill="none" stroke="#ca8a04" stroke-width="2.6" stroke-linejoin="round"></path>
+        <path d="${bilirubinChartPath(bilirubinBhutaniNomogram.p95, x, y)}" fill="none" stroke="#dc2626" stroke-width="2.6" stroke-linejoin="round"></path>
+        <text x="${width - padding.right + 8}" y="${y(bilirubinBhutaniNomogram.p40.at(-1)[1]).toFixed(1)}" dominant-baseline="middle" fill="#166534" font-size="12" font-weight="700">P40</text>
+        <text x="${width - padding.right + 8}" y="${y(bilirubinBhutaniNomogram.p75.at(-1)[1]).toFixed(1)}" dominant-baseline="middle" fill="#854d0e" font-size="12" font-weight="700">P75</text>
+        <text x="${width - padding.right + 8}" y="${y(bilirubinBhutaniNomogram.p95.at(-1)[1]).toFixed(1)}" dominant-baseline="middle" fill="#991b1b" font-size="12" font-weight="700">P95</text>
+        ${showPoint ? `
+          <line x1="${pointX.toFixed(1)}" y1="${padding.top}" x2="${pointX.toFixed(1)}" y2="${height - padding.bottom}" stroke="#0f172a" stroke-width="1.5" stroke-dasharray="5 5" opacity="0.55"></line>
+          <circle cx="${pointX.toFixed(1)}" cy="${pointY.toFixed(1)}" r="9" fill="#ffffff" stroke="#0f172a" stroke-width="3"></circle>
+          <circle cx="${pointX.toFixed(1)}" cy="${pointY.toFixed(1)}" r="4" fill="#0f172a"></circle>
+          <rect x="${labelX.toFixed(1)}" y="${labelY.toFixed(1)}" width="${labelWidth}" height="${labelHeight}" rx="6" fill="#0f172a"></rect>
+          <text x="${(labelX + 9).toFixed(1)}" y="${(labelY + 18).toFixed(1)}" fill="#ffffff" font-size="12" font-weight="700">TSB ${pnFmt(result.input.bilirubinMgDl, 1)}</text>
+        ` : ""}
+        <line x1="${padding.left}" y1="${height - padding.bottom}" x2="${width - padding.right}" y2="${height - padding.bottom}" stroke="#64748b" stroke-width="1.3"></line>
+        <line x1="${padding.left}" y1="${padding.top}" x2="${padding.left}" y2="${height - padding.bottom}" stroke="#64748b" stroke-width="1.3"></line>
+        <text x="${padding.left}" y="16" fill="#334155" font-size="12" font-weight="700">TSB (mg/dL)</text>
+        <text x="${(padding.left + width - padding.right) / 2}" y="${height - 10}" text-anchor="middle" fill="#475569" font-size="12">Gi&#7901; tu&#7893;i sau sinh</text>
+      </svg>
+    `;
+  }
+
+  function renderBilirubinCharts(result) {
+    if (result.input.gestationalAgeWeeks < 35) {
+      return `
+        <section class="side-panel bilirubin-chart-unavailable">
+          <h2>Bi&#7875;u &#273;&#7891; AAP 2022 / Bhutani</h2>
+          <p>Hai bi&#7875;u &#273;&#7891; n&#224;y kh&#244;ng &#225;p d&#7909;ng cho tr&#7867; &lt;35 tu&#7847;n. K&#7871;t qu&#7843; ph&#237;a tr&#234;n &#273;ang d&#249;ng b&#7843;ng tham kh&#7843;o sinh non Maisels 2012.</p>
+        </section>
+      `;
+    }
+
+    const completedGa = clamp(Math.floor(result.input.gestationalAgeWeeks), 35, 40);
+    const bhutaniSummary = result.bhutani.available
+      ? `<strong>${result.bhutani.zoneLabel}</strong><span>${result.bhutani.zoneDetail}</span>`
+      : `<strong>Ch&#432;a th&#7875; ph&#226;n v&#249;ng</strong><span>${result.bhutani.reason}</span>`;
+
+    return `
+      <section class="result-card bilirubin-chart-card" data-bilirubin-charts>
+        <div class="bilirubin-chart-header">
+          <div>
+            <span class="eyebrow">Tra c&#7913;u tr&#7921;c quan</span>
+            <h2>Bi&#7875;u &#273;&#7891; bilirubin theo gi&#7901; tu&#7893;i</h2>
+          </div>
+          <div class="bilirubin-chart-tabs" role="tablist" aria-label="Ch&#7885;n bi&#7875;u &#273;&#7891; bilirubin">
+            <button class="bilirubin-chart-tab is-active" type="button" role="tab" aria-selected="true" aria-controls="bilirubinChartAap" data-bilirubin-chart="aap">${icon("chart")} AAP 2022</button>
+            <button class="bilirubin-chart-tab" type="button" role="tab" aria-selected="false" aria-controls="bilirubinChartBhutani" data-bilirubin-chart="bhutani">${icon("chart")} Bhutani</button>
+          </div>
+        </div>
+
+        <div class="bilirubin-chart-panel" id="bilirubinChartAap" role="tabpanel" data-bilirubin-chart-panel="aap">
+          <div class="bilirubin-chart-context">
+            <span>${completedGa} tu&#7847;n ho&#224;n ch&#7881;nh</span>
+            <span>${result.input.hasRisk ? "C&#243;" : "Kh&#244;ng c&#243;"} y&#7871;u t&#7889; nguy c&#417;</span>
+            <strong>${pnFmt(result.input.postnatalAgeHours, 0)} gi&#7901; / TSB ${pnFmt(result.input.bilirubinMgDl, 1)}</strong>
+          </div>
+          <div class="bilirubin-chart-frame">${bilirubinAapChartSvg(result)}</div>
+          <div class="bilirubin-chart-legend" aria-label="Ch&#250; gi&#7843;i AAP 2022">
+            <span><i class="is-photo"></i>Ng&#432;&#7905;ng chi&#7871;u &#273;&#232;n ${pnFmt(result.threshold.phototherapyThreshold, 1)}</span>
+            <span><i class="is-escalation"></i>Escalation ${pnFmt(result.threshold.escalationThreshold, 1)}</span>
+            <span><i class="is-exchange"></i>Thay m&#225;u ${pnFmt(result.threshold.exchangeThreshold, 1)}</span>
+            <span><i class="is-current"></i>TSB hi&#7879;n t&#7841;i</span>
+          </div>
+          <p class="bilirubin-chart-note">Bi&#7875;u &#273;&#7891; d&#249;ng tu&#7893;i thai ho&#224;n ch&#7881;nh v&#224; y&#7871;u t&#7889; nguy c&#417; &#273;&#227; ch&#7885;n. <a href="https://publications.aap.org/pediatrics/article/150/3/e2022058859/188726/Clinical-Practice-Guideline-Revision-Management-of" target="_blank" rel="noreferrer">Ngu&#7891;n AAP 2022</a>.</p>
+        </div>
+
+        <div class="bilirubin-chart-panel" id="bilirubinChartBhutani" role="tabpanel" data-bilirubin-chart-panel="bhutani" hidden>
+          <div class="bilirubin-bhutani-summary is-${result.bhutani.zoneKey || "unavailable"}">${bhutaniSummary}</div>
+          <div class="bilirubin-chart-frame">${bilirubinBhutaniChartSvg(result)}</div>
+          <div class="bilirubin-chart-legend" aria-label="Ch&#250; gi&#7843;i Bhutani">
+            <span><i class="is-low"></i>Th&#7845;p &lt;P40</span>
+            <span><i class="is-low-intermediate"></i>Trung b&#236;nh-th&#7845;p</span>
+            <span><i class="is-high-intermediate"></i>Trung b&#236;nh-cao</span>
+            <span><i class="is-high"></i>Cao &ge;P95</span>
+          </div>
+          <p class="bilirubin-chart-note"><strong>L&#432;u &#253;:</strong> Bhutani d&#7921; b&#225;o nguy c&#417; TSB sau &#273;&#243; v&#432;&#7907;t P95, kh&#244;ng ph&#7843;i ng&#432;&#7905;ng chi&#7871;u &#273;&#232;n hay thay m&#225;u. C&#225;c &#273;&#432;&#7901;ng &#273;&#432;&#7907;c s&#7889; h&#243;a t&#7915; to&#225;n &#273;&#7891; c&#244;ng b&#7889; &#273;&#7875; hi&#7875;n th&#7883;; &#273;i&#7875;m s&#225;t &#273;&#432;&#7901;ng c&#7847;n &#273;&#7885;c tr&#7921;c ti&#7871;p ngu&#7891;n. Qu&#7847;n th&#7875; g&#7889;c l&#224; tr&#7867; kh&#7887;e m&#7841;nh DAT &#226;m, &ge;36 tu&#7847;n v&#224; &ge;2000 g ho&#7863;c &ge;35 tu&#7847;n v&#224; &ge;2500 g; c&#226;n n&#7863;ng sinh ch&#432;a &#273;&#432;&#7907;c nh&#7853;p trong c&#244;ng c&#7909; n&#224;y. AAP 2022 &#273;&#227; thay risk zones b&#7857;ng kho&#7843;ng c&#225;ch t&#7899;i ng&#432;&#7905;ng chi&#7871;u &#273;&#232;n. <a href="https://pubmed.ncbi.nlm.nih.gov/9917432/" target="_blank" rel="noreferrer">Bhutani 1999</a>.</p>
+        </div>
+      </section>
+    `;
+  }
+
+  function activateBilirubinChart(root, chartKey) {
+    root.querySelectorAll("[data-bilirubin-chart]").forEach((button) => {
+      const isActive = button.dataset.bilirubinChart === chartKey;
+      button.classList.toggle("is-active", isActive);
+      button.setAttribute("aria-selected", String(isActive));
+    });
+    root.querySelectorAll("[data-bilirubin-chart-panel]").forEach((panel) => {
+      panel.hidden = panel.dataset.bilirubinChartPanel !== chartKey;
+    });
+  }
+
   function renderBilirubinResults(result) {
     const threshold = result.threshold;
     const isPreterm = result.input.gestationalAgeWeeks < 35;
@@ -3258,6 +3553,8 @@
             ${pnMetric("C&#225;ch ng&#432;&#7905;ng thay m&#225;u", `${pnFmt(result.gaps.exchangeGap, 1)} mg/dL`)}
           </div>
         </div>
+
+        ${renderBilirubinCharts(result)}
 
         ${pnTable("Ng&#432;&#7905;ng &#273;i&#7873;u tr&#7883;", thresholdRows)}
 
@@ -6088,6 +6385,14 @@
         event.preventDefault();
         renderBilirubin();
       });
+      const bilirubinResults = document.getElementById("bilirubinResults");
+      if (bilirubinResults) {
+        bilirubinResults.addEventListener("click", (event) => {
+          const button = event.target.closest("[data-bilirubin-chart]");
+          if (!button || !bilirubinResults.contains(button)) return;
+          activateBilirubinChart(bilirubinResults, button.dataset.bilirubinChart);
+        });
+      }
       renderBilirubin();
     }
 

@@ -749,6 +749,256 @@ button {
   background: #fbfcfe;
 }
 
+.result-card.bilirubin-chart-card {
+  display: block;
+  gap: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+.bilirubin-chart-header {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  padding: 18px;
+  border-bottom: 1px solid var(--soft);
+}
+
+.bilirubin-chart-header h2 {
+  margin: 5px 0 0;
+  font-size: 1.2rem;
+}
+
+.bilirubin-chart-tabs {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 4px;
+  padding: 4px;
+  border: 1px solid var(--soft);
+  border-radius: 8px;
+  background: #f1f5f9;
+}
+
+.bilirubin-chart-tab {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  min-height: 40px;
+  padding: 8px 12px;
+  border: 0;
+  border-radius: 6px;
+  color: #475569;
+  background: transparent;
+  font-size: 0.86rem;
+  font-weight: 800;
+  white-space: nowrap;
+}
+
+.bilirubin-chart-tab svg {
+  width: 18px;
+  height: 18px;
+}
+
+.bilirubin-chart-tab.is-active {
+  color: #ffffff;
+  background: #1d4ed8;
+  box-shadow: 0 1px 2px rgba(15, 23, 42, 0.14);
+}
+
+.bilirubin-chart-tab:focus-visible {
+  outline: 3px solid rgba(37, 99, 235, 0.28);
+  outline-offset: 2px;
+}
+
+.bilirubin-chart-panel {
+  padding: 16px;
+}
+
+.bilirubin-chart-context {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.bilirubin-chart-context span,
+.bilirubin-chart-context strong {
+  padding: 7px 9px;
+  border: 1px solid #dbe4f0;
+  border-radius: 6px;
+  color: #334155;
+  background: #f8fafc;
+  font-size: 0.8rem;
+  line-height: 1.25;
+}
+
+.bilirubin-chart-context strong {
+  color: #0f172a;
+  border-color: #bfdbfe;
+  background: #eff6ff;
+}
+
+.bilirubin-chart-frame {
+  width: 100%;
+  overflow-x: auto;
+  border: 1px solid #dbe4f0;
+  border-radius: 8px;
+  background: #ffffff;
+  scrollbar-color: #94a3b8 #f1f5f9;
+}
+
+.bilirubin-chart-frame svg {
+  display: block;
+  width: 100%;
+  min-width: 640px;
+  height: auto;
+}
+
+.bilirubin-chart-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 9px 16px;
+  margin-top: 12px;
+  color: #475569;
+  font-size: 0.8rem;
+  font-weight: 700;
+}
+
+.bilirubin-chart-legend span {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+}
+
+.bilirubin-chart-legend i {
+  display: inline-block;
+  width: 18px;
+  height: 4px;
+  border-radius: 2px;
+  flex: 0 0 auto;
+}
+
+.bilirubin-chart-legend .is-photo {
+  background: #2563eb;
+}
+
+.bilirubin-chart-legend .is-escalation {
+  background: #d97706;
+}
+
+.bilirubin-chart-legend .is-exchange,
+.bilirubin-chart-legend .is-high {
+  background: #dc2626;
+}
+
+.bilirubin-chart-legend .is-current {
+  width: 10px;
+  height: 10px;
+  border: 2px solid #0f172a;
+  border-radius: 50%;
+  background: #ffffff;
+}
+
+.bilirubin-chart-legend .is-low,
+.bilirubin-chart-legend .is-low-intermediate,
+.bilirubin-chart-legend .is-high-intermediate,
+.bilirubin-chart-legend .is-high {
+  width: 13px;
+  height: 13px;
+  border-radius: 3px;
+}
+
+.bilirubin-chart-legend .is-low {
+  background: #86efac;
+}
+
+.bilirubin-chart-legend .is-low-intermediate {
+  background: #fde047;
+}
+
+.bilirubin-chart-legend .is-high-intermediate {
+  background: #fdba74;
+}
+
+.bilirubin-chart-note {
+  margin: 12px 0 0;
+  color: #64748b;
+  font-size: 0.82rem;
+  line-height: 1.6;
+}
+
+.bilirubin-chart-note strong {
+  color: #334155;
+}
+
+.bilirubin-chart-note a {
+  color: #1d4ed8;
+  font-weight: 800;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.bilirubin-bhutani-summary {
+  display: grid;
+  gap: 4px;
+  margin-bottom: 12px;
+  padding: 11px 12px;
+  border-left: 4px solid #64748b;
+  border-radius: 0 6px 6px 0;
+  color: #475569;
+  background: #f8fafc;
+  font-size: 0.84rem;
+  line-height: 1.5;
+}
+
+.bilirubin-bhutani-summary strong {
+  color: #0f172a;
+}
+
+.bilirubin-bhutani-summary.is-low {
+  border-color: #16a34a;
+  background: #f0fdf4;
+}
+
+.bilirubin-bhutani-summary.is-low-intermediate {
+  border-color: #ca8a04;
+  background: #fefce8;
+}
+
+.bilirubin-bhutani-summary.is-high-intermediate {
+  border-color: #ea580c;
+  background: #fff7ed;
+}
+
+.bilirubin-bhutani-summary.is-high {
+  border-color: #dc2626;
+  background: #fef2f2;
+}
+
+.bilirubin-bhutani-summary.is-boundary {
+  border-color: #2563eb;
+  background: #eff6ff;
+}
+
+.bilirubin-chart-unavailable {
+  border-color: #cbd5e1;
+  background: #f8fafc;
+}
+
+@media (min-width: 760px) {
+  .bilirubin-chart-header {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .bilirubin-chart-tabs {
+    width: 244px;
+    flex: 0 0 auto;
+  }
+}
+
 .calc-submit {
   width: 100%;
   margin-top: 16px;
@@ -1851,6 +2101,28 @@ button {
   .footer-grid {
     grid-template-columns: 1fr auto;
     align-items: start;
+  }
+}
+
+@media (min-width: 900px) and (max-width: 1099px) {
+  .nav-links,
+  .nav-actions > .language,
+  .nav-inner > .nav-actions > .btn-primary {
+    display: none;
+  }
+
+  .menu-button {
+    display: inline-grid !important;
+  }
+
+  .mobile-menu.is-open {
+    display: grid !important;
+  }
+}
+
+@media (min-width: 1100px) and (max-width: 1299px) {
+  .nav-inner > .nav-actions > .btn-primary {
+    display: none;
   }
 }
 
