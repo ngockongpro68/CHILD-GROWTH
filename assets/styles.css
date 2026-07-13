@@ -2177,7 +2177,7 @@ button {
   }
 }
 
-@media (min-width: 900px) and (max-width: 1279px) {
+@media (min-width: 900px) and (max-width: 1399px) {
   .nav-links,
   .nav-actions > .language,
   .nav-inner > .nav-actions > .btn-primary {
