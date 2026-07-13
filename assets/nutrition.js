@@ -45,9 +45,9 @@
       sourceLabel: "Friso Việt Nam",
       updated: "13/07/2026",
       sellers: [
-        { name: text("Trang sản phẩm Friso", "Friso product page"), url: "https://www.friso.com.vn/friso-gold/friso-gold-giai-doan-4" },
-        { name: "Shopee", url: "https://shopee.vn/search?keyword=friso%20gold%204%20850g" },
-        { name: "Lazada", url: "https://www.lazada.vn/catalog/?q=friso%20gold%204%20850g" }
+        { name: text("Trang sản phẩm Friso", "Friso product page"), url: "https://www.friso.com.vn/friso-gold/friso-gold-giai-doan-4", kind: "official", platform: "friso" },
+        { name: "Shopee", url: "https://shopee.vn/search?keyword=friso%20gold%204%20850g", kind: "affiliate", platform: "shopee" },
+        { name: "Lazada", url: "https://www.lazada.vn/catalog/?q=friso%20gold%204%20850g", kind: "affiliate", platform: "lazada" }
       ]
     },
     {
@@ -74,9 +74,9 @@
       sourceLabel: "Nestlé Health Science Việt Nam",
       updated: "13/07/2026",
       sellers: [
-        { name: text("Trang sản phẩm Nestlé", "Nestlé product page"), url: "https://www.nestlehealthscience.vn/nutren-junior" },
-        { name: text("Nhà thuốc Long Châu", "Long Châu Pharmacy"), url: "https://nhathuoclongchau.com.vn/thuc-pham-chuc-nang/sua-nutren-junior-1-10-tuoi-800-g.html" },
-        { name: "Pharmacity", url: "https://www.pharmacity.vn/sua-bot-dinh-duong-nestle-nutren-junior-bo-sung-dinh-duong-toan-dien-cho-be-tu-1-10-tuoi-800g.html" }
+        { name: text("Trang sản phẩm Nestlé", "Nestlé product page"), url: "https://www.nestlehealthscience.vn/nutren-junior", kind: "official", platform: "nestle" },
+        { name: "Shopee", url: "https://shopee.vn/search?keyword=nutren%20junior%20800g", kind: "affiliate", platform: "shopee" },
+        { name: "Lazada", url: "https://www.lazada.vn/catalog/?q=nutren%20junior%20800g", kind: "affiliate", platform: "lazada" }
       ]
     },
     {
@@ -103,9 +103,9 @@
       sourceLabel: "Abbott PediaSure Việt Nam",
       updated: "13/07/2026",
       sellers: [
-        { name: text("Trang sản phẩm Abbott", "Abbott product page"), url: "https://www.family.abbott/vn-vi/pediasure/products/pediasure-powder-ML2.html" },
-        { name: "Shopee", url: "https://shopee.vn/search?keyword=pediasure%20850g%20ch%C3%ADnh%20h%C3%A3ng" },
-        { name: "Lazada", url: "https://www.lazada.vn/catalog/?q=pediasure%20850g" }
+        { name: text("Trang sản phẩm Abbott", "Abbott product page"), url: "https://www.family.abbott/vn-vi/pediasure/products/pediasure-powder-ML2.html", kind: "official", platform: "abbott" },
+        { name: "Shopee", url: "https://shopee.vn/search?keyword=pediasure%20850g%20ch%C3%ADnh%20h%C3%A3ng", kind: "affiliate", platform: "shopee" },
+        { name: "Lazada", url: "https://www.lazada.vn/catalog/?q=pediasure%20850g", kind: "affiliate", platform: "lazada" }
       ]
     },
     {
@@ -132,9 +132,9 @@
       sourceLabel: "Vinamilk",
       updated: "13/07/2026",
       sellers: [
-        { name: text("Mua tại Vinamilk", "Buy from Vinamilk"), url: "https://new.vinamilk.com.vn/products/sua-bot-dielac-grow-plus-2" },
-        { name: "Shopee", url: "https://shopee.vn/search?keyword=dielac%20grow%20plus%202%2B%20850g" },
-        { name: "Lazada", url: "https://www.lazada.vn/catalog/?q=dielac%20grow%20plus%202%2B" }
+        { name: text("Trang sản phẩm Vinamilk", "Vinamilk product page"), url: "https://new.vinamilk.com.vn/products/sua-bot-dielac-grow-plus-2", kind: "official", platform: "vinamilk" },
+        { name: "Shopee", url: "https://shopee.vn/search?keyword=dielac%20grow%20plus%202%2B%20850g", kind: "affiliate", platform: "shopee" },
+        { name: "Lazada", url: "https://www.lazada.vn/catalog/?q=dielac%20grow%20plus%202%2B", kind: "affiliate", platform: "lazada" }
       ]
     }
   ];
@@ -171,6 +171,19 @@
 
   function filterButton(group, value, label, active) {
     return `<button class="nutrition-chip${active ? " is-active" : ""}" type="button" data-nutrition-action="filter" data-group="${group}" data-value="${value}" aria-pressed="${active}">${label}</button>`;
+  }
+
+  function sellerLink(seller) {
+    let url = "#";
+    try {
+      const parsed = new URL(seller.url);
+      if (["http:", "https:"].includes(parsed.protocol)) url = parsed.href;
+    } catch (error) {
+      url = "#";
+    }
+    const isAffiliate = seller.kind === "affiliate";
+    const rel = isAffiliate ? "sponsored nofollow noopener noreferrer" : "noopener noreferrer";
+    return `<a href="${url}" target="_blank" rel="${rel}" data-seller-kind="${seller.kind || "official"}" data-marketplace="${seller.platform || "official"}"><span>${seller.name}</span>${icon("external")}</a>`;
   }
 
   function pageMarkup() {
@@ -429,7 +442,7 @@
       </section>
       <section class="nutrition-sellers">
         <div><h3>${text("Nơi bán và trang hãng", "Sellers and manufacturer")}</h3><p>${text("Giá có thể thay đổi theo thời điểm.", "Prices may change over time.")}</p></div>
-        <div>${product.sellers.map((seller) => `<a href="${seller.url}" target="_blank" rel="sponsored nofollow noreferrer"><span>${seller.name}</span>${icon("external")}</a>`).join("")}</div>
+        <div>${product.sellers.map(sellerLink).join("")}</div>
       </section>
     `;
     backdrop.hidden = false;
