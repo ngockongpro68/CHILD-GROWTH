@@ -40,6 +40,8 @@
     return icons[name] || icons[aliases[name]] || icons.milk;
   };
 
+  // Source of truth: the workbook in outputs/nutrition-product-template-20260713.
+  // Only products present in that workbook are published in this catalog.
   const products = [
     {
       id: "growplus-tieu-hoa-2-800g",
@@ -72,39 +74,6 @@
       sellers: [
         { name: text("Trang sản phẩm NutiFood Sweden", "NutiFood Sweden product page"), url: "https://nutifoodsweden.com/vi/product/growplus-tieu-hoa/", kind: "official", platform: "nutifood" },
         { name: "Shopee", url: "https://s.shopee.vn/6VMEtmZJVx", kind: "affiliate", platform: "shopee" }
-      ]
-    },
-    {
-      id: "friso-gold-4",
-      section: "nutrition",
-      category: "milk",
-      subcategory: "daily",
-      name: "Friso Gold 4",
-      brand: "Friso",
-      image: "/assets/nutrition/friso-gold-4.webp",
-      age: text("Trẻ 2-6 tuổi", "Children 2-6 years"),
-      ageGroups: ["2-5"],
-      targets: ["child"],
-      needs: ["daily", "calcium"],
-      needLabel: text("Dùng bổ sung hằng ngày", "Daily supplementation"),
-      price: 521000,
-      priceStatus: text("Giá khuyến nghị 850g từ hãng", "Manufacturer reference price for 850g"),
-      energy: null,
-      protein: null,
-      calcium: null,
-      vitaminD: null,
-      sugar: null,
-      lactose: text("Có thành phần sữa", "Contains milk ingredients"),
-      suitable: [text("Trẻ 2-6 tuổi theo độ tuổi ghi trên nhãn", "Children 2-6 years as stated on the label"), text("Gia đình cần sản phẩm dùng bổ sung hằng ngày", "Families seeking daily supplementation")],
-      cautions: [text("Cần kiểm tra thành phần nếu trẻ dị ứng đạm sữa bò", "Check ingredients if the child has cow's milk protein allergy"), text("Không thay thế chế độ ăn đa dạng", "Does not replace a varied diet")],
-      analysis: text("Trang hãng xác nhận độ tuổi 2-6 và giá khuyến nghị theo quy cách. Các chỉ số trên 100 ml chưa được GrowthKid chuẩn hóa nên chưa dùng để xếp hạng.", "The manufacturer confirms use for ages 2-6 and a reference package price. Per-100 ml values have not yet been normalized by GrowthKid."),
-      source: "https://www.friso.com.vn/friso-gold/friso-gold-giai-doan-4",
-      sourceLabel: "Friso Việt Nam",
-      updated: "13/07/2026",
-      sellers: [
-        { name: text("Trang sản phẩm Friso", "Friso product page"), url: "https://www.friso.com.vn/friso-gold/friso-gold-giai-doan-4", kind: "official", platform: "friso" },
-        { name: "Shopee", url: "https://shopee.vn/search?keyword=friso%20gold%204%20850g", kind: "affiliate", platform: "shopee" },
-        { name: "Lazada", url: "https://www.lazada.vn/catalog/?q=friso%20gold%204%20850g", kind: "affiliate", platform: "lazada" }
       ]
     },
     {
