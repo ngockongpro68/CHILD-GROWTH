@@ -2510,7 +2510,7 @@
     const meta = languageMeta();
     document.documentElement.lang = meta.code;
     document.documentElement.dir = meta.dir;
-    document.title = t(titleForPage());
+    document.title = decodeHtmlEntities(t(titleForPage()));
   }
 
   function applyTranslations() {
