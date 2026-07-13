@@ -743,6 +743,11 @@
   --nutrition-image-scale: 0.96;
 }
 
+.nutrition-product-media[data-product-id="growplus-tieu-hoa-2-800g"],
+.nutrition-detail-product[data-product-id="growplus-tieu-hoa-2-800g"] {
+  --nutrition-image-scale: 1.12;
+}
+
 .nutrition-product-media[data-product-id="nutren-junior"],
 .nutrition-detail-product[data-product-id="nutren-junior"] {
   --nutrition-image-scale: 1.1;

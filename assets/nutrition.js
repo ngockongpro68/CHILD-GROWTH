@@ -48,7 +48,7 @@
       subcategory: "digestive",
       name: "GrowPLUS+ Tiêu Hóa 2+",
       brand: "Nutifood Sweden",
-      image: "/assets/nutrition/growplus-tieu-hoa-2-800g.jpg",
+      image: "/assets/nutrition/growplus-tieu-hoa-2-800g-cutout.webp",
       age: text("Trẻ từ 2 tuổi", "Children from 2 years"),
       ageGroups: ["2-5", "6-9", "10-15"],
       targets: ["child", "teen"],
