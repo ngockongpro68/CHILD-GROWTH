@@ -2177,7 +2177,7 @@ button {
   }
 }
 
-@media (min-width: 900px) and (max-width: 1099px) {
+@media (min-width: 900px) and (max-width: 1279px) {
   .nav-links,
   .nav-actions > .language,
   .nav-inner > .nav-actions > .btn-primary {
@@ -2190,12 +2190,6 @@ button {
 
   .mobile-menu.is-open {
     display: grid !important;
-  }
-}
-
-@media (min-width: 1100px) and (max-width: 1299px) {
-  .nav-inner > .nav-actions > .btn-primary {
-    display: none;
   }
 }
 
