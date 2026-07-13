@@ -2218,6 +2218,7 @@
   let lastChartIndicator = "height";
   let growth3dCleanup = null;
   let ambientPointerCleanup = null;
+  let navigationEventsController = null;
   let growth3dGeneration = 0;
 
   const navItems = [
@@ -2744,7 +2745,7 @@
               </select>
             </label>
             <a class="btn btn-primary" href="${localizedHref("/child-growth-calculator/")}">${t("Start Calculator")} ${icon("arrow")}</a>
-            <button class="menu-button" id="menuButton" aria-label="Open menu" aria-expanded="false" type="button">${icon("menu")}</button>
+            <button class="menu-button" id="menuButton" aria-label="Open menu" aria-controls="mobileMenu" aria-expanded="false" aria-haspopup="true" type="button">${icon("menu")}</button>
           </div>
         </div>
         <div class="mobile-menu" id="mobileMenu">
@@ -6331,10 +6332,33 @@
     const mobileMenu = document.getElementById("mobileMenu");
 
     if (menuButton && mobileMenu) {
+      if (navigationEventsController) navigationEventsController.abort();
+      navigationEventsController = new AbortController();
+      const { signal } = navigationEventsController;
+      const closeMenu = () => {
+        mobileMenu.classList.remove("is-open");
+        menuButton.setAttribute("aria-expanded", "false");
+      };
+
       menuButton.addEventListener("click", () => {
         const isOpen = mobileMenu.classList.toggle("is-open");
         menuButton.setAttribute("aria-expanded", String(isOpen));
-      });
+      }, { signal });
+
+      document.addEventListener("click", (event) => {
+        if (!mobileMenu.contains(event.target) && !menuButton.contains(event.target)) closeMenu();
+      }, { signal });
+
+      document.addEventListener("keydown", (event) => {
+        if (event.key === "Escape") {
+          closeMenu();
+          menuButton.focus();
+        }
+      }, { signal });
+
+      window.addEventListener("resize", () => {
+        if (window.innerWidth >= 1600) closeMenu();
+      }, { signal });
     }
 
     document.querySelectorAll(".language-select").forEach((select) => {
