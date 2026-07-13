@@ -738,34 +738,35 @@
   transform-origin: center;
 }
 
-.nutrition-product-media[data-product-id="friso-gold-4"],
-.nutrition-detail-product[data-product-id="friso-gold-4"] {
-  --nutrition-image-scale: 0.96;
-}
-
 .nutrition-product-media[data-product-id="growplus-tieu-hoa-2-800g"],
 .nutrition-detail-product[data-product-id="growplus-tieu-hoa-2-800g"] {
   --nutrition-image-scale: 1.12;
 }
 
-.nutrition-product-media[data-product-id="nutren-junior"],
-.nutrition-detail-product[data-product-id="nutren-junior"] {
-  --nutrition-image-scale: 1.1;
+.nutrition-product-media[data-product-id="pediasure-pha-san-vani-110ml-4-loc"],
+.nutrition-detail-product[data-product-id="pediasure-pha-san-vani-110ml-4-loc"],
+.nutrition-product-media[data-product-id="nutren-junior-pha-san-vani-110ml-thung-36"],
+.nutrition-detail-product[data-product-id="nutren-junior-pha-san-vani-110ml-thung-36"] {
+  --nutrition-image-scale: 1.18;
 }
 
-.nutrition-product-media[data-product-id="pediasure-powder"],
-.nutrition-detail-product[data-product-id="pediasure-powder"] {
-  --nutrition-image-scale: 1.04;
+.nutrition-product-media[data-product-id="vinamilk-sua-tuoi-tach-beo-khong-duong-180ml-thung-48"],
+.nutrition-detail-product[data-product-id="vinamilk-sua-tuoi-tach-beo-khong-duong-180ml-thung-48"] {
+  --nutrition-image-scale: 1.45;
 }
 
-.nutrition-product-media[data-product-id="pediasure-powder"] img,
-.nutrition-detail-product[data-product-id="pediasure-powder"] img {
-  clip-path: inset(0 0 12% 0);
+.nutrition-product-media[data-product-id="lineabon-d3k2-drops-10ml"],
+.nutrition-detail-product[data-product-id="lineabon-d3k2-drops-10ml"] {
+  --nutrition-image-scale: 1.12;
 }
 
-.nutrition-product-media[data-product-id="dielac-grow-plus"],
-.nutrition-detail-product[data-product-id="dielac-grow-plus"] {
-  --nutrition-image-scale: 1.42;
+.nutrition-product-media[data-product-id="pediasure-pha-san-vani-110ml-4-loc"] img,
+.nutrition-detail-product[data-product-id="pediasure-pha-san-vani-110ml-4-loc"] img,
+.nutrition-product-media[data-product-id="nutren-junior-pha-san-vani-110ml-thung-36"] img,
+.nutrition-detail-product[data-product-id="nutren-junior-pha-san-vani-110ml-thung-36"] img,
+.nutrition-product-media[data-product-id="lineabon-d3k2-drops-10ml"] img,
+.nutrition-detail-product[data-product-id="lineabon-d3k2-drops-10ml"] img {
+  mix-blend-mode: multiply;
 }
 
 .nutrition-age-badge {
@@ -842,9 +843,31 @@
 }
 
 .nutrition-product-body h3 {
+  min-height: 62px;
   margin: 4px 0 2px;
   font-size: 1rem;
   line-height: 1.3;
+}
+
+.nutrition-compare-note {
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+  margin-top: 16px;
+  padding: 12px 14px;
+  border: 1px solid #dce9e5;
+  border-radius: 8px;
+  color: var(--nutrition-muted);
+  background: #f7faf9;
+}
+
+.nutrition-compare-note svg {
+  width: 20px;
+  min-width: 20px;
+}
+
+.nutrition-compare-note p {
+  margin: 0;
 }
 
 .nutrition-product-purpose {

@@ -77,102 +77,138 @@
       ]
     },
     {
-      id: "nutren-junior",
+      id: "pediasure-pha-san-vani-110ml-4-loc",
       section: "nutrition",
       category: "milk",
       subcategory: "medical",
-      name: "Nutren Junior",
-      brand: "Nestlé Health Science",
-      image: "/assets/nutrition/nutren-junior.png",
+      name: "PediaSure pha sẵn hương vani 110 ml – 4 lốc (16 hộp)",
+      brand: "Abbott",
+      image: "/assets/nutrition/pediasure-ready-110ml-4pack.jpg",
       age: text("Trẻ 1-10 tuổi", "Children 1-10 years"),
       ageGroups: ["12-23", "2-5", "6-9"],
       targets: ["child"],
-      needs: ["energy", "meal", "calcium"],
-      needLabel: text("Bổ sung năng lượng", "Energy supplementation"),
-      price: 590000,
-      priceStatus: text("Giá minh họa, kiểm tra lại tại nơi bán", "Illustrative price; verify with the seller"),
-      energy: 102.8,
-      protein: 3.04,
-      calcium: 83.6,
-      vitaminD: 0.92,
-      sugar: 5.28,
-      lactose: text("Có lactose ở mức thấp theo bảng hãng", "Contains a low amount of lactose per manufacturer table"),
-      suitable: [text("Trẻ cần bổ sung năng lượng theo đánh giá dinh dưỡng", "Children needing energy supplementation after nutrition assessment"), text("Trẻ có khẩu phần ăn chưa đáp ứng đủ nhu cầu", "Children whose diet may not meet nutritional needs")],
-      cautions: [text("Sản phẩm dinh dưỡng y học cần dùng theo hướng dẫn chuyên môn khi trẻ có bệnh lý", "Medical nutrition products should follow professional guidance for children with medical conditions"), text("Có thành phần sữa và lactose", "Contains milk ingredients and lactose")],
-      analysis: text("Giá trị được GrowthKid quy đổi từ khẩu phần 250 ml công bố bởi Nestlé: 257 kcal, 7,6 g đạm, 209 mg canxi, 2,3 µg vitamin D và 13,2 g đường tổng số.", "Values are normalized from Nestlé's published 250 ml serving: 257 kcal, 7.6 g protein, 209 mg calcium, 2.3 µg vitamin D, and 13.2 g total sugars."),
-      source: "https://www.nestlehealthscience.vn/nutren-junior",
-      sourceLabel: "Nestlé Health Science Việt Nam",
+      needs: ["energy", "meal", "calcium", "digestion"],
+      needLabel: text("Dinh dưỡng y học pha sẵn, ít ngọt", "Ready-to-drink medical nutrition"),
+      price: 408000,
+      priceStatus: text("Giá tham khảo từ dữ liệu nhập ngày 13/07/2026", "Reference price from data entered on 13/07/2026"),
+      energy: 100,
+      protein: 3,
+      calcium: 100,
+      vitaminD: 2,
+      sugar: 4.1,
+      lactose: text("Rất ít lactose (0,10 g/100 ml); có đạm sữa và đạm đậu nành", "Very low lactose (0.10 g/100 ml); contains milk and soy protein"),
+      suitable: [text("Trẻ 1-10 tuổi cần nguồn dinh dưỡng bổ sung tiện dùng", "Children aged 1-10 needing convenient supplemental nutrition"), text("Trẻ biếng ăn, nhẹ cân hoặc có khẩu phần chưa đáp ứng nhu cầu sau đánh giá", "Children with low intake or growth concerns after assessment")],
+      cautions: [text("Không dùng cho trẻ mắc galactosemia hoặc trẻ dưới 1 tuổi nếu không có chỉ định", "Do not use for galactosemia or under age 1 without professional direction"), text("Trẻ dị ứng đạm sữa bò hoặc có bệnh lý cần dùng dưới hướng dẫn của nhân viên y tế", "Children with cow's milk protein allergy or medical conditions need professional guidance")],
+      analysis: text("Trong 100 ml: 100 kcal; 3,0 g protein; 3,85 g chất béo; 13,0 g carbohydrate; 4,1 g đường tổng; 0,10 g lactose; 0,70 g FOS; 35 mg CPP; 5 mg DHA; 100 mg canxi; 80 IU vitamin D3 và 1,78 mcg vitamin K2.", "Per 100 ml: 100 kcal; 3.0 g protein; 3.85 g fat; 13.0 g carbohydrate; 4.1 g total sugars; 0.10 g lactose; 0.70 g FOS; 35 mg CPP; 5 mg DHA; 100 mg calcium; 80 IU vitamin D3; and 1.78 mcg vitamin K2."),
+      source: "https://pediasure.abbottvietnam.com.vn/4-loc-pediasure-10-huong-vani-110ml-voucher.html",
+      sourceLabel: "PediaSure Việt Nam – Abbott",
       updated: "13/07/2026",
       sellers: [
-        { name: text("Trang sản phẩm Nestlé", "Nestlé product page"), url: "https://www.nestlehealthscience.vn/nutren-junior", kind: "official", platform: "nestle" },
-        { name: "Shopee", url: "https://shopee.vn/search?keyword=nutren%20junior%20800g", kind: "affiliate", platform: "shopee" },
-        { name: "Lazada", url: "https://www.lazada.vn/catalog/?q=nutren%20junior%20800g", kind: "affiliate", platform: "lazada" }
+        { name: text("Trang sản phẩm PediaSure", "PediaSure product page"), url: "https://pediasure.abbottvietnam.com.vn/4-loc-pediasure-10-huong-vani-110ml-voucher.html", kind: "official", platform: "abbott" },
+        { name: "Shopee", url: "https://s.shopee.vn/1Le8mF6JsU", kind: "affiliate", platform: "shopee" }
       ]
     },
     {
-      id: "pediasure-powder",
+      id: "nutren-junior-pha-san-vani-110ml-thung-36",
       section: "nutrition",
       category: "milk",
       subcategory: "medical",
-      name: "PediaSure dạng bột",
-      brand: "Abbott",
-      image: "/assets/nutrition/pediasure.png",
+      name: "Nutren Junior pha sẵn hương vani 110 ml – thùng 36 hộp",
+      brand: "Nestlé Health Science",
+      image: "/assets/nutrition/nutren-junior-ready-110ml.jpg",
       age: text("Trẻ 1-10 tuổi", "Children 1-10 years"),
       ageGroups: ["12-23", "2-5", "6-9"],
       targets: ["child"],
-      needs: ["energy", "meal", "calcium"],
-      needLabel: text("Dinh dưỡng đầy đủ, cân đối", "Complete, balanced nutrition"),
-      price: 688000,
-      priceStatus: text("Giá tham khảo; kiểm tra lại tại nơi bán", "Reference price; verify with the seller"),
+      needs: ["energy", "meal", "digestion"],
+      needLabel: text("Dinh dưỡng y học pha sẵn giàu năng lượng", "Energy-dense ready-to-drink medical nutrition"),
+      price: 550000,
+      priceStatus: text("Giá tham khảo từ dữ liệu nhập ngày 13/07/2026", "Reference price from data entered on 13/07/2026"),
       energy: 100,
-      protein: null,
-      calcium: null,
+      protein: 3,
+      calcium: 100,
+      vitaminD: 0.84,
+      sugar: 3.91,
+      lactose: text("Có sữa và đậu nành; kiểm tra nhãn nếu không dung nạp lactose", "Contains milk and soy; check the label for lactose intolerance"),
+      suitable: [text("Trẻ 1-10 tuổi cần bổ sung năng lượng và dưỡng chất", "Children aged 1-10 needing supplemental energy and nutrients"), text("Trẻ có vấn đề ăn uống, kém hấp thu hoặc nhu cầu năng lượng cao sau đánh giá", "Children with feeding, absorption, or higher-energy needs after assessment")],
+      cautions: [text("Không dùng cho trẻ dưới 1 tuổi hoặc người dị ứng với thành phần sản phẩm", "Do not use under age 1 or with allergy to product ingredients"), text("Dùng để hỗ trợ bệnh lý hoặc hồi phục trước, sau phẫu thuật cần có hướng dẫn chuyên môn", "Use for medical recovery or perioperative support requires professional guidance")],
+      analysis: text("Trong 100 ml: 100 kcal; 3,0 g protein; 4,73 g chất béo; 10,64 g carbohydrate; 3,91 g đường tổng; 1,55 g FOS; 100 mg canxi; 0,82 mg kẽm; 0,82 mg sắt và 33,6 IU vitamin D.", "Per 100 ml: 100 kcal; 3.0 g protein; 4.73 g fat; 10.64 g carbohydrate; 3.91 g total sugars; 1.55 g FOS; 100 mg calcium; 0.82 mg zinc; 0.82 mg iron; and 33.6 IU vitamin D."),
+      source: "https://www.nestlehealthscience.vn/nutren-junior-hop-pha-san",
+      sourceLabel: "Nestlé Health Science Việt Nam – Nutren Junior",
+      updated: "13/07/2026",
+      sellers: [
+        { name: text("Trang sản phẩm Nestlé", "Nestlé product page"), url: "https://www.nestlehealthscience.vn/nutren-junior-hop-pha-san", kind: "official", platform: "nestle" },
+        { name: "Shopee", url: "https://s.shopee.vn/18lBoMx9O", kind: "affiliate", platform: "shopee" }
+      ]
+    },
+    {
+      id: "vinamilk-sua-tuoi-tach-beo-khong-duong-180ml-thung-48",
+      section: "nutrition",
+      category: "milk",
+      subcategory: "daily",
+      name: "Vinamilk 100% Sữa tươi tiệt trùng tách béo không đường 180 ml – thùng 48 hộp",
+      brand: "Vinamilk",
+      image: "/assets/nutrition/vinamilk-skim-unsweetened-180ml.png",
+      age: text("Từ 2 tuổi và người lớn", "From age 2 and adults"),
+      ageGroups: ["2-5", "6-9", "10-15"],
+      targets: ["child", "teen", "adult"],
+      needs: ["daily", "calcium", "less-sugar"],
+      needLabel: text("Sữa tươi tách béo, không bổ sung đường sucrose", "Skimmed fresh milk with no added sucrose"),
+      price: 510106,
+      priceStatus: text("Giá tham khảo từ dữ liệu nhập ngày 13/07/2026", "Reference price from data entered on 13/07/2026"),
+      energy: 37,
+      protein: 3,
+      calcium: 110,
       vitaminD: null,
       sugar: null,
-      lactose: text("Kiểm tra nhãn theo lô sản phẩm", "Check the label for the specific batch"),
-      suitable: [text("Trẻ tăng trưởng kém hoặc ăn uống chưa đáp ứng đủ nhu cầu sau đánh giá", "Children with growth or intake concerns after assessment"), text("Trẻ cần nguồn dinh dưỡng bổ sung", "Children needing supplemental nutrition")],
-      cautions: [text("Là thực phẩm dinh dưỡng y học; trẻ có bệnh lý cần hỏi nhân viên y tế", "This is a food for special medical purposes; seek professional advice for medical conditions"), text("Không tự dùng thay toàn bộ bữa ăn chính", "Do not independently replace all main meals")],
-      analysis: text("Abbott công bố PediaSure dạng bột dành cho trẻ 1-10 tuổi và cung cấp năng lượng chuẩn 1 kcal/ml. Các chỉ số còn lại đang chờ chuẩn hóa từ nhãn hiện hành.", "Abbott states that PediaSure powder is for ages 1-10 and provides 1 kcal/ml. Other values await normalization from the current label."),
-      source: "https://www.family.abbott/vn-vi/pediasure/products/pediasure-powder-ML2.html",
-      sourceLabel: "Abbott PediaSure Việt Nam",
+      lactose: text("Có sữa bò và lactose tự nhiên; 'không đường' nghĩa là không bổ sung sucrose", "Contains cow's milk and natural lactose; 'unsweetened' means no added sucrose"),
+      suitable: [text("Trẻ từ 2 tuổi và người lớn cần bổ sung đạm, canxi trong khẩu phần", "Children from age 2 and adults needing dietary protein and calcium"), text("Người cần kiểm soát lượng chất béo và không muốn dùng sữa bổ sung sucrose", "People limiting fat intake and avoiding added sucrose")],
+      cautions: [text("Không phù hợp khi dị ứng đạm sữa bò, galactosemia hoặc không dung nạp lactose chưa được đánh giá", "Not suitable for cow's milk protein allergy, galactosemia, or unassessed lactose intolerance"), text("Không dùng làm sữa uống thường quy cho trẻ 12-23 tháng nếu không có chỉ định chuyên môn", "Do not use as routine milk for ages 12-23 months without professional advice")],
+      analysis: text("Trong 100 ml: 37 kcal; 3,0 g protein; 1,0 g chất béo; 4,0 g carbohydrate; 110 mg canxi và 90 mg phospho. Sản phẩm làm từ sữa tươi tách béo 100% và không bổ sung đường sucrose.", "Per 100 ml: 37 kcal; 3.0 g protein; 1.0 g fat; 4.0 g carbohydrate; 110 mg calcium; and 90 mg phosphorus. Made from 100% skimmed fresh milk with no added sucrose."),
+      source: "https://www.vinamilk.com.vn/products/sua-tuoi-it-beo-tiet-trung-khong-duong",
+      sourceLabel: "Vinamilk – 100% Sữa Tươi",
       updated: "13/07/2026",
       sellers: [
-        { name: text("Trang sản phẩm Abbott", "Abbott product page"), url: "https://www.family.abbott/vn-vi/pediasure/products/pediasure-powder-ML2.html", kind: "official", platform: "abbott" },
-        { name: "Shopee", url: "https://shopee.vn/search?keyword=pediasure%20850g%20ch%C3%ADnh%20h%C3%A3ng", kind: "affiliate", platform: "shopee" },
-        { name: "Lazada", url: "https://www.lazada.vn/catalog/?q=pediasure%20850g", kind: "affiliate", platform: "lazada" }
+        { name: text("Trang sản phẩm Vinamilk", "Vinamilk product page"), url: "https://www.vinamilk.com.vn/products/sua-tuoi-it-beo-tiet-trung-khong-duong", kind: "official", platform: "vinamilk" },
+        { name: "Shopee", url: "https://s.shopee.vn/111IX9c3Rk", kind: "affiliate", platform: "shopee" }
       ]
     },
     {
-      id: "dielac-grow-plus",
+      id: "lineabon-d3k2-drops-10ml",
       section: "nutrition",
-      category: "milk",
-      subcategory: "weight",
-      name: "Dielac Grow Plus 2+",
-      brand: "Vinamilk",
-      image: "/assets/nutrition/dielac-grow-plus.png",
-      age: text("Trẻ 2-10 tuổi", "Children 2-10 years"),
-      ageGroups: ["2-5", "6-9"],
-      targets: ["child"],
-      needs: ["energy", "calcium"],
-      needLabel: text("Hỗ trợ khẩu phần trẻ nhẹ cân, thấp còi", "Nutrition support for underweight or stunted children"),
-      price: 627061,
-      priceStatus: text("Giá hiển thị tại Vinamilk khi cập nhật", "Price shown by Vinamilk at update time"),
+      category: "vitamin",
+      subcategory: "d3-k2",
+      name: "LineaBon D3K2 Drops 10 ml",
+      brand: "LineaBon",
+      image: "/assets/nutrition/lineabon-d3k2-10ml.png",
+      age: text("Từ sơ sinh đến người lớn", "From birth through adulthood"),
+      ageGroups: ["under-6", "6-11", "12-23", "2-5", "6-9", "10-15"],
+      targets: ["infant", "child", "teen", "adult"],
+      needs: ["daily", "calcium"],
+      needLabel: text("Bổ sung vitamin D3 và K2 dạng MK-7", "Vitamin D3 and MK-7 vitamin K2 drops"),
+      price: 325000,
+      priceStatus: text("Giá tham khảo từ dữ liệu nhập ngày 13/07/2026", "Reference price from data entered on 13/07/2026"),
       energy: null,
       protein: null,
       calcium: null,
       vitaminD: null,
       sugar: null,
-      lactose: text("Có chứa sữa, đậu nành và dầu cá", "Contains milk, soy, and fish oil"),
-      suitable: [text("Trẻ 2-10 tuổi theo độ tuổi trên trang hãng", "Children 2-10 years per manufacturer page"), text("Trẻ cần được theo dõi tăng trưởng và khẩu phần", "Children whose growth and diet are being monitored")],
-      cautions: [text("Có chứa sữa, đậu nành và dầu cá", "Contains milk, soy, and fish oil"), text("Cần đánh giá nguyên nhân nếu trẻ nhẹ cân hoặc thấp còi", "The cause should be assessed when a child is underweight or stunted")],
-      analysis: text("Trang Vinamilk công bố độ tuổi 2-10, thành phần dị ứng và giá bán. Bảng trên 100 ml chưa được GrowthKid chuẩn hóa nên không dùng để xếp hạng.", "Vinamilk publishes the age range, allergen ingredients, and price. Per-100 ml values have not yet been normalized by GrowthKid."),
-      source: "https://new.vinamilk.com.vn/products/sua-bot-dielac-grow-plus-2",
-      sourceLabel: "Vinamilk",
+      displayMetrics: [
+        { label: text("Vitamin D3", "Vitamin D3"), value: text("400 IU / 6 giọt", "400 IU / 6 drops") },
+        { label: text("Vitamin K2", "Vitamin K2"), value: text("22,5 mcg / 6 giọt", "22.5 mcg / 6 drops") },
+        { label: text("Liều công bố", "Label serving"), value: text("0,20 ml / 6 giọt", "0.20 ml / 6 drops") },
+        { label: text("Quy cách", "Package"), value: "10 ml" }
+      ],
+      lactose: text("Không ghi nhận thành phần sữa trên nguồn hãng; kiểm tra nhãn hiện hành nếu có tiền sử dị ứng", "No milk ingredient is stated on the manufacturer source; check the current label for allergy history"),
+      suitable: [text("Trẻ từ sơ sinh và người lớn cần bổ sung vitamin D3, K2 theo đánh giá khẩu phần", "Infants, children, and adults needing D3 and K2 after dietary assessment"), text("Người cần hỗ trợ hấp thu và sử dụng canxi", "People needing support for calcium absorption and utilization")],
+      cautions: [text("Tính tổng vitamin D và K từ mọi sản phẩm đang dùng để tránh trùng liều", "Add vitamin D and K from all products to avoid duplicate dosing"), text("Bệnh thận, tăng canxi máu, sỏi thận hoặc dùng thuốc kháng vitamin K cần hỏi bác sĩ", "Kidney disease, hypercalcemia, kidney stones, or vitamin K antagonists require medical advice")],
+      analysis: text("Liều công bố 0,20 ml tương đương 6 giọt cung cấp 400 IU vitamin D3 và 22,5 mcg vitamin K2 dạng MK-7. Đây là thực phẩm bổ sung; liều sử dụng cá nhân cần đối chiếu tuổi, khẩu phần và các sản phẩm đang dùng.", "The label serving of 0.20 ml, equivalent to 6 drops, provides 400 IU vitamin D3 and 22.5 mcg MK-7 vitamin K2. This is a supplement; individual use should consider age, diet, and other products."),
+      normalizationNote: text("Hàm lượng được hiển thị theo liều 6 giọt do hãng công bố, không quy đổi sang 100 ml và không dùng để suy ra liều điều trị.", "Amounts are shown per the manufacturer's 6-drop serving, not normalized to 100 ml and not intended to infer a treatment dose."),
+      source: "https://www.lineabon.vn/product-page/lineabon-d3k2",
+      sourceLabel: "LineaBon Việt Nam",
       updated: "13/07/2026",
       sellers: [
-        { name: text("Trang sản phẩm Vinamilk", "Vinamilk product page"), url: "https://new.vinamilk.com.vn/products/sua-bot-dielac-grow-plus-2", kind: "official", platform: "vinamilk" },
-        { name: "Shopee", url: "https://shopee.vn/search?keyword=dielac%20grow%20plus%202%2B%20850g", kind: "affiliate", platform: "shopee" },
-        { name: "Lazada", url: "https://www.lazada.vn/catalog/?q=dielac%20grow%20plus%202%2B", kind: "affiliate", platform: "lazada" }
+        { name: text("Trang sản phẩm LineaBon", "LineaBon product page"), url: "https://www.lineabon.vn/product-page/lineabon-d3k2", kind: "official", platform: "lineabon" },
+        { name: "Shopee", url: "https://s.shopee.vn/6VMEvn1nep", kind: "affiliate", platform: "shopee" }
       ]
     }
   ];
@@ -360,6 +396,16 @@
   function metric(value, unit) {
     if (!Number.isFinite(value)) return `<span class="nutrition-metric-missing">${text("Chưa chuẩn hóa", "Not normalized")}</span>`;
     return `${new Intl.NumberFormat(isVietnamese ? "vi-VN" : "en-US", { maximumFractionDigits: 1 }).format(value)} ${unit}`;
+  }
+
+  function productDisplayMetrics(product) {
+    if (Array.isArray(product.displayMetrics)) return product.displayMetrics;
+    return [
+      { label: text("Năng lượng", "Energy"), value: metric(product.energy, "kcal/100 ml") },
+      { label: text("Protein", "Protein"), value: metric(product.protein, "g/100 ml") },
+      { label: text("Canxi", "Calcium"), value: metric(product.calcium, "mg/100 ml") },
+      { label: text("Đường", "Sugar"), value: metric(product.sugar, "g/100 ml") }
+    ];
   }
 
   function filterButton(group, value, label, active) {
@@ -637,6 +683,7 @@
   function productCard(product) {
     const favorite = state.favorites.has(product.id);
     const selected = state.compare.includes(product.id);
+    const displayMetrics = productDisplayMetrics(product);
     return `
       <article class="nutrition-product-card">
         <div class="nutrition-product-media" data-product-id="${product.id}">
@@ -649,10 +696,7 @@
           <h3>${product.name}</h3>
           <p class="nutrition-product-purpose">${product.needLabel}</p>
           <dl class="nutrition-metric-grid">
-            <div><dt>${text("Năng lượng", "Energy")}</dt><dd>${metric(product.energy, "kcal/100 ml")}</dd></div>
-            <div><dt>${text("Protein", "Protein")}</dt><dd>${metric(product.protein, "g/100 ml")}</dd></div>
-            <div><dt>${text("Canxi", "Calcium")}</dt><dd>${metric(product.calcium, "mg/100 ml")}</dd></div>
-            <div><dt>${text("Đường", "Sugar")}</dt><dd>${metric(product.sugar, "g/100 ml")}</dd></div>
+            ${displayMetrics.map((item) => `<div><dt>${item.label}</dt><dd>${item.value}</dd></div>`).join("")}
           </dl>
           <div class="nutrition-product-price"><span>${text("Giá tham khảo", "Reference price")}</span><strong>${formatPrice(product.price)}</strong><small>${product.priceStatus}</small></div>
           <div class="nutrition-card-sellers" aria-label="${text("Nơi bán", "Sellers")}">
@@ -700,6 +744,7 @@
     if (key === "age") return product.age;
     if (key === "price") return formatPrice(product.price);
     if (key === "lactose") return product.lactose;
+    if (key.startsWith("display:")) return productDisplayMetrics(product)[Number(key.split(":")[1])]?.value || text("Chưa có dữ liệu", "No data");
     return metric(product[key], unit);
   }
 
@@ -718,16 +763,24 @@
       return;
     }
     section.hidden = false;
-    const rows = [
-      [text("Độ tuổi", "Age range"), "age", ""],
-      [text("Năng lượng", "Energy"), "energy", "kcal/100 ml"],
-      [text("Protein", "Protein"), "protein", "g/100 ml"],
-      [text("Canxi", "Calcium"), "calcium", "mg/100 ml"],
-      [text("Vitamin D", "Vitamin D"), "vitaminD", "µg/100 ml"],
-      [text("Đường tổng số", "Total sugars"), "sugar", "g/100 ml"],
-      [text("Lactose / dị ứng", "Lactose / allergens"), "lactose", ""],
-      [text("Giá tham khảo", "Reference price"), "price", ""]
-    ];
+    const sameCategory = selected.every((product) => product.category === selected[0].category);
+    const rows = sameCategory && selected[0].category !== "milk"
+      ? [
+          [text("Độ tuổi", "Age range"), "age", ""],
+          ...productDisplayMetrics(selected[0]).map((item, index) => [item.label, `display:${index}`, ""]),
+          [text("Dị ứng / lưu ý", "Allergens / notes"), "lactose", ""],
+          [text("Giá tham khảo", "Reference price"), "price", ""]
+        ]
+      : [
+          [text("Độ tuổi", "Age range"), "age", ""],
+          [text("Năng lượng", "Energy"), "energy", "kcal/100 ml"],
+          [text("Protein", "Protein"), "protein", "g/100 ml"],
+          [text("Canxi", "Calcium"), "calcium", "mg/100 ml"],
+          [text("Vitamin D", "Vitamin D"), "vitaminD", "µg/100 ml"],
+          [text("Đường tổng số", "Total sugars"), "sugar", "g/100 ml"],
+          [text("Lactose / dị ứng", "Lactose / allergens"), "lactose", ""],
+          [text("Giá tham khảo", "Reference price"), "price", ""]
+        ];
     const numericEnergy = selected.filter((product) => Number.isFinite(product.energy)).sort((a, b) => b.energy - a.energy)[0];
     const numericSugar = selected.filter((product) => Number.isFinite(product.sugar)).sort((a, b) => a.sugar - b.sugar)[0];
     const calcium = selected.filter((product) => Number.isFinite(product.calcium)).sort((a, b) => b.calcium - a.calcium)[0];
@@ -747,7 +800,7 @@
           <tbody>${rows.map(([label, key, unit]) => `<tr><th>${label}</th>${selected.map((product) => `<td>${comparisonValue(product, key, unit)}</td>`).join("")}</tr>`).join("")}</tbody>
         </table>
       </div>
-      <div class="nutrition-recommendations">
+      ${selected[0].category === "milk" ? `<div class="nutrition-recommendations">
         <h3>${text("Gợi ý theo ưu tiên", "Suggestions by priority")}</h3>
         <div>
           ${recommendationCard(text("Ưu tiên năng lượng", "Energy priority"), numericEnergy, numericEnergy ? metric(numericEnergy.energy, "kcal/100 ml") : text("Cần thêm dữ liệu chuẩn hóa", "More normalized data needed"), "amber")}
@@ -756,7 +809,7 @@
           ${recommendationCard(text("Ưu tiên giá tham khảo", "Reference price priority"), lowestPrice, formatPrice(lowestPrice.price), "blue")}
         </div>
         <p>${text("Các gợi ý chỉ phản ánh tiêu chí đang chọn, không kết luận sản phẩm tốt nhất và không thay thế đánh giá dinh dưỡng cá nhân.", "Suggestions reflect only the selected criterion; they do not identify a best product or replace individual nutrition assessment.")}</p>
-      </div>
+      </div>` : `<div class="nutrition-compare-note">${icon("info")}<p>${text("So sánh vi chất phải dựa trên cùng liều dùng và cùng đơn vị công bố. GrowthKid chỉ đối chiếu thông tin trên nhãn, không xếp hạng sản phẩm hoặc đề xuất liều dùng cá nhân.", "Micronutrient comparisons require matching serving sizes and units. GrowthKid compares label information only and does not rank products or recommend individual dosing.")}</p></div>`}
     `;
     renderCompareDock();
   }
@@ -776,6 +829,7 @@
     const backdrop = document.getElementById("nutritionDetailBackdrop");
     const detail = document.getElementById("nutritionDetail");
     if (!backdrop || !detail) return;
+    const displayMetrics = productDisplayMetrics(product);
     detail.innerHTML = `
       <div class="nutrition-detail-header">
         <div><span class="nutrition-kicker">${product.brand}</span><h2 id="nutritionDetailTitle">${product.name}</h2><p>${product.needLabel}</p></div>
@@ -789,10 +843,7 @@
             <div class="is-caution"><h3>${text("Cần lưu ý", "Considerations")}</h3><ul>${product.cautions.map((item) => `<li>${icon("info")}<span>${item}</span></li>`).join("")}</ul></div>
           </div>
           <div class="nutrition-detail-metrics">
-            ${detailMetric(text("Năng lượng", "Energy"), metric(product.energy, "kcal/100 ml"))}
-            ${detailMetric(text("Protein", "Protein"), metric(product.protein, "g/100 ml"))}
-            ${detailMetric(text("Canxi", "Calcium"), metric(product.calcium, "mg/100 ml"))}
-            ${detailMetric(text("Đường", "Sugar"), metric(product.sugar, "g/100 ml"))}
+            ${displayMetrics.map((item) => detailMetric(item.label, item.value)).join("")}
           </div>
         </div>
       </div>
@@ -900,7 +951,13 @@
   }
 
   function toggleCompare(id) {
+    const product = products.find((item) => item.id === id);
+    const comparedProducts = state.compare.map((item) => products.find((productItem) => productItem.id === item)).filter(Boolean);
     if (state.compare.includes(id)) state.compare = state.compare.filter((item) => item !== id);
+    else if (product && comparedProducts.length && comparedProducts[0].category !== product.category) {
+      state.compare = [id];
+      showToast(text("Đã bắt đầu nhóm so sánh mới cùng loại sản phẩm.", "Started a new comparison with the same product type."));
+    }
     else if (state.compare.length < 3) state.compare.push(id);
     else {
       showToast(text("Bạn chỉ có thể so sánh tối đa 3 sản phẩm.", "You can compare up to 3 products."));
