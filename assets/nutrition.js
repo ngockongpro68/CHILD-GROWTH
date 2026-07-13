@@ -280,7 +280,7 @@
     const selected = state.compare.includes(product.id);
     return `
       <article class="nutrition-product-card">
-        <div class="nutrition-product-media">
+        <div class="nutrition-product-media" data-product-id="${product.id}">
           <span class="nutrition-age-badge">${product.age}</span>
           <button class="nutrition-icon-btn${favorite ? " is-active" : ""}" type="button" title="${text("Yêu thích", "Favorite")}" aria-label="${text("Yêu thích", "Favorite")} ${product.name}" aria-pressed="${favorite}" data-nutrition-action="favorite" data-product-id="${product.id}">${icon("heart")}</button>
           <img src="${product.image}" alt="${product.name}" loading="lazy">
@@ -402,7 +402,7 @@
         <button class="nutrition-detail-close" type="button" title="${text("Đóng", "Close")}" aria-label="${text("Đóng chi tiết", "Close details")}" data-nutrition-action="close-detail">${icon("close")}</button>
       </div>
       <div class="nutrition-detail-main">
-        <div class="nutrition-detail-product"><img src="${product.image}" alt="${product.name}"><span>${product.age}</span></div>
+        <div class="nutrition-detail-product" data-product-id="${product.id}"><img src="${product.image}" alt="${product.name}"><span>${product.age}</span></div>
         <div class="nutrition-detail-summary">
           <div class="nutrition-fit-grid">
             <div><h3>${text("Phù hợp khi", "May fit when")}</h3><ul>${product.suitable.map((item) => `<li>${icon("check")}<span>${item}</span></li>`).join("")}</ul></div>

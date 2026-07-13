@@ -280,6 +280,7 @@
   position: relative;
   display: grid;
   place-items: center;
+  overflow: hidden;
   height: 210px;
   padding: 34px 24px 12px;
   border-bottom: 1px solid #edf2f0;
@@ -287,10 +288,42 @@
 }
 
 .nutrition-product-media img {
+  display: block;
   width: 100%;
   height: 100%;
+  min-width: 0;
+  min-height: 0;
+  max-width: 100%;
+  max-height: 100%;
   object-fit: contain;
   filter: drop-shadow(0 7px 9px rgba(22, 43, 53, 0.12));
+  transform: scale(var(--nutrition-image-scale, 1));
+  transform-origin: center;
+}
+
+.nutrition-product-media[data-product-id="friso-gold-4"],
+.nutrition-detail-product[data-product-id="friso-gold-4"] {
+  --nutrition-image-scale: 0.96;
+}
+
+.nutrition-product-media[data-product-id="nutren-junior"],
+.nutrition-detail-product[data-product-id="nutren-junior"] {
+  --nutrition-image-scale: 1.1;
+}
+
+.nutrition-product-media[data-product-id="pediasure-powder"],
+.nutrition-detail-product[data-product-id="pediasure-powder"] {
+  --nutrition-image-scale: 1.04;
+}
+
+.nutrition-product-media[data-product-id="pediasure-powder"] img,
+.nutrition-detail-product[data-product-id="pediasure-powder"] img {
+  clip-path: inset(0 0 12% 0);
+}
+
+.nutrition-product-media[data-product-id="dielac-grow-plus"],
+.nutrition-detail-product[data-product-id="dielac-grow-plus"] {
+  --nutrition-image-scale: 1.42;
 }
 
 .nutrition-age-badge {
@@ -772,6 +805,7 @@ body.nutrition-detail-open {
   display: grid;
   align-content: center;
   justify-items: center;
+  overflow: hidden;
   min-height: 310px;
   padding: 18px;
   border: 1px solid #e4ece9;
@@ -784,6 +818,8 @@ body.nutrition-detail-open {
   height: 240px;
   object-fit: contain;
   filter: drop-shadow(0 10px 12px rgba(22, 43, 53, 0.12));
+  transform: scale(var(--nutrition-image-scale, 1));
+  transform-origin: center;
 }
 
 .nutrition-detail-product span {
