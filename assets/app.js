@@ -2720,36 +2720,42 @@
   }
 
   function navbar() {
+    const currentPath = pathWithoutLanguagePrefix(window.location.pathname);
+    const renderNavLink = (item) => {
+      const isActive = currentPath === item.href || (item.href !== "/" && currentPath.startsWith(item.href));
+      return `<a class="nav-link${isActive ? " is-active" : ""}" href="${localizedHref(item.href)}"${isActive ? ' aria-current="page"' : ""}>${t(item.label)}</a>`;
+    };
+
     return `
       <header class="nav">
         <div class="container nav-inner">
           <a class="brand" href="${localizedHref("/")}" aria-label="GrowthKid home">
             <span class="brand-mark">${icon("spark")}</span>
-            <span>GrowthKid</span>
+            <span class="brand-name">GrowthKid</span>
           </a>
           <nav class="nav-links" aria-label="Primary navigation">
-            ${navItems.map((item) => `<a href="${localizedHref(item.href)}">${t(item.label)}</a>`).join("")}
+            ${navItems.map(renderNavLink).join("")}
           </nav>
           <div class="nav-actions">
             <label class="language" aria-label="Language selector">
-              <span>Language</span>
+              <span class="language-label">Language</span>
               <select class="language-select">
                 ${languageSelectOptions()}
               </select>
             </label>
-            <a class="btn btn-primary" href="${localizedHref("/child-growth-calculator/")}">Start Calculator</a>
-            <button class="menu-button" id="menuButton" aria-label="Open menu" type="button">${icon("menu")}</button>
+            <a class="btn btn-primary" href="${localizedHref("/child-growth-calculator/")}">${t("Start Calculator")} ${icon("arrow")}</a>
+            <button class="menu-button" id="menuButton" aria-label="Open menu" aria-expanded="false" type="button">${icon("menu")}</button>
           </div>
         </div>
         <div class="mobile-menu" id="mobileMenu">
           <label class="language mobile-language" aria-label="Language selector">
-            <span>Language</span>
+            <span class="language-label">Language</span>
             <select class="language-select">
               ${languageSelectOptions()}
             </select>
           </label>
-          ${navItems.map((item) => `<a href="${localizedHref(item.href)}">${t(item.label)}</a>`).join("")}
-          <a href="${localizedHref("/child-growth-calculator/")}">Start Calculator</a>
+          ${navItems.map(renderNavLink).join("")}
+          <a class="mobile-menu-cta btn btn-primary" href="${localizedHref("/child-growth-calculator/")}">${t("Start Calculator")} ${icon("arrow")}</a>
         </div>
       </header>
     `;
@@ -6326,7 +6332,8 @@
 
     if (menuButton && mobileMenu) {
       menuButton.addEventListener("click", () => {
-        mobileMenu.classList.toggle("is-open");
+        const isOpen = mobileMenu.classList.toggle("is-open");
+        menuButton.setAttribute("aria-expanded", String(isOpen));
       });
     }
 

@@ -110,37 +110,40 @@ button {
   position: sticky;
   top: 0;
   z-index: 20;
-  background: rgba(255, 255, 255, 0.88);
-  border-bottom: 1px solid var(--soft);
-  backdrop-filter: saturate(180%) blur(18px);
+  background: rgba(255, 255, 255, 0.92);
+  border-bottom: 1px solid rgba(226, 232, 240, 0.92);
+  box-shadow: 0 8px 24px rgba(15, 23, 42, 0.045);
+  backdrop-filter: saturate(180%) blur(20px);
 }
 
 .nav-inner {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  min-height: 72px;
-  gap: 18px;
+  min-height: 76px;
+  gap: 16px;
 }
 
 .brand {
   display: inline-flex;
   align-items: center;
-  gap: 10px;
+  flex: 0 0 auto;
+  gap: 11px;
   font-weight: 800;
-  font-size: 1.15rem;
+  font-size: 1.08rem;
   letter-spacing: 0;
 }
 
 .brand-mark {
   display: grid;
   place-items: center;
-  width: 34px;
-  height: 34px;
+  width: 38px;
+  height: 38px;
   color: #ffffff;
-  background: var(--primary);
-  border-radius: 8px;
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.18), 0 1px 2px rgba(37, 99, 235, 0.18);
+  background: linear-gradient(145deg, #3b82f6, #2563eb);
+  border: 1px solid rgba(29, 78, 216, 0.18);
+  border-radius: 11px;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.3), 0 5px 12px rgba(37, 99, 235, 0.2);
 }
 
 .brand-mark svg {
@@ -151,38 +154,80 @@ button {
 .nav-links {
   display: none;
   align-items: center;
-  gap: 12px;
-  color: #1e293b;
-  font-weight: 650;
-  font-size: 0.86rem;
+  gap: 3px;
+  min-width: 0;
+  padding: 4px;
+  border: 1px solid #eef2f7;
+  border-radius: 12px;
+  background: rgba(248, 250, 252, 0.82);
+  color: #334155;
+  font-weight: 700;
+  font-size: 0.78rem;
 }
 
 .nav-links a,
 .nav-links button {
-  padding: 8px 2px;
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  min-height: 34px;
+  padding: 7px 10px;
+  border-radius: 8px;
   white-space: nowrap;
+  transition: color 160ms ease, background 160ms ease, box-shadow 160ms ease;
 }
 
 .nav-links a:hover,
 .nav-links button:hover {
+  background: #ffffff;
   color: var(--primary);
+}
+
+.nav-links a.is-active {
+  color: #1d4ed8;
+  background: #ffffff;
+  box-shadow: 0 1px 3px rgba(15, 23, 42, 0.08), inset 0 0 0 1px rgba(219, 234, 254, 0.9);
+}
+
+.nav-links a.is-active::after {
+  content: "";
+  position: absolute;
+  right: 10px;
+  bottom: 3px;
+  left: 10px;
+  height: 2px;
+  border-radius: 999px;
+  background: #3b82f6;
 }
 
 .nav-actions {
   display: flex;
   align-items: center;
-  gap: 10px;
+  flex: 0 0 auto;
+  gap: 9px;
 }
 
 .language {
   display: none;
   align-items: center;
-  gap: 8px;
-  border: 0;
-  background: transparent;
-  color: #1e293b;
-  font-weight: 650;
-  padding: 8px 2px;
+  gap: 7px;
+  min-height: 40px;
+  padding: 6px 9px;
+  border: 1px solid #e2e8f0;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.78);
+  color: #334155;
+  font-weight: 700;
+  white-space: nowrap;
+  box-shadow: 0 1px 2px rgba(15, 23, 42, 0.03);
+}
+
+.language-label {
+  color: #64748b;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
 }
 
 .language select {
@@ -190,25 +235,28 @@ button {
   color: inherit;
   background: transparent;
   font-weight: 650;
+  font-size: 0.82rem;
   outline: none;
+  cursor: pointer;
 }
 
 .menu-button {
   display: inline-grid;
   place-items: center;
-  width: 40px;
-  height: 40px;
-  border: 1px solid var(--soft);
-  border-radius: 8px;
-  color: var(--text);
+  width: 42px;
+  height: 42px;
+  border: 1px solid #dbe3ee;
+  border-radius: 11px;
+  color: #1e293b;
   background: #ffffff;
+  box-shadow: 0 1px 2px rgba(15, 23, 42, 0.05);
 }
 
 .mobile-menu {
   display: none;
   padding: 0 16px 18px;
-  border-bottom: 1px solid var(--soft);
-  background: #ffffff;
+  border-bottom: 1px solid #e2e8f0;
+  background: rgba(255, 255, 255, 0.96);
 }
 
 .mobile-menu.is-open {
@@ -217,18 +265,26 @@ button {
 }
 
 .mobile-menu a {
-  padding: 12px;
-  border: 1px solid var(--soft);
-  border-radius: 8px;
+  padding: 12px 13px;
+  border: 1px solid #e2e8f0;
+  border-radius: 10px;
+  color: #334155;
   font-weight: 700;
+  background: #f8fafc;
+}
+
+.mobile-menu a.is-active {
+  color: #1d4ed8;
+  border-color: #bfdbfe;
+  background: #eff6ff;
 }
 
 .mobile-menu .language {
   display: flex;
   justify-content: space-between;
   padding: 12px;
-  border: 1px solid var(--soft);
-  border-radius: 8px;
+  border: 1px solid #e2e8f0;
+  border-radius: 10px;
   background: #ffffff;
 }
 
@@ -279,6 +335,23 @@ button {
 
 .nav .btn-primary {
   display: none;
+  min-height: 42px;
+  padding: 0 14px;
+  border-radius: 10px;
+  white-space: nowrap;
+}
+
+.nav .btn-primary svg,
+.mobile-menu-cta svg {
+  width: 16px;
+  height: 16px;
+}
+
+.mobile-menu-cta {
+  justify-content: space-between;
+  color: #ffffff !important;
+  border-color: transparent !important;
+  background: var(--primary) !important;
 }
 
 .hero {
