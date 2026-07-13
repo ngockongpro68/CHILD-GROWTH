@@ -55,7 +55,7 @@
       name: "Nutren Junior",
       brand: "Nestlé Health Science",
       image: "/assets/nutrition/nutren-junior.png",
-      age: text("Trẻ 1-10 tuổi; trang này chỉ hiển thị từ 2 tuổi", "Ages 1-10; this guide displays products from age 2"),
+      age: text("Trẻ 1-10 tuổi", "Children 1-10 years"),
       ageGroups: ["2-5", "6-9"],
       needs: ["energy", "meal", "calcium"],
       needLabel: text("Bổ sung năng lượng", "Energy supplementation"),
@@ -84,7 +84,7 @@
       name: "PediaSure dạng bột",
       brand: "Abbott",
       image: "/assets/nutrition/pediasure.png",
-      age: text("Trẻ 1-10 tuổi; trang này chỉ hiển thị từ 2 tuổi", "Ages 1-10; this guide displays products from age 2"),
+      age: text("Trẻ 1-10 tuổi", "Children 1-10 years"),
       ageGroups: ["2-5", "6-9"],
       needs: ["energy", "meal", "calcium"],
       needLabel: text("Dinh dưỡng đầy đủ, cân đối", "Complete, balanced nutrition"),
@@ -203,7 +203,7 @@
           <div class="nutrition-filter-row">
             <strong>${text("Theo độ tuổi", "By age")}</strong>
             <div class="nutrition-chip-list" data-filter-group="age">
-              ${filterButton("age", "all", text("Trên 24 tháng", "Over 24 months"), true)}
+              ${filterButton("age", "all", text("Tất cả", "All ages"), true)}
               ${filterButton("age", "2-5", text("2-5 tuổi", "Ages 2-5"), false)}
               ${filterButton("age", "6-9", text("6-9 tuổi", "Ages 6-9"), false)}
               ${filterButton("age", "10-15", text("10-15 tuổi", "Ages 10-15"), false)}
