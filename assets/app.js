@@ -2463,6 +2463,12 @@
     return t(text).replace(/\{(\w+)\}/g, (match, key) => (values[key] === undefined ? match : values[key]));
   }
 
+  function decodeHtmlEntities(value) {
+    const decoder = document.createElement("textarea");
+    decoder.innerHTML = String(value || "");
+    return decoder.value;
+  }
+
   function languageSelectOptions() {
     return languageOptions.map((language) => `<option value="${language.code}">${language.label}</option>`).join("");
   }
@@ -2502,7 +2508,7 @@
     nodes.forEach((node) => {
       const original = node.nodeValue;
       const trimmed = original.trim();
-      const translated = t(trimmed);
+      const translated = decodeHtmlEntities(t(trimmed));
       if (translated !== trimmed) {
         const leading = original.match(/^\s*/)[0];
         const trailing = original.match(/\s*$/)[0];
@@ -2513,7 +2519,7 @@
     document.querySelectorAll("[placeholder], [aria-label], [title]").forEach((element) => {
       ["placeholder", "aria-label", "title"].forEach((attribute) => {
         const value = element.getAttribute(attribute);
-        if (value) element.setAttribute(attribute, t(value));
+        if (value) element.setAttribute(attribute, decodeHtmlEntities(t(value)));
       });
     });
   }
