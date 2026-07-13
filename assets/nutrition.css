@@ -150,8 +150,7 @@
   padding-bottom: 64px;
 }
 
-.nutrition-medical-note,
-.nutrition-disclosure {
+.nutrition-medical-note {
   display: flex;
   align-items: flex-start;
   gap: 11px;
@@ -163,8 +162,7 @@
   font-size: 0.87rem;
 }
 
-.nutrition-medical-note svg,
-.nutrition-disclosure svg {
+.nutrition-medical-note svg {
   margin-top: 1px;
 }
 
@@ -648,11 +646,36 @@
 }
 
 .nutrition-disclosure {
-  margin-top: 2px;
+  margin-top: 8px;
+  border-top: 1px solid var(--nutrition-line);
+  color: #7a878d;
+  font-size: 0.68rem;
+}
+
+.nutrition-disclosure summary {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 9px 0;
+  color: #748189;
+  cursor: pointer;
+  font-weight: 650;
+  list-style: none;
+}
+
+.nutrition-disclosure summary::-webkit-details-marker {
+  display: none;
+}
+
+.nutrition-disclosure summary svg {
+  width: 14px;
+  height: 14px;
 }
 
 .nutrition-disclosure p {
-  margin: 0;
+  max-width: 760px;
+  margin: 0 0 10px;
+  line-height: 1.5;
 }
 
 body.nutrition-detail-open {

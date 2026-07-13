@@ -249,7 +249,10 @@
           <div>${icon("spark")}<span><strong>${text("Quyền lựa chọn", "Choice first")}</strong>${text("Nhiều nơi bán và nguồn để đối chiếu", "Multiple sellers and sources")}</span></div>
         </section>
 
-        <div class="nutrition-disclosure">${icon("info")}<p><strong>${text("Thông tin minh bạch:", "Transparency:")}</strong> ${text("GrowthKid có thể nhận hoa hồng khi bạn mua qua một số liên kết. Việc này không làm thay đổi giá và không ảnh hưởng tiêu chí hiển thị. Dữ liệu giá có thể thay đổi; hãy kiểm tra nhãn và nơi bán trước khi mua.", "GrowthKid may receive a commission from some links. This does not change the price or product display criteria. Prices may change; check the current label and seller before purchase.")}</p></div>
+        <details class="nutrition-disclosure">
+          <summary>${icon("info")}<span>${text("Thông tin liên kết", "Link information")}</span></summary>
+          <p>${text("Một số liên kết có thể là liên kết tiếp thị. Việc này không làm thay đổi giá hoặc tiêu chí hiển thị sản phẩm. Giá có thể thay đổi; hãy kiểm tra nhãn và nơi bán trước khi mua.", "Some links may be affiliate links. This does not change the price or product display criteria. Prices may change; check the label and seller before purchase.")}</p>
+        </details>
       </section>
 
       <div class="nutrition-detail-backdrop" id="nutritionDetailBackdrop" hidden>
