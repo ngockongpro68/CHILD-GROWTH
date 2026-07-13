@@ -2212,6 +2212,27 @@
     translations[language] = { ...(translations[language] || {}), ...values };
   });
 
+  const nutritionNavTranslations = {
+    vi: "Dinh dưỡng",
+    es: "Nutrición",
+    hi: "पोषण",
+    id: "Nutrisi",
+    fr: "Nutrition",
+    pt: "Nutrição",
+    ar: "التغذية",
+    zh: "营养",
+    ja: "栄養"
+  };
+
+  Object.entries(nutritionNavTranslations).forEach(([language, value]) => {
+    translations[language] = { ...(translations[language] || {}), Nutrition: value };
+  });
+
+  translations.vi = {
+    ...(translations.vi || {}),
+    "Nutrition Product Guide | GrowthKid": "Hướng dẫn chọn sản phẩm dinh dưỡng | GrowthKid"
+  };
+
   let activeLanguage = languageFromPath() || readLanguage();
   let formDraft = null;
   let resultsVisible = page === "results" || page === "charts";
@@ -2225,6 +2246,7 @@
     { label: "Calculator", href: "/child-growth-calculator/" },
     { label: "Growth Charts", href: "/growth-charts/" },
     { label: "Articles", href: "/articles/" },
+    { label: "Nutrition", href: "/nutrition/" },
     { label: "About", href: "/about/" },
     { label: "Parenteral Nutrition", href: "/parenteral-nutrition-calculator/" },
     { label: "Neonatal Bilirubin", href: "/neonatal-bilirubin-assessment/" }
@@ -2967,6 +2989,14 @@
         </section>
         ${articlesSection(true)}
         ${faqSection("calculator")}
+      </main>
+    `);
+  }
+
+  function nutritionPage() {
+    return shell(`
+      <main class="nutrition-page">
+        <div id="nutritionApp" class="nutrition-app" aria-live="polite"></div>
       </main>
     `);
   }
@@ -5270,6 +5300,7 @@
       results: "Growth Results | GrowthKid",
       charts: "WHO Growth Charts | GrowthKid",
       articles: "Growth Articles | GrowthKid",
+      nutrition: "Nutrition Product Guide | GrowthKid",
       about: "About GrowthKid | GrowthKid",
       methodology: "Methodology | GrowthKid",
       privacy: "Privacy | GrowthKid",
@@ -6549,6 +6580,7 @@
     else if (page === "results") app.innerHTML = resultsPage();
     else if (page === "charts") app.innerHTML = chartsPage();
     else if (page === "articles") app.innerHTML = articlesPage();
+    else if (page === "nutrition") app.innerHTML = nutritionPage();
     else if (page === "about") app.innerHTML = aboutPage();
     else if (page === "pn") app.innerHTML = pnCalculatorPage();
     else if (page === "bilirubin") app.innerHTML = bilirubinPlaceholderPage();
