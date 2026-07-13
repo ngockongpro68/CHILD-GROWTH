@@ -147,11 +147,7 @@ async function minifyHtmlFile(filePath) {
 }
 
 function resolveSiteOrigin() {
-  const rawOrigin = process.env.SITE_ORIGIN
-    || process.env.VERCEL_PROJECT_PRODUCTION_URL
-    || process.env.VERCEL_BRANCH_URL
-    || process.env.VERCEL_URL
-    || "child-growth-umber.vercel.app";
+  const rawOrigin = process.env.SITE_ORIGIN || "growthkid.xyz";
   const withProtocol = /^https?:\/\//i.test(rawOrigin) ? rawOrigin : `https://${rawOrigin}`;
   return withProtocol.replace(/\/+$/, "");
 }

@@ -2770,6 +2770,7 @@
   }
 
   function calculatorCard(compact) {
+    const today = currentDateInputValues();
     return `
       <form class="calculator-card" id="growthForm">
         <div class="card-header">
@@ -2797,9 +2798,9 @@
           <div class="field">
             <label for="measureDate">Measurement Date</label>
             <div class="date-input-wrap">
-              <input id="measureDate" name="measureDate" type="text" inputmode="numeric" placeholder="DD/MM/YYYY" pattern="\\d{2}/\\d{2}/\\d{4}" value="15/05/2024" data-date-text required>
+              <input id="measureDate" name="measureDate" type="text" inputmode="numeric" placeholder="DD/MM/YYYY" pattern="\\d{2}/\\d{2}/\\d{4}" value="${today.display}" data-date-text required>
               <span class="date-calendar-icon" aria-hidden="true"></span>
-              <input class="date-picker-native" type="date" value="2024-05-15" aria-label="Choose measurement date" data-date-picker data-target="measureDate">
+              <input class="date-picker-native" type="date" value="${today.iso}" aria-label="Choose measurement date" data-date-picker data-target="measureDate">
             </div>
           </div>
           <div class="field">
@@ -5227,6 +5228,12 @@
       height: "87",
       head: ""
     });
+  }
+
+  function currentDateInputValues() {
+    const today = new Date();
+    const iso = toIsoDate(today);
+    return { iso, display: formatDateInputValue(iso) };
   }
 
   function titleFor(indicator) {
