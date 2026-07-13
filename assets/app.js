@@ -2469,6 +2469,10 @@
     return decoder.value;
   }
 
+  function canvasText(text) {
+    return decodeHtmlEntities(t(text));
+  }
+
   function languageSelectOptions() {
     return languageOptions.map((language) => `<option value="${language.code}">${language.label}</option>`).join("");
   }
@@ -5524,6 +5528,7 @@
   }
 
   async function createSnapshotCanvas(result) {
+    if (document.fonts && document.fonts.ready) await document.fonts.ready;
     const canvas = document.createElement("canvas");
     canvas.width = 1080;
     canvas.height = 1530;
@@ -5562,17 +5567,17 @@
     ctx.fillText("GrowthKid", 124, 74);
     ctx.fillStyle = "#64748b";
     ctx.font = "750 13px Inter, sans-serif";
-    ctx.fillText(t("WHO-based growth assessment"), 126, 96);
+    ctx.fillText(canvasText("WHO-based growth assessment"), 126, 96);
 
     ctx.fillStyle = "#0f172a";
     ctx.font = "900 60px Inter, sans-serif";
-    ctx.fillText(t("Growth Snapshot"), 54, 164);
+    ctx.fillText(canvasText("Growth Snapshot"), 54, 164);
     ctx.fillStyle = "#334155";
     ctx.font = "750 28px Inter, sans-serif";
-    ctx.fillText(t("WHO-based growth check"), 56, 210);
+    ctx.fillText(canvasText("WHO-based growth check"), 56, 210);
 
     const roundedAgeMonths = Math.round(result.ageMonths || 0);
-    const compactAge = `${roundedAgeMonths} ${t(roundedAgeMonths === 1 ? "month" : "months")}`;
+    const compactAge = `${roundedAgeMonths} ${canvasText(roundedAgeMonths === 1 ? "month" : "months")}`;
     ctx.fillStyle = "#ecfdf5";
     roundRect(ctx, 54, 236, 286, 40, 20);
     ctx.fill();
@@ -5580,7 +5585,7 @@
     ctx.stroke();
     ctx.fillStyle = "#0f766e";
     ctx.font = "850 15px Inter, sans-serif";
-    centerText(ctx, `${t("Measured on")} ${formatDate(result.measureDate)}`, 197, 262);
+    centerText(ctx, `${canvasText("Measured on")} ${formatDate(result.measureDate)}`, 197, 262);
     ctx.fillStyle = "#ecfdf5";
     roundRect(ctx, 356, 236, 244, 40, 20);
     ctx.fill();
@@ -5588,7 +5593,7 @@
     ctx.stroke();
     ctx.fillStyle = "#0f766e";
     ctx.font = "850 15px Inter, sans-serif";
-    centerText(ctx, `${t("Age at measurement")} ${compactAge}`, 478, 262);
+    centerText(ctx, `${canvasText("Age at measurement")} ${compactAge}`, 478, 262);
 
     drawSnapshotHeaderDecoration(ctx, 710, 54);
 
@@ -5600,7 +5605,7 @@
     drawSnapshotPanel(ctx, 44, 742, 992, 366);
     ctx.fillStyle = "#0f172a";
     ctx.font = "900 22px Inter, sans-serif";
-    ctx.fillText(t("Growth Curves"), 72, 784);
+    ctx.fillText(canvasText("Growth Curves"), 72, 784);
     drawGrowthChartLegend(ctx, 72, 804);
     drawZScoreLegend(ctx, 620, 778);
     drawChartPreview(ctx, result, "height", 72, 840, 282, 214, "#14b8a6");
@@ -5608,17 +5613,17 @@
     drawChartPreview(ctx, result, "bmi", 724, 840, 282, 214, "#7c3aed");
     ctx.fillStyle = "#64748b";
     ctx.font = "750 15px Inter, sans-serif";
-    centerText(ctx, `${t("WHO standards")} - ${t("Your child")} - ${t("Educational use only - not medical advice")}`, 540, 1082);
+    centerText(ctx, `${canvasText("WHO standards")} - ${canvasText("Your child")} - ${canvasText("Educational use only - not medical advice")}`, 540, 1082);
 
     drawSnapshotPanel(ctx, 44, 1170, 992, 198);
     drawSnapshotAdvice(ctx, primary, 84, 1208);
 
     ctx.fillStyle = "#475569";
     ctx.font = "750 16px Inter, sans-serif";
-    drawWrappedText(ctx, t("Name-free snapshot for family updates. Educational use only."), 72, 1430, 520, 22, 2);
+    drawWrappedText(ctx, canvasText("Name-free snapshot for family updates. Educational use only."), 72, 1430, 520, 22, 2);
     ctx.fillStyle = "#64748b";
     ctx.font = "750 15px Inter, sans-serif";
-    ctx.fillText(t("Source: World Health Organization (WHO)"), 72, 1480);
+    ctx.fillText(canvasText("Source: World Health Organization (WHO)"), 72, 1480);
     ctx.fillStyle = "#2563eb";
     ctx.font = "900 24px Inter, sans-serif";
     ctx.fillText("GrowthKid", 760, 1438);
@@ -5632,7 +5637,7 @@
     const metric = result.metrics.find((item) => item.key === key) || {};
     const label = metric.z === null || metric.z === undefined ? statusLabel(metric.status || "notEntered") : statusLabel(metric.status);
     return {
-      title: t(titleFor(key)),
+      title: canvasText(titleFor(key)),
       value,
       percentile: metric.percentile === null || metric.percentile === undefined ? "--" : ordinal(metric.percentile),
       percentileNumber: metric.percentile === null || metric.percentile === undefined ? "--" : String(Math.round(metric.percentile)),
@@ -5711,11 +5716,11 @@
 
   function drawMeasurementSummary(ctx, result, x, y) {
     const columns = [
-      { label: t("Age"), value: ageLabel(result.ageMonths), color: "#0f766e" },
-      { label: t("Sex"), value: sexLabel(result.sex), color: "#2563eb" },
-      { label: t("Weight (kg)"), value: `${result.weight.toFixed(1)} kg`, color: "#0f766e" },
-      { label: t("Height (cm)"), value: `${result.height.toFixed(1)} cm`, color: "#2563eb" },
-      { label: t("BMI"), value: result.bmi.toFixed(1), color: "#7c3aed" }
+      { label: canvasText("Age"), value: decodeHtmlEntities(ageLabel(result.ageMonths)), color: "#0f766e" },
+      { label: canvasText("Sex"), value: decodeHtmlEntities(sexLabel(result.sex)), color: "#2563eb" },
+      { label: canvasText("Weight (kg)"), value: `${result.weight.toFixed(1)} kg`, color: "#0f766e" },
+      { label: canvasText("Height (cm)"), value: `${result.height.toFixed(1)} cm`, color: "#2563eb" },
+      { label: canvasText("BMI"), value: result.bmi.toFixed(1), color: "#7c3aed" }
     ];
     columns.forEach((item, index) => {
       const col = index % 3;
@@ -5793,7 +5798,7 @@
 
     ctx.fillStyle = "#334155";
     ctx.font = "750 14px Inter, sans-serif";
-    centerText(ctx, t("Percentile"), x + width / 2, y + 158);
+    centerText(ctx, canvasText("Percentile"), x + width / 2, y + 158);
     ctx.fillStyle = palette.fg;
     ctx.font = "900 24px Inter, sans-serif";
     centerText(ctx, item.percentileNumber, x + width / 2, y + 181);
@@ -5832,7 +5837,7 @@
     ctx.fill();
     ctx.fillStyle = color;
     ctx.font = "900 15px Inter, sans-serif";
-    centerText(ctx, `${t(titleFor(indicator))}`, x + width / 2, y - 13);
+    centerText(ctx, canvasText(titleFor(indicator)), x + width / 2, y - 13);
     drawSocialSnapshotChart(ctx, result, indicator, x, y, width, height);
   }
 
@@ -5842,7 +5847,7 @@
     ctx.beginPath();
     ctx.arc(x + 6, y, 4, 0, Math.PI * 2);
     ctx.fill();
-    ctx.fillText(t("Your measurement"), x + 18, y + 4);
+    ctx.fillText(canvasText("Your measurement"), x + 18, y + 4);
     ctx.strokeStyle = "#94a3b8";
     ctx.lineWidth = 2;
     ctx.beginPath();
@@ -5850,7 +5855,7 @@
     ctx.lineTo(x + 170, y);
     ctx.stroke();
     ctx.fillStyle = "#64748b";
-    ctx.fillText(t("Median (0)"), x + 178, y + 4);
+    ctx.fillText(canvasText("Median (0)"), x + 178, y + 4);
   }
 
   function drawZScoreLegend(ctx, x, y) {
@@ -5879,7 +5884,7 @@
     const status = statusLabel(metric.status);
     ctx.fillStyle = "#14b8a6";
     ctx.font = "900 26px Inter, sans-serif";
-    ctx.fillText(t("Interpretation"), x + 180, y + 8);
+    ctx.fillText(canvasText("Interpretation"), x + 180, y + 8);
     ctx.fillStyle = "#0f766e";
     ctx.beginPath();
     ctx.arc(x + 70, y + 58, 52, 0, Math.PI * 2);
@@ -5893,10 +5898,10 @@
     ctx.fillStyle = "#334155";
     ctx.font = "750 17px Inter, sans-serif";
     const interpretationText = status === "Normal"
-      ? `${t("Normal")}: ${t("Your child's growth is within the normal range.")}`
+      ? `${canvasText("Normal")}: ${canvasText("Your child's growth is within the normal range.")}`
       : status === "Monitor"
-        ? `${t("Monitor")}: ${t("Review the trend and measure again consistently.")}`
-        : `${t("Consult a healthcare professional")}.`;
+        ? `${canvasText("Monitor")}: ${canvasText("Review the trend and measure again consistently.")}`
+        : `${canvasText("Consult a healthcare professional")}.`;
     drawWrappedText(ctx, interpretationText, x + 180, y + 44, 295, 26, 4);
 
     ctx.strokeStyle = "#dbe4f0";
@@ -5906,11 +5911,11 @@
     ctx.stroke();
     ctx.fillStyle = "#14b8a6";
     ctx.font = "900 26px Inter, sans-serif";
-    ctx.fillText(t("Tips"), x + 560, y + 8);
+    ctx.fillText(canvasText("Tips"), x + 560, y + 8);
     const tips = [
-      t("Track trends over time."),
-      t("Use accurate weight and height measurements."),
-      t("Talk to a pediatrician if results change quickly.")
+      canvasText("Track trends over time."),
+      canvasText("Use accurate weight and height measurements."),
+      canvasText("Talk to a pediatrician if results change quickly.")
     ];
     ctx.fillStyle = "#334155";
     ctx.font = "750 17px Inter, sans-serif";
