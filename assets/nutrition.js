@@ -56,7 +56,7 @@
       brand: "Nestlé Health Science",
       image: "/assets/nutrition/nutren-junior.png",
       age: text("Trẻ 1-10 tuổi", "Children 1-10 years"),
-      ageGroups: ["2-5", "6-9"],
+      ageGroups: ["12-23", "2-5", "6-9"],
       needs: ["energy", "meal", "calcium"],
       needLabel: text("Bổ sung năng lượng", "Energy supplementation"),
       price: 590000,
@@ -85,7 +85,7 @@
       brand: "Abbott",
       image: "/assets/nutrition/pediasure.png",
       age: text("Trẻ 1-10 tuổi", "Children 1-10 years"),
-      ageGroups: ["2-5", "6-9"],
+      ageGroups: ["12-23", "2-5", "6-9"],
       needs: ["energy", "meal", "calcium"],
       needLabel: text("Dinh dưỡng đầy đủ, cân đối", "Complete, balanced nutrition"),
       price: 688000,
@@ -204,6 +204,9 @@
             <strong>${text("Theo độ tuổi", "By age")}</strong>
             <div class="nutrition-chip-list" data-filter-group="age">
               ${filterButton("age", "all", text("Tất cả", "All ages"), true)}
+              ${filterButton("age", "under-6", text("Dưới 6 tháng", "Under 6 months"), false)}
+              ${filterButton("age", "6-11", text("6-11 tháng", "6-11 months"), false)}
+              ${filterButton("age", "12-23", text("12-23 tháng", "12-23 months"), false)}
               ${filterButton("age", "2-5", text("2-5 tuổi", "Ages 2-5"), false)}
               ${filterButton("age", "6-9", text("6-9 tuổi", "Ages 6-9"), false)}
               ${filterButton("age", "10-15", text("10-15 tuổi", "Ages 10-15"), false)}
