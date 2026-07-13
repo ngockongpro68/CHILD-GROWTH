@@ -5624,7 +5624,7 @@
     ctx.fillText("GrowthKid", 760, 1438);
     ctx.fillStyle = "#64748b";
     ctx.font = "750 16px Inter, sans-serif";
-    ctx.fillText("growthkid.app", 760, 1464);
+    ctx.fillText("growthkid.xyz", 760, 1464);
     return canvas;
   }
 
