@@ -42,6 +42,38 @@
 
   const products = [
     {
+      id: "growplus-tieu-hoa-2-800g",
+      section: "nutrition",
+      category: "milk",
+      subcategory: "digestive",
+      name: "GrowPLUS+ Tiêu Hóa 2+",
+      brand: "Nutifood Sweden",
+      image: "/assets/nutrition/growplus-tieu-hoa-2-800g.jpg",
+      age: text("Trẻ từ 2 tuổi", "Children from 2 years"),
+      ageGroups: ["2-5", "6-9", "10-15"],
+      targets: ["child", "teen"],
+      needs: ["digestion", "energy", "calcium"],
+      needLabel: text("Hỗ trợ tiêu hóa và hấp thu", "Digestive and absorption support"),
+      price: 410000,
+      priceStatus: text("Giá tham khảo từ dữ liệu nhập ngày 13/07/2026", "Reference price from data entered on 13/07/2026"),
+      energy: 95.2,
+      protein: 3,
+      calcium: 120,
+      vitaminD: 1.75,
+      sugar: 7.8,
+      lactose: text("Có sữa, đậu nành, cá, lactose và sucrose", "Contains milk, soy, fish, lactose, and sucrose"),
+      suitable: [text("Trẻ từ 2 tuổi cần bổ sung dinh dưỡng trong khẩu phần", "Children from 2 years needing nutritional supplementation"), text("Gia đình đang tìm sản phẩm có 2'-FL HMO, FOS và Bifidobacterium lactis", "Families looking for a product with 2'-FL HMO, FOS, and Bifidobacterium lactis")],
+      cautions: [text("Không dùng cho trẻ dị ứng đạm sữa bò nếu chưa được đánh giá chuyên môn", "Do not use for children with cow's milk protein allergy without professional assessment"), text("Không dùng thay thế hoàn toàn bữa ăn chính", "Do not use as a complete replacement for main meals")],
+      analysis: text("Dữ liệu trên 100 ml được nhập từ nhãn sản phẩm: 95,2 kcal, 3,0 g protein, 120 mg canxi, 7,8 g đường tổng và 70 IU vitamin D3 (quy đổi 1,75 µg). Hãng giới thiệu công thức 2+ với 2'-FL HMO, FOS và Bifidobacterium lactis hỗ trợ tiêu hóa.", "Per-100 ml data entered from the product label: 95.2 kcal, 3.0 g protein, 120 mg calcium, 7.8 g total sugars, and 70 IU vitamin D3 (converted to 1.75 µg). The manufacturer presents this 2+ formula with 2'-FL HMO, FOS, and Bifidobacterium lactis for digestive support."),
+      source: "https://nutifoodsweden.com/vi/product/growplus-tieu-hoa/",
+      sourceLabel: "NutiFood Sweden – GrowPLUS+ Tiêu Hóa",
+      updated: "13/07/2026",
+      sellers: [
+        { name: text("Trang sản phẩm NutiFood Sweden", "NutiFood Sweden product page"), url: "https://nutifoodsweden.com/vi/product/growplus-tieu-hoa/", kind: "official", platform: "nutifood" },
+        { name: "Shopee", url: "https://s.shopee.vn/6VMEtmZJVx", kind: "affiliate", platform: "shopee" }
+      ]
+    },
+    {
       id: "friso-gold-4",
       section: "nutrition",
       category: "milk",
@@ -252,7 +284,7 @@
     {
       id: "milk", area: "nutrition", label: text("Sữa dinh dưỡng", "Nutrition milk"), shortLabel: text("Sữa dinh dưỡng", "Nutrition milk"),
       description: text("Sữa bổ sung hằng ngày, hỗ trợ tăng trưởng và sản phẩm dinh dưỡng y học theo từng nhu cầu.", "Daily milk, growth support, and medical nutrition products organized by intended use."),
-      subcategories: [["all", text("Tất cả", "All")], ["daily", text("Dùng hằng ngày", "Daily")], ["weight", text("Tăng cân", "Weight support")], ["height", text("Chiều cao", "Height support")], ["medical", text("Dinh dưỡng y học", "Medical nutrition")], ["low-sugar", text("Ít đường", "Lower sugar")], ["lactose-free", text("Không lactose", "Lactose-free")], ["picky", text("Trẻ biếng ăn", "Picky eaters")], ["adult", text("Người lớn", "Adults")], ["pregnancy", text("Mẹ bầu", "Pregnancy")]]
+      subcategories: [["all", text("Tất cả", "All")], ["daily", text("Dùng hằng ngày", "Daily")], ["weight", text("Tăng cân", "Weight support")], ["height", text("Chiều cao", "Height support")], ["digestive", text("Hỗ trợ tiêu hóa", "Digestive support")], ["medical", text("Dinh dưỡng y học", "Medical nutrition")], ["low-sugar", text("Ít đường", "Lower sugar")], ["lactose-free", text("Không lactose", "Lactose-free")], ["picky", text("Trẻ biếng ăn", "Picky eaters")], ["adult", text("Người lớn", "Adults")], ["pregnancy", text("Mẹ bầu", "Pregnancy")]]
     },
     {
       id: "vitamin", area: "nutrition", label: text("Vitamin và khoáng chất", "Vitamins & minerals"), shortLabel: text("Vitamin & khoáng chất", "Vitamins & minerals"),
@@ -540,7 +572,7 @@
       ? [["all", text("Tất cả đối tượng", "All audiences")], ["infant", text("Trẻ sơ sinh", "Infants")], ["child", text("Trẻ em", "Children")], ["teen", text("Thanh thiếu niên", "Teenagers")], ["adult", text("Người lớn", "Adults")], ["pregnancy", text("Mẹ bầu", "Pregnancy")]]
       : [["all", text("Tất cả đối tượng", "All audiences")], ["infant", text("Trẻ sơ sinh", "Infants")], ["child", text("Trẻ em", "Children")], ["mother", text("Mẹ sau sinh", "Mothers")], ["family", text("Cả gia đình", "Family")]];
     const needOptions = state.area === "nutrition"
-      ? [["all", text("Tất cả nhu cầu", "All needs")], ["daily", text("Dùng hằng ngày", "Daily use")], ["energy", text("Bổ sung năng lượng", "More energy")], ["less-sugar", text("Ít đường", "Lower sugar")], ["lactose-free", text("Không lactose", "Lactose-free")], ["calcium", text("Canxi & vitamin D", "Calcium & vitamin D")], ["meal", text("Bữa phụ dinh dưỡng", "Nutritional snack")]]
+      ? [["all", text("Tất cả nhu cầu", "All needs")], ["daily", text("Dùng hằng ngày", "Daily use")], ["digestion", text("Hỗ trợ tiêu hóa", "Digestive support")], ["energy", text("Bổ sung năng lượng", "More energy")], ["less-sugar", text("Ít đường", "Lower sugar")], ["lactose-free", text("Không lactose", "Lactose-free")], ["calcium", text("Canxi & vitamin D", "Calcium & vitamin D")], ["meal", text("Bữa phụ dinh dưỡng", "Nutritional snack")]]
       : [["all", text("Tất cả nhu cầu", "All needs")], ["daily", text("Dùng hằng ngày", "Daily use")], ["sensitive", text("Da nhạy cảm", "Sensitive skin")], ["fragrance-free", text("Không hương liệu", "Fragrance-free")], ["rash", text("Bảo vệ vùng tã", "Diaper-area care")], ["dry-skin", text("Da khô", "Dry skin")]];
     const brands = [...new Set(products.filter((product) => product.section === state.area && product.category === state.category).map((product) => product.brand))].sort((a, b) => a.localeCompare(b, isVietnamese ? "vi" : "en"));
     const brandOptions = [["all", text("Tất cả thương hiệu", "All brands")], ...brands.map((brand) => [brand, brand])];
