@@ -15,19 +15,43 @@
       check: '<svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="m5 12 4 4L19 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>',
       close: '<svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="m6 6 12 12M18 6 6 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>',
       external: '<svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M14 5h5v5M10 14 19 5M19 13v6H5V5h6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>',
-      spark: '<svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="m12 3 1.6 4.4L18 9l-4.4 1.6L12 15l-1.6-4.4L6 9l4.4-1.6L12 3Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg>'
+      spark: '<svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="m12 3 1.6 4.4L18 9l-4.4 1.6L12 15l-1.6-4.4L6 9l4.4-1.6L12 3Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg>',
+      search: '<svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="11" cy="11" r="7" stroke="currentColor" stroke-width="1.8"/><path d="m16.2 16.2 4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>',
+      star: '<svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="m12 3 2.8 5.7 6.2.9-4.5 4.4 1.1 6.2L12 17.3l-5.6 2.9 1.1-6.2L3 9.6l6.2-.9L12 3Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg>',
+      sort: '<svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M8 6h12M8 12h8M8 18h4M4 5v14m0 0-2-2m2 2 2-2" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>'
     };
     return icons[name] || icons.info;
+  };
+
+  const categoryIcon = (name) => {
+    const icons = {
+      milk: '<svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M9 3h6l1 3v2.2c1.2.8 2 2.2 2 3.8v7a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2v-7c0-1.6.8-3 2-3.8V6l1-3Z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/><path d="M8 11h8M10 6h4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>',
+      vitamin: '<svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M8.2 18.8a4.2 4.2 0 0 1 0-5.9l4.7-4.7a4.2 4.2 0 1 1 5.9 5.9l-4.7 4.7a4.2 4.2 0 0 1-5.9 0Z" stroke="currentColor" stroke-width="1.7"/><path d="m10.5 10.6 5.9 5.9" stroke="currentColor" stroke-width="1.7"/></svg>',
+      probiotic: '<svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="8" cy="9" r="3" stroke="currentColor" stroke-width="1.7"/><circle cx="16" cy="15" r="3" stroke="currentColor" stroke-width="1.7"/><path d="M14 6h.01M7 17h.01M18 7h.01" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/></svg>',
+      fiber: '<svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M19.5 4.5C12 4.8 7.2 8 6.4 14.2c4.7.7 10.8-.7 13.1-9.7Z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/><path d="M4 20c2.6-5.2 6.3-8.4 11.3-10.5" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>',
+      medical: '<svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="4" y="5" width="16" height="15" rx="2" stroke="currentColor" stroke-width="1.7"/><path d="M9 5V3h6v2M12 9v7M8.5 12.5h7" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>',
+      food: '<svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 11h16c0 5-3.6 9-8 9s-8-4-8-9Z" stroke="currentColor" stroke-width="1.7"/><path d="M7 7c1.4-1.7 3.1-2.5 5-2.5M18 4v8" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>',
+      care: '<svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 3c3 4 5 6.6 5 10a5 5 0 0 1-10 0c0-3.4 2-6 5-10Z" stroke="currentColor" stroke-width="1.7"/><path d="M9.6 13.4c.4 1.2 1.2 1.8 2.4 1.8" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>'
+    };
+    const aliases = {
+      weaning: "food", snack: "food", rash: "care", skin: "care", sun: "care",
+      bath: "care", laundry: "care", wipes: "care", diaper: "care"
+    };
+    return icons[name] || icons[aliases[name]] || icons.milk;
   };
 
   const products = [
     {
       id: "friso-gold-4",
+      section: "nutrition",
+      category: "milk",
+      subcategory: "daily",
       name: "Friso Gold 4",
       brand: "Friso",
       image: "/assets/nutrition/friso-gold-4.webp",
       age: text("Trẻ 2-6 tuổi", "Children 2-6 years"),
       ageGroups: ["2-5"],
+      targets: ["child"],
       needs: ["daily", "calcium"],
       needLabel: text("Dùng bổ sung hằng ngày", "Daily supplementation"),
       price: 521000,
@@ -52,11 +76,15 @@
     },
     {
       id: "nutren-junior",
+      section: "nutrition",
+      category: "milk",
+      subcategory: "medical",
       name: "Nutren Junior",
       brand: "Nestlé Health Science",
       image: "/assets/nutrition/nutren-junior.png",
       age: text("Trẻ 1-10 tuổi", "Children 1-10 years"),
       ageGroups: ["12-23", "2-5", "6-9"],
+      targets: ["child"],
       needs: ["energy", "meal", "calcium"],
       needLabel: text("Bổ sung năng lượng", "Energy supplementation"),
       price: 590000,
@@ -81,11 +109,15 @@
     },
     {
       id: "pediasure-powder",
+      section: "nutrition",
+      category: "milk",
+      subcategory: "medical",
       name: "PediaSure dạng bột",
       brand: "Abbott",
       image: "/assets/nutrition/pediasure.png",
       age: text("Trẻ 1-10 tuổi", "Children 1-10 years"),
       ageGroups: ["12-23", "2-5", "6-9"],
+      targets: ["child"],
       needs: ["energy", "meal", "calcium"],
       needLabel: text("Dinh dưỡng đầy đủ, cân đối", "Complete, balanced nutrition"),
       price: 688000,
@@ -110,11 +142,15 @@
     },
     {
       id: "dielac-grow-plus",
+      section: "nutrition",
+      category: "milk",
+      subcategory: "weight",
       name: "Dielac Grow Plus 2+",
       brand: "Vinamilk",
       image: "/assets/nutrition/dielac-grow-plus.png",
       age: text("Trẻ 2-10 tuổi", "Children 2-10 years"),
       ageGroups: ["2-5", "6-9"],
+      targets: ["child"],
       needs: ["energy", "calcium"],
       needLabel: text("Hỗ trợ khẩu phần trẻ nhẹ cân, thấp còi", "Nutrition support for underweight or stunted children"),
       price: 627061,
@@ -139,10 +175,165 @@
     }
   ];
 
+  const legacyCategories = [
+    {
+      id: "milk",
+      label: text("Sữa dinh dưỡng", "Nutrition milk"),
+      shortLabel: text("Sữa", "Milk"),
+      description: text("Sữa bổ sung hằng ngày, tăng năng lượng và hỗ trợ khẩu phần theo từng giai đoạn.", "Daily nutrition, higher-energy formulas, and age-specific supplementation."),
+      subcategories: [
+        ["all", text("Tất cả", "All")], ["daily", text("Dùng hằng ngày", "Daily")],
+        ["weight", text("Tăng cân", "Weight support")], ["height", text("Chiều cao", "Height support")],
+        ["low-sugar", text("Ít đường", "Lower sugar")], ["lactose-free", text("Không lactose", "Lactose-free")],
+        ["picky", text("Trẻ biếng ăn", "Picky eaters")], ["adult", text("Người lớn", "Adults")],
+        ["pregnancy", text("Mẹ bầu", "Pregnancy")]
+      ]
+    },
+    {
+      id: "vitamin",
+      label: text("Vitamin & khoáng chất", "Vitamins & minerals"),
+      shortLabel: text("Vitamin", "Vitamins"),
+      description: text("D3, K2, DHA, kẽm, sắt, canxi và vi chất theo thông tin trên nhãn.", "D3, K2, DHA, zinc, iron, calcium, and label-backed micronutrients."),
+      subcategories: [["all", text("Tất cả", "All")], ["d3", "Vitamin D3"], ["d3-k2", "Vitamin D3 + K2"], ["dha", "DHA"], ["omega-3", "Omega-3"], ["zinc", text("Kẽm", "Zinc")], ["iron", text("Sắt", "Iron")], ["calcium", text("Canxi", "Calcium")], ["multi", text("Đa vitamin", "Multivitamin")]]
+    },
+    {
+      id: "probiotic",
+      label: text("Men vi sinh", "Probiotics"),
+      shortLabel: text("Men vi sinh", "Probiotics"),
+      description: text("Sản phẩm theo chủng vi sinh, hàm lượng CFU và mục đích sử dụng trên nhãn.", "Products organized by probiotic strain, CFU amount, and labelled use."),
+      subcategories: [["all", text("Tất cả", "All")], ["diarrhea", text("Tiêu chảy", "Diarrhea")], ["constipation", text("Táo bón", "Constipation")], ["antibiotic", text("Sau kháng sinh", "After antibiotics")], ["colic", "Colic"], ["digestion", text("Hỗ trợ tiêu hóa", "Digestive support")]]
+    },
+    {
+      id: "fiber",
+      label: text("Chất xơ", "Fiber"),
+      shortLabel: text("Chất xơ", "Fiber"),
+      description: text("Inulin, FOS, GOS và chất xơ hòa tan với liều dùng được đối chiếu từ nhãn.", "Inulin, FOS, GOS, and soluble fiber with label-checked serving information."),
+      subcategories: [["all", text("Tất cả", "All")], ["inulin", "Inulin"], ["fos", "FOS"], ["gos", "GOS"], ["fibersol", "Fibersol"], ["soluble", text("Chất xơ hòa tan", "Soluble fiber")]]
+    },
+    {
+      id: "medical",
+      label: text("Dinh dưỡng y học", "Medical nutrition"),
+      shortLabel: text("Dinh dưỡng y học", "Medical nutrition"),
+      description: text("Dinh dưỡng toàn phần, năng lượng cao và peptide cần được lựa chọn theo đánh giá chuyên môn.", "Complete, higher-energy, and peptide nutrition intended for professionally guided use."),
+      subcategories: [["all", text("Tất cả", "All")], ["high-energy", text("Năng lượng cao", "Higher energy")], ["complete", text("Dinh dưỡng toàn phần", "Complete nutrition")], ["peptide", "Peptide"], ["tube", text("Qua ống", "Tube feeding")], ["recovery", text("Phục hồi", "Recovery")]]
+    },
+    {
+      id: "food",
+      label: text("Ăn dặm & snack", "Weaning & snacks"),
+      shortLabel: text("Ăn dặm", "Weaning"),
+      description: text("Bột, cháo, mì, dầu ăn dặm và snack với thành phần, đường, natri rõ ràng.", "Cereals, porridge, noodles, oils, and snacks with clear ingredient information."),
+      subcategories: [["all", text("Tất cả", "All")], ["cereal", text("Bột ăn dặm", "Baby cereal")], ["porridge", text("Cháo", "Porridge")], ["noodle", text("Nui & mì", "Pasta & noodles")], ["oil", text("Dầu ăn dặm", "Weaning oil")], ["snack", text("Bánh & puff", "Snacks & puffs")], ["seaweed", text("Rong biển", "Seaweed")]]
+    },
+    {
+      id: "care",
+      label: text("Chăm sóc mẹ & bé", "Mother & baby care"),
+      shortLabel: text("Mẹ & bé", "Mother & baby"),
+      description: text("Tã bỉm, chăm sóc da, tắm gội và đồ dùng thiết yếu cho trẻ nhỏ.", "Diapers, skin care, bath products, and everyday essentials for young children."),
+      subcategories: [["all", text("Tất cả", "All")], ["diaper", text("Tã bỉm", "Diapers")], ["rash", text("Kem chống hăm", "Rash cream")], ["skin", text("Dưỡng da", "Skin care")], ["sun", text("Chống nắng", "Sun care")], ["bath", text("Tắm gội", "Bath & hair")], ["laundry", text("Nước giặt", "Laundry")], ["wipes", text("Khăn ướt", "Wipes")]]
+    }
+  ];
+
+  const productAreas = [
+    {
+      id: "nutrition",
+      label: text("Dinh dưỡng", "Nutrition"),
+      description: text("Thực phẩm, vi chất và sản phẩm dinh dưỡng theo độ tuổi hoặc nhu cầu sử dụng.", "Foods, nutrients, and nutrition products organized by age and intended use."),
+      defaultCategory: "milk"
+    },
+    {
+      id: "care",
+      label: text("Chăm sóc Mẹ & Bé", "Mother & baby care"),
+      description: text("Sản phẩm chăm sóc da, vệ sinh và đồ dùng thiết yếu cho mẹ và trẻ nhỏ.", "Skin care, hygiene, and everyday essentials for mothers and children."),
+      defaultCategory: "rash"
+    }
+  ];
+
+  const categories = [
+    {
+      id: "milk", area: "nutrition", label: text("Sữa dinh dưỡng", "Nutrition milk"), shortLabel: text("Sữa dinh dưỡng", "Nutrition milk"),
+      description: text("Sữa bổ sung hằng ngày, hỗ trợ tăng trưởng và sản phẩm dinh dưỡng y học theo từng nhu cầu.", "Daily milk, growth support, and medical nutrition products organized by intended use."),
+      subcategories: [["all", text("Tất cả", "All")], ["daily", text("Dùng hằng ngày", "Daily")], ["weight", text("Tăng cân", "Weight support")], ["height", text("Chiều cao", "Height support")], ["medical", text("Dinh dưỡng y học", "Medical nutrition")], ["low-sugar", text("Ít đường", "Lower sugar")], ["lactose-free", text("Không lactose", "Lactose-free")], ["picky", text("Trẻ biếng ăn", "Picky eaters")], ["adult", text("Người lớn", "Adults")], ["pregnancy", text("Mẹ bầu", "Pregnancy")]]
+    },
+    {
+      id: "vitamin", area: "nutrition", label: text("Vitamin và khoáng chất", "Vitamins & minerals"), shortLabel: text("Vitamin & khoáng chất", "Vitamins & minerals"),
+      description: text("D3, K2, DHA, kẽm, sắt, canxi và vi chất theo thông tin trên nhãn.", "D3, K2, DHA, zinc, iron, calcium, and label-backed micronutrients."),
+      subcategories: [["all", text("Tất cả", "All")], ["d3", "Vitamin D3"], ["d3-k2", "Vitamin D3 + K2"], ["dha", "DHA"], ["omega-3", "Omega-3"], ["vitamin-c", "Vitamin C"], ["zinc", text("Kẽm", "Zinc")], ["iron", text("Sắt", "Iron")], ["calcium", text("Canxi", "Calcium")], ["magnesium", text("Magie", "Magnesium")], ["multi", text("Vitamin tổng hợp", "Multivitamin")], ["lysine", "Lysine"]]
+    },
+    {
+      id: "probiotic", area: "nutrition", label: text("Men vi sinh", "Probiotics"), shortLabel: text("Men vi sinh", "Probiotics"),
+      description: text("Phân loại theo chủng vi sinh, CFU và nhu cầu tham khảo ghi trên nhãn.", "Organized by probiotic strain, CFU amount, and label-stated use."),
+      subcategories: [["all", text("Tất cả", "All")], ["diarrhea", text("Tiêu chảy", "Diarrhea")], ["constipation", text("Táo bón", "Constipation")], ["antibiotic", text("Sau kháng sinh", "After antibiotics")], ["allergy", text("Dị ứng", "Allergy")], ["colic", "Colic"]]
+    },
+    {
+      id: "fiber", area: "nutrition", label: text("Chất xơ và prebiotic", "Fiber & prebiotics"), shortLabel: text("Chất xơ & prebiotic", "Fiber & prebiotics"),
+      description: text("Inulin, FOS, GOS và chất xơ hòa tan với liều dùng được đối chiếu từ nhãn.", "Inulin, FOS, GOS, and soluble fiber with label-checked serving information."),
+      subcategories: [["all", text("Tất cả", "All")], ["inulin", "Inulin"], ["fos", "FOS"], ["gos", "GOS"], ["fibersol", "Fibersol"], ["soluble", text("Chất xơ hòa tan", "Soluble fiber")]]
+    },
+    {
+      id: "medical", area: "nutrition", hidden: true, label: text("Dinh dưỡng y học", "Medical nutrition"), shortLabel: text("Dinh dưỡng y học", "Medical nutrition"),
+      description: text("Dinh dưỡng toàn phần, năng lượng cao và peptide cần được lựa chọn theo đánh giá chuyên môn.", "Complete, higher-energy, and peptide nutrition intended for professionally guided use."),
+      subcategories: [["all", text("Tất cả", "All")], ["high-energy", text("Năng lượng cao", "Higher energy")], ["complete", text("Dinh dưỡng toàn phần", "Complete nutrition")], ["peptide", "Peptide"], ["tube", text("Qua ống", "Tube feeding")], ["recovery", text("Phục hồi", "Recovery")]]
+    },
+    {
+      id: "weaning", area: "nutrition", label: text("Đồ ăn dặm", "Weaning foods"), shortLabel: text("Đồ ăn dặm", "Weaning foods"),
+      description: text("Bột, cháo, nui, mì, gia vị và dầu ăn dặm với thành phần rõ ràng.", "Cereals, porridge, pasta, seasonings, and weaning oils with clear ingredients."),
+      subcategories: [["all", text("Tất cả", "All")], ["cereal", text("Bột ăn dặm", "Baby cereal")], ["porridge", text("Cháo", "Porridge")], ["noodle", text("Nui và mì", "Pasta & noodles")], ["seasoning", text("Gia vị ăn dặm", "Seasoning")], ["oil", text("Dầu ăn dặm", "Weaning oil")]]
+    },
+    {
+      id: "snack", area: "nutrition", label: text("Snack lành mạnh", "Healthy snacks"), shortLabel: text("Snack lành mạnh", "Healthy snacks"),
+      description: text("Bánh ăn dặm, bánh gạo, puff, trái cây sấy và rong biển.", "Baby biscuits, rice crackers, puffs, dried fruit, and seaweed."),
+      subcategories: [["all", text("Tất cả", "All")], ["baby-biscuit", text("Bánh ăn dặm", "Baby biscuits")], ["rice-cracker", text("Bánh gạo", "Rice crackers")], ["puff", "Puff"], ["dried-fruit", text("Trái cây sấy", "Dried fruit")], ["seaweed", text("Rong biển", "Seaweed")]]
+    },
+    {
+      id: "rash", area: "care", label: text("Kem chống hăm", "Diaper rash care"), shortLabel: text("Kem chống hăm", "Rash care"),
+      description: text("Kem, thuốc mỡ và sản phẩm bảo vệ vùng da mặc tã.", "Creams, ointments, and barrier products for diaper-area skin."),
+      subcategories: [["all", text("Tất cả", "All")], ["cream", text("Dạng kem", "Cream")], ["ointment", text("Thuốc mỡ", "Ointment")], ["spray", text("Dạng xịt", "Spray")]]
+    },
+    {
+      id: "skin", area: "care", label: text("Kem dưỡng da trẻ em", "Children's skin care"), shortLabel: text("Dưỡng da trẻ em", "Skin care"),
+      description: text("Dưỡng ẩm và bảo vệ hàng rào da theo loại da và độ tuổi.", "Moisturizers and barrier care organized by skin type and age."),
+      subcategories: [["all", text("Tất cả", "All")], ["lotion", "Lotion"], ["cream", text("Kem dưỡng", "Cream")], ["balm", "Balm"]]
+    },
+    {
+      id: "sun", area: "care", label: text("Kem chống nắng trẻ em", "Children's sunscreen"), shortLabel: text("Chống nắng trẻ em", "Sunscreen"),
+      description: text("Sản phẩm chống nắng theo tuổi, loại màng lọc và loại da.", "Sun protection organized by age, filter type, and skin type."),
+      subcategories: [["all", text("Tất cả", "All")], ["mineral", text("Vật lý", "Mineral")], ["hybrid", text("Lai", "Hybrid")], ["stick", text("Dạng thỏi", "Stick")]]
+    },
+    {
+      id: "bath", area: "care", label: text("Dầu gội và sữa tắm", "Bath & hair care"), shortLabel: text("Dầu gội & sữa tắm", "Bath & hair"),
+      description: text("Sữa tắm, dầu gội và sản phẩm hai trong một cho trẻ nhỏ.", "Body wash, shampoo, and two-in-one products for children."),
+      subcategories: [["all", text("Tất cả", "All")], ["body-wash", text("Sữa tắm", "Body wash")], ["shampoo", text("Dầu gội", "Shampoo")], ["two-in-one", text("Hai trong một", "Two-in-one")]]
+    },
+    {
+      id: "laundry", area: "care", label: text("Nước giặt trẻ em", "Baby laundry"), shortLabel: text("Nước giặt trẻ em", "Baby laundry"),
+      description: text("Nước giặt, xả và xử lý vết bẩn dành cho quần áo trẻ nhỏ.", "Detergent, softener, and stain care for children's clothing."),
+      subcategories: [["all", text("Tất cả", "All")], ["detergent", text("Nước giặt", "Detergent")], ["softener", text("Nước xả", "Softener")], ["stain", text("Tẩy vết bẩn", "Stain care")]]
+    },
+    {
+      id: "wipes", area: "care", label: text("Khăn ướt", "Wet wipes"), shortLabel: text("Khăn ướt", "Wet wipes"),
+      description: text("Khăn ướt theo thành phần, hương liệu và loại da.", "Wet wipes organized by ingredients, fragrance, and skin type."),
+      subcategories: [["all", text("Tất cả", "All")], ["water", text("Gốc nước", "Water-based")], ["sensitive", text("Da nhạy cảm", "Sensitive skin")], ["biodegradable", text("Phân hủy sinh học", "Biodegradable")]]
+    },
+    {
+      id: "diaper", area: "care", label: text("Tã bỉm", "Diapers"), shortLabel: text("Tã bỉm", "Diapers"),
+      description: text("Tã dán, tã quần và tã bơi theo cân nặng, kích cỡ và nhu cầu sử dụng.", "Tape, pant, and swim diapers organized by weight, size, and use."),
+      subcategories: [["all", text("Tất cả", "All")], ["tape", text("Tã dán", "Tape diapers")], ["pants", text("Tã quần", "Pant diapers")], ["swim", text("Tã bơi", "Swim diapers")]]
+    }
+  ];
+
   const state = {
+    area: "nutrition",
+    category: "milk",
+    subcategory: "all",
     age: "all",
+    audience: "all",
     need: "all",
+    brand: "all",
     price: "all",
+    seller: "all",
+    query: "",
+    sort: "recommended",
+    favoritesOnly: false,
     favorites: new Set(readStorage("growthkid:nutrition:favorites")),
     compare: readStorage("growthkid:nutrition:compare").filter((id) => products.some((product) => product.id === id)).slice(0, 3)
   };
@@ -186,6 +377,61 @@
     return `<a href="${url}" target="_blank" rel="${rel}" data-seller-kind="${seller.kind || "official"}" data-marketplace="${seller.platform || "official"}"><span>${seller.name}</span>${icon("external")}</a>`;
   }
 
+  function productSellerLink(product, platform, label) {
+    const seller = product.sellers.find((item) => platform === "official" ? item.kind === "official" : item.platform === platform);
+    if (!seller) return `<span class="is-disabled">${label}</span>`;
+    let url = "#";
+    try {
+      const parsed = new URL(seller.url);
+      if (["http:", "https:"].includes(parsed.protocol)) url = parsed.href;
+    } catch (error) {
+      url = "#";
+    }
+    const rel = seller.kind === "affiliate" ? "sponsored nofollow noopener noreferrer" : "noopener noreferrer";
+    return `<a href="${url}" target="_blank" rel="${rel}" data-marketplace="${platform}">${label}${icon("external")}</a>`;
+  }
+
+  function activeCategory() {
+    return categories.find((category) => category.id === state.category)
+      || categories.find((category) => category.area === state.area)
+      || categories[0];
+  }
+
+  function activeArea() {
+    return productAreas.find((area) => area.id === state.area) || productAreas[0];
+  }
+
+  function areaCategories(areaId = state.area) {
+    return categories.filter((category) => category.area === areaId && !category.hidden);
+  }
+
+  function areaProductCount(areaId) {
+    return products.filter((product) => product.section === areaId).length;
+  }
+
+  function areaButton(area) {
+    const count = areaProductCount(area.id);
+    const active = area.id === state.area;
+    return `<button class="nutrition-area-tab${active ? " is-active" : ""}" type="button" role="tab" aria-selected="${active}" data-nutrition-action="area" data-area="${area.id}">
+      <span class="nutrition-area-tab-copy"><strong>${area.label}</strong><small>${area.description}</small></span>
+      <span class="nutrition-area-tab-count">${count ? text(`${count} sản phẩm`, `${count} products`) : text("Đang xây dữ liệu", "Data in progress")}</span>
+    </button>`;
+  }
+
+  function categoryProductCount(categoryId) {
+    return products.filter((product) => product.category === categoryId).length;
+  }
+
+  function categoryTab(category) {
+    const count = categoryProductCount(category.id);
+    const active = category.id === state.category;
+    return `<button class="nutrition-category-tab${active ? " is-active" : ""}" type="button" role="tab" aria-selected="${active}" data-nutrition-action="category" data-category="${category.id}">
+      <span class="nutrition-category-icon">${categoryIcon(category.id)}</span>
+      <span class="nutrition-category-name">${category.shortLabel}</span>
+      <span class="nutrition-category-count">${count ? text(`${count} sản phẩm`, `${count} products`) : text("Đang cập nhật", "Updating")}</span>
+    </button>`;
+  }
+
   function pageMarkup() {
     return `
       <section class="nutrition-hero">
@@ -205,52 +451,50 @@
         </div>
       </section>
 
+      <section class="nutrition-category-band" aria-labelledby="nutritionCategoryTitle">
+        <div class="container">
+          <div class="nutrition-category-heading">
+            <div><span class="nutrition-kicker">${text("Hai khu vực riêng biệt", "Two distinct areas")}</span><h2 id="nutritionCategoryTitle">${text("Bạn đang tìm sản phẩm thuộc khu vực nào?", "Which product area are you looking for?")}</h2></div>
+            <span>${text("Chỉ hiển thị sản phẩm có nguồn đối chiếu", "Only source-backed products are shown")}</span>
+          </div>
+          <div class="nutrition-area-tabs" id="nutritionAreaTabs" role="tablist">${productAreas.map(areaButton).join("")}</div>
+          <div class="nutrition-category-subheading"><span class="nutrition-kicker">${text("Danh mục trong khu vực", "Categories in this area")}</span><strong id="nutritionAreaLabel"></strong></div>
+          <div class="nutrition-category-scroll">
+            <div class="nutrition-category-tabs" id="nutritionCategoryTabs" role="tablist" style="--nutrition-category-columns:${areaCategories().length}">${areaCategories().map(categoryTab).join("")}</div>
+          </div>
+          <div class="nutrition-category-context" id="nutritionCategoryContext"></div>
+        </div>
+      </section>
+
       <section class="container nutrition-workspace">
-        <div class="nutrition-medical-note">${icon("info")}<span>${text("Trẻ có bệnh lý, dị ứng hoặc tăng trưởng bất thường cần được bác sĩ hoặc chuyên gia dinh dưỡng đánh giá trước khi lựa chọn sản phẩm.", "Children with medical conditions, allergies, or growth concerns should be assessed by a clinician or dietitian before choosing a product.")}</span></div>
+        <div class="nutrition-medical-note" id="nutritionSafetyNote">${icon("info")}<span></span></div>
+
+        <div class="nutrition-catalog-toolbar" aria-label="${text("Tìm và sắp xếp sản phẩm", "Search and sort products")}">
+          <label class="nutrition-search" for="nutritionSearch">${icon("search")}<span class="sr-only">${text("Tìm sản phẩm", "Search products")}</span><input id="nutritionSearch" type="search" autocomplete="off" placeholder="${text("Tìm theo tên hoặc thương hiệu", "Search by product or brand")}"></label>
+          <button class="nutrition-toolbar-button" type="button" data-nutrition-action="favorites-only" aria-pressed="false">${icon("star")}<span>${text("Đã lưu", "Saved")}</span><strong id="nutritionFavoriteCount">${state.favorites.size}</strong></button>
+          <label class="nutrition-sort" for="nutritionSort">${icon("sort")}<span class="sr-only">${text("Sắp xếp", "Sort")}</span><select id="nutritionSort">
+            <option value="recommended">${text("Sắp xếp: Phù hợp", "Sort: Relevance")}</option>
+            <option value="price-asc">${text("Giá thấp đến cao", "Price: Low to high")}</option>
+            <option value="price-desc">${text("Giá cao đến thấp", "Price: High to low")}</option>
+            <option value="name">${text("Tên A-Z", "Name A-Z")}</option>
+          </select></label>
+        </div>
 
         <section class="nutrition-filters" id="nutritionFilters" aria-labelledby="nutritionFilterTitle">
           <div class="nutrition-section-heading">
-            <div><span class="nutrition-kicker">${text("Cá nhân hóa", "Personalize")}</span><h2 id="nutritionFilterTitle">${text("Bộ lọc nhanh", "Quick filters")}</h2></div>
-            <button class="nutrition-reset" type="button" data-nutrition-action="clear-filters">${text("Xóa bộ lọc", "Clear filters")}</button>
-          </div>
-          <div class="nutrition-filter-row">
-            <strong>${text("Theo độ tuổi", "By age")}</strong>
-            <div class="nutrition-chip-list" data-filter-group="age">
-              ${filterButton("age", "all", text("Tất cả", "All ages"), true)}
-              ${filterButton("age", "under-6", text("Dưới 6 tháng", "Under 6 months"), false)}
-              ${filterButton("age", "6-11", text("6-11 tháng", "6-11 months"), false)}
-              ${filterButton("age", "12-23", text("12-23 tháng", "12-23 months"), false)}
-              ${filterButton("age", "2-5", text("2-5 tuổi", "Ages 2-5"), false)}
-              ${filterButton("age", "6-9", text("6-9 tuổi", "Ages 6-9"), false)}
-              ${filterButton("age", "10-15", text("10-15 tuổi", "Ages 10-15"), false)}
+            <div><span class="nutrition-kicker">${text("Thu hẹp kết quả", "Narrow results")}</span><h2 id="nutritionFilterTitle">${text("Lọc sản phẩm", "Filter products")}</h2><p>${text("Chỉ chọn những tiêu chí thật sự cần thiết.", "Choose only the criteria that matter.")}</p></div>
+            <div class="nutrition-filter-heading-actions">
+              <span class="nutrition-active-filter-count" id="nutritionActiveFilterCount" hidden></span>
+              <button class="nutrition-filter-toggle" type="button" data-nutrition-action="toggle-filters" aria-expanded="false">${icon("sort")}<span>${text("Mở bộ lọc", "Open filters")}</span></button>
+              <button class="nutrition-reset" type="button" data-nutrition-action="clear-filters">${text("Xóa bộ lọc", "Clear filters")}</button>
             </div>
           </div>
-          <div class="nutrition-filter-row">
-            <strong>${text("Theo nhu cầu", "By need")}</strong>
-            <div class="nutrition-chip-list" data-filter-group="need">
-              ${filterButton("need", "all", text("Tất cả nhu cầu", "All needs"), true)}
-              ${filterButton("need", "daily", text("Dùng hằng ngày", "Daily use"), false)}
-              ${filterButton("need", "energy", text("Bổ sung năng lượng", "More energy"), false)}
-              ${filterButton("need", "less-sugar", text("Ít đường", "Lower sugar"), false)}
-              ${filterButton("need", "lactose-free", text("Không lactose", "Lactose-free"), false)}
-              ${filterButton("need", "calcium", text("Canxi & vitamin D", "Calcium & vitamin D"), false)}
-              ${filterButton("need", "meal", text("Bữa phụ dinh dưỡng", "Nutritional snack"), false)}
-            </div>
-          </div>
-          <div class="nutrition-filter-row">
-            <strong>${text("Theo mức giá", "By price")}</strong>
-            <div class="nutrition-chip-list" data-filter-group="price">
-              ${filterButton("price", "all", text("Tất cả mức giá", "All prices"), true)}
-              ${filterButton("price", "under-500", text("Dưới 500.000đ", "Under 500,000 VND"), false)}
-              ${filterButton("price", "500-800", "500.000-800.000đ", false)}
-              ${filterButton("price", "over-800", text("Trên 800.000đ", "Over 800,000 VND"), false)}
-            </div>
-          </div>
+          <div id="nutritionFilterRows"></div>
         </section>
 
         <section class="nutrition-products" aria-labelledby="nutritionProductsTitle">
           <div class="nutrition-section-heading">
-            <div><span class="nutrition-kicker">${text("Thông tin có nguồn", "Source-backed information")}</span><h2 id="nutritionProductsTitle">${text("Sản phẩm đang tham khảo", "Products to explore")}</h2></div>
+            <div><span class="nutrition-kicker" id="nutritionProductsKicker">${text("Thông tin có nguồn", "Source-backed information")}</span><h2 id="nutritionProductsTitle">${text("Sản phẩm đang tham khảo", "Products to explore")}</h2></div>
             <span class="nutrition-result-count" id="nutritionResultCount"></span>
           </div>
           <div class="nutrition-product-grid" id="nutritionProductGrid"></div>
@@ -279,16 +523,113 @@
     `;
   }
 
+  function filterSelect(label, group, options) {
+    return `<label class="nutrition-filter-control">
+      <span>${label}</span>
+      <select data-nutrition-filter="${group}">
+        ${options.map(([value, optionLabel]) => `<option value="${value}"${state[group] === value ? " selected" : ""}>${optionLabel}</option>`).join("")}
+      </select>
+    </label>`;
+  }
+
+  function renderFilters() {
+    const container = document.getElementById("nutritionFilterRows");
+    if (!container) return;
+    const ageOptions = [["all", text("Tất cả độ tuổi", "All ages")], ["under-6", text("Dưới 6 tháng", "Under 6 months")], ["6-11", text("6-11 tháng", "6-11 months")], ["12-23", text("12-23 tháng", "12-23 months")], ["2-5", text("2-5 tuổi", "Ages 2-5")], ["6-9", text("6-9 tuổi", "Ages 6-9")], ["10-15", text("10-15 tuổi", "Ages 10-15")]];
+    const audienceOptions = state.area === "nutrition"
+      ? [["all", text("Tất cả đối tượng", "All audiences")], ["infant", text("Trẻ sơ sinh", "Infants")], ["child", text("Trẻ em", "Children")], ["teen", text("Thanh thiếu niên", "Teenagers")], ["adult", text("Người lớn", "Adults")], ["pregnancy", text("Mẹ bầu", "Pregnancy")]]
+      : [["all", text("Tất cả đối tượng", "All audiences")], ["infant", text("Trẻ sơ sinh", "Infants")], ["child", text("Trẻ em", "Children")], ["mother", text("Mẹ sau sinh", "Mothers")], ["family", text("Cả gia đình", "Family")]];
+    const needOptions = state.area === "nutrition"
+      ? [["all", text("Tất cả nhu cầu", "All needs")], ["daily", text("Dùng hằng ngày", "Daily use")], ["energy", text("Bổ sung năng lượng", "More energy")], ["less-sugar", text("Ít đường", "Lower sugar")], ["lactose-free", text("Không lactose", "Lactose-free")], ["calcium", text("Canxi & vitamin D", "Calcium & vitamin D")], ["meal", text("Bữa phụ dinh dưỡng", "Nutritional snack")]]
+      : [["all", text("Tất cả nhu cầu", "All needs")], ["daily", text("Dùng hằng ngày", "Daily use")], ["sensitive", text("Da nhạy cảm", "Sensitive skin")], ["fragrance-free", text("Không hương liệu", "Fragrance-free")], ["rash", text("Bảo vệ vùng tã", "Diaper-area care")], ["dry-skin", text("Da khô", "Dry skin")]];
+    const brands = [...new Set(products.filter((product) => product.section === state.area && product.category === state.category).map((product) => product.brand))].sort((a, b) => a.localeCompare(b, isVietnamese ? "vi" : "en"));
+    const brandOptions = [["all", text("Tất cả thương hiệu", "All brands")], ...brands.map((brand) => [brand, brand])];
+    const priceOptions = [["all", text("Tất cả mức giá", "All prices")], ["under-500", text("Dưới 500.000đ", "Under 500,000 VND")], ["500-800", "500.000-800.000đ"], ["over-800", text("Trên 800.000đ", "Over 800,000 VND")]];
+    const sellerOptions = [["all", text("Tất cả nơi bán", "All sellers")], ["official", text("Trang hãng", "Manufacturer")], ["shopee", "Shopee"], ["lazada", "Lazada"]];
+    container.innerHTML = `<div class="nutrition-filter-controls">
+      ${filterSelect(text("Độ tuổi", "Age"), "age", ageOptions)}
+      ${filterSelect(text("Đối tượng", "Audience"), "audience", audienceOptions)}
+      ${filterSelect(text("Nhu cầu", "Need"), "need", needOptions)}
+      ${filterSelect(text("Thương hiệu", "Brand"), "brand", brandOptions)}
+      ${filterSelect(text("Mức giá", "Price"), "price", priceOptions)}
+      ${filterSelect(text("Nơi bán", "Seller"), "seller", sellerOptions)}
+    </div>`;
+    const activeCount = [state.age, state.audience, state.need, state.brand, state.price, state.seller].filter((value) => value !== "all").length;
+    const count = document.getElementById("nutritionActiveFilterCount");
+    if (count) {
+      count.hidden = activeCount === 0;
+      count.textContent = text(`${activeCount} tiêu chí đang chọn`, `${activeCount} active filters`);
+    }
+  }
+
+  function renderCategoryNavigation() {
+    const area = activeArea();
+    const category = activeCategory();
+    const count = categoryProductCount(category.id);
+    const areaTabs = document.getElementById("nutritionAreaTabs");
+    const areaLabel = document.getElementById("nutritionAreaLabel");
+    const tabs = document.getElementById("nutritionCategoryTabs");
+    const context = document.getElementById("nutritionCategoryContext");
+    const title = document.getElementById("nutritionProductsTitle");
+    const safety = document.querySelector("#nutritionSafetyNote span");
+    if (areaTabs) areaTabs.innerHTML = productAreas.map(areaButton).join("");
+    if (areaLabel) areaLabel.textContent = area.label;
+    if (tabs) {
+      const visibleCategories = areaCategories();
+      tabs.style.setProperty("--nutrition-category-columns", String(visibleCategories.length));
+      tabs.innerHTML = visibleCategories.map(categoryTab).join("");
+    }
+    if (context) {
+      context.innerHTML = `
+        <div class="nutrition-category-summary">
+          <span class="nutrition-category-icon is-large">${categoryIcon(category.id)}</span>
+          <div><span class="nutrition-kicker">${text("Đang xem", "Viewing")}</span><h3>${category.label}</h3><p>${category.description}</p></div>
+          <strong>${count ? text(`${count} sản phẩm có nguồn`, `${count} source-backed products`) : text("Chưa có dữ liệu đủ nguồn", "No source-ready data yet")}</strong>
+        </div>
+        <div class="nutrition-subcategory-list" data-filter-group="subcategory">
+          ${category.subcategories.map(([value, label]) => filterButton("subcategory", value, label, state.subcategory === value)).join("")}
+        </div>`;
+    }
+    if (title) title.textContent = category.label;
+    if (safety) safety.textContent = state.area === "nutrition"
+      ? text("Các nhu cầu như tiêu chảy, dị ứng, colic hoặc dinh dưỡng y học chỉ mang tính tham khảo; trẻ có bệnh lý hoặc tăng trưởng bất thường cần được đánh giá chuyên môn.", "Diarrhea, allergy, colic, and medical nutrition categories are for reference; children with medical or growth concerns need professional assessment.")
+      : text("Kiểm tra độ tuổi, thành phần, cảnh báo kích ứng và hướng dẫn sử dụng trên nhãn trước khi dùng sản phẩm chăm sóc cho trẻ.", "Check age guidance, ingredients, irritation warnings, and label directions before using care products on children.");
+  }
+
+  function renderToolbarState() {
+    const favoriteCount = document.getElementById("nutritionFavoriteCount");
+    const favoritesButton = root.querySelector('[data-nutrition-action="favorites-only"]');
+    if (favoriteCount) favoriteCount.textContent = String(state.favorites.size);
+    if (favoritesButton) {
+      favoritesButton.classList.toggle("is-active", state.favoritesOnly);
+      favoritesButton.setAttribute("aria-pressed", String(state.favoritesOnly));
+    }
+  }
+
   function filteredProducts() {
-    return products.filter((product) => {
+    const normalizedQuery = state.query.trim().toLocaleLowerCase(isVietnamese ? "vi" : "en");
+    const filtered = products.filter((product) => {
+      const areaMatch = product.section === state.area;
+      const categoryMatch = product.category === state.category;
+      const subcategoryMatch = state.subcategory === "all" || product.subcategory === state.subcategory;
       const ageMatch = state.age === "all" || product.ageGroups.includes(state.age);
+      const audienceMatch = state.audience === "all" || product.targets.includes(state.audience);
       const needMatch = state.need === "all" || product.needs.includes(state.need);
+      const brandMatch = state.brand === "all" || product.brand === state.brand;
       const priceMatch = state.price === "all"
         || (state.price === "under-500" && product.price < 500000)
         || (state.price === "500-800" && product.price >= 500000 && product.price <= 800000)
         || (state.price === "over-800" && product.price > 800000);
-      return ageMatch && needMatch && priceMatch;
+      const sellerMatch = state.seller === "all" || product.sellers.some((seller) => state.seller === "official" ? seller.kind === "official" : seller.platform === state.seller);
+      const queryMatch = !normalizedQuery || [product.name, product.brand, product.needLabel, product.age]
+        .some((value) => String(value || "").toLocaleLowerCase(isVietnamese ? "vi" : "en").includes(normalizedQuery));
+      const favoriteMatch = !state.favoritesOnly || state.favorites.has(product.id);
+      return areaMatch && categoryMatch && subcategoryMatch && ageMatch && audienceMatch && needMatch && brandMatch && priceMatch && sellerMatch && queryMatch && favoriteMatch;
     });
+    if (state.sort === "price-asc") filtered.sort((a, b) => a.price - b.price);
+    else if (state.sort === "price-desc") filtered.sort((a, b) => b.price - a.price);
+    else if (state.sort === "name") filtered.sort((a, b) => a.name.localeCompare(b.name, isVietnamese ? "vi" : "en"));
+    return filtered;
   }
 
   function productCard(product) {
@@ -302,7 +643,7 @@
           <img src="${product.image}" alt="${product.name}" loading="lazy">
         </div>
         <div class="nutrition-product-body">
-          <span class="nutrition-product-brand">${product.brand}</span>
+          <div class="nutrition-product-meta"><span class="nutrition-product-brand">${product.brand}</span><span>${categories.find((category) => category.id === product.category)?.shortLabel || ""}</span></div>
           <h3>${product.name}</h3>
           <p class="nutrition-product-purpose">${product.needLabel}</p>
           <dl class="nutrition-metric-grid">
@@ -312,6 +653,11 @@
             <div><dt>${text("Đường", "Sugar")}</dt><dd>${metric(product.sugar, "g/100 ml")}</dd></div>
           </dl>
           <div class="nutrition-product-price"><span>${text("Giá tham khảo", "Reference price")}</span><strong>${formatPrice(product.price)}</strong><small>${product.priceStatus}</small></div>
+          <div class="nutrition-card-sellers" aria-label="${text("Nơi bán", "Sellers")}">
+            ${productSellerLink(product, "official", text("Trang hãng", "Brand site"))}
+            ${productSellerLink(product, "shopee", "Shopee")}
+            ${productSellerLink(product, "lazada", "Lazada")}
+          </div>
           <div class="nutrition-card-actions">
             <button class="nutrition-btn nutrition-btn-secondary${selected ? " is-selected" : ""}" type="button" data-nutrition-action="compare" data-product-id="${product.id}" aria-pressed="${selected}">${icon("compare")} ${selected ? text("Đã chọn", "Selected") : text("So sánh", "Compare")}</button>
             <button class="nutrition-btn nutrition-btn-primary" type="button" data-nutrition-action="detail" data-product-id="${product.id}">${text("Xem chi tiết", "View details")} ${icon("arrow")}</button>
@@ -323,13 +669,29 @@
 
   function renderProducts() {
     const filtered = filteredProducts();
+    const category = activeCategory();
+    const categoryTotal = categoryProductCount(category.id);
     const grid = document.getElementById("nutritionProductGrid");
     const count = document.getElementById("nutritionResultCount");
     if (!grid || !count) return;
-    count.textContent = text(`${filtered.length} sản phẩm`, `${filtered.length} products`);
-    grid.innerHTML = filtered.length
-      ? filtered.map(productCard).join("")
-      : `<div class="nutrition-empty">${icon("info")}<h3>${text("Chưa có sản phẩm phù hợp", "No matching products yet")}</h3><p>${text("Hãy đổi bộ lọc hoặc xóa bộ lọc để xem lại toàn bộ danh sách.", "Change or clear the filters to view all products.")}</p><button class="nutrition-btn nutrition-btn-secondary" type="button" data-nutrition-action="clear-filters">${text("Xóa bộ lọc", "Clear filters")}</button></div>`;
+    count.textContent = text(`${filtered.length}/${categoryTotal} sản phẩm`, `${filtered.length}/${categoryTotal} products`);
+    if (filtered.length) {
+      grid.innerHTML = filtered.map(productCard).join("");
+      return;
+    }
+    if (!categoryTotal) {
+      grid.innerHTML = `<div class="nutrition-empty nutrition-empty-category">
+        <span class="nutrition-category-icon is-large">${categoryIcon(category.id)}</span>
+        <span class="nutrition-kicker">${text("Dữ liệu đang được chuẩn hóa", "Data is being normalized")}</span>
+        <h3>${text(`Chưa có sản phẩm ${category.label.toLocaleLowerCase("vi")} đủ nguồn`, `No source-ready ${category.label.toLocaleLowerCase("en")} products yet`)}</h3>
+        <p>${text("GrowthKid chỉ đưa sản phẩm lên danh sách khi có thông tin nhãn, nguồn hãng và độ tuổi sử dụng rõ ràng.", "GrowthKid lists a product only when label information, manufacturer sources, and age guidance are clear.")}</p>
+        <div class="nutrition-empty-tags">${category.subcategories.filter(([value]) => value !== "all").map(([, label]) => `<span>${label}</span>`).join("")}</div>
+        <button class="nutrition-btn nutrition-btn-secondary" type="button" data-nutrition-action="category" data-category="milk">${text("Xem sản phẩm đang có", "View available products")} ${icon("arrow")}</button>
+      </div>`;
+      return;
+    }
+    const emptyTitle = state.favoritesOnly ? text("Chưa có sản phẩm đã lưu trong nhóm này", "No saved products in this group") : text("Chưa có sản phẩm phù hợp", "No matching products yet");
+    grid.innerHTML = `<div class="nutrition-empty">${icon("info")}<h3>${emptyTitle}</h3><p>${text("Hãy đổi từ khóa hoặc xóa bộ lọc để xem lại danh sách.", "Change the search or clear filters to view the list again.")}</p><button class="nutrition-btn nutrition-btn-secondary" type="button" data-nutrition-action="clear-filters">${text("Xóa bộ lọc", "Clear filters")}</button></div>`;
   }
 
   function comparisonValue(product, key, unit) {
@@ -475,17 +837,63 @@
       button.classList.toggle("is-active", active);
       button.setAttribute("aria-pressed", String(active));
     });
+    if (group !== "subcategory") renderFilters();
     renderProducts();
   }
 
   function clearFilters() {
-    ["age", "need", "price"].forEach((group) => setFilter(group, "all"));
+    state.subcategory = "all";
+    state.age = "all";
+    state.audience = "all";
+    state.need = "all";
+    state.brand = "all";
+    state.price = "all";
+    state.seller = "all";
+    state.query = "";
+    state.favoritesOnly = false;
+    const search = document.getElementById("nutritionSearch");
+    if (search) search.value = "";
+    renderCategoryNavigation();
+    renderFilters();
+    renderToolbarState();
+    renderProducts();
+  }
+
+  function setCategory(categoryId) {
+    const nextCategory = categories.find((category) => category.id === categoryId);
+    if (!nextCategory) return;
+    state.area = nextCategory.area;
+    state.category = categoryId;
+    state.subcategory = "all";
+    state.age = "all";
+    state.audience = "all";
+    state.need = "all";
+    state.brand = "all";
+    state.price = "all";
+    state.seller = "all";
+    state.query = "";
+    state.favoritesOnly = false;
+    const search = document.getElementById("nutritionSearch");
+    if (search) search.value = "";
+    renderCategoryNavigation();
+    renderFilters();
+    renderToolbarState();
+    renderProducts();
+  }
+
+  function setArea(areaId) {
+    const area = productAreas.find((item) => item.id === areaId);
+    if (!area) return;
+    state.area = area.id;
+    state.category = area.defaultCategory;
+    clearFilters();
   }
 
   function toggleFavorite(id) {
     if (state.favorites.has(id)) state.favorites.delete(id);
     else state.favorites.add(id);
     writeStorage("growthkid:nutrition:favorites", [...state.favorites]);
+    renderToolbarState();
     renderProducts();
   }
 
@@ -506,6 +914,9 @@
   }
 
   root.innerHTML = pageMarkup();
+  renderCategoryNavigation();
+  renderFilters();
+  renderToolbarState();
   renderProducts();
   renderCompare();
 
@@ -514,8 +925,23 @@
     if (!actionElement) return;
     const action = actionElement.dataset.nutritionAction;
     const id = actionElement.dataset.productId;
-    if (action === "filter") setFilter(actionElement.dataset.group, actionElement.dataset.value);
+    if (action === "area") setArea(actionElement.dataset.area);
+    else if (action === "category") setCategory(actionElement.dataset.category);
+    else if (action === "filter") setFilter(actionElement.dataset.group, actionElement.dataset.value);
+    else if (action === "toggle-filters") {
+      const filters = document.getElementById("nutritionFilters");
+      const expanded = !filters?.classList.contains("is-open");
+      filters?.classList.toggle("is-open", expanded);
+      actionElement.setAttribute("aria-expanded", String(expanded));
+      const label = actionElement.querySelector("span");
+      if (label) label.textContent = expanded ? text("Đóng bộ lọc", "Close filters") : text("Mở bộ lọc", "Open filters");
+    }
     else if (action === "clear-filters") clearFilters();
+    else if (action === "favorites-only") {
+      state.favoritesOnly = !state.favoritesOnly;
+      renderToolbarState();
+      renderProducts();
+    }
     else if (action === "favorite") toggleFavorite(id);
     else if (action === "compare" || action === "remove-compare") toggleCompare(id);
     else if (action === "clear-compare") {
@@ -530,6 +956,21 @@
       if (state.compare.length) scrollTo("#nutritionCompare");
       else scrollTo("#nutritionProductsTitle");
     }
+  });
+
+  document.getElementById("nutritionSearch")?.addEventListener("input", (event) => {
+    state.query = event.target.value;
+    renderProducts();
+  });
+
+  root.addEventListener("change", (event) => {
+    const group = event.target.dataset.nutritionFilter;
+    if (group) setFilter(group, event.target.value);
+  });
+
+  document.getElementById("nutritionSort")?.addEventListener("change", (event) => {
+    state.sort = event.target.value;
+    renderProducts();
   });
 
   document.getElementById("nutritionDetailBackdrop")?.addEventListener("click", (event) => {
