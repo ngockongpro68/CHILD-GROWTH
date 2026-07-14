@@ -148,7 +148,7 @@
       subcategory: "daily",
       name: "Vinamilk 100% Sữa tươi tiệt trùng tách béo không đường 180 ml – thùng 48 hộp",
       brand: "Vinamilk",
-      image: "/assets/nutrition/vinamilk-skim-unsweetened-180ml.png",
+      image: "/assets/nutrition/vinamilk-skim-unsweetened-180ml-hd.png",
       age: text("Từ 2 tuổi và người lớn", "From age 2 and adults"),
       ageGroups: ["2-5", "6-9", "10-15"],
       targets: ["child", "teen", "adult"],

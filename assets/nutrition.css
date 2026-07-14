@@ -752,7 +752,7 @@
 
 .nutrition-product-media[data-product-id="vinamilk-sua-tuoi-tach-beo-khong-duong-180ml-thung-48"],
 .nutrition-detail-product[data-product-id="vinamilk-sua-tuoi-tach-beo-khong-duong-180ml-thung-48"] {
-  --nutrition-image-scale: 1.45;
+  --nutrition-image-scale: 1.08;
 }
 
 .nutrition-product-media[data-product-id="lineabon-d3k2-drops-10ml"],
@@ -828,6 +828,7 @@
 
 .nutrition-age-badge {
   position: absolute;
+  z-index: 2;
   top: 10px;
   left: 10px;
   max-width: calc(100% - 54px);
@@ -842,6 +843,7 @@
 
 .nutrition-icon-btn {
   position: absolute;
+  z-index: 2;
   top: 8px;
   right: 8px;
   display: grid;
