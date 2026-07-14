@@ -621,10 +621,12 @@
     }
   ];
 
+  const initialNavigation = readNavigationState();
+
   const state = {
-    area: "nutrition",
-    category: "milk",
-    subcategory: "all",
+    area: initialNavigation.area,
+    category: initialNavigation.category,
+    subcategory: initialNavigation.subcategory,
     age: "all",
     audience: "all",
     need: "all",
@@ -637,6 +639,42 @@
     favorites: new Set(readStorage("growthkid:nutrition:favorites")),
     compare: readStorage("growthkid:nutrition:compare").filter((id) => products.some((product) => product.id === id)).slice(0, 3)
   };
+
+  function readNavigationState() {
+    let saved = {};
+    try {
+      saved = JSON.parse(sessionStorage.getItem("growthkid:nutrition:navigation") || "{}");
+    } catch (error) {
+      saved = {};
+    }
+
+    const requestedArea = productAreas.some((area) => area.id === saved.area) ? saved.area : "nutrition";
+    const availableCategories = categories.filter((category) => category.area === requestedArea && !category.hidden);
+    const area = productAreas.find((item) => item.id === requestedArea);
+    const category = availableCategories.find((item) => item.id === saved.category)
+      || availableCategories.find((item) => item.id === area?.defaultCategory)
+      || availableCategories[0];
+    const availableSubcategories = category?.subcategories?.map(([id]) => id) || ["all"];
+    const subcategory = availableSubcategories.includes(saved.subcategory) ? saved.subcategory : "all";
+
+    return {
+      area: area?.id || "nutrition",
+      category: category?.id || "milk",
+      subcategory
+    };
+  }
+
+  function persistNavigation() {
+    try {
+      sessionStorage.setItem("growthkid:nutrition:navigation", JSON.stringify({
+        area: state.area,
+        category: state.category,
+        subcategory: state.subcategory
+      }));
+    } catch (error) {
+      return;
+    }
+  }
 
   function readStorage(key) {
     try {
@@ -1161,7 +1199,8 @@
       button.classList.toggle("is-active", active);
       button.setAttribute("aria-pressed", String(active));
     });
-    if (group !== "subcategory") renderFilters();
+    if (group === "subcategory") persistNavigation();
+    else renderFilters();
     renderProducts();
   }
 
@@ -1177,6 +1216,7 @@
     state.favoritesOnly = false;
     const search = document.getElementById("nutritionSearch");
     if (search) search.value = "";
+    persistNavigation();
     renderCategoryNavigation();
     renderFilters();
     renderToolbarState();
@@ -1199,6 +1239,7 @@
     state.favoritesOnly = false;
     const search = document.getElementById("nutritionSearch");
     if (search) search.value = "";
+    persistNavigation();
     renderCategoryNavigation();
     renderFilters();
     renderToolbarState();
