@@ -803,14 +803,7 @@
 }
 
 .nutrition-product-media[data-product-id="lineabon-d3k2-drops-10ml"] img,
-.nutrition-detail-product[data-product-id="lineabon-d3k2-drops-10ml"] img,
-.nutrition-product-media[data-product-id="orzax-imunol-syrup-150ml"] img,
-.nutrition-detail-product[data-product-id="orzax-imunol-syrup-150ml"] img {
-  mix-blend-mode: multiply;
-}
-
-.nutrition-product-media[data-product-id="femalto-sat-iii-hydroxyd-polymaltose-50mg-ml-30ml"] img,
-.nutrition-detail-product[data-product-id="femalto-sat-iii-hydroxyd-polymaltose-50mg-ml-30ml"] img {
+.nutrition-detail-product[data-product-id="lineabon-d3k2-drops-10ml"] img {
   mix-blend-mode: multiply;
 }
 

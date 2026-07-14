@@ -84,7 +84,7 @@
       subcategory: "medical",
       name: "PediaSure pha sẵn hương vani 110 ml – 4 lốc (16 hộp)",
       brand: "Abbott",
-      image: "/assets/nutrition/pediasure-ready-110ml-4pack-hd.png",
+      image: "/assets/nutrition/pediasure-ready-110ml-4pack-cutout.png",
       age: text("Trẻ 1-10 tuổi", "Children 1-10 years"),
       ageGroups: ["12-23", "2-5", "6-9"],
       targets: ["child"],
@@ -116,7 +116,7 @@
       subcategory: "medical",
       name: "Nutren Junior pha sẵn hương vani 110 ml – thùng 36 hộp",
       brand: "Nestlé Health Science",
-      image: "/assets/nutrition/nutren-junior-ready-110ml-hd.png",
+      image: "/assets/nutrition/nutren-junior-ready-110ml-cutout.png",
       age: text("Trẻ 1-10 tuổi", "Children 1-10 years"),
       ageGroups: ["12-23", "2-5", "6-9"],
       targets: ["child"],
@@ -148,7 +148,7 @@
       subcategory: "daily",
       name: "Vinamilk 100% Sữa tươi tiệt trùng tách béo không đường 180 ml – thùng 48 hộp",
       brand: "Vinamilk",
-      image: "/assets/nutrition/vinamilk-skim-unsweetened-180ml-hd.png",
+      image: "/assets/nutrition/vinamilk-skim-unsweetened-180ml-cutout.png",
       age: text("Từ 2 tuổi và người lớn", "From age 2 and adults"),
       ageGroups: ["2-5", "6-9", "10-15"],
       targets: ["child", "teen", "adult"],
@@ -234,7 +234,7 @@
   products.push(
     workbookProduct({
       id: "orzax-imunol-syrup-150ml", section: "nutrition", category: "vitamin", subcategory: "immune",
-      name: "Orzax Imunol Syrup 150 ml", brand: "Orzax", image: "/assets/nutrition/orzax-imunol-syrup-150ml.jpg",
+      name: "Orzax Imunol Syrup 150 ml", brand: "Orzax", image: "/assets/nutrition/orzax-imunol-syrup-150ml-cutout.png",
       age: text("Trẻ từ 1 tuổi trở lên", "Children from 1 year"), ageGroups: ["12-23", "2-5", "6-9", "10-15"], targets: ["child", "teen"],
       needs: ["immune"], needLabel: text("Vitamin C, kẽm và beta-glucan hỗ trợ miễn dịch", "Vitamin C, zinc, and beta-glucan immune support"), price: 325000,
       displayMetrics: [
@@ -266,7 +266,7 @@
     }),
     workbookProduct({
       id: "vitabiotics-wellkid-multivitamin-liquid-150ml", section: "nutrition", category: "vitamin", subcategory: "multi",
-      name: "Vitabiotics Wellkid Multi-vitamin Liquid 150 ml", brand: "Vitabiotics – Wellkid", image: "/assets/nutrition/wellkid-multivitamin-150ml-hd.png",
+      name: "Vitabiotics Wellkid Multi-vitamin Liquid 150 ml", brand: "Vitabiotics – Wellkid", image: "/assets/nutrition/wellkid-multivitamin-150ml-cutout.png",
       age: text("Trẻ 4–12 tuổi", "Children 4–12 years"), ageGroups: ["2-5", "6-9", "10-15"], targets: ["child", "teen"],
       needs: ["daily", "calcium"], needLabel: text("15 vitamin và khoáng chất cho trẻ 4–12 tuổi", "15 vitamins and minerals for ages 4–12"), price: 403000,
       displayMetrics: [
@@ -282,7 +282,7 @@
     }),
     workbookProduct({
       id: "femalto-sat-iii-hydroxyd-polymaltose-50mg-ml-30ml", section: "nutrition", category: "vitamin", subcategory: "iron",
-      name: "Femalto dung dịch uống 50 mg/ml – chai 30 ml", brand: "Femalto / Novocare", image: "/assets/nutrition/femalto-30ml.jpg",
+      name: "Femalto dung dịch uống 50 mg/ml – chai 30 ml", brand: "Femalto / Novocare", image: "/assets/nutrition/femalto-30ml-cutout.png",
       age: text("Từ sơ sinh đến người lớn; dùng theo mức độ thiếu sắt", "From birth through adulthood; dose depends on iron deficiency"), ageGroups: ["under-6", "6-11", "12-23", "2-5", "6-9", "10-15"], targets: ["infant", "child", "teen", "adult", "mother"],
       needs: ["iron"], needLabel: text("Thuốc điều trị thiếu sắt có hoặc không kèm thiếu máu", "Medicine for iron deficiency with or without anemia"), price: 179000,
       displayMetrics: [
@@ -330,7 +330,7 @@
     }),
     workbookProduct({
       id: "biolizin-zinc-bisglycinate-lysine-b6-50ml", section: "nutrition", category: "vitamin", subcategory: "zinc",
-      name: "Biolizin Syrup 50 ml", brand: "Biolizin", image: "/assets/nutrition/biolizin-syrup-50ml-hd.png",
+      name: "Biolizin Syrup 50 ml", brand: "Biolizin", image: "/assets/nutrition/biolizin-syrup-50ml-cutout.png",
       age: text("Từ 3 tháng tuổi trở lên", "From 3 months"), ageGroups: ["under-6", "6-11", "12-23", "2-5", "6-9", "10-15"], targets: ["infant", "child", "teen", "adult"],
       needs: ["immune", "picky"], needLabel: text("Kẽm bisglycinate, lysine và vitamin B6", "Zinc bisglycinate, lysine, and vitamin B6"), price: 315000,
       displayMetrics: [
@@ -362,7 +362,7 @@
     }),
     workbookProduct({
       id: "special-kid-sommeil-thao-duoc-125ml", section: "nutrition", category: "vitamin", subcategory: "sleep",
-      name: "Special Kid Sommeil siro thảo dược 125 ml", brand: "Special Kid – Eric Favre", image: "/assets/nutrition/special-kid-sommeil-125ml-hd.png",
+      name: "Special Kid Sommeil siro thảo dược 125 ml", brand: "Special Kid – Eric Favre", image: "/assets/nutrition/special-kid-sommeil-125ml-cutout.png",
       age: text("Trẻ từ 2 tuổi", "Children from 2 years"), ageGroups: ["2-5", "6-9", "10-15"], targets: ["child", "teen"],
       needs: ["sleep"], needLabel: text("Siro thảo dược hỗ trợ thư giãn và giấc ngủ", "Herbal syrup supporting relaxation and sleep"), price: 279000,
       displayMetrics: [
@@ -378,7 +378,7 @@
     }),
     workbookProduct({
       id: "delictase-oral-drops-lactase-15ml", section: "nutrition", category: "probiotic", subcategory: "lactase",
-      name: "Delictase Oral Drops – enzyme lactase 15 ml", brand: "Delictase", image: "/assets/nutrition/delictase-lactase-15ml-hd.png",
+      name: "Delictase Oral Drops – enzyme lactase 15 ml", brand: "Delictase", image: "/assets/nutrition/delictase-lactase-15ml-cutout.png",
       age: text("Từ sơ sinh; ưu tiên trẻ nhỏ", "From birth; primarily for young infants"), ageGroups: ["under-6", "6-11", "12-23"], targets: ["infant", "child"],
       needs: ["digestion", "lactose-free"], needLabel: text("Enzyme lactase hỗ trợ phân giải lactose trong sữa", "Lactase enzyme supporting lactose breakdown in milk"), price: 465000,
       displayMetrics: [
@@ -394,7 +394,7 @@
     }),
     workbookProduct({
       id: "easycol-baby-plus-lactase-15ml", section: "nutrition", category: "probiotic", subcategory: "lactase",
-      name: "Easycol BABY+ enzyme lactase 15 ml", brand: "Easycol BABY+", image: "/assets/nutrition/easycol-baby-lactase-15ml-hd.png",
+      name: "Easycol BABY+ enzyme lactase 15 ml", brand: "Easycol BABY+", image: "/assets/nutrition/easycol-baby-lactase-15ml-cutout.png",
       age: text("Từ sơ sinh", "From birth"), ageGroups: ["under-6", "6-11", "12-23"], targets: ["infant", "child"],
       needs: ["digestion", "lactose-free"], needLabel: text("Enzyme lactase hỗ trợ tiêu hóa lactose", "Lactase enzyme supporting lactose digestion"), price: 450000,
       displayMetrics: [
@@ -410,7 +410,7 @@
     }),
     workbookProduct({
       id: "bioamicus-complete-10-strain-probiotic-drops-10ml", section: "nutrition", category: "probiotic", subcategory: "multi-strain",
-      name: "BioAmicus Complete Probiotic Drops 10 ml", brand: "BioAmicus Laboratories", image: "/assets/nutrition/bioamicus-complete-10ml-hd.png",
+      name: "BioAmicus Complete Probiotic Drops 10 ml", brand: "BioAmicus Laboratories", image: "/assets/nutrition/bioamicus-complete-10ml-cutout.png",
       age: text("Từ sơ sinh đến người lớn; trẻ dưới 1 tuổi dùng theo hướng dẫn chuyên môn", "From birth through adulthood; infants under 1 need professional guidance"), ageGroups: ["under-6", "6-11", "12-23", "2-5", "6-9", "10-15"], targets: ["infant", "child", "teen", "adult"],
       needs: ["digestion", "immune"], needLabel: text("Men vi sinh nhỏ giọt gồm 10 chủng lợi khuẩn", "Probiotic drops with 10 strains"), price: 480000,
       displayMetrics: [
@@ -442,7 +442,7 @@
     }),
     workbookProduct({
       id: "infogoss-iap-chat-xo-30-goi-3g", section: "nutrition", category: "fiber", subcategory: "constipation",
-      name: "InfoGoss IAP – hộp 30 gói × 3 g", brand: "IAP", image: "/assets/nutrition/infogoss-iap-30x3g-hd.png",
+      name: "InfoGoss IAP – hộp 30 gói × 3 g", brand: "IAP", image: "/assets/nutrition/infogoss-iap-30x3g-cutout.png",
       age: text("Từ 1 tuổi đến người lớn", "From age 1 through adulthood"), ageGroups: ["12-23", "2-5", "6-9", "10-15"], targets: ["child", "teen", "adult", "mother"],
       needs: ["constipation", "digestion"], needLabel: text("Inulin, FOS, GOS và 2'-FL hỗ trợ bổ sung chất xơ", "Inulin, FOS, GOS, and 2'-FL fiber supplement"), price: 117000,
       displayMetrics: [
@@ -458,7 +458,7 @@
     }),
     workbookProduct({
       id: "menarini-atopiclair-cream-40ml", section: "care", category: "skin-care", subcategory: "barrier",
-      name: "Menarini Atopiclair Cream 40 ml", brand: "Atopiclair – Menarini", image: "/assets/nutrition/atopiclair-cream-40ml-hd.png",
+      name: "Menarini Atopiclair Cream 40 ml", brand: "Atopiclair – Menarini", image: "/assets/nutrition/atopiclair-cream-40ml-cutout.png",
       age: text("Từ 6 tháng tuổi trở lên", "From 6 months"), ageGroups: ["6-11", "12-23", "2-5", "6-9", "10-15"], targets: ["infant", "child", "family"],
       needs: ["sensitive", "fragrance-free", "dry-skin"], needLabel: text("Kem không steroid hỗ trợ phục hồi hàng rào da", "Non-steroidal cream supporting the skin barrier"), price: 270000,
       displayMetrics: [
@@ -474,7 +474,7 @@
     }),
     workbookProduct({
       id: "biomed-latopic-active-face-body-cream-75ml", section: "care", category: "skin-care", subcategory: "moisturizer",
-      name: "Latopic Probiotic Emollient Active Face and Body Cream 75 ml", brand: "Latopic – BIOMED", image: "/assets/nutrition/latopic-active-75ml-hd.png",
+      name: "Latopic Probiotic Emollient Active Face and Body Cream 75 ml", brand: "Latopic – BIOMED", image: "/assets/nutrition/latopic-active-75ml-cutout.png",
       age: text("Từ sơ sinh theo thông tin phân phối", "From birth per distributor information"), ageGroups: ["under-6", "6-11", "12-23", "2-5", "6-9", "10-15"], targets: ["infant", "child", "family"],
       needs: ["sensitive", "dry-skin"], needLabel: text("Kem dưỡng ẩm mặt và cơ thể cho da khô, nhạy cảm", "Face and body emollient for dry, sensitive skin"), price: 390000,
       displayMetrics: [
@@ -490,7 +490,7 @@
     }),
     workbookProduct({
       id: "lsi-silderma-sodermix-cream-15g", section: "care", category: "skin-care", subcategory: "soothing",
-      name: "LSI Silderma SODERMIX Cream 15 g", brand: "SODERMIX – LSI Silderma", image: "/assets/nutrition/sodermix-cream-15g-hd.png",
+      name: "LSI Silderma SODERMIX Cream 15 g", brand: "SODERMIX – LSI Silderma", image: "/assets/nutrition/sodermix-cream-15g-cutout.png",
       age: text("Từ sơ sinh theo thông tin phân phối; trẻ nhỏ cần tư vấn", "From birth per distributor information; seek advice for young infants"), ageGroups: ["under-6", "6-11", "12-23", "2-5", "6-9", "10-15"], targets: ["infant", "child", "family"],
       needs: ["sensitive", "dry-skin"], needLabel: text("Kem SOD thực vật hỗ trợ viêm ngứa và chăm sóc sẹo", "Plant-derived SOD cream supporting itchy skin and scar care"), price: 330000,
       displayMetrics: [

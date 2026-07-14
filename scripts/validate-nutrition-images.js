@@ -1,5 +1,6 @@
 const fs = require("fs");
 const path = require("path");
+const { PNG } = require("pngjs");
 
 const root = path.resolve(__dirname, "..");
 const catalogPath = path.join(root, "assets", "nutrition.js");
@@ -70,6 +71,28 @@ function imageDimensions(filePath) {
   return pngDimensions(buffer) || jpegDimensions(buffer) || webpDimensions(buffer);
 }
 
+function validateTransparentPng(filePath, publicPath) {
+  const image = PNG.sync.read(fs.readFileSync(filePath));
+  const cornerIndexes = [
+    3,
+    ((image.width - 1) * 4) + 3,
+    ((image.width * (image.height - 1)) * 4) + 3,
+    (((image.width * image.height) - 1) * 4) + 3
+  ];
+  if (cornerIndexes.some((index) => image.data[index] > 10)) {
+    return `${publicPath}: product PNG must have transparent corners`;
+  }
+
+  let transparentPixels = 0;
+  for (let index = 3; index < image.data.length; index += 4) {
+    if (image.data[index] < 245) transparentPixels += 1;
+  }
+  if (transparentPixels / (image.width * image.height) < 0.01) {
+    return `${publicPath}: product PNG must contain a transparent background`;
+  }
+  return null;
+}
+
 function main() {
   const catalog = fs.readFileSync(catalogPath, "utf8");
   const imagePaths = [...catalog.matchAll(/image:\s*"(\/assets\/nutrition\/[^"]+)"/g)]
@@ -86,6 +109,11 @@ function main() {
       continue;
     }
 
+    if (/\.jpe?g$/i.test(fileName)) {
+      errors.push(`${publicPath}: product images must use PNG or WebP with transparency, not JPEG`);
+      continue;
+    }
+
     const dimensions = imageDimensions(filePath);
     if (!dimensions) {
       errors.push(`${publicPath}: unsupported or unreadable image`);
@@ -96,6 +124,11 @@ function main() {
       const detail = `${publicPath}: ${dimensions.width}x${dimensions.height}px`;
       if (legacyLowResolutionImages.has(fileName)) legacyAssets.push(detail);
       else errors.push(`${detail}; new product images must be at least ${minimumEdge}x${minimumEdge}px`);
+    }
+
+    if (/\.png$/i.test(fileName)) {
+      const transparencyError = validateTransparentPng(filePath, publicPath);
+      if (transparencyError) errors.push(transparencyError);
     }
   }
 
