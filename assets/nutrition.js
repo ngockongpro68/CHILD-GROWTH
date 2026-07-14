@@ -34,7 +34,7 @@
       care: '<svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 3c3 4 5 6.6 5 10a5 5 0 0 1-10 0c0-3.4 2-6 5-10Z" stroke="currentColor" stroke-width="1.7"/><path d="M9.6 13.4c.4 1.2 1.2 1.8 2.4 1.8" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>'
     };
     const aliases = {
-      weaning: "food", snack: "food", rash: "care", skin: "care", sun: "care",
+      weaning: "food", snack: "food", rash: "care", skin: "care", "skin-care": "care", sun: "care",
       bath: "care", laundry: "care", wipes: "care", diaper: "care"
     };
     return icons[name] || icons[aliases[name]] || icons.milk;
@@ -213,6 +213,186 @@
     }
   ];
 
+  const workbookSellers = (officialName, officialUrl, officialPlatform, shopeeUrl) => [
+    { name: officialName, url: officialUrl, kind: "official", platform: officialPlatform },
+    ...(shopeeUrl ? [{ name: "Shopee", url: shopeeUrl, kind: "affiliate", platform: "shopee" }] : [])
+  ];
+
+  const workbookProduct = (product) => ({
+    energy: null,
+    protein: null,
+    calcium: null,
+    vitaminD: null,
+    sugar: null,
+    priceStatus: text("Giá tham khảo từ dữ liệu nhập ngày 14/07/2026", "Reference price from data entered on 14/07/2026"),
+    normalizationNote: text("Thông số hiển thị theo đúng đơn vị và khẩu phần trên nhãn gốc; không quy đổi sang 100 ml.", "Values use the units and serving stated on the original label and are not normalized to 100 ml."),
+    updated: "14/07/2026",
+    ...product
+  });
+
+  products.push(
+    workbookProduct({
+      id: "orzax-imunol-syrup-150ml", section: "nutrition", category: "vitamin", subcategory: "immune",
+      name: "Orzax Imunol Syrup 150 ml", brand: "Orzax", image: "/assets/nutrition/orzax-imunol-syrup-150ml.jpg",
+      age: text("Trẻ từ 1 tuổi trở lên", "Children from 1 year"), ageGroups: ["12-23", "2-5", "6-9", "10-15"], targets: ["child", "teen"],
+      needs: ["immune"], needLabel: text("Vitamin C, kẽm và beta-glucan hỗ trợ miễn dịch", "Vitamin C, zinc, and beta-glucan immune support"), price: 325000,
+      displayMetrics: [
+        { label: "Echinacea", value: "300 mg / 5 ml" }, { label: "Beta-glucan", value: "50 mg / 5 ml" },
+        { label: "Vitamin C", value: "40 mg / 5 ml" }, { label: text("Kẽm", "Zinc"), value: "5 mg / 5 ml" }
+      ],
+      lactose: text("Có mật ong, keo ong, Echinacea và đường; lưu ý dị ứng sản phẩm từ ong hoặc họ Cúc.", "Contains honey, propolis, Echinacea, and sugar; consider bee-product or Asteraceae allergy."),
+      suitable: [text("Trẻ từ 1 tuổi cần bổ sung vitamin C và kẽm", "Children from age 1 needing vitamin C and zinc"), text("Khẩu phần cần hỗ trợ vi chất cho chức năng miễn dịch", "Diets needing micronutrient support for immune function")],
+      cautions: [text("Không dùng cho trẻ dưới 1 tuổi hoặc người dị ứng sản phẩm từ ong, họ Cúc", "Do not use under age 1 or with bee-product or Asteraceae allergy"), text("Cần tính tổng vitamin và kẽm từ các sản phẩm đang dùng", "Count vitamins and zinc from all products in use")],
+      analysis: text("Trong 5 ml: chiết xuất Echinacea 300 mg; beta-glucan 1,3/1,6 50 mg; vitamin C 40 mg; kẽm 5 mg và keo ong 3,5 mg. Siro có mật ong và đường.", "Per 5 ml: 300 mg Echinacea extract, 50 mg beta-glucan 1,3/1,6, 40 mg vitamin C, 5 mg zinc, and 3.5 mg propolis. The syrup contains honey and sugar."),
+      source: "https://www.orzax.com.tr/en/imunol-syrup/", sourceLabel: "Orzax İlaç – Imunol Syrup",
+      sellers: workbookSellers(text("Trang sản phẩm Orzax", "Orzax product page"), "https://www.orzax.com.tr/en/imunol-syrup/", "orzax", "https://s.shopee.vn/8AUSuezxVC")
+    }),
+    workbookProduct({
+      id: "vitabiotics-wellbaby-multivitamin-liquid-150ml", section: "nutrition", category: "vitamin", subcategory: "multi",
+      name: "Vitabiotics Wellbaby Multi-vitamin Liquid 150 ml", brand: "Vitabiotics – Wellbaby", image: "/assets/nutrition/wellbaby-multivitamin-150ml.png",
+      age: text("Trẻ 6 tháng–4 tuổi", "Children 6 months–4 years"), ageGroups: ["6-11", "12-23", "2-5"], targets: ["infant", "child"],
+      needs: ["daily", "calcium"], needLabel: text("14 vitamin và khoáng chất cho trẻ nhỏ", "14 vitamins and minerals for young children"), price: 412000,
+      displayMetrics: [
+        { label: "Vitamin D3", value: "400 IU / 5 ml" }, { label: "Vitamin C", value: "30 mg / 5 ml" },
+        { label: text("Sắt", "Iron"), value: "4 mg / 5 ml" }, { label: text("Kẽm", "Zinc"), value: "2,5 mg / 5 ml" }
+      ],
+      lactose: text("Có đường mía thô, sắt và chiết xuất mạch nha từ lúa mạch; kiểm tra nhãn nếu cần tránh gluten.", "Contains raw cane sugar, iron, and barley malt extract; check the label if avoiding gluten."),
+      suitable: [text("Trẻ 6 tháng–4 tuổi cần bổ sung đa vi chất", "Children aged 6 months–4 years needing multiple micronutrients"), text("Dùng theo liều công bố 5 ml mỗi ngày", "Use according to the stated 5 ml daily serving")],
+      cautions: [text("Không dùng dưới 6 tháng hoặc phối hợp thêm đa vitamin khi chưa tính tổng liều", "Do not use under 6 months or combine with another multivitamin without checking total intake"), text("Để xa tầm tay trẻ em vì sản phẩm chứa sắt", "Keep out of children's reach because it contains iron")],
+      analysis: text("Trong 5 ml có 14 vitamin và khoáng chất, gồm vitamin D3 400 IU, vitamin C 30 mg, sắt 4 mg, kẽm 2,5 mg cùng 500 mg chiết xuất mạch nha.", "Each 5 ml provides 14 vitamins and minerals, including 400 IU vitamin D3, 30 mg vitamin C, 4 mg iron, 2.5 mg zinc, and 500 mg malt extract."),
+      source: "https://www.vitabiotics.com/products/wellbaby-multi-vitamin-liquid", sourceLabel: "Vitabiotics – Wellbaby Multi-vitamin Liquid",
+      sellers: workbookSellers(text("Trang sản phẩm Vitabiotics", "Vitabiotics product page"), "https://www.vitabiotics.com/products/wellbaby-multi-vitamin-liquid", "vitabiotics", "https://s.shopee.vn/5AqrLAHMvc")
+    }),
+    workbookProduct({
+      id: "vitabiotics-wellkid-multivitamin-liquid-150ml", section: "nutrition", category: "vitamin", subcategory: "multi",
+      name: "Vitabiotics Wellkid Multi-vitamin Liquid 150 ml", brand: "Vitabiotics – Wellkid", image: "/assets/nutrition/wellkid-multivitamin-150ml-clean.png",
+      age: text("Trẻ 4–12 tuổi", "Children 4–12 years"), ageGroups: ["2-5", "6-9", "10-15"], targets: ["child", "teen"],
+      needs: ["daily", "calcium"], needLabel: text("15 vitamin và khoáng chất cho trẻ 4–12 tuổi", "15 vitamins and minerals for ages 4–12"), price: 403000,
+      displayMetrics: [
+        { label: "Vitamin D3", value: "400 IU / 5 ml" }, { label: "Vitamin C", value: "12 mg / 5 ml" },
+        { label: text("Sắt", "Iron"), value: "5 mg / 5 ml" }, { label: text("Kẽm", "Zinc"), value: "4 mg / 5 ml" }
+      ],
+      lactose: text("Có sắt, đường và chiết xuất mạch nha từ lúa mạch; lưu ý gluten và sulfite trên nhãn.", "Contains iron, sugar, and barley malt extract; note label information on gluten and sulphites."),
+      suitable: [text("Trẻ 4–12 tuổi cần bổ sung đa vi chất hằng ngày", "Children aged 4–12 needing daily micronutrient supplementation"), text("Khẩu phần cần bổ sung vitamin D, sắt, kẽm và i-ốt", "Diets needing vitamin D, iron, zinc, and iodine")],
+      cautions: [text("Không dùng dưới 4 tuổi; không phối hợp thêm đa vitamin khi chưa tính tổng liều", "Do not use under age 4 or combine with another multivitamin without checking total intake"), text("Bệnh tuyến giáp, động kinh hoặc rối loạn ứ sắt cần hỏi bác sĩ", "Thyroid disease, epilepsy, or iron overload requires medical advice")],
+      analysis: text("Trong 5 ml có 15 dưỡng chất, gồm vitamin D3 400 IU, vitamin C 12 mg, sắt 5 mg, kẽm 4 mg, i-ốt 40 mcg và 500 mg chiết xuất mạch nha.", "Each 5 ml provides 15 nutrients, including 400 IU vitamin D3, 12 mg vitamin C, 5 mg iron, 4 mg zinc, 40 mcg iodine, and 500 mg malt extract."),
+      source: "https://www.vitabiotics.com/products/wellkid-multi-vitamin-liquid", sourceLabel: "Vitabiotics – Wellkid Multi-vitamin Liquid",
+      sellers: workbookSellers(text("Trang sản phẩm Vitabiotics", "Vitabiotics product page"), "https://www.vitabiotics.com/products/wellkid-multi-vitamin-liquid", "vitabiotics", "https://s.shopee.vn/AAFXIMw8vA")
+    }),
+    workbookProduct({
+      id: "special-kid-sommeil-thao-duoc-125ml", section: "nutrition", category: "vitamin", subcategory: "sleep",
+      name: "Special Kid Sommeil siro thảo dược 125 ml", brand: "Special Kid – Eric Favre", image: "/assets/nutrition/special-kid-sommeil-125ml.jpg",
+      age: text("Trẻ từ 2 tuổi", "Children from 2 years"), ageGroups: ["2-5", "6-9", "10-15"], targets: ["child", "teen"],
+      needs: ["sleep"], needLabel: text("Siro thảo dược hỗ trợ thư giãn và giấc ngủ", "Herbal syrup supporting relaxation and sleep"), price: 279000,
+      displayMetrics: [
+        { label: text("Hoa bia", "Hops"), value: "1.000 mg / 10 ml" }, { label: text("Oải hương", "Lavender"), value: "1.000 mg / 10 ml" },
+        { label: text("Tía tô đất", "Lemon balm"), value: "1.000 mg / 10 ml" }, { label: text("Quy cách", "Package"), value: "125 ml" }
+      ],
+      lactose: text("Có mật ong, siro glucose-fructose, fructose và sucralose; lưu ý dị ứng thảo dược.", "Contains honey, glucose-fructose syrup, fructose, and sucralose; consider herbal allergy."),
+      suitable: [text("Trẻ từ 2 tuổi khó đi vào giấc ngủ sau khi đã điều chỉnh thói quen ngủ", "Children from age 2 with sleep-onset difficulty after sleep-habit adjustment"), text("Sản phẩm hỗ trợ, không phải thuốc ngủ", "A supportive product, not a sleeping medicine")],
+      cautions: [text("Không dùng dưới 24 tháng nếu không có chỉ dẫn bác sĩ; tuyệt đối không dùng mật ong dưới 12 tháng", "Do not use under 24 months without medical direction; never give honey under 12 months"), text("Khó ngủ kéo dài, ngáy hoặc ngưng thở khi ngủ cần được khám", "Persistent insomnia, snoring, or sleep apnea needs assessment")],
+      analysis: text("Trong 10 ml có sáu dịch chiết thảo dược, mỗi loại 1.000 mg: hoa bia, oải hương, tía tô đất, cam, đoạn và cỏ roi ngựa chanh.", "Each 10 ml contains six herbal extracts at 1,000 mg each: hops, lavender, lemon balm, orange, linden, and lemon verbena."),
+      source: "https://www.special-kid.com/en/all-products/", sourceLabel: "Special Kid – Eric Favre Wellness",
+      sellers: workbookSellers(text("Trang sản phẩm Special Kid", "Special Kid product page"), "https://www.special-kid.com/en/all-products/", "special-kid", "https://s.shopee.vn/7prcWL7yrg")
+    }),
+    workbookProduct({
+      id: "delictase-oral-drops-lactase-15ml", section: "nutrition", category: "probiotic", subcategory: "lactase",
+      name: "Delictase Oral Drops – enzyme lactase 15 ml", brand: "Delictase", image: "/assets/nutrition/delictase-lactase-15ml.jpg",
+      age: text("Từ sơ sinh; ưu tiên trẻ nhỏ", "From birth; primarily for young infants"), ageGroups: ["under-6", "6-11", "12-23"], targets: ["infant", "child"],
+      needs: ["digestion", "lactose-free"], needLabel: text("Enzyme lactase hỗ trợ phân giải lactose trong sữa", "Lactase enzyme supporting lactose breakdown in milk"), price: 465000,
+      displayMetrics: [
+        { label: text("Hoạt tính lactase", "Lactase activity"), value: "756 ALU / 6 giọt" }, { label: text("Mỗi giọt", "Per drop"), value: "~126 ALU" },
+        { label: text("Liều công bố", "Label serving"), value: "0,252 ml / 6 giọt" }, { label: text("Quy cách", "Package"), value: "15 ml" }
+      ],
+      lactose: text("Enzyme nguồn Aspergillus oryzae; đây không phải men vi sinh và không điều trị dị ứng đạm sữa bò.", "Enzyme from Aspergillus oryzae; this is not a probiotic and does not treat cow's milk protein allergy."),
+      suitable: [text("Trẻ cần hỗ trợ phân giải lactose trong sữa mẹ hoặc sữa công thức", "Infants needing help breaking down lactose in breast milk or formula"), text("Dùng cùng sữa theo đúng hướng dẫn trên nhãn", "Use with milk exactly as directed on the label")],
+      cautions: [text("Không thêm vào sữa nóng vì nhiệt làm mất hoạt tính enzyme", "Do not add to hot milk because heat inactivates the enzyme"), text("Tiêu chảy, mất nước, phân máu hoặc chậm tăng cân cần khám bác sĩ", "Diarrhea, dehydration, bloody stools, or poor growth needs assessment")],
+      analysis: text("Trong 6 giọt (0,252 ml) có hoạt tính lactase 756 ALU; nồng độ tối thiểu 3.000 ALU/ml, tương đương khoảng 126 ALU mỗi giọt.", "Six drops (0.252 ml) provide 756 ALU lactase activity; minimum concentration is 3,000 ALU/ml, about 126 ALU per drop."),
+      source: "https://delictase.com/", sourceLabel: "Delictase – Neosanté Health Solutions",
+      sellers: workbookSellers(text("Trang sản phẩm Delictase", "Delictase product page"), "https://delictase.com/", "delictase", "https://s.shopee.vn/4qE0wS6DEU")
+    }),
+    workbookProduct({
+      id: "easycol-baby-plus-lactase-15ml", section: "nutrition", category: "probiotic", subcategory: "lactase",
+      name: "Easycol BABY+ enzyme lactase 15 ml", brand: "Easycol BABY+", image: "/assets/nutrition/easycol-baby-lactase-15ml.png",
+      age: text("Từ sơ sinh", "From birth"), ageGroups: ["under-6", "6-11", "12-23"], targets: ["infant", "child"],
+      needs: ["digestion", "lactose-free"], needLabel: text("Enzyme lactase hỗ trợ tiêu hóa lactose", "Lactase enzyme supporting lactose digestion"), price: 450000,
+      displayMetrics: [
+        { label: text("Hoạt chất", "Active ingredient"), value: "Lactase" }, { label: text("Dạng dùng", "Form"), value: text("Nhỏ giọt", "Drops") },
+        { label: text("Không chứa", "Free from"), value: "Gluten" }, { label: text("Quy cách", "Package"), value: "15 ml" }
+      ],
+      lactose: text("Thành phần: nước, enzyme lactase và glycerol thực vật; hãng chưa công bố hoạt tính mỗi giọt.", "Ingredients: water, lactase enzyme, and vegetable glycerol; per-drop activity is not stated by the manufacturer."),
+      suitable: [text("Trẻ sơ sinh cần hỗ trợ phân giải lactose trong sữa", "Infants needing help breaking down lactose in milk"), text("Sử dụng theo đúng hướng dẫn trên nhãn", "Use exactly as directed on the label")],
+      cautions: [text("Không phải men vi sinh và không điều trị dị ứng đạm sữa bò", "Not a probiotic and does not treat cow's milk protein allergy"), text("Sốt, nôn nhiều, mất nước, phân máu hoặc bú kém cần khám bác sĩ", "Fever, repeated vomiting, dehydration, bloody stools, or poor feeding needs assessment")],
+      analysis: text("Theo hãng, sản phẩm gồm nước, enzyme lactase và glycerol thực vật, không chứa gluten. Nguồn hãng chưa công bố định lượng hoặc hoạt tính lactase trên mỗi giọt.", "The manufacturer lists water, lactase enzyme, and vegetable glycerol and states that the product is gluten-free. Per-drop lactase activity is not published."),
+      source: "https://easycolbaby.com/?lang=en", sourceLabel: "A.E.I. 24 – Easycol BABY+",
+      sellers: workbookSellers(text("Trang sản phẩm Easycol", "Easycol product page"), "https://easycolbaby.com/?lang=en", "easycol", "https://s.shopee.vn/2g9WMX5hC8")
+    }),
+    workbookProduct({
+      id: "buona-peginpol-macrogol-3350-20-goi-5g", section: "nutrition", category: "fiber", subcategory: "constipation",
+      name: "Buona PEGinpol Macrogol 3350 – hộp 20 gói × 5 g", brand: "Buona", image: "/assets/nutrition/buona-peginpol-20x5g.png",
+      age: text("Từ 6 tháng tuổi", "From 6 months"), ageGroups: ["6-11", "12-23", "2-5", "6-9", "10-15"], targets: ["infant", "child", "teen", "adult"],
+      needs: ["constipation"], needLabel: text("Macrogol 3350 hỗ trợ táo bón chức năng", "Macrogol 3350 for functional constipation support"), price: 265000,
+      displayMetrics: [
+        { label: "Macrogol 3350", value: "4,933 g / gói" }, { label: text("Khối lượng gói", "Sachet size"), value: "5 g" },
+        { label: text("Quy cách", "Package"), value: text("20 gói", "20 sachets") }, { label: text("Không chứa", "Free from"), value: text("Gluten, lactose", "Gluten, lactose") }
+      ],
+      lactose: text("Không chứa gluten hoặc lactose; đây là nhuận tràng thẩm thấu, không phải chất xơ hay prebiotic.", "Gluten- and lactose-free; this is an osmotic laxative, not fiber or a prebiotic."),
+      suitable: [text("Người từ 6 tháng tuổi bị táo bón chức năng sau đánh giá phù hợp", "People from 6 months with appropriately assessed functional constipation"), text("Dùng kèm đủ nước theo hướng dẫn", "Use with adequate fluids as directed")],
+      cautions: [text("Không dùng khi tắc, hẹp hoặc thủng ruột; bệnh Crohn hoặc viêm loét đại tràng", "Do not use with bowel obstruction, stenosis, perforation, Crohn's disease, or ulcerative colitis"), text("Đau bụng dữ dội, nôn, chướng bụng hoặc phân máu cần khám ngay", "Severe pain, vomiting, distension, or bloody stools needs urgent assessment")],
+      analysis: text("Mỗi gói 5 g chứa khoảng 4,933 g Macrogol 3350. Sản phẩm không chứa gluten, lactose hoặc chất bảo quản và có hương cam.", "Each 5 g sachet contains about 4.933 g Macrogol 3350. It is free from gluten, lactose, and preservatives and is orange flavored."),
+      source: "https://shop.buona.it/en/prodotto/peginpol-bustine/", sourceLabel: "Buona Italy – PEGinpol",
+      sellers: workbookSellers(text("Trang sản phẩm Buona", "Buona product page"), "https://shop.buona.it/en/prodotto/peginpol-bustine/", "buona", "https://s.shopee.vn/9KgQIkNsJm")
+    }),
+    workbookProduct({
+      id: "menarini-atopiclair-cream-40ml", section: "care", category: "skin-care", subcategory: "barrier",
+      name: "Menarini Atopiclair Cream 40 ml", brand: "Atopiclair – Menarini", image: "/assets/nutrition/atopiclair-cream-40ml.jpg",
+      age: text("Từ 6 tháng tuổi trở lên", "From 6 months"), ageGroups: ["6-11", "12-23", "2-5", "6-9", "10-15"], targets: ["infant", "child", "family"],
+      needs: ["sensitive", "fragrance-free", "dry-skin"], needLabel: text("Kem không steroid hỗ trợ phục hồi hàng rào da", "Non-steroidal cream supporting the skin barrier"), price: 270000,
+      displayMetrics: [
+        { label: text("Dạng", "Form"), value: text("Kem bôi", "Cream") }, { label: text("Quy cách", "Package"), value: "40 ml" },
+        { label: "Steroid", value: text("Không", "Free") }, { label: text("Hương liệu", "Fragrance"), value: text("Không", "Free") }
+      ],
+      lactose: text("Không steroid, không hương liệu, không paraben và không có thành phần nguồn gốc động vật theo hãng.", "Manufacturer states steroid-, fragrance-, paraben-, and animal-derived ingredient-free."),
+      suitable: [text("Da khô, nhạy cảm hoặc viêm da cơ địa cần dưỡng ẩm và hỗ trợ hàng rào da", "Dry, sensitive, or atopic skin needing moisturization and barrier support"), text("Vùng tổn thương khu trú từ 6 tháng tuổi", "Localized areas from 6 months of age")],
+      cautions: [text("Chỉ dùng ngoài da; tránh mắt, vùng nhiễm trùng và vết thương sâu", "External use only; avoid eyes, infected areas, and deep wounds"), text("Không thay thế điều trị viêm da tã do nấm hoặc nhiễm khuẩn", "Does not replace treatment for fungal or bacterial diaper dermatitis")],
+      analysis: text("Thành phần nổi bật gồm hyaluronic acid, bơ hạt mỡ, glycyrrhetinic acid, Vitis vinifera, telmesteine và vitamin C, E. Hãng định vị kem 40 ml cho tổn thương khu trú.", "Notable ingredients include hyaluronic acid, shea butter, glycyrrhetinic acid, Vitis vinifera, telmesteine, and vitamins C and E. The 40 ml cream is intended for localized areas."),
+      source: "https://www.menarinidermaesthetics.com/Eczema/atopiclair-products", sourceLabel: "A. Menarini Asia-Pacific – Atopiclair",
+      sellers: workbookSellers(text("Trang sản phẩm Menarini", "Menarini product page"), "https://www.menarinidermaesthetics.com/Eczema/atopiclair-products", "menarini", "https://s.shopee.vn/2BDFlhhnmd")
+    }),
+    workbookProduct({
+      id: "biomed-latopic-active-face-body-cream-75ml", section: "care", category: "skin-care", subcategory: "moisturizer",
+      name: "Latopic Probiotic Emollient Active Face and Body Cream 75 ml", brand: "Latopic – BIOMED", image: "/assets/nutrition/latopic-active-75ml.png",
+      age: text("Từ sơ sinh theo thông tin phân phối", "From birth per distributor information"), ageGroups: ["under-6", "6-11", "12-23", "2-5", "6-9", "10-15"], targets: ["infant", "child", "family"],
+      needs: ["sensitive", "dry-skin"], needLabel: text("Kem dưỡng ẩm mặt và cơ thể cho da khô, nhạy cảm", "Face and body emollient for dry, sensitive skin"), price: 390000,
+      displayMetrics: [
+        { label: text("Vùng dùng", "Use area"), value: text("Mặt & cơ thể", "Face & body") }, { label: text("Quy cách", "Package"), value: "75 ml" },
+        { label: text("Thành phần nổi bật", "Key ingredient"), value: "Lactobacillus Ferment" }, { label: text("Đặc tính", "Claim"), value: "Hypoallergenic" }
+      ],
+      lactose: text("Lactobacillus Ferment là chất chuyển hóa lên men, không phải vi khuẩn sống; kiểm tra nhãn nếu dị ứng thành phần.", "Lactobacillus Ferment is a fermentation-derived ingredient, not live bacteria; check the label for ingredient allergy."),
+      suitable: [text("Da khô, bong tróc, nhạy cảm hoặc có cơ địa dị ứng", "Dry, flaky, sensitive, or allergy-prone skin"), text("Dưỡng ẩm mặt và cơ thể cho trẻ em và người lớn", "Face and body moisturization for children and adults")],
+      cautions: [text("Chỉ dùng ngoài da và nên thử trên vùng nhỏ với da rất nhạy cảm", "External use only; patch test very sensitive skin"), text("Không tự bôi lên vùng nhiễm trùng, rỉ dịch hoặc tổn thương rộng", "Do not self-apply to infected, weeping, or extensive lesions")],
+      analysis: text("Công thức có Lactobacillus Ferment, dầu hạt bông, bơ hạt mỡ, panthenol, dầu ô liu, vitamin E và phức hợp xylitol hỗ trợ dưỡng ẩm.", "The formula includes Lactobacillus Ferment, cottonseed oil, shea butter, panthenol, olive oil, vitamin E, and a xylitol moisturizing complex."),
+      source: "https://biomed.pl/en/products/latopic-aktywny-krem-do-twarzy-i-ciala/", sourceLabel: "BIOMED – Latopic Active Cream",
+      sellers: workbookSellers(text("Trang sản phẩm BIOMED", "BIOMED product page"), "https://biomed.pl/en/products/latopic-aktywny-krem-do-twarzy-i-ciala/", "biomed", "https://s.shopee.vn/8V7JJcYtKZ")
+    }),
+    workbookProduct({
+      id: "lsi-silderma-sodermix-cream-15g", section: "care", category: "skin-care", subcategory: "soothing",
+      name: "LSI Silderma SODERMIX Cream 15 g", brand: "SODERMIX – LSI Silderma", image: "/assets/nutrition/sodermix-cream-15g.jpg",
+      age: text("Từ sơ sinh theo thông tin phân phối; trẻ nhỏ cần tư vấn", "From birth per distributor information; seek advice for young infants"), ageGroups: ["under-6", "6-11", "12-23", "2-5", "6-9", "10-15"], targets: ["infant", "child", "family"],
+      needs: ["sensitive", "dry-skin"], needLabel: text("Kem SOD thực vật hỗ trợ viêm ngứa và chăm sóc sẹo", "Plant-derived SOD cream supporting itchy skin and scar care"), price: 330000,
+      displayMetrics: [
+        { label: text("Hoạt chất chính", "Key active"), value: "Vegetal SOD" }, { label: text("Dạng", "Form"), value: text("Kem bôi", "Cream") },
+        { label: text("Quy cách", "Package"), value: "15 g" }, { label: text("Nguồn SOD", "SOD source"), value: text("Cà chua xanh", "Green tomato") }
+      ],
+      lactose: text("Có chiết xuất cà chua, dầu quả bơ, methylparaben, propylene glycol và triethanolamine.", "Contains tomato extract, avocado oil, methylparaben, propylene glycol, and triethanolamine."),
+      suitable: [text("Da viêm ngứa, mẩn đỏ hoặc cần hỗ trợ chăm sóc sẹo", "Itchy, inflamed, red skin or skin needing scar support"), text("Dùng bổ trợ sau khi xác định đúng nguyên nhân tổn thương", "Adjunctive use after the cause of the lesion is identified")],
+      cautions: [text("Không bôi vào mắt, niêm mạc, vết thương hở hoặc vùng nhiễm trùng", "Do not apply to eyes, mucosa, open wounds, or infected areas"), text("Trẻ sơ sinh, vùng tã hoặc tổn thương rộng nên được bác sĩ đánh giá", "Infants, diaper-area lesions, or extensive lesions need professional assessment")],
+      analysis: text("Hoạt chất chính theo hãng là Superoxide Dismutase thực vật từ dịch chiết cà chua xanh; nền kem còn có dầu quả bơ, dầu khoáng và petrolatum.", "The manufacturer identifies plant-derived Superoxide Dismutase from green tomato extract as the key active; the cream base also includes avocado oil, mineral oil, and petrolatum."),
+      source: "https://www.lsisilderma.com/sodermix/", sourceLabel: "LSI Silderma – SODERMIX",
+      sellers: workbookSellers(text("Trang sản phẩm LSI Silderma", "LSI Silderma product page"), "https://www.lsisilderma.com/sodermix/", "lsi-silderma", "https://s.shopee.vn/3g23YlYkOW")
+    })
+  );
+
   const legacyCategories = [
     {
       id: "milk",
@@ -236,17 +416,17 @@
     },
     {
       id: "probiotic",
-      label: text("Men vi sinh", "Probiotics"),
-      shortLabel: text("Men vi sinh", "Probiotics"),
-      description: text("Sản phẩm theo chủng vi sinh, hàm lượng CFU và mục đích sử dụng trên nhãn.", "Products organized by probiotic strain, CFU amount, and labelled use."),
-      subcategories: [["all", text("Tất cả", "All")], ["diarrhea", text("Tiêu chảy", "Diarrhea")], ["constipation", text("Táo bón", "Constipation")], ["antibiotic", text("Sau kháng sinh", "After antibiotics")], ["colic", "Colic"], ["digestion", text("Hỗ trợ tiêu hóa", "Digestive support")]]
+      label: text("Men vi sinh & enzyme tiêu hóa", "Probiotics & digestive enzymes"),
+      shortLabel: text("Men vi sinh & enzyme", "Probiotics & enzymes"),
+      description: text("Men vi sinh và enzyme tiêu hóa được phân biệt rõ theo chủng, hoạt tính và mục đích sử dụng trên nhãn.", "Probiotics and digestive enzymes are clearly separated by strain, activity, and labelled use."),
+      subcategories: [["all", text("Tất cả", "All")], ["lactase", "Enzyme lactase"], ["diarrhea", text("Tiêu chảy", "Diarrhea")], ["constipation", text("Táo bón", "Constipation")], ["antibiotic", text("Sau kháng sinh", "After antibiotics")], ["colic", "Colic"]]
     },
     {
       id: "fiber",
-      label: text("Chất xơ", "Fiber"),
-      shortLabel: text("Chất xơ", "Fiber"),
-      description: text("Inulin, FOS, GOS và chất xơ hòa tan với liều dùng được đối chiếu từ nhãn.", "Inulin, FOS, GOS, and soluble fiber with label-checked serving information."),
-      subcategories: [["all", text("Tất cả", "All")], ["inulin", "Inulin"], ["fos", "FOS"], ["gos", "GOS"], ["fibersol", "Fibersol"], ["soluble", text("Chất xơ hòa tan", "Soluble fiber")]]
+      label: text("Chất xơ & hỗ trợ táo bón", "Fiber & constipation support"),
+      shortLabel: text("Chất xơ & táo bón", "Fiber & constipation"),
+      description: text("Chất xơ, prebiotic và sản phẩm hỗ trợ táo bón được ghi rõ cơ chế, liều dùng và cảnh báo theo nhãn.", "Fiber, prebiotics, and constipation-support products with label-backed mechanism, serving, and cautions."),
+      subcategories: [["all", text("Tất cả", "All")], ["constipation", text("Hỗ trợ táo bón", "Constipation support")], ["inulin", "Inulin"], ["fos", "FOS"], ["gos", "GOS"], ["soluble", text("Chất xơ hòa tan", "Soluble fiber")]]
     },
     {
       id: "medical",
@@ -266,8 +446,8 @@
       id: "care",
       label: text("Chăm sóc mẹ & bé", "Mother & baby care"),
       shortLabel: text("Mẹ & bé", "Mother & baby"),
-      description: text("Tã bỉm, chăm sóc da, tắm gội và đồ dùng thiết yếu cho trẻ nhỏ.", "Diapers, skin care, bath products, and everyday essentials for young children."),
-      subcategories: [["all", text("Tất cả", "All")], ["diaper", text("Tã bỉm", "Diapers")], ["rash", text("Kem chống hăm", "Rash cream")], ["skin", text("Dưỡng da", "Skin care")], ["sun", text("Chống nắng", "Sun care")], ["bath", text("Tắm gội", "Bath & hair")], ["laundry", text("Nước giặt", "Laundry")], ["wipes", text("Khăn ướt", "Wipes")]]
+      description: text("Chăm sóc da, vùng tã, tắm gội và đồ dùng thiết yếu cho trẻ nhỏ.", "Skin and diaper-area care, bath products, and everyday essentials for young children."),
+      subcategories: [["all", text("Tất cả", "All")], ["skin-care", text("Chăm sóc da & chống hăm", "Skin & diaper-area care")], ["diaper", text("Tã bỉm", "Diapers")], ["sun", text("Chống nắng", "Sun care")], ["bath", text("Tắm gội", "Bath & hair")], ["laundry", text("Nước giặt", "Laundry")], ["wipes", text("Khăn ướt", "Wipes")]]
     }
   ];
 
@@ -282,7 +462,7 @@
       id: "care",
       label: text("Chăm sóc Mẹ & Bé", "Mother & baby care"),
       description: text("Sản phẩm chăm sóc da, vệ sinh và đồ dùng thiết yếu cho mẹ và trẻ nhỏ.", "Skin care, hygiene, and everyday essentials for mothers and children."),
-      defaultCategory: "rash"
+      defaultCategory: "skin-care"
     }
   ];
 
@@ -294,18 +474,18 @@
     },
     {
       id: "vitamin", area: "nutrition", label: text("Vitamin và khoáng chất", "Vitamins & minerals"), shortLabel: text("Vitamin & khoáng chất", "Vitamins & minerals"),
-      description: text("D3, K2, DHA, kẽm, sắt, canxi và vi chất theo thông tin trên nhãn.", "D3, K2, DHA, zinc, iron, calcium, and label-backed micronutrients."),
-      subcategories: [["all", text("Tất cả", "All")], ["d3", "Vitamin D3"], ["d3-k2", "Vitamin D3 + K2"], ["dha", "DHA"], ["omega-3", "Omega-3"], ["vitamin-c", "Vitamin C"], ["zinc", text("Kẽm", "Zinc")], ["iron", text("Sắt", "Iron")], ["calcium", text("Canxi", "Calcium")], ["magnesium", text("Magie", "Magnesium")], ["multi", text("Vitamin tổng hợp", "Multivitamin")], ["lysine", "Lysine"]]
+      description: text("Vitamin, khoáng chất và sản phẩm bổ sung chuyên biệt theo thông tin trên nhãn.", "Vitamins, minerals, and specialized supplements with label-backed information."),
+      subcategories: [["all", text("Tất cả", "All")], ["d3", "Vitamin D3"], ["d3-k2", "Vitamin D3 + K2"], ["multi", text("Vitamin tổng hợp", "Multivitamin")], ["immune", text("Hỗ trợ miễn dịch", "Immune support")], ["sleep", text("Hỗ trợ giấc ngủ", "Sleep support")], ["dha", "DHA"], ["omega-3", "Omega-3"], ["iron", text("Sắt", "Iron")], ["calcium", text("Canxi", "Calcium")]]
     },
     {
-      id: "probiotic", area: "nutrition", label: text("Men vi sinh", "Probiotics"), shortLabel: text("Men vi sinh", "Probiotics"),
-      description: text("Phân loại theo chủng vi sinh, CFU và nhu cầu tham khảo ghi trên nhãn.", "Organized by probiotic strain, CFU amount, and label-stated use."),
-      subcategories: [["all", text("Tất cả", "All")], ["diarrhea", text("Tiêu chảy", "Diarrhea")], ["constipation", text("Táo bón", "Constipation")], ["antibiotic", text("Sau kháng sinh", "After antibiotics")], ["allergy", text("Dị ứng", "Allergy")], ["colic", "Colic"]]
+      id: "probiotic", area: "nutrition", label: text("Men vi sinh & enzyme tiêu hóa", "Probiotics & digestive enzymes"), shortLabel: text("Men vi sinh & enzyme", "Probiotics & enzymes"),
+      description: text("Men vi sinh và enzyme tiêu hóa được phân biệt rõ theo chủng, hoạt tính và mục đích sử dụng trên nhãn.", "Probiotics and digestive enzymes are clearly separated by strain, activity, and labelled use."),
+      subcategories: [["all", text("Tất cả", "All")], ["lactase", "Enzyme lactase"], ["diarrhea", text("Tiêu chảy", "Diarrhea")], ["constipation", text("Táo bón", "Constipation")], ["antibiotic", text("Sau kháng sinh", "After antibiotics")], ["colic", "Colic"]]
     },
     {
-      id: "fiber", area: "nutrition", label: text("Chất xơ và prebiotic", "Fiber & prebiotics"), shortLabel: text("Chất xơ & prebiotic", "Fiber & prebiotics"),
-      description: text("Inulin, FOS, GOS và chất xơ hòa tan với liều dùng được đối chiếu từ nhãn.", "Inulin, FOS, GOS, and soluble fiber with label-checked serving information."),
-      subcategories: [["all", text("Tất cả", "All")], ["inulin", "Inulin"], ["fos", "FOS"], ["gos", "GOS"], ["fibersol", "Fibersol"], ["soluble", text("Chất xơ hòa tan", "Soluble fiber")]]
+      id: "fiber", area: "nutrition", label: text("Chất xơ & hỗ trợ táo bón", "Fiber & constipation support"), shortLabel: text("Chất xơ & táo bón", "Fiber & constipation"),
+      description: text("Chất xơ, prebiotic và sản phẩm hỗ trợ táo bón được ghi rõ cơ chế, liều dùng và cảnh báo theo nhãn.", "Fiber, prebiotics, and constipation-support products with label-backed mechanism, serving, and cautions."),
+      subcategories: [["all", text("Tất cả", "All")], ["constipation", text("Hỗ trợ táo bón", "Constipation support")], ["inulin", "Inulin"], ["fos", "FOS"], ["gos", "GOS"], ["soluble", text("Chất xơ hòa tan", "Soluble fiber")]]
     },
     {
       id: "medical", area: "nutrition", hidden: true, label: text("Dinh dưỡng y học", "Medical nutrition"), shortLabel: text("Dinh dưỡng y học", "Medical nutrition"),
@@ -323,14 +503,9 @@
       subcategories: [["all", text("Tất cả", "All")], ["baby-biscuit", text("Bánh ăn dặm", "Baby biscuits")], ["rice-cracker", text("Bánh gạo", "Rice crackers")], ["puff", "Puff"], ["dried-fruit", text("Trái cây sấy", "Dried fruit")], ["seaweed", text("Rong biển", "Seaweed")]]
     },
     {
-      id: "rash", area: "care", label: text("Kem chống hăm", "Diaper rash care"), shortLabel: text("Kem chống hăm", "Rash care"),
-      description: text("Kem, thuốc mỡ và sản phẩm bảo vệ vùng da mặc tã.", "Creams, ointments, and barrier products for diaper-area skin."),
-      subcategories: [["all", text("Tất cả", "All")], ["cream", text("Dạng kem", "Cream")], ["ointment", text("Thuốc mỡ", "Ointment")], ["spray", text("Dạng xịt", "Spray")]]
-    },
-    {
-      id: "skin", area: "care", label: text("Kem dưỡng da trẻ em", "Children's skin care"), shortLabel: text("Dưỡng da trẻ em", "Skin care"),
-      description: text("Dưỡng ẩm và bảo vệ hàng rào da theo loại da và độ tuổi.", "Moisturizers and barrier care organized by skin type and age."),
-      subcategories: [["all", text("Tất cả", "All")], ["lotion", "Lotion"], ["cream", text("Kem dưỡng", "Cream")], ["balm", "Balm"]]
+      id: "skin-care", area: "care", label: text("Chăm sóc da & chống hăm", "Skin & diaper-area care"), shortLabel: text("Chăm sóc da & chống hăm", "Skin & diaper care"),
+      description: text("Kem dưỡng ẩm, phục hồi hàng rào da, làm dịu và bảo vệ vùng da mặc tã trong cùng một nhóm dễ tra cứu.", "Moisturizers, barrier repair, soothing care, and diaper-area protection in one easy-to-browse group."),
+      subcategories: [["all", text("Tất cả", "All")], ["moisturizer", text("Dưỡng ẩm", "Moisturizers")], ["barrier", text("Phục hồi hàng rào da", "Barrier repair")], ["soothing", text("Làm dịu & chăm sóc sẹo", "Soothing & scar care")], ["diaper", text("Bảo vệ vùng tã", "Diaper-area protection")]]
     },
     {
       id: "sun", area: "care", label: text("Kem chống nắng trẻ em", "Children's sunscreen"), shortLabel: text("Chống nắng trẻ em", "Sunscreen"),
@@ -588,7 +763,7 @@
       ? [["all", text("Tất cả đối tượng", "All audiences")], ["infant", text("Trẻ sơ sinh", "Infants")], ["child", text("Trẻ em", "Children")], ["teen", text("Thanh thiếu niên", "Teenagers")], ["adult", text("Người lớn", "Adults")], ["pregnancy", text("Mẹ bầu", "Pregnancy")]]
       : [["all", text("Tất cả đối tượng", "All audiences")], ["infant", text("Trẻ sơ sinh", "Infants")], ["child", text("Trẻ em", "Children")], ["mother", text("Mẹ sau sinh", "Mothers")], ["family", text("Cả gia đình", "Family")]];
     const needOptions = state.area === "nutrition"
-      ? [["all", text("Tất cả nhu cầu", "All needs")], ["daily", text("Dùng hằng ngày", "Daily use")], ["digestion", text("Hỗ trợ tiêu hóa", "Digestive support")], ["energy", text("Bổ sung năng lượng", "More energy")], ["less-sugar", text("Ít đường", "Lower sugar")], ["lactose-free", text("Không lactose", "Lactose-free")], ["calcium", text("Canxi & vitamin D", "Calcium & vitamin D")], ["meal", text("Bữa phụ dinh dưỡng", "Nutritional snack")]]
+      ? [["all", text("Tất cả nhu cầu", "All needs")], ["daily", text("Dùng hằng ngày", "Daily use")], ["digestion", text("Hỗ trợ tiêu hóa", "Digestive support")], ["constipation", text("Hỗ trợ táo bón", "Constipation support")], ["immune", text("Hỗ trợ miễn dịch", "Immune support")], ["sleep", text("Hỗ trợ giấc ngủ", "Sleep support")], ["energy", text("Bổ sung năng lượng", "More energy")], ["less-sugar", text("Ít đường", "Lower sugar")], ["lactose-free", text("Không lactose", "Lactose-free")], ["calcium", text("Canxi & vitamin D", "Calcium & vitamin D")], ["meal", text("Bữa phụ dinh dưỡng", "Nutritional snack")]]
       : [["all", text("Tất cả nhu cầu", "All needs")], ["daily", text("Dùng hằng ngày", "Daily use")], ["sensitive", text("Da nhạy cảm", "Sensitive skin")], ["fragrance-free", text("Không hương liệu", "Fragrance-free")], ["rash", text("Bảo vệ vùng tã", "Diaper-area care")], ["dry-skin", text("Da khô", "Dry skin")]];
     const brands = [...new Set(products.filter((product) => product.section === state.area && product.category === state.category).map((product) => product.brand))].sort((a, b) => a.localeCompare(b, isVietnamese ? "vi" : "en"));
     const brandOptions = [["all", text("Tất cả thương hiệu", "All brands")], ...brands.map((brand) => [brand, brand])];
