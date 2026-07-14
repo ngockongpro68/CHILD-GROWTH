@@ -1,5 +1,6 @@
 node_modules/
 dist/
+outputs/
 test-artifacts/
 .agents/
 .vercel/

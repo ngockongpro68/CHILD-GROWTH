@@ -33,7 +33,7 @@ async function main() {
 
   for (const file of files) {
     const ext = path.extname(file).toLowerCase();
-    if (![".js", ".json", ".html", ".css", ".md", ".env", ".txt"].includes(ext)) continue;
+    if (![".js", ".mjs", ".cjs", ".json", ".html", ".css", ".md", ".env", ".txt", ".toml", ".yaml", ".yml", ".xml"].includes(ext)) continue;
 
     const content = await fs.readFile(file, "utf8");
     for (const rule of suspiciousPatterns) {

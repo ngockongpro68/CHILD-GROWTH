@@ -17,6 +17,7 @@ const excludedNames = new Set([
   ".vercel",
   "dist",
   "node_modules",
+  "outputs",
   "scripts",
   "test-artifacts",
   ".server.err",
@@ -27,6 +28,9 @@ const excludedNames = new Set([
   "SECURITY.md",
   "netlify.toml",
   "vercel.json"
+]);
+const privateArtifactExtensions = new Set([
+  ".bak", ".db", ".env", ".key", ".ods", ".p12", ".pem", ".sql", ".sqlite", ".xls", ".xlsx"
 ]);
 
 async function exists(filePath) {
@@ -77,6 +81,14 @@ async function walk(dir) {
   }
 
   return files;
+}
+
+async function assertNoPrivateArtifacts() {
+  const files = await walk(outDir);
+  const findings = files.filter((file) => privateArtifactExtensions.has(path.extname(file).toLowerCase()));
+  if (findings.length) {
+    throw new Error(`Private artifacts must not be deployed:\n${findings.map((file) => `- ${path.relative(outDir, file)}`).join("\n")}`);
+  }
 }
 
 async function copyDirectory(source, target) {
@@ -194,6 +206,8 @@ async function main() {
     await copyPublicTree(path.join(root, entry), path.join(outDir, entry));
   }
 
+  await assertNoPrivateArtifacts();
+
   const files = await walk(outDir);
   for (const file of files) {
     if (file.endsWith(".js")) await minifyJs(file);
@@ -207,6 +221,7 @@ async function main() {
   const manifest = {
     builtAt: new Date().toISOString(),
     sourceMaps: false,
+    privateArtifacts: false,
     note: "Production build contains only public browser assets. Do not place secrets in frontend code."
   };
   await fs.writeFile(path.join(outDir, "BUILD_MANIFEST.json"), JSON.stringify(manifest, null, 2), "utf8");
