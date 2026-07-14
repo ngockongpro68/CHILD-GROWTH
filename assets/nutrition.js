@@ -16,6 +16,7 @@
       close: '<svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="m6 6 12 12M18 6 6 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>',
       external: '<svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M14 5h5v5M10 14 19 5M19 13v6H5V5h6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>',
       spark: '<svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="m12 3 1.6 4.4L18 9l-4.4 1.6L12 15l-1.6-4.4L6 9l4.4-1.6L12 3Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg>',
+      usage: '<svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="5" y="3" width="14" height="18" rx="2" stroke="currentColor" stroke-width="1.8"/><path d="M9 8h6M9 12h6M9 16h4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>',
       search: '<svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="11" cy="11" r="7" stroke="currentColor" stroke-width="1.8"/><path d="m16.2 16.2 4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>',
       star: '<svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="m12 3 2.8 5.7 6.2.9-4.5 4.4 1.1 6.2L12 17.3l-5.6 2.9 1.1-6.2L3 9.6l6.2-.9L12 3Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg>',
       sort: '<svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M8 6h12M8 12h8M8 18h4M4 5v14m0 0-2-2m2 2 2-2" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>'
@@ -280,6 +281,22 @@
       sellers: workbookSellers(text("Trang sản phẩm Vitabiotics", "Vitabiotics product page"), "https://www.vitabiotics.com/products/wellkid-multi-vitamin-liquid", "vitabiotics", "https://s.shopee.vn/AAFXIMw8vA")
     }),
     workbookProduct({
+      id: "femalto-sat-iii-hydroxyd-polymaltose-50mg-ml-30ml", section: "nutrition", category: "vitamin", subcategory: "iron",
+      name: "Femalto dung dịch uống 50 mg/ml – chai 30 ml", brand: "Femalto / Novocare", image: "/assets/nutrition/femalto-30ml.jpg",
+      age: text("Từ sơ sinh đến người lớn; dùng theo mức độ thiếu sắt", "From birth through adulthood; dose depends on iron deficiency"), ageGroups: ["under-6", "6-11", "12-23", "2-5", "6-9", "10-15"], targets: ["infant", "child", "teen", "adult", "mother"],
+      needs: ["iron"], needLabel: text("Thuốc điều trị thiếu sắt có hoặc không kèm thiếu máu", "Medicine for iron deficiency with or without anemia"), price: 179000,
+      displayMetrics: [
+        { label: text("Sắt nguyên tố", "Elemental iron"), value: "50 mg / 1 ml" }, { label: text("Quy đổi", "Conversion"), value: "1 ml = 14 giọt" },
+        { label: text("Mỗi giọt", "Per drop"), value: "~3,57 mg sắt" }, { label: text("Quy cách", "Package"), value: "30 ml" }
+      ],
+      lactose: text("Nguồn công bố chưa nêu đầy đủ tá dược; cần đối chiếu tờ hướng dẫn trong hộp nếu có tiền sử dị ứng.", "The available source does not list all excipients; check the package leaflet when there is an allergy history."),
+      suitable: [text("Thiếu sắt đã được đánh giá, có hoặc không kèm thiếu máu", "Assessed iron deficiency, with or without anemia"), text("Trẻ em, người lớn, phụ nữ mang thai hoặc cho con bú có chỉ định bổ sung sắt điều trị", "Children, adults, and pregnant or breastfeeding women with a treatment indication")],
+      cautions: [text("Đây là thuốc; liều phụ thuộc tuổi và mức độ thiếu sắt, không tự dùng chỉ để dự phòng", "This is a medicine; dosing depends on age and iron status and should not be self-used solely for prevention"), text("Không dùng khi quá tải sắt, rối loạn sử dụng sắt hoặc thiếu máu không do thiếu sắt; để xa tầm tay trẻ em", "Do not use for iron overload, iron-utilization disorders, or anemia not caused by iron deficiency; keep out of children's reach")],
+      analysis: text("Mỗi 1 ml chứa 50 mg sắt nguyên tố dưới dạng phức hợp sắt (III) hydroxyd polymaltose; 1 ml tương ứng 14 giọt. Femalto là thuốc điều trị thiếu sắt, vì vậy liều và thời gian dùng cần dựa trên chẩn đoán và theo dõi đáp ứng.", "Each 1 ml contains 50 mg elemental iron as iron(III) hydroxide polymaltose complex; 1 ml equals 14 drops. Femalto is a medicine for iron deficiency, so dose and duration should follow diagnosis and response monitoring."),
+      source: "", sourceLabel: text("Công ty Cổ phần Dược phẩm CPC1 Hà Nội", "Ha Noi CPC1 Pharmaceutical Joint Stock Company"),
+      sellers: [{ name: "Shopee", url: "https://s.shopee.vn/1qaPNHrd2h", kind: "affiliate", platform: "shopee" }]
+    }),
+    workbookProduct({
       id: "special-kid-sommeil-thao-duoc-125ml", section: "nutrition", category: "vitamin", subcategory: "sleep",
       name: "Special Kid Sommeil siro thảo dược 125 ml", brand: "Special Kid – Eric Favre", image: "/assets/nutrition/special-kid-sommeil-125ml.jpg",
       age: text("Trẻ từ 2 tuổi", "Children from 2 years"), ageGroups: ["2-5", "6-9", "10-15"], targets: ["child", "teen"],
@@ -344,6 +361,22 @@
       sellers: workbookSellers(text("Trang sản phẩm Buona", "Buona product page"), "https://shop.buona.it/en/prodotto/peginpol-bustine/", "buona", "https://s.shopee.vn/9KgQIkNsJm")
     }),
     workbookProduct({
+      id: "infogoss-iap-chat-xo-30-goi-3g", section: "nutrition", category: "fiber", subcategory: "constipation",
+      name: "InfoGoss IAP – hộp 30 gói × 3 g", brand: "IAP", image: "/assets/nutrition/infogoss-iap-30x3g-thumb.jpg",
+      age: text("Từ 1 tuổi đến người lớn", "From age 1 through adulthood"), ageGroups: ["12-23", "2-5", "6-9", "10-15"], targets: ["child", "teen", "adult", "mother"],
+      needs: ["constipation", "digestion"], needLabel: text("Inulin, FOS, GOS và 2'-FL hỗ trợ bổ sung chất xơ", "Inulin, FOS, GOS, and 2'-FL fiber supplement"), price: 117000,
+      displayMetrics: [
+        { label: "Inulin", value: "900 mg / gói" }, { label: "FOS", value: "900 mg / gói" },
+        { label: "GOS", value: "90 mg / gói" }, { label: "2'-FL HMO", value: "5 mg / gói" }
+      ],
+      lactose: text("Có galacto-oligosaccharide (GOS); người dị ứng sữa cần kiểm tra nguồn nguyên liệu và nhãn hiện hành.", "Contains galacto-oligosaccharide (GOS); people with milk allergy should verify the ingredient source and current label."),
+      suitable: [text("Người từ 1 tuổi cần bổ sung chất xơ hòa tan trong khẩu phần", "People from age 1 needing soluble fiber supplementation"), text("Táo bón cần hỗ trợ nhuận tràng sau khi đã loại trừ dấu hiệu cảnh báo", "Constipation needing bowel-regularity support after warning signs are excluded")],
+      cautions: [text("Đau bụng nhiều, nôn, chướng bụng, sốt hoặc phân máu cần khám trước khi dùng", "Severe pain, vomiting, distension, fever, or bloody stool requires assessment before use"), text("Uống đủ nước; giảm liều hoặc ngừng dùng nếu đầy hơi, tiêu chảy kéo dài", "Maintain adequate fluids; reduce or stop if persistent bloating or diarrhea occurs")],
+      analysis: text("Mỗi gói 3 g cung cấp 900 mg inulin, 900 mg FOS, 90 mg GOS và 5 mg 2'-FL. Đây là thực phẩm bổ sung chất xơ; hiệu quả và khả năng dung nạp phụ thuộc khẩu phần, lượng nước và nguyên nhân táo bón.", "Each 3 g sachet provides 900 mg inulin, 900 mg FOS, 90 mg GOS, and 5 mg 2'-FL. This is a fiber supplement; benefit and tolerance depend on diet, fluid intake, and the cause of constipation."),
+      source: "", sourceLabel: text("Công ty Cổ phần Thương mại và Dược phẩm Đông Nam Á", "Dong Nam A Pharmaceutical and Trading Joint Stock Company"),
+      sellers: [{ name: "Shopee", url: "https://s.shopee.vn/2qSwYp4IQS", kind: "affiliate", platform: "shopee" }]
+    }),
+    workbookProduct({
       id: "menarini-atopiclair-cream-40ml", section: "care", category: "skin-care", subcategory: "barrier",
       name: "Menarini Atopiclair Cream 40 ml", brand: "Atopiclair – Menarini", image: "/assets/nutrition/atopiclair-cream-40ml.jpg",
       age: text("Từ 6 tháng tuổi trở lên", "From 6 months"), ageGroups: ["6-11", "12-23", "2-5", "6-9", "10-15"], targets: ["infant", "child", "family"],
@@ -392,6 +425,60 @@
       sellers: workbookSellers(text("Trang sản phẩm LSI Silderma", "LSI Silderma product page"), "https://www.lsisilderma.com/sodermix/", "lsi-silderma", "https://s.shopee.vn/3g23YlYkOW")
     })
   );
+
+  const usageGuides = {
+    "growplus-tieu-hoa-2-800g": {
+      steps: [text("Rửa tay, tiệt trùng dụng cụ và dùng nước đun sôi để nguội còn khoảng 50°C.", "Wash hands, sterilize utensils, and use boiled water cooled to about 50°C."), text("Pha 7 muỗng gạt ngang (khoảng 36 g bột) với 180 ml nước, khuấy tan và dùng ngay.", "Mix 7 level scoops (about 36 g powder) with 180 ml water, stir well, and serve immediately."), text("Dùng 2–3 ly mỗi ngày hoặc theo hướng dẫn của nhân viên y tế; đóng kín và dùng trong 1 tháng sau khi mở.", "Use 2–3 servings daily or as advised by a healthcare professional; close tightly and use within one month of opening.")]
+    },
+    "pediasure-pha-san-vani-110ml-4-loc": {
+      steps: [text("Lắc kỹ hộp trước khi uống; sản phẩm pha sẵn, không cần pha loãng.", "Shake well before drinking; this is ready to drink and should not be diluted."), text("Có thể dùng 2–3 hộp 110 ml mỗi ngày hoặc theo hướng dẫn của nhân viên y tế.", "Use 2–3 110 ml cartons daily or as directed by a healthcare professional."), text("Ngon hơn khi uống lạnh; không hâm bằng lò vi sóng và dùng ngay sau khi mở.", "Best served chilled; do not microwave and consume promptly after opening.")]
+    },
+    "nutren-junior-pha-san-vani-110ml-thung-36": {
+      steps: [text("Lắc kỹ và uống trực tiếp; không cần pha thêm nước.", "Shake well and drink directly; do not add water."), text("Khẩu phần thường dùng 2–3 hộp mỗi ngày hoặc điều chỉnh theo nhu cầu và hướng dẫn chuyên môn.", "A common intake is 2–3 cartons daily, adjusted to needs and professional guidance."), text("Dùng ngay sau khi mở; bảo quản nơi khô mát, tránh ánh nắng trực tiếp.", "Consume promptly after opening; store in a cool, dry place away from direct sunlight.")]
+    },
+    "vinamilk-sua-tuoi-tach-beo-khong-duong-180ml-thung-48": {
+      steps: [text("Lắc đều trước khi uống và dùng trực tiếp.", "Shake well before drinking and serve directly."), text("Uống theo khẩu phần phù hợp với tuổi và chế độ ăn; không dùng thay thế bữa ăn chính.", "Use an age- and diet-appropriate serving; do not use as a replacement for main meals."), text("Không cần bảo quản lạnh khi chưa mở; sau khi mở nên dùng hết ngay.", "Refrigeration is not required before opening; consume immediately once opened.")]
+    },
+    "lineabon-d3k2-drops-10ml": {
+      steps: [text("Lắc kỹ chai trước mỗi lần dùng và đếm giọt bằng đầu nhỏ giọt của sản phẩm.", "Shake well before each use and count drops with the product dropper."), text("Liều tham khảo theo hãng: 0–12 tháng 6 giọt/ngày; 1–3 tuổi 6–8 giọt/ngày; 3–12 tuổi 8–12 giọt/ngày; người lớn 12 giọt/ngày.", "Manufacturer guidance: 0–12 months 6 drops/day; ages 1–3, 6–8 drops/day; ages 3–12, 8–12 drops/day; adults 12 drops/day."), text("Dùng trực tiếp hoặc cùng thức ăn nguội; không nhỏ vào đồ ăn, thức uống nóng.", "Give directly or with cool food; do not add to hot food or drinks.")]
+    },
+    "orzax-imunol-syrup-150ml": {
+      steps: [text("Lắc kỹ chai và dùng dụng cụ đong kèm theo, ưu tiên dùng sau bữa ăn.", "Shake well and use the supplied measure, preferably after a meal."), text("Liều theo hãng: 1–3 tuổi 5 ml/ngày; 3–5 tuổi 7,5 ml/ngày; từ 5 tuổi 10 ml/ngày.", "Manufacturer guidance: ages 1–3, 5 ml/day; ages 3–5, 7.5 ml/day; age 5 and above, 10 ml/day."), text("Không vượt quá liều trên nhãn và cần tính tổng vitamin C, kẽm từ các sản phẩm khác.", "Do not exceed the label serving and account for vitamin C and zinc from other products.")]
+    },
+    "vitabiotics-wellbaby-multivitamin-liquid-150ml": {
+      steps: [text("Trẻ 6 tháng–4 tuổi dùng 5 ml mỗi ngày.", "Children aged 6 months–4 years use 5 ml daily."), text("Trộn lượng đã đong vào sữa hoặc nước thường dùng của trẻ và khuấy đều.", "Mix the measured amount into the child's usual milk or water and stir well."), text("Không cho uống trực tiếp từ thìa; không vượt quá liều và không dùng cùng đa vitamin khác nếu chưa kiểm tra tổng liều.", "Do not administer directly from a spoon; do not exceed the serving or combine with another multivitamin without checking total intake.")]
+    },
+    "vitabiotics-wellkid-multivitamin-liquid-150ml": {
+      steps: [text("Lắc kỹ chai và dùng trong hoặc ngay sau bữa ăn chính.", "Shake well and use with or immediately after a main meal."), text("Trẻ 4–10 tuổi dùng 5 ml/ngày; trẻ 11–12 tuổi dùng 10 ml/ngày.", "Children aged 4–10 use 5 ml/day; ages 11–12 use 10 ml/day."), text("Dùng dụng cụ đong, không vượt quá liều và không phối hợp đa vitamin khác nếu chưa tính tổng liều.", "Use a measuring device, do not exceed the serving, and avoid another multivitamin unless total intake has been checked.")]
+    },
+    "femalto-sat-iii-hydroxyd-polymaltose-50mg-ml-30ml": {
+      steps: [text("Có thể uống trực tiếp hoặc trộn với nước hoa quả, nước rau ép hay nước đóng chai; dùng một lần hoặc chia nhiều lần trong ngày. 1 ml tương ứng 14 giọt.", "Take directly or mix with fruit juice, vegetable juice, or bottled water; use once daily or in divided doses. One ml equals 14 drops."), text("Trẻ dưới 1 tuổi: thiếu sắt kèm thiếu máu 0,5–1 ml/ngày (7–14 giọt); thiếu sắt không kèm thiếu máu 0,5 ml/ngày (7 giọt).", "Under age 1: 0.5–1 ml/day (7–14 drops) for iron deficiency anemia; 0.5 ml/day (7 drops) for iron deficiency without anemia."), text("Trẻ 1–12 tuổi: tương ứng 1–2 ml/ngày hoặc 0,5–1 ml/ngày. Trên 12 tuổi và người lớn: tương ứng 2–6 ml/ngày hoặc 1–2 ml/ngày.", "Ages 1–12: 1–2 ml/day or 0.5–1 ml/day respectively. Over age 12 and adults: 2–6 ml/day or 1–2 ml/day respectively."), text("Trẻ sinh non: 2,5–5 mg sắt/kg/ngày trong 3–5 tháng chỉ theo chỉ định. Mọi liều dùng và thời gian điều trị cần được bác sĩ hoặc nhân viên y tế xác nhận.", "Preterm infants: 2.5–5 mg iron/kg/day for 3–5 months only when prescribed. All dosing and treatment duration require confirmation by a healthcare professional.")]
+    },
+    "special-kid-sommeil-thao-duoc-125ml": {
+      steps: [text("Lắc kỹ trước khi dùng, uống trực tiếp hoặc pha với một ít nước.", "Shake well before use; take directly or dilute in a little water."), text("Trẻ dưới 5 tuổi dùng 5 ml buổi tối; từ 5 tuổi dùng 10 ml buổi tối.", "Children under 5 use 5 ml in the evening; age 5 and above use 10 ml in the evening."), text("Trẻ dưới 24 tháng chỉ dùng khi có hướng dẫn chuyên môn; không phối hợp thuốc an thần nếu chưa hỏi bác sĩ.", "Children under 24 months should use only with professional guidance; do not combine with sedatives without medical advice.")]
+    },
+    "delictase-oral-drops-lactase-15ml": {
+      steps: [text("Lắc chai và dùng khẩu phần trên nhãn hiện hành; bảng thành phần công bố theo 6 giọt.", "Shake the bottle and follow the current label serving; composition is stated per 6 drops."), text("Có thể nhỏ trực tiếp vào miệng hoặc vào bình sữa ngay trước cữ bú, sau đó cho trẻ bú ngay.", "Drops may be given directly by mouth or added to the bottle immediately before feeding, then feed at once."), text("Không thêm vào sữa nóng; không cần ủ bình hoặc bảo quản lạnh để enzyme hoạt động.", "Do not add to hot milk; bottle incubation or refrigeration is not required for enzyme activity.")]
+    },
+    "easycol-baby-plus-lactase-15ml": {
+      steps: [text("Với trẻ bú mẹ, nhỏ liều theo bảng trên nhãn vào thìa và cho dùng ngay trước cữ bú.", "For breastfed infants, place the label-directed dose on a spoon and give immediately before feeding."), text("Với sữa công thức hoặc sữa mẹ vắt, thêm 4 giọt vào bình, lắc đều và nếu có thể chuẩn bị trước khoảng 30 phút.", "For formula or expressed breast milk, add 4 drops to the bottle, shake well, and if possible prepare about 30 minutes before feeding."), text("Dùng ở mỗi cữ theo nhãn; không thêm vào sữa nóng và không dùng thay cho xử trí dị ứng đạm sữa bò.", "Use at each feed as labelled; do not add to hot milk and do not use as a substitute for managing cow's milk protein allergy.")]
+    },
+    "buona-peginpol-macrogol-3350-20-goi-5g": {
+      steps: [text("Liều theo hãng: 6 tháng–2 tuổi (đến 12 kg) 1–2 gói/ngày; 2–11 tuổi (12–20 kg) 2–4 gói/ngày; trên 11 tuổi (trên 20 kg) 2–6 gói/ngày.", "Manufacturer guidance: 6 months–2 years (up to 12 kg), 1–2 sachets/day; ages 2–11 (12–20 kg), 2–4/day; over 11 years (over 20 kg), 2–6/day."), text("Hòa tan theo tờ hướng dẫn của hộp và duy trì đủ lượng nước trong ngày.", "Dissolve according to the package leaflet and maintain adequate fluid intake."), text("Nên dùng liều thấp nhất có hiệu quả; trẻ nhỏ hoặc cần dùng kéo dài phải được nhân viên y tế theo dõi.", "Use the lowest effective amount; young children or prolonged use require professional follow-up.")]
+    },
+    "infogoss-iap-chat-xo-30-goi-3g": {
+      steps: [text("Trẻ 1–9 tuổi: mỗi lần 1 gói (3 g), ngày 2 lần.", "Children aged 1–9: 1 sachet (3 g) per dose, twice daily."), text("Từ 9 tuổi, người lớn, phụ nữ mang thai hoặc cho con bú: mỗi lần 1 gói, ngày 2–3 lần.", "Age 9 and above, adults, and pregnant or breastfeeding women: 1 sachet per dose, 2–3 times daily."), text("Pha với nước đun sôi để nguội, sữa hoặc trộn vào thức ăn; dùng ngay sau khi pha và uống đủ nước trong ngày.", "Mix with cooled boiled water, milk, or food; use promptly after mixing and maintain adequate fluid intake.")]
+    },
+    "menarini-atopiclair-cream-40ml": {
+      steps: [text("Làm sạch và lau khô vùng da cần chăm sóc.", "Clean and dry the area to be treated."), text("Thoa một lớp mỏng, massage nhẹ 3 lần mỗi ngày hoặc khi cần theo hướng dẫn của hãng.", "Apply a thin layer and massage gently three times daily or as needed according to the manufacturer."), text("Chỉ dùng ngoài da; tránh mắt, niêm mạc và vùng da đang nhiễm trùng.", "For external use only; avoid eyes, mucosa, and infected skin.")]
+    },
+    "biomed-latopic-active-face-body-cream-75ml": {
+      steps: [text("Làm sạch và lau khô da trước khi thoa.", "Clean and dry the skin before application."), text("Thoa một lớp mỏng lên vùng da mặt hoặc cơ thể khô, kích ứng rồi tán nhẹ cho thấm.", "Apply a thin layer to dry or irritated facial or body skin and spread gently until absorbed."), text("Dùng đều đặn theo nhu cầu; tránh mắt và ngừng dùng nếu kích ứng tăng.", "Use regularly as needed; avoid the eyes and stop if irritation worsens.")]
+    },
+    "lsi-silderma-sodermix-cream-15g": {
+      steps: [text("Làm sạch, lau khô vùng da và thoa một lớp kem mỏng.", "Clean and dry the area, then apply a thin layer of cream."), text("Massage nhẹ đến khi thấm, dùng 2 lần mỗi ngày theo hướng dẫn của hãng.", "Massage gently until absorbed and use twice daily according to the manufacturer."), text("Không bôi lên mắt, niêm mạc, vết thương hở hoặc vùng nhiễm trùng; tổn thương rộng cần được đánh giá.", "Do not apply to eyes, mucosa, open wounds, or infected skin; extensive lesions require assessment.")]
+    }
+  };
 
   const legacyCategories = [
     {
@@ -1005,6 +1092,7 @@
     const detail = document.getElementById("nutritionDetail");
     if (!backdrop || !detail) return;
     const displayMetrics = productDisplayMetrics(product);
+    const usage = usageGuides[product.id];
     detail.innerHTML = `
       <div class="nutrition-detail-header">
         <div><span class="nutrition-kicker">${product.brand}</span><h2 id="nutritionDetailTitle">${product.name}</h2><p>${product.needLabel}</p></div>
@@ -1022,12 +1110,20 @@
           </div>
         </div>
       </div>
+      <section class="nutrition-usage">
+        <div class="nutrition-usage-heading">
+          <div class="nutrition-usage-icon">${icon("usage")}</div>
+          <div><span>${text("Dùng đúng nhãn", "Use as labelled")}</span><h3>${text("Hướng dẫn sử dụng", "Directions for use")}</h3></div>
+        </div>
+        <ol>${(usage?.steps || [text("Sử dụng theo hướng dẫn trên nhãn hiện hành hoặc chỉ định của nhân viên y tế.", "Use according to the current label or a healthcare professional's direction.")]).map((item) => `<li><span>${item}</span></li>`).join("")}</ol>
+        <p>${icon("info")}<span>${text("Liều trên đây được tóm tắt từ nguồn sản phẩm. Luôn đối chiếu nhãn của đúng lô đang dùng, đặc biệt với trẻ nhỏ, thai kỳ hoặc bệnh lý nền.", "Directions are summarized from product sources. Always check the label on the actual pack, especially for young children, pregnancy, or medical conditions.")}</span></p>
+      </section>
       <section class="nutrition-analysis">
         <div class="nutrition-analysis-icon">${icon("spark")}</div>
         <div><span>${text("Phân tích nhãn", "Label analysis")}</span><h3>${text("GrowthKid tóm tắt", "GrowthKid summary")}</h3><p>${product.analysis}</p><small>${text("Cập nhật", "Updated")}: ${product.updated}</small></div>
       </section>
       <section class="nutrition-sources">
-        <div><h3>${text("Nguồn thông tin", "Information source")}</h3><a href="${product.source}" target="_blank" rel="noreferrer">${product.sourceLabel} ${icon("external")}</a></div>
+        <div><h3>${text("Nguồn thông tin", "Information source")}</h3>${product.source ? `<a href="${product.source}" target="_blank" rel="noreferrer">${product.sourceLabel} ${icon("external")}</a>` : `<span class="nutrition-source-name">${product.sourceLabel}</span>`}</div>
         <p>${product.normalizationNote || text("Thông số được chuẩn hóa theo 100 ml khi nguồn có đủ dữ liệu. Dấu 'chưa chuẩn hóa' nghĩa là GrowthKid chưa xác minh được phép quy đổi từ nhãn hiện hành.", "Values are normalized per 100 ml when sufficient source data is available. 'Not normalized' means GrowthKid has not yet verified a conversion from the current label.")}</p>
       </section>
       <section class="nutrition-sellers">

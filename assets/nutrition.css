@@ -792,6 +792,16 @@
   --nutrition-image-scale: 1.2;
 }
 
+.nutrition-product-media[data-product-id="infogoss-iap-chat-xo-30-goi-3g"],
+.nutrition-detail-product[data-product-id="infogoss-iap-chat-xo-30-goi-3g"] {
+  --nutrition-image-scale: 1.08;
+}
+
+.nutrition-product-media[data-product-id="femalto-sat-iii-hydroxyd-polymaltose-50mg-ml-30ml"],
+.nutrition-detail-product[data-product-id="femalto-sat-iii-hydroxyd-polymaltose-50mg-ml-30ml"] {
+  --nutrition-image-scale: 1.1;
+}
+
 .nutrition-product-media[data-product-id="pediasure-pha-san-vani-110ml-4-loc"] img,
 .nutrition-detail-product[data-product-id="pediasure-pha-san-vani-110ml-4-loc"] img,
 .nutrition-product-media[data-product-id="nutren-junior-pha-san-vani-110ml-thung-36"] img,
@@ -808,6 +818,11 @@
 .nutrition-detail-product[data-product-id="menarini-atopiclair-cream-40ml"] img,
 .nutrition-product-media[data-product-id="lsi-silderma-sodermix-cream-15g"] img,
 .nutrition-detail-product[data-product-id="lsi-silderma-sodermix-cream-15g"] img {
+  mix-blend-mode: multiply;
+}
+
+.nutrition-product-media[data-product-id="femalto-sat-iii-hydroxyd-polymaltose-50mg-ml-30ml"] img,
+.nutrition-detail-product[data-product-id="femalto-sat-iii-hydroxyd-polymaltose-50mg-ml-30ml"] img {
   mix-blend-mode: multiply;
 }
 
@@ -1525,12 +1540,111 @@ body.nutrition-detail-open {
 }
 
 .nutrition-analysis,
+.nutrition-usage,
 .nutrition-sources,
 .nutrition-sellers {
   margin: 0 22px 18px;
   padding: 15px;
   border: 1px solid var(--nutrition-line);
   border-radius: 8px;
+}
+
+.nutrition-usage {
+  display: grid;
+  grid-template-columns: 190px minmax(0, 1fr);
+  gap: 14px 22px;
+  background: #f4faf7;
+  border-color: #cfe3d9;
+}
+
+.nutrition-usage-heading {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+.nutrition-usage-icon {
+  display: grid;
+  place-items: center;
+  flex: 0 0 auto;
+  width: 38px;
+  height: 38px;
+  border-radius: 7px;
+  color: #176c58;
+  background: #dcefe6;
+}
+
+.nutrition-usage-icon svg {
+  width: 20px;
+  height: 20px;
+}
+
+.nutrition-usage-heading span {
+  display: block;
+  margin-bottom: 2px;
+  color: var(--nutrition-green);
+  font-size: 0.64rem;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.nutrition-usage h3 {
+  margin: 0;
+  color: var(--nutrition-ink);
+  font-size: 0.9rem;
+}
+
+.nutrition-usage ol {
+  display: grid;
+  gap: 9px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  counter-reset: usage-step;
+}
+
+.nutrition-usage li {
+  display: grid;
+  grid-template-columns: 24px minmax(0, 1fr);
+  gap: 8px;
+  color: #3c555e;
+  font-size: 0.74rem;
+  line-height: 1.5;
+  counter-increment: usage-step;
+}
+
+.nutrition-usage li::before {
+  display: grid;
+  place-items: center;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  color: #ffffff;
+  background: #287d68;
+  font-size: 0.65rem;
+  font-weight: 800;
+  content: counter(usage-step);
+}
+
+.nutrition-usage > p {
+  grid-column: 2;
+  display: flex;
+  align-items: flex-start;
+  gap: 7px;
+  margin: 0;
+  padding-top: 10px;
+  border-top: 1px solid #d8e9e1;
+  color: #60757d;
+  font-size: 0.67rem;
+  line-height: 1.45;
+}
+
+.nutrition-usage > p svg {
+  flex: 0 0 auto;
+  width: 15px;
+  height: 15px;
+  margin-top: 1px;
+  color: #287d68;
 }
 
 .nutrition-analysis {
@@ -1582,7 +1696,8 @@ body.nutrition-detail-open {
   gap: 18px;
 }
 
-.nutrition-sources a {
+.nutrition-sources a,
+.nutrition-source-name {
   display: inline-flex;
   align-items: center;
   gap: 5px;
@@ -1590,6 +1705,10 @@ body.nutrition-detail-open {
   color: var(--nutrition-green);
   font-size: 0.73rem;
   font-weight: 750;
+}
+
+.nutrition-source-name {
+  color: #31574d;
 }
 
 .nutrition-sources a svg {
@@ -1765,8 +1884,13 @@ body.nutrition-detail-open {
   }
 
   .nutrition-fit-grid,
+  .nutrition-usage,
   .nutrition-sources {
     grid-template-columns: 1fr;
+  }
+
+  .nutrition-usage > p {
+    grid-column: 1;
   }
 
   .nutrition-fit-grid > div + div {
@@ -1926,6 +2050,7 @@ body.nutrition-detail-open {
   }
 
   .nutrition-analysis,
+  .nutrition-usage,
   .nutrition-sources,
   .nutrition-sellers {
     margin-right: 16px;
