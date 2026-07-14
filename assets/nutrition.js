@@ -180,7 +180,7 @@
       subcategory: "d3-k2",
       name: "LineaBon D3K2 Drops 10 ml",
       brand: "LineaBon",
-      image: "/assets/nutrition/lineabon-d3k2-10ml.png",
+      image: "/assets/nutrition/lineabon-d3k2-10ml-cutout.png",
       age: text("Từ sơ sinh đến người lớn", "From birth through adulthood"),
       ageGroups: ["under-6", "6-11", "12-23", "2-5", "6-9", "10-15"],
       targets: ["infant", "child", "teen", "adult"],

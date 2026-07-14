@@ -87,8 +87,8 @@ function validateTransparentPng(filePath, publicPath) {
   for (let index = 3; index < image.data.length; index += 4) {
     if (image.data[index] < 245) transparentPixels += 1;
   }
-  if (transparentPixels / (image.width * image.height) < 0.01) {
-    return `${publicPath}: product PNG must contain a transparent background`;
+  if (transparentPixels / (image.width * image.height) < 0.1) {
+    return `${publicPath}: product PNG must contain a genuinely transparent background, not only transparent corners`;
   }
   return null;
 }
