@@ -1,6 +1,12 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
-  <rect width="64" height="64" rx="16" fill="#2563EB"/>
-  <circle cx="34" cy="16" r="6" fill="#FFFFFF"/>
-  <path fill="#FFFFFF" d="M18 28c0-4 3.2-7.2 7.2-7.2h17.6c4 0 7.2 3.2 7.2 7.2v1.2c0 2.4-2 4.4-4.4 4.4H38v5.2l8.8 8.8c1.8 1.8 1.8 4.6 0 6.4s-4.6 1.8-6.4 0L32 45.6 23.6 54c-1.8 1.8-4.6 1.8-6.4 0s-1.8-4.6 0-6.4l8.8-8.8v-5.2h-3.6c-2.4 0-4.4-2-4.4-4.4V28Z"/>
-  <path fill="#93C5FD" d="M32 26.5c4.5 0 8.2 3.7 8.2 8.2S36.5 43 32 43s-8.2-3.7-8.2-8.2 3.7-8.3 8.2-8.3Zm0 5.5a2.8 2.8 0 1 0 0 5.6A2.8 2.8 0 0 0 32 32Z"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-labelledby="title description">
+  <title id="title">GrowthKid</title>
+  <desc id="description">A growing sprout in a nutrition bowl</desc>
+  <rect x="16" y="16" width="480" height="480" rx="112" fill="#2563EB"/>
+  <circle cx="256" cy="108" r="30" fill="#FBBF24"/>
+  <path d="M256 280V204" fill="none" stroke="#86EFAC" stroke-width="28" stroke-linecap="round"/>
+  <path d="M250 224c-46-2-78-28-82-72 44-2 78 24 88 66l-6 6Z" fill="#86EFAC"/>
+  <path d="M262 230c46-4 78-32 82-76-46 0-80 26-88 68l6 8Z" fill="#34D399"/>
+  <path d="M104 278h304c0 18-14 32-32 32H136c-18 0-32-14-32-32Z" fill="#FFFFFF"/>
+  <path d="M128 316h256c-14 74-64 118-128 118s-114-44-128-118Z" fill="#FFFFFF"/>
+  <path d="M194 354c17 19 37 28 62 28s45-9 62-28" fill="none" stroke="#2563EB" stroke-width="16" stroke-linecap="round"/>
 </svg>
