@@ -1524,6 +1524,7 @@ body.nutrition-detail-open {
 
 .nutrition-analysis,
 .nutrition-usage,
+.nutrition-detail-qr,
 .nutrition-sources,
 .nutrition-sellers {
   margin: 0 22px 18px;
@@ -1671,6 +1672,69 @@ body.nutrition-detail-open {
 .nutrition-analysis small {
   color: #7b898f;
   font-size: 0.65rem;
+}
+
+.nutrition-detail-qr {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 220px;
+  align-items: center;
+  gap: 20px;
+  overflow: hidden;
+  border-color: #c8dfd4;
+  background: #f1f8f4;
+}
+
+.nutrition-detail-qr-copy > span {
+  display: block;
+  margin-bottom: 4px;
+  color: var(--nutrition-green);
+  font-size: 0.68rem;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.nutrition-detail-qr h3 {
+  margin: 0;
+  color: var(--nutrition-ink);
+  font-size: 1rem;
+}
+
+.nutrition-detail-qr p {
+  max-width: 520px;
+  margin: 7px 0 12px;
+  color: var(--nutrition-muted);
+  font-size: 0.75rem;
+  line-height: 1.55;
+}
+
+.nutrition-detail-qr-copy > a {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  min-height: 40px;
+  padding: 9px 12px;
+  border-radius: 7px;
+  color: #ffffff;
+  background: var(--nutrition-green);
+  font-size: 0.73rem;
+  font-weight: 800;
+}
+
+.nutrition-detail-qr-copy > a svg {
+  width: 16px;
+  height: 16px;
+}
+
+.nutrition-detail-qr-image {
+  display: block;
+  justify-self: end;
+}
+
+.nutrition-detail-qr-image img {
+  display: block;
+  width: 210px;
+  height: 210px;
+  object-fit: contain;
 }
 
 .nutrition-sources {
@@ -1868,6 +1932,7 @@ body.nutrition-detail-open {
 
   .nutrition-fit-grid,
   .nutrition-usage,
+  .nutrition-detail-qr,
   .nutrition-sources {
     grid-template-columns: 1fr;
   }
@@ -2034,10 +2099,31 @@ body.nutrition-detail-open {
 
   .nutrition-analysis,
   .nutrition-usage,
+  .nutrition-detail-qr,
   .nutrition-sources,
   .nutrition-sellers {
     margin-right: 16px;
     margin-left: 16px;
+  }
+
+  .nutrition-detail-qr {
+    grid-template-columns: 1fr;
+    justify-items: center;
+    text-align: center;
+  }
+
+  .nutrition-detail-qr p {
+    margin-right: auto;
+    margin-left: auto;
+  }
+
+  .nutrition-detail-qr-image {
+    justify-self: center;
+  }
+
+  .nutrition-detail-qr-image img {
+    width: min(240px, 100%);
+    height: auto;
   }
 
   .nutrition-compare-dock {

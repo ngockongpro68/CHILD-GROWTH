@@ -2230,7 +2230,11 @@
 
   translations.vi = {
     ...(translations.vi || {}),
-    "Nutrition Product Guide | GrowthKid": "Hướng dẫn chọn sản phẩm dinh dưỡng | GrowthKid"
+    "Nutrition Product Guide | GrowthKid": "Hướng dẫn chọn sản phẩm dinh dưỡng | GrowthKid",
+    "Continue on your phone": "Tiếp tục trên điện thoại",
+    "Scan to open the nutrition guide": "Quét để mở cẩm nang dinh dưỡng",
+    "Use your camera to continue browsing GrowthKid Nutrition on your phone.": "Dùng camera điện thoại để tiếp tục xem GrowthKid Dinh dưỡng.",
+    "QR code to open GrowthKid Nutrition": "Mã QR mở GrowthKid Dinh dưỡng"
   };
 
   let activeLanguage = languageFromPath() || readLanguage();
@@ -2431,13 +2435,17 @@
   const who2007MaxMonths = 228;
   const who2007WeightMaxMonths = 120;
 
-  function readLanguage() {
+  function readStoredLanguage() {
     try {
       const saved = localStorage.getItem("growthkid:language");
-      return languageOptions.some((language) => language.code === saved) ? saved : defaultLanguage;
+      return languageOptions.some((language) => language.code === saved) ? saved : null;
     } catch (error) {
-      return defaultLanguage;
+      return null;
     }
+  }
+
+  function readLanguage() {
+    return readStoredLanguage() || defaultLanguage;
   }
 
   function saveLanguage(languageCode) {
@@ -2469,6 +2477,35 @@
     const cleanPath = pathWithoutLanguagePrefix(window.location.pathname);
     if (languageCode === defaultLanguage) return cleanPath;
     return `/${languageCode}${cleanPath}`;
+  }
+
+  async function redirectToCountryLanguage() {
+    if (languageFromPath() || readStoredLanguage()) return false;
+
+    const controller = typeof AbortController === "function" ? new AbortController() : null;
+    const timeoutId = controller ? window.setTimeout(() => controller.abort(), 2000) : null;
+
+    try {
+      const response = await fetch("/api/locale", {
+        cache: "no-store",
+        headers: { Accept: "application/json" },
+        signal: controller ? controller.signal : undefined
+      });
+      if (!response.ok) return false;
+
+      const result = await response.json();
+      const detectedLanguage = result && result.language;
+      if (detectedLanguage !== "vi") return false;
+
+      const nextPath = pathForLanguage(detectedLanguage);
+      if (nextPath === window.location.pathname) return false;
+      window.location.replace(`${nextPath}${window.location.search}${window.location.hash}`);
+      return true;
+    } catch (error) {
+      return false;
+    } finally {
+      if (timeoutId) window.clearTimeout(timeoutId);
+    }
   }
 
   function localizedHref(href) {
@@ -2792,7 +2829,7 @@
     return `
       <footer class="footer">
         <div class="container footer-grid">
-          <div>
+          <div class="footer-about">
             <a class="brand" href="${localizedHref("/")}">
               <span class="brand-mark">${icon("spark")}</span>
               <span>GrowthKid</span>
@@ -2807,6 +2844,14 @@
             <a href="${localizedHref("/medical-disclaimer/")}">Medical Disclaimer</a>
             <a href="${localizedHref("/terms/")}">Terms</a>
           </div>
+          <a class="footer-qr" href="https://growthkid.xyz/vi/nutrition/" aria-label="${t("Scan to open the nutrition guide")}">
+            <span class="footer-qr-copy">
+              <span>${t("Continue on your phone")}</span>
+              <strong>${t("Scan to open the nutrition guide")}</strong>
+              <small>${t("Use your camera to continue browsing GrowthKid Nutrition on your phone.")}</small>
+            </span>
+            <img src="/assets/growthkid-nutrition-qr.png" width="1254" height="1254" loading="lazy" alt="${t("QR code to open GrowthKid Nutrition")}">
+          </a>
         </div>
       </footer>
     `;
@@ -6603,5 +6648,10 @@
     mountAmbientPointerEffects();
   }
 
-  render();
+  async function initialize() {
+    const redirected = await redirectToCountryLanguage();
+    if (!redirected) render();
+  }
+
+  initialize();
 })();

@@ -77,6 +77,21 @@ function resolveFile(urlPath) {
 }
 
 const server = http.createServer((req, res) => {
+  const requestPath = decodeURIComponent((req.url || "/").split("?")[0]);
+  if (requestPath === "/api/locale") {
+    const country = String(req.headers["x-vercel-ip-country"] || "").toUpperCase();
+    const language = country === "VN" ? "vi" : "en";
+    res.writeHead(200, {
+      "Content-Type": "application/json; charset=utf-8",
+      "Cache-Control": "private, no-store",
+      "Vary": "X-Vercel-IP-Country",
+      ...baseSecurityHeaders,
+      "Content-Security-Policy": contentSecurityPolicy(req.url || "/")
+    });
+    res.end(JSON.stringify({ language }));
+    return;
+  }
+
   const filePath = resolveFile(req.url || "/");
 
   if (!filePath) {

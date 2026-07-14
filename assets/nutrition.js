@@ -204,11 +204,10 @@
       cautions: [text("Tính tổng vitamin D và K từ mọi sản phẩm đang dùng để tránh trùng liều", "Add vitamin D and K from all products to avoid duplicate dosing"), text("Bệnh thận, tăng canxi máu, sỏi thận hoặc dùng thuốc kháng vitamin K cần hỏi bác sĩ", "Kidney disease, hypercalcemia, kidney stones, or vitamin K antagonists require medical advice")],
       analysis: text("Liều công bố 0,20 ml tương đương 6 giọt cung cấp 400 IU vitamin D3 và 22,5 mcg vitamin K2 dạng MK-7. Đây là thực phẩm bổ sung; liều sử dụng cá nhân cần đối chiếu tuổi, khẩu phần và các sản phẩm đang dùng.", "The label serving of 0.20 ml, equivalent to 6 drops, provides 400 IU vitamin D3 and 22.5 mcg MK-7 vitamin K2. This is a supplement; individual use should consider age, diet, and other products."),
       normalizationNote: text("Hàm lượng được hiển thị theo liều 6 giọt do hãng công bố, không quy đổi sang 100 ml và không dùng để suy ra liều điều trị.", "Amounts are shown per the manufacturer's 6-drop serving, not normalized to 100 ml and not intended to infer a treatment dose."),
-      source: "https://www.lineabon.vn/product-page/lineabon-d3k2",
-      sourceLabel: "LineaBon Việt Nam",
+      source: "",
+      sourceLabel: text("KINEZIKA d.o.o. – Slovenia", "KINEZIKA d.o.o. – Slovenia"),
       updated: "13/07/2026",
       sellers: [
-        { name: text("Trang sản phẩm LineaBon", "LineaBon product page"), url: "https://www.lineabon.vn/product-page/lineabon-d3k2", kind: "official", platform: "lineabon" },
         { name: "Shopee", url: "https://s.shopee.vn/6VMEvn1nep", kind: "affiliate", platform: "shopee" }
       ]
     }
@@ -325,8 +324,8 @@
       suitable: [text("Trẻ từ sơ sinh và người lớn cần bổ sung D3, K2 theo khẩu phần", "Infants through adults needing D3 and K2 supplementation"), text("Người cần hỗ trợ sức khỏe xương, răng và chức năng miễn dịch", "People needing support for bone, dental, and immune health")],
       cautions: [text("Không dùng khi mẫn cảm với thành phần; cần tính tổng vitamin D và K đang sử dụng", "Do not use with ingredient hypersensitivity; account for all vitamin D and K sources"), text("Người đang dùng thuốc, đặc biệt thuốc kháng vitamin K, cần hỏi bác sĩ", "People taking medicines, especially vitamin K antagonists, need medical advice")],
       analysis: text("Mỗi 6 giọt tương đương khoảng 214 µl cung cấp vitamin D3 400 IU và vitamin K2-MK7 khoảng 19 mcg. Hàm lượng công bố trong 1 ml lần lượt là 46,67 mcg và 88,5 mcg.", "Six drops, approximately 214 µl, provide 400 IU vitamin D3 and about 19 mcg MK-7 vitamin K2. Label concentrations are 46.67 mcg and 88.5 mcg per ml, respectively."),
-      source: "https://natureswayvietnam.vn/natures-way-kids-smart-drops-vitamin-d3-k2-pd001882", sourceLabel: text("Nature's Way Việt Nam / PharmaCare Laboratories", "Nature's Way Vietnam / PharmaCare Laboratories"),
-      sellers: workbookSellers(text("Trang sản phẩm Nature's Way", "Nature's Way product page"), "https://natureswayvietnam.vn/natures-way-kids-smart-drops-vitamin-d3-k2-pd001882", "natures-way", "https://s.shopee.vn/8V7K1msrpd")
+      source: "", sourceLabel: text("PharmaCare Laboratories Pty Ltd – Australia", "PharmaCare Laboratories Pty Ltd – Australia"),
+      sellers: [{ name: "Shopee", url: "https://s.shopee.vn/8V7K1msrpd", kind: "affiliate", platform: "shopee" }]
     }),
     workbookProduct({
       id: "biolizin-zinc-bisglycinate-lysine-b6-50ml", section: "nutrition", category: "vitamin", subcategory: "zinc",
@@ -341,8 +340,8 @@
       suitable: [text("Trẻ từ 3 tháng và người lớn có nhu cầu bổ sung kẽm", "Children from 3 months and adults needing zinc supplementation"), text("Khẩu phần cần bổ sung lysine và vitamin B6", "Diets needing lysine and vitamin B6 supplementation")],
       cautions: [text("Không dùng dưới 3 tháng hoặc vượt liều khuyến cáo", "Do not use under 3 months or exceed the recommended dose"), text("Nên dùng cách chế phẩm sắt hoặc canxi khoảng 2 giờ; bệnh gan, thận hoặc dùng kháng sinh cần hỏi bác sĩ", "Separate from iron or calcium by about two hours; liver or kidney disease or antibiotics require medical advice")],
       analysis: text("Mỗi 5 ml cung cấp 10 mg kẽm nguyên tố từ kẽm bisglycinate, 200 mg lysine và 2 mg vitamin B6. Đây là thực phẩm bổ sung, không thay thế điều trị nguyên nhân biếng ăn hoặc tiêu chảy.", "Each 5 ml provides 10 mg elemental zinc from zinc bisglycinate, 200 mg lysine, and 2 mg vitamin B6. This supplement does not replace evaluation and treatment of poor appetite or diarrhea."),
-      source: "https://biolizin.vn/san-pham/biolizin/", sourceLabel: text("HC Clover Productos y Servicios / Biolizin Việt Nam", "HC Clover Productos y Servicios / Biolizin Vietnam"),
-      sellers: workbookSellers(text("Trang sản phẩm Biolizin", "Biolizin product page"), "https://biolizin.vn/san-pham/biolizin/", "biolizin", "https://s.shopee.vn/9zw7oUxmqf")
+      source: "", sourceLabel: text("HC Clover Productos y Servicios S.L. – Spain", "HC Clover Productos y Servicios S.L. – Spain"),
+      sellers: [{ name: "Shopee", url: "https://s.shopee.vn/9zw7oUxmqf", kind: "affiliate", platform: "shopee" }]
     }),
     workbookProduct({
       id: "ferrolip-baby-iron-bisglycinate-drops-30ml", section: "nutrition", category: "vitamin", subcategory: "iron",
@@ -1244,6 +1243,17 @@
           </div>
         </div>
       </div>
+      <section class="nutrition-detail-qr">
+        <div class="nutrition-detail-qr-copy">
+          <span>${text("Tiếp tục trên điện thoại", "Continue on your phone")}</span>
+          <h3>${text("Quét để mở GrowthKid Dinh dưỡng", "Scan to open GrowthKid Nutrition")}</h3>
+          <p>${text("Dùng camera điện thoại để xem lại sản phẩm, so sánh và mở liên kết mua hàng thuận tiện hơn.", "Use your phone camera to revisit products, compare options, and open seller links more easily.")}</p>
+          <a href="https://growthkid.xyz/vi/nutrition/" target="_blank" rel="noreferrer">${text("Mở trang dinh dưỡng", "Open nutrition guide")} ${icon("arrow")}</a>
+        </div>
+        <a class="nutrition-detail-qr-image" href="https://growthkid.xyz/vi/nutrition/" target="_blank" rel="noreferrer" aria-label="${text("Mở GrowthKid Dinh dưỡng", "Open GrowthKid Nutrition")}">
+          <img src="/assets/growthkid-nutrition-qr.png" width="1254" height="1254" loading="lazy" alt="${text("Mã QR mở GrowthKid Dinh dưỡng", "QR code to open GrowthKid Nutrition")}">
+        </a>
+      </section>
       <section class="nutrition-usage">
         <div class="nutrition-usage-heading">
           <div class="nutrition-usage-icon">${icon("usage")}</div>
