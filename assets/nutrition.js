@@ -280,6 +280,38 @@
       sellers: workbookSellers(text("Trang sản phẩm Vitabiotics", "Vitabiotics product page"), "https://www.vitabiotics.com/products/wellkid-multi-vitamin-liquid", "vitabiotics", "https://s.shopee.vn/AAFXIMw8vA")
     }),
     workbookProduct({
+      id: "vitabiotics-osteocare-liquid-200ml", section: "nutrition", category: "vitamin", subcategory: "calcium",
+      name: "Vitabiotics Osteocare Liquid 200 ml", brand: "Vitabiotics – Osteocare", image: "/assets/nutrition/vitabiotics-osteocare-liquid-200ml.png",
+      age: text("Từ 1 tuổi tại Việt Nam; hãng UK hướng dẫn từ 3 tuổi", "From age 1 in Vietnam; UK guidance starts at age 3"), ageGroups: ["12-23", "2-5", "6-9", "10-15"], targets: ["child", "teen", "adult", "mother"],
+      needs: ["calcium", "daily"], needLabel: text("Canxi, magie, vitamin D3 và kẽm hỗ trợ xương, răng", "Calcium, magnesium, vitamin D3, and zinc for bone and dental support"), price: 312000,
+      displayMetrics: [
+        { label: text("Canxi", "Calcium"), value: "300 mg / 10 ml" }, { label: text("Magie", "Magnesium"), value: "150 mg / 10 ml" },
+        { label: text("Kẽm", "Zinc"), value: "6 mg / 10 ml" }, { label: "Vitamin D3", value: "3,8 mcg / 10 ml" }
+      ],
+      lactose: text("Có đường mía và sorbitol; dùng quá mức có thể gây tác dụng nhuận tràng.", "Contains cane sugar and sorbitol; excessive intake may have a laxative effect."),
+      suitable: [text("Trẻ em, thanh thiếu niên và người lớn cần bổ sung vi chất cho sức khỏe xương", "Children, adolescents, and adults needing bone-health micronutrients"), text("Phụ nữ mang thai hoặc cho con bú dùng theo khẩu phần và tư vấn phù hợp", "Pregnant or breastfeeding women using an appropriate serving and advice")],
+      cautions: [text("Tăng canxi máu, sỏi thận, bệnh thận hoặc bệnh tuyến giáp cần hỏi bác sĩ", "Hypercalcemia, kidney stones, kidney disease, or thyroid disease requires medical advice"), text("Canxi và magie có thể ảnh hưởng hấp thu một số thuốc; cần hỏi về khoảng cách dùng", "Calcium and magnesium may affect absorption of some medicines; ask about dose separation")],
+      analysis: text("Trong 10 ml có 300 mg canxi, 150 mg magie, 6 mg kẽm và 3,8 mcg vitamin D3, tương đương khoảng 152 IU. Sản phẩm dạng lỏng vị cam–bạc hà.", "Each 10 ml provides 300 mg calcium, 150 mg magnesium, 6 mg zinc, and 3.8 mcg vitamin D3, approximately 152 IU. Orange–mint liquid."),
+      source: "https://www.vitabiotics.com/products/osteocare-liquid", sourceLabel: "Vitabiotics Ltd – Osteocare Liquid",
+      sellers: workbookSellers(text("Trang sản phẩm Vitabiotics", "Vitabiotics product page"), "https://www.vitabiotics.com/products/osteocare-liquid", "vitabiotics", "https://s.shopee.vn/9fJID4KVxy")
+    }),
+    workbookProduct({
+      id: "vitabiotics-feroglobin-b12-liquid-200ml", section: "nutrition", category: "vitamin", subcategory: "iron",
+      name: "Vitabiotics Feroglobin B12 Liquid 200 ml", brand: "Vitabiotics – Feroglobin", image: "/assets/nutrition/vitabiotics-feroglobin-b12-liquid-200ml.png",
+      age: text("Từ 1 tuổi tại Việt Nam; hãng UK hướng dẫn từ 3 tuổi", "From age 1 in Vietnam; UK guidance starts at age 3"), ageGroups: ["12-23", "2-5", "6-9", "10-15"], targets: ["child", "teen", "adult", "mother"],
+      needs: ["iron", "daily"], needLabel: text("Sắt, acid folic và vitamin hỗ trợ tạo hồng cầu", "Iron, folic acid, and vitamins supporting red blood cell formation"), price: 359000,
+      displayMetrics: [
+        { label: text("Sắt", "Iron"), value: "20 mg / 10 ml" }, { label: text("Kẽm", "Zinc"), value: "6 mg / 10 ml" },
+        { label: text("Acid folic", "Folic acid"), value: "100 mcg / 10 ml" }, { label: "Vitamin B12", value: "10 mcg / 10 ml" }
+      ],
+      lactose: text("Có đường, mật ong, malt từ lúa mạch và nguồn sulphite theo công thức UK.", "Contains sugar, honey, barley malt, and a sulphite source in the UK formula."),
+      suitable: [text("Trẻ từ 1 tuổi và người lớn có nhu cầu bổ sung sắt đã được đánh giá", "Children from age 1 and adults with an assessed need for iron"), text("Phụ nữ mang thai, cho con bú hoặc trong kỳ kinh nguyệt dùng theo tư vấn phù hợp", "Pregnancy, breastfeeding, or menstruation use with appropriate advice")],
+      cautions: [text("Không tự điều trị thiếu máu khi chưa xác định nguyên nhân; không dùng khi thalassemia hoặc quá tải sắt", "Do not self-treat anemia without determining the cause; avoid in thalassemia or iron overload"), text("Sắt có thể tương tác với levothyroxine, một số kháng sinh, canxi và thuốc kháng acid", "Iron may interact with levothyroxine, some antibiotics, calcium, and antacids")],
+      analysis: text("Trong 10 ml có 20 mg sắt, 6 mg kẽm, 100 mcg acid folic, 10 mcg vitamin B12 cùng vitamin nhóm B, lysine và malt. Siro có vị cam–mật ong.", "Each 10 ml provides 20 mg iron, 6 mg zinc, 100 mcg folic acid, and 10 mcg vitamin B12 plus B vitamins, lysine, and malt. Orange–honey syrup."),
+      source: "https://www.vitabiotics.com/products/feroglobin-liquid", sourceLabel: "Vitabiotics Ltd – Feroglobin Liquid",
+      sellers: workbookSellers(text("Trang sản phẩm Vitabiotics", "Vitabiotics product page"), "https://www.vitabiotics.com/products/feroglobin-liquid", "vitabiotics", "https://s.shopee.vn/9pciPRaHC1")
+    }),
+    workbookProduct({
       id: "femalto-sat-iii-hydroxyd-polymaltose-50mg-ml-30ml", section: "nutrition", category: "vitamin", subcategory: "iron",
       name: "Femalto dung dịch uống 50 mg/ml – chai 30 ml", brand: "Femalto / Novocare", image: "/assets/nutrition/femalto-30ml-cutout.png",
       age: text("Từ sơ sinh đến người lớn; dùng theo mức độ thiếu sắt", "From birth through adulthood; dose depends on iron deficiency"), ageGroups: ["under-6", "6-11", "12-23", "2-5", "6-9", "10-15"], targets: ["infant", "child", "teen", "adult", "mother"],
@@ -424,6 +456,22 @@
       sellers: workbookSellers(text("Trang sản phẩm BioAmicus", "BioAmicus product page"), "https://bioamicus.com/bioamicus-complete-5-lactobacilli-strains-5-bifidobacteria-strains/", "bioamicus", "https://s.shopee.vn/9AN0p3PCUZ")
     }),
     workbookProduct({
+      id: "enzymax-kids-digestive-enzymes-30-sachets", section: "nutrition", category: "probiotic", subcategory: "digestive-enzyme",
+      name: "Enzymax Kids Digestive Enzymes – hộp 30 gói", brand: "Enzymax Kids – AORA Health", image: "/assets/nutrition/enzymax-kids-digestive-enzymes-30-sachets.png",
+      age: text("Từ 3 tuổi trở lên; dưới 3 tuổi chỉ dùng theo tư vấn chuyên môn", "From age 3; under age 3 only with professional advice"), ageGroups: ["2-5", "6-9", "10-15"], targets: ["child", "teen"],
+      needs: ["digestion"], needLabel: text("Năm enzyme hỗ trợ tiêu hóa chất béo, tinh bột và protein", "Five enzymes supporting fat, starch, and protein digestion"), price: 324000,
+      displayMetrics: [
+        { label: "Lipase", value: "2.000 FIP / gói" }, { label: "Amylase", value: "1.075 DU / gói" },
+        { label: "Glucoamylase", value: "7 AGU / gói" }, { label: "Protease", value: "7,5 SAPU + 1.560 HUT" }
+      ],
+      lactose: text("Có fructose, glucose syrup và sucralose; đây là enzyme tiêu hóa, không phải men vi sinh.", "Contains fructose, glucose syrup, and sucralose; this is a digestive enzyme, not a probiotic."),
+      suitable: [text("Trẻ từ 3 tuổi có biểu hiện tiêu hóa kém do thiếu enzyme tiêu hóa", "Children from age 3 with poor digestion related to digestive enzyme insufficiency"), text("Khẩu phần cần hỗ trợ phân giải chất béo, tinh bột và protein", "Diets needing support for fat, starch, and protein breakdown")],
+      cautions: [text("Không tự dùng kéo dài để che lấp biếng ăn, chậm tăng cân, tiêu chảy hoặc phân sống", "Do not use long term to mask poor appetite, growth faltering, diarrhea, or undigested stool"), text("Sốt, nôn nhiều, đau bụng dữ dội, phân máu, mất nước hoặc sụt cân cần khám", "Fever, repeated vomiting, severe pain, bloody stool, dehydration, or weight loss needs assessment")],
+      analysis: text("Mỗi gói 2 g phối hợp lipase, amylase, glucoamylase và hai protease có nguồn gốc vi sinh hoặc nấm. Sản phẩm dùng vào đầu bữa ăn và không pha với thức ăn nóng.", "Each 2 g sachet combines lipase, amylase, glucoamylase, and two microbial or fungal proteases. Use at the start of a meal and do not mix with hot food."),
+      source: "https://www.aorahealth.com/en/products/digestive-range/1872-enzymax-kids", sourceLabel: "AORA Health Technical Services S.L. – Enzymax Kids",
+      sellers: workbookSellers(text("Trang sản phẩm AORA Health", "AORA Health product page"), "https://www.aorahealth.com/en/products/digestive-range/1872-enzymax-kids", "aora-health", "https://s.shopee.vn/9zw8gJhxyf")
+    }),
+    workbookProduct({
       id: "buona-peginpol-macrogol-3350-20-goi-5g", section: "nutrition", category: "fiber", subcategory: "constipation",
       name: "Buona PEGinpol Macrogol 3350 – hộp 20 gói × 5 g", brand: "Buona", image: "/assets/nutrition/buona-peginpol-20x5g.png",
       age: text("Từ 6 tháng tuổi", "From 6 months"), ageGroups: ["6-11", "12-23", "2-5", "6-9", "10-15"], targets: ["infant", "child", "teen", "adult"],
@@ -530,6 +578,12 @@
     "vitabiotics-wellkid-multivitamin-liquid-150ml": {
       steps: [text("Lắc kỹ chai và dùng trong hoặc ngay sau bữa ăn chính.", "Shake well and use with or immediately after a main meal."), text("Trẻ 4–10 tuổi dùng 5 ml/ngày; trẻ 11–12 tuổi dùng 10 ml/ngày.", "Children aged 4–10 use 5 ml/day; ages 11–12 use 10 ml/day."), text("Dùng dụng cụ đong, không vượt quá liều và không phối hợp đa vitamin khác nếu chưa tính tổng liều.", "Use a measuring device, do not exceed the serving, and avoid another multivitamin unless total intake has been checked.")]
     },
+    "vitabiotics-osteocare-liquid-200ml": {
+      steps: [text("Lắc kỹ nhiều lần trước khi dùng và đo liều bằng dụng cụ chia liều sạch.", "Shake thoroughly before use and measure with a clean dosing device."), text("Theo nhãn Việt Nam: 1–3 tuổi 2,5 ml/ngày; 4–8 tuổi 5 ml/ngày; từ 9 tuổi và người lớn 10 ml/lần, ngày 2 lần.", "Vietnam label: ages 1–3 use 2.5 ml/day; ages 4–8 use 5 ml/day; age 9 and adults use 10 ml twice daily."), text("Có thể dùng trước hoặc sau ăn; sau khi mở, đậy kín, bảo quản ngăn mát và dùng trong vòng 8 tuần.", "Use before or after meals; after opening, close tightly, refrigerate, and use within eight weeks.")]
+    },
+    "vitabiotics-feroglobin-b12-liquid-200ml": {
+      steps: [text("Lắc kỹ chai và đo liều bằng dụng cụ chia liều sạch; dùng cùng hoặc ngay sau bữa ăn nếu dễ khó chịu dạ dày.", "Shake well and use a clean dosing device; take with or just after food if stomach upset occurs."), text("Theo nhãn Việt Nam: 1–2 tuổi 5 ml/lần, ngày 2 lần; 3–12 tuổi 10 ml/ngày; từ 13 tuổi và người lớn 10 ml/ngày.", "Vietnam label: ages 1–2 use 5 ml twice daily; ages 3–12 use 10 ml/day; age 13 and adults use 10 ml/day."), text("Tránh dùng cùng trà, cà phê, sữa, canxi hoặc thuốc kháng acid; nên cách ít nhất 2 giờ. Bảo quản lạnh sau mở và dùng trong 6 tuần.", "Separate from tea, coffee, milk, calcium, and antacids by at least two hours. Refrigerate after opening and use within six weeks.")]
+    },
     "femalto-sat-iii-hydroxyd-polymaltose-50mg-ml-30ml": {
       steps: [text("Có thể uống trực tiếp hoặc trộn với nước hoa quả, nước rau ép hay nước đóng chai; dùng một lần hoặc chia nhiều lần trong ngày. 1 ml tương ứng 14 giọt.", "Take directly or mix with fruit juice, vegetable juice, or bottled water; use once daily or in divided doses. One ml equals 14 drops."), text("Trẻ dưới 1 tuổi: thiếu sắt kèm thiếu máu 0,5–1 ml/ngày (7–14 giọt); thiếu sắt không kèm thiếu máu 0,5 ml/ngày (7 giọt).", "Under age 1: 0.5–1 ml/day (7–14 drops) for iron deficiency anemia; 0.5 ml/day (7 drops) for iron deficiency without anemia."), text("Trẻ 1–12 tuổi: tương ứng 1–2 ml/ngày hoặc 0,5–1 ml/ngày. Trên 12 tuổi và người lớn: tương ứng 2–6 ml/ngày hoặc 1–2 ml/ngày.", "Ages 1–12: 1–2 ml/day or 0.5–1 ml/day respectively. Over age 12 and adults: 2–6 ml/day or 1–2 ml/day respectively."), text("Trẻ sinh non: 2,5–5 mg sắt/kg/ngày trong 3–5 tháng chỉ theo chỉ định. Mọi liều dùng và thời gian điều trị cần được bác sĩ hoặc nhân viên y tế xác nhận.", "Preterm infants: 2.5–5 mg iron/kg/day for 3–5 months only when prescribed. All dosing and treatment duration require confirmation by a healthcare professional.")]
     },
@@ -556,6 +610,9 @@
     },
     "bioamicus-complete-10-strain-probiotic-drops-10ml": {
       steps: [text("Lắc kỹ trước mỗi lần dùng. Nhỏ trực tiếp, cho ra thìa hoặc trộn với sữa, nước hay thức ăn nguội; không pha vào đồ nóng.", "Shake well before each use. Give directly, on a spoon, or mix with cool milk, water, or food; do not add to hot food or drinks."), text("Trẻ dưới 1 tuổi: theo hướng dẫn chuyên môn, liều tham khảo 5 giọt/lần, ngày 1 lần. Từ 1 tuổi và người lớn: 5 giọt/lần, ngày 2 lần.", "Under age 1: use with professional guidance; the reference serving is 5 drops once daily. From age 1 and adults: 5 drops twice daily."), text("Dùng cách kháng sinh ít nhất 2–3 giờ. Không để đầu nhỏ giọt chạm miệng hoặc chất lỏng; sau mở nắp đậy kín và bảo quản ngăn mát 2–8°C.", "Separate from antibiotics by at least 2–3 hours. Keep the dropper tip away from the mouth and liquids; close tightly and refrigerate at 2–8°C after opening.")]
+    },
+    "enzymax-kids-digestive-enzymes-30-sachets": {
+      steps: [text("Dùng vào đầu bữa ăn chính. Pha liều cần dùng với khoảng 50 ml nước ở nhiệt độ phòng, khuấy nhẹ và uống ngay.", "Use at the start of a main meal. Mix the dose with about 50 ml room-temperature water, stir gently, and drink promptly."), text("Trẻ 3–4 tuổi dùng 1 gói/lần, ngày 3 lần; trẻ trên 4 tuổi dùng 1–2 gói/lần, ngày 3 lần.", "Ages 3–4 use one sachet three times daily; over age 4 use one to two sachets three times daily."), text("Có thể trộn với thức ăn nguội hoặc ấm; không pha với nước hay thức ăn nóng. Trẻ dưới 3 tuổi chỉ dùng khi có tư vấn chuyên môn.", "May be mixed with cool or warm food; do not use hot water or food. Under age 3 only with professional advice.")]
     },
     "buona-peginpol-macrogol-3350-20-goi-5g": {
       steps: [text("Liều theo hãng: 6 tháng–2 tuổi (đến 12 kg) 1–2 gói/ngày; 2–11 tuổi (12–20 kg) 2–4 gói/ngày; trên 11 tuổi (trên 20 kg) 2–6 gói/ngày.", "Manufacturer guidance: 6 months–2 years (up to 12 kg), 1–2 sachets/day; ages 2–11 (12–20 kg), 2–4/day; over 11 years (over 20 kg), 2–6/day."), text("Hòa tan theo tờ hướng dẫn của hộp và duy trì đủ lượng nước trong ngày.", "Dissolve according to the package leaflet and maintain adequate fluid intake."), text("Nên dùng liều thấp nhất có hiệu quả; trẻ nhỏ hoặc cần dùng kéo dài phải được nhân viên y tế theo dõi.", "Use the lowest effective amount; young children or prolonged use require professional follow-up.")]
@@ -600,7 +657,7 @@
       label: text("Men vi sinh & enzyme tiêu hóa", "Probiotics & digestive enzymes"),
       shortLabel: text("Men vi sinh & enzyme", "Probiotics & enzymes"),
       description: text("Men vi sinh và enzyme tiêu hóa được phân biệt rõ theo chủng, hoạt tính và mục đích sử dụng trên nhãn.", "Probiotics and digestive enzymes are clearly separated by strain, activity, and labelled use."),
-      subcategories: [["all", text("Tất cả", "All")], ["lactase", "Enzyme lactase"], ["diarrhea", text("Tiêu chảy", "Diarrhea")], ["constipation", text("Táo bón", "Constipation")], ["antibiotic", text("Sau kháng sinh", "After antibiotics")], ["colic", "Colic"]]
+      subcategories: [["all", text("Tất cả", "All")], ["digestive-enzyme", text("Enzyme tiêu hóa", "Digestive enzymes")], ["lactase", "Enzyme lactase"], ["diarrhea", text("Tiêu chảy", "Diarrhea")], ["constipation", text("Táo bón", "Constipation")], ["antibiotic", text("Sau kháng sinh", "After antibiotics")], ["colic", "Colic"]]
     },
     {
       id: "fiber",
