@@ -297,6 +297,70 @@
       sellers: [{ name: "Shopee", url: "https://s.shopee.vn/1qaPNHrd2h", kind: "affiliate", platform: "shopee" }]
     }),
     workbookProduct({
+      id: "dimao-pro-d3k2-oral-spray-25ml", section: "nutrition", category: "vitamin", subcategory: "d3-k2",
+      name: "Dimao Pro Oral Spray D3 + K2 25 ml", brand: "Dimao Pro", image: "/assets/nutrition/dimao-pro-d3k2-25ml.webp",
+      age: text("Từ sơ sinh đến người lớn", "From birth through adulthood"), ageGroups: ["under-6", "6-11", "12-23", "2-5", "6-9", "10-15"], targets: ["infant", "child", "teen", "adult"],
+      needs: ["calcium"], needLabel: text("D3 và K2 dạng xịt hỗ trợ sử dụng canxi", "D3 and K2 oral spray supporting calcium utilization"), price: 352000,
+      displayMetrics: [
+        { label: "Vitamin D3", value: "400 IU / nhát xịt" }, { label: "Vitamin K2", value: "18,75 mcg / nhát" },
+        { label: text("Thể tích nhát xịt", "Spray volume"), value: "~0,2 ml" }, { label: text("Số liều", "Approx. sprays"), value: "~125 nhát" }
+      ],
+      lactose: text("Nguồn phân phối công bố không đường, cồn hoặc gluten; công thức có xylitol và hương dâu tự nhiên.", "Distributor information states sugar-, alcohol-, and gluten-free; the formula contains xylitol and natural strawberry flavor."),
+      suitable: [text("Trẻ em và người lớn cần bổ sung vitamin D3, K2 sau khi đánh giá khẩu phần", "Children and adults needing D3 and K2 after dietary assessment"), text("Người cần hỗ trợ hấp thu và sử dụng canxi", "People needing support for calcium absorption and utilization")],
+      cautions: [text("Tính tổng vitamin D và K từ mọi sản phẩm đang dùng để tránh trùng liều", "Add vitamin D and K from all products to avoid duplicate dosing"), text("Bệnh thận, tăng canxi máu, sỏi thận hoặc dùng thuốc kháng vitamin K cần hỏi bác sĩ", "Kidney disease, hypercalcemia, kidney stones, or vitamin K antagonists require medical advice")],
+      analysis: text("Mỗi nhát xịt khoảng 0,2 ml cung cấp vitamin D3 400 IU và vitamin K2 18,75 mcg. Một lọ 25 ml tương đương khoảng 125 nhát xịt.", "Each approximately 0.2 ml spray provides 400 IU vitamin D3 and 18.75 mcg vitamin K2. A 25 ml bottle provides about 125 sprays."),
+      source: "", sourceLabel: text("Valens International / Valens Int. d.o.o. – Slovenia", "Valens International / Valens Int. d.o.o. – Slovenia"),
+      sellers: [{ name: "Shopee", url: "https://s.shopee.vn/3qLUT4EGhd", kind: "affiliate", platform: "shopee" }]
+    }),
+    workbookProduct({
+      id: "natures-way-kids-smart-drops-vitamin-d3-k2-11ml", section: "nutrition", category: "vitamin", subcategory: "d3-k2",
+      name: "Nature's Way Kids Smart Drops Vitamin D3 + K2 11 ml", brand: "Nature's Way – Kids Smart", image: "/assets/nutrition/natures-way-d3k2-11ml.webp",
+      age: text("Từ sơ sinh đến người lớn", "From birth through adulthood"), ageGroups: ["under-6", "6-11", "12-23", "2-5", "6-9", "10-15"], targets: ["infant", "child", "teen", "adult"],
+      needs: ["calcium", "immune"], needLabel: text("Vitamin D3 và K2-MK7 dạng nhỏ giọt", "Vitamin D3 and K2-MK7 drops"), price: 400000,
+      displayMetrics: [
+        { label: "Vitamin D3", value: "400 IU / 6 giọt" }, { label: "Vitamin K2 MK-7", value: "~19 mcg / 6 giọt" },
+        { label: text("Khẩu phần", "Serving"), value: "6 giọt / 214 µl" }, { label: text("Quy cách", "Package"), value: "11 ml" }
+      ],
+      lactose: text("Không màu, hương, chất tạo ngọt hoặc chất bảo quản theo nhãn; có thành phần từ đậu nành.", "Label states no colors, flavors, sweeteners, or preservatives; contains soy-derived ingredients."),
+      suitable: [text("Trẻ từ sơ sinh và người lớn cần bổ sung D3, K2 theo khẩu phần", "Infants through adults needing D3 and K2 supplementation"), text("Người cần hỗ trợ sức khỏe xương, răng và chức năng miễn dịch", "People needing support for bone, dental, and immune health")],
+      cautions: [text("Không dùng khi mẫn cảm với thành phần; cần tính tổng vitamin D và K đang sử dụng", "Do not use with ingredient hypersensitivity; account for all vitamin D and K sources"), text("Người đang dùng thuốc, đặc biệt thuốc kháng vitamin K, cần hỏi bác sĩ", "People taking medicines, especially vitamin K antagonists, need medical advice")],
+      analysis: text("Mỗi 6 giọt tương đương khoảng 214 µl cung cấp vitamin D3 400 IU và vitamin K2-MK7 khoảng 19 mcg. Hàm lượng công bố trong 1 ml lần lượt là 46,67 mcg và 88,5 mcg.", "Six drops, approximately 214 µl, provide 400 IU vitamin D3 and about 19 mcg MK-7 vitamin K2. Label concentrations are 46.67 mcg and 88.5 mcg per ml, respectively."),
+      source: "https://natureswayvietnam.vn/natures-way-kids-smart-drops-vitamin-d3-k2-pd001882", sourceLabel: text("Nature's Way Việt Nam / PharmaCare Laboratories", "Nature's Way Vietnam / PharmaCare Laboratories"),
+      sellers: workbookSellers(text("Trang sản phẩm Nature's Way", "Nature's Way product page"), "https://natureswayvietnam.vn/natures-way-kids-smart-drops-vitamin-d3-k2-pd001882", "natures-way", "https://s.shopee.vn/8V7K1msrpd")
+    }),
+    workbookProduct({
+      id: "biolizin-zinc-bisglycinate-lysine-b6-50ml", section: "nutrition", category: "vitamin", subcategory: "zinc",
+      name: "Biolizin Syrup 50 ml", brand: "Biolizin", image: "/assets/nutrition/biolizin-syrup-50ml.jpg",
+      age: text("Từ 3 tháng tuổi trở lên", "From 3 months"), ageGroups: ["under-6", "6-11", "12-23", "2-5", "6-9", "10-15"], targets: ["infant", "child", "teen", "adult"],
+      needs: ["immune", "picky"], needLabel: text("Kẽm bisglycinate, lysine và vitamin B6", "Zinc bisglycinate, lysine, and vitamin B6"), price: 315000,
+      displayMetrics: [
+        { label: text("Kẽm nguyên tố", "Elemental zinc"), value: "10 mg / 5 ml" }, { label: "Lysine", value: "200 mg / 5 ml" },
+        { label: "Vitamin B6", value: "2 mg / 5 ml" }, { label: text("Quy cách", "Package"), value: "50 ml" }
+      ],
+      lactose: text("Nhãn hàng công bố không lactose, không gluten và không chứa cồn.", "The brand states lactose-free, gluten-free, and alcohol-free."),
+      suitable: [text("Trẻ từ 3 tháng và người lớn có nhu cầu bổ sung kẽm", "Children from 3 months and adults needing zinc supplementation"), text("Khẩu phần cần bổ sung lysine và vitamin B6", "Diets needing lysine and vitamin B6 supplementation")],
+      cautions: [text("Không dùng dưới 3 tháng hoặc vượt liều khuyến cáo", "Do not use under 3 months or exceed the recommended dose"), text("Nên dùng cách chế phẩm sắt hoặc canxi khoảng 2 giờ; bệnh gan, thận hoặc dùng kháng sinh cần hỏi bác sĩ", "Separate from iron or calcium by about two hours; liver or kidney disease or antibiotics require medical advice")],
+      analysis: text("Mỗi 5 ml cung cấp 10 mg kẽm nguyên tố từ kẽm bisglycinate, 200 mg lysine và 2 mg vitamin B6. Đây là thực phẩm bổ sung, không thay thế điều trị nguyên nhân biếng ăn hoặc tiêu chảy.", "Each 5 ml provides 10 mg elemental zinc from zinc bisglycinate, 200 mg lysine, and 2 mg vitamin B6. This supplement does not replace evaluation and treatment of poor appetite or diarrhea."),
+      source: "https://biolizin.vn/san-pham/biolizin/", sourceLabel: text("HC Clover Productos y Servicios / Biolizin Việt Nam", "HC Clover Productos y Servicios / Biolizin Vietnam"),
+      sellers: workbookSellers(text("Trang sản phẩm Biolizin", "Biolizin product page"), "https://biolizin.vn/san-pham/biolizin/", "biolizin", "https://s.shopee.vn/9zw7oUxmqf")
+    }),
+    workbookProduct({
+      id: "ferrolip-baby-iron-bisglycinate-drops-30ml", section: "nutrition", category: "vitamin", subcategory: "iron",
+      name: "Ferrolip Baby Iron Bisglycinate Drops 30 ml", brand: "Ferrolip Baby – U.G.A.", image: "/assets/nutrition/ferrolip-baby-30ml-clean.png",
+      age: text("Từ sơ sinh đến 10 tuổi; trẻ nhỏ dùng theo hướng dẫn chuyên môn", "From birth to age 10; young children need professional guidance"), ageGroups: ["under-6", "6-11", "12-23", "2-5", "6-9", "10-15"], targets: ["infant", "child"],
+      needs: ["iron"], needLabel: text("Sắt bisglycinate dạng nhỏ giọt", "Iron bisglycinate drops"), price: 315000,
+      displayMetrics: [
+        { label: text("Sắt", "Iron"), value: "5 mg / 1 ml" }, { label: text("Liều 1–3 tuổi", "Ages 1–3"), value: "7,5 mg / 1,5 ml" },
+        { label: text("Liều 4–10 tuổi", "Ages 4–10"), value: "10–12,5 mg" }, { label: text("Quy cách", "Package"), value: "30 ml" }
+      ],
+      lactose: text("Hãng công bố không chứa gluten và lactose; dung dịch nhỏ giọt vị đào.", "Manufacturer states gluten- and lactose-free; peach-flavored drops."),
+      suitable: [text("Trẻ có nhu cầu bổ sung sắt đã được đánh giá", "Children with an assessed need for iron supplementation"), text("Khẩu phần cần hỗ trợ tạo hồng cầu và hemoglobin", "Diets needing support for red blood cell and hemoglobin formation")],
+      cautions: [text("Không tự điều trị thiếu máu nếu chưa xác định nguyên nhân; trẻ dưới 2 tuổi dùng theo chỉ dẫn bác sĩ", "Do not self-treat anemia without determining the cause; children under 2 need medical direction"), text("Không dùng khi quá tải sắt, thalassemia hoặc thiếu máu không do thiếu sắt nếu chưa có chỉ định", "Do not use with iron overload, thalassemia, or non-iron-deficiency anemia without a prescription")],
+      analysis: text("Mỗi 1 ml cung cấp 5 mg sắt nguyên tố dạng ferrous bisglycinate chelate. Liều công bố của hãng thay đổi theo tuổi từ 1 ml đến 2,5 ml mỗi ngày.", "Each 1 ml provides 5 mg elemental iron as ferrous bisglycinate chelate. Manufacturer dosage varies by age from 1 ml to 2.5 ml daily."),
+      source: "https://uganutraceuticals.com/en/products/ferrolip-baby", sourceLabel: "U.G.A. Nutraceuticals – Ferrolip Baby",
+      sellers: workbookSellers(text("Trang sản phẩm Ferrolip", "Ferrolip product page"), "https://uganutraceuticals.com/en/products/ferrolip-baby", "ferrolip", "https://s.shopee.vn/6fffqO9nW8")
+    }),
+    workbookProduct({
       id: "special-kid-sommeil-thao-duoc-125ml", section: "nutrition", category: "vitamin", subcategory: "sleep",
       name: "Special Kid Sommeil siro thảo dược 125 ml", brand: "Special Kid – Eric Favre", image: "/assets/nutrition/special-kid-sommeil-125ml.jpg",
       age: text("Trẻ từ 2 tuổi", "Children from 2 years"), ageGroups: ["2-5", "6-9", "10-15"], targets: ["child", "teen"],
@@ -343,6 +407,22 @@
       analysis: text("Theo hãng, sản phẩm gồm nước, enzyme lactase và glycerol thực vật, không chứa gluten. Nguồn hãng chưa công bố định lượng hoặc hoạt tính lactase trên mỗi giọt.", "The manufacturer lists water, lactase enzyme, and vegetable glycerol and states that the product is gluten-free. Per-drop lactase activity is not published."),
       source: "https://easycolbaby.com/?lang=en", sourceLabel: "A.E.I. 24 – Easycol BABY+",
       sellers: workbookSellers(text("Trang sản phẩm Easycol", "Easycol product page"), "https://easycolbaby.com/?lang=en", "easycol", "https://s.shopee.vn/2g9WMX5hC8")
+    }),
+    workbookProduct({
+      id: "bioamicus-complete-10-strain-probiotic-drops-10ml", section: "nutrition", category: "probiotic", subcategory: "multi-strain",
+      name: "BioAmicus Complete Probiotic Drops 10 ml", brand: "BioAmicus Laboratories", image: "/assets/nutrition/bioamicus-complete-10ml.jpg",
+      age: text("Từ sơ sinh đến người lớn; trẻ dưới 1 tuổi dùng theo hướng dẫn chuyên môn", "From birth through adulthood; infants under 1 need professional guidance"), ageGroups: ["under-6", "6-11", "12-23", "2-5", "6-9", "10-15"], targets: ["infant", "child", "teen", "adult"],
+      needs: ["digestion", "immune"], needLabel: text("Men vi sinh nhỏ giọt gồm 10 chủng lợi khuẩn", "Probiotic drops with 10 strains"), price: 480000,
+      displayMetrics: [
+        { label: text("Tổng lợi khuẩn", "Total probiotics"), value: "1 tỷ CFU / 5 giọt" }, { label: text("Số chủng", "Strains"), value: "10 chủng" },
+        { label: text("Số liều", "Approx. servings"), value: "~50 liều" }, { label: text("Quy cách", "Package"), value: "10 ml" }
+      ],
+      lactose: text("Nhãn hàng công bố không protein sữa, lactose, gluten, chất tạo màu, hương liệu hoặc chất bảo quản.", "The brand states no milk protein, lactose, gluten, colors, flavors, or preservatives."),
+      suitable: [text("Trẻ em và người lớn cần bổ sung lợi khuẩn đường ruột", "Children and adults needing probiotic supplementation"), text("Người cần hỗ trợ cân bằng hệ vi sinh sau rối loạn tiêu hóa hoặc dùng kháng sinh", "People needing microbiome support after digestive upset or antibiotics")],
+      cautions: [text("Trẻ sinh non, bệnh nền nặng, suy giảm miễn dịch hoặc có catheter tĩnh mạch trung tâm cần hỏi bác sĩ", "Preterm infants, severe illness, immunocompromise, or central venous catheters require medical advice"), text("Sốt, nôn nhiều, phân máu, mất nước hoặc triệu chứng kéo dài cần khám", "Fever, repeated vomiting, bloody stool, dehydration, or persistent symptoms need assessment")],
+      analysis: text("Mỗi 5 giọt cung cấp tổng 1 tỷ CFU từ 10 chủng Lactobacillus và Bifidobacterium, tương đương 100 triệu CFU mỗi chủng theo thông tin hãng.", "Each five-drop serving provides 1 billion CFU from 10 Lactobacillus and Bifidobacterium strains, 100 million CFU per strain according to the manufacturer."),
+      source: "https://bioamicus.com/bioamicus-complete-5-lactobacilli-strains-5-bifidobacteria-strains/", sourceLabel: "BioAmicus Laboratories Inc. – Canada",
+      sellers: workbookSellers(text("Trang sản phẩm BioAmicus", "BioAmicus product page"), "https://bioamicus.com/bioamicus-complete-5-lactobacilli-strains-5-bifidobacteria-strains/", "bioamicus", "https://s.shopee.vn/9AN0p3PCUZ")
     }),
     workbookProduct({
       id: "buona-peginpol-macrogol-3350-20-goi-5g", section: "nutrition", category: "fiber", subcategory: "constipation",
@@ -454,6 +534,18 @@
     "femalto-sat-iii-hydroxyd-polymaltose-50mg-ml-30ml": {
       steps: [text("Có thể uống trực tiếp hoặc trộn với nước hoa quả, nước rau ép hay nước đóng chai; dùng một lần hoặc chia nhiều lần trong ngày. 1 ml tương ứng 14 giọt.", "Take directly or mix with fruit juice, vegetable juice, or bottled water; use once daily or in divided doses. One ml equals 14 drops."), text("Trẻ dưới 1 tuổi: thiếu sắt kèm thiếu máu 0,5–1 ml/ngày (7–14 giọt); thiếu sắt không kèm thiếu máu 0,5 ml/ngày (7 giọt).", "Under age 1: 0.5–1 ml/day (7–14 drops) for iron deficiency anemia; 0.5 ml/day (7 drops) for iron deficiency without anemia."), text("Trẻ 1–12 tuổi: tương ứng 1–2 ml/ngày hoặc 0,5–1 ml/ngày. Trên 12 tuổi và người lớn: tương ứng 2–6 ml/ngày hoặc 1–2 ml/ngày.", "Ages 1–12: 1–2 ml/day or 0.5–1 ml/day respectively. Over age 12 and adults: 2–6 ml/day or 1–2 ml/day respectively."), text("Trẻ sinh non: 2,5–5 mg sắt/kg/ngày trong 3–5 tháng chỉ theo chỉ định. Mọi liều dùng và thời gian điều trị cần được bác sĩ hoặc nhân viên y tế xác nhận.", "Preterm infants: 2.5–5 mg iron/kg/day for 3–5 months only when prescribed. All dosing and treatment duration require confirmation by a healthcare professional.")]
     },
+    "dimao-pro-d3k2-oral-spray-25ml": {
+      steps: [text("Lắc kỹ lọ rồi xịt trực tiếp vào miệng; có thể dùng trước hoặc sau ăn.", "Shake well, then spray directly into the mouth; it may be used before or after meals."), text("Trẻ 0–12 tháng: 1 nhát/ngày. Từ 12 tháng: liều bổ sung thông thường 1 nhát/ngày; trường hợp cần thiết chỉ tăng đến 2–3 nhát theo hướng dẫn chuyên môn. Người lớn: 2–3 nhát/ngày.", "Ages 0–12 months: 1 spray daily. From 12 months: the usual supplemental serving is 1 spray daily; increase to 2–3 only with professional guidance. Adults: 2–3 sprays daily."), text("Không tự tăng liều ở trẻ và cần tính tổng vitamin D, K từ các sản phẩm khác đang dùng.", "Do not increase a child's dose without advice and account for vitamin D and K from all other products.")]
+    },
+    "natures-way-kids-smart-drops-vitamin-d3-k2-11ml": {
+      steps: [text("Lắc đều trước khi dùng. Có thể nhỏ trực tiếp vào miệng hoặc trộn với sữa, thức ăn hay nước trái cây.", "Shake well before use. Give directly by mouth or mix with milk, food, or juice."), text("Trẻ 0–12 tháng: 6 giọt/ngày; 1–2 tuổi: 6–8 giọt/ngày; 3–12 tuổi: 8–12 giọt/ngày; từ 12 tuổi và người lớn: 12 giọt/ngày.", "Ages 0–12 months: 6 drops/day; ages 1–2: 6–8 drops/day; ages 3–12: 8–12 drops/day; age 12 and adults: 12 drops/day."), text("Bảo quản dưới 25°C và làm lạnh sau khi mở nắp; không dùng nếu niêm phong bị hỏng.", "Store below 25°C and refrigerate after opening; do not use if the tamper seal is damaged.")]
+    },
+    "biolizin-zinc-bisglycinate-lysine-b6-50ml": {
+      steps: [text("Lắc đều và lấy liều bằng bơm chia liều hoặc thìa sạch; có thể uống trực tiếp hoặc trộn với nước, thức ăn nguội.", "Shake well and measure with the supplied syringe or a clean spoon; give directly or mix with cool water or food."), text("Trẻ 3–6 tháng: 1 ml/ngày; 6–12 tháng: 2 ml/ngày; 1–4 tuổi: 2,5 ml/ngày; từ 5 tuổi và người lớn: 5 ml/ngày.", "Ages 3–6 months: 1 ml/day; 6–12 months: 2 ml/day; ages 1–4: 2.5 ml/day; age 5 and adults: 5 ml/day."), text("Nên dùng cách sắt hoặc canxi khoảng 2 giờ. Sau khi mở, dùng tối đa 3 tháng và ưu tiên bảo quản ngăn mát.", "Separate from iron or calcium by about two hours. After opening, use within three months and preferably refrigerate.")]
+    },
+    "ferrolip-baby-iron-bisglycinate-drops-30ml": {
+      steps: [text("Lắc chai và đo liều bằng dụng cụ chia liều đi kèm.", "Shake the bottle and measure with the supplied dosing device."), text("Trẻ 0–12 tháng: 1 ml/ngày; 1–3 tuổi: 1,5 ml/ngày; 4–10 tuổi: 2–2,5 ml/ngày.", "Ages 0–12 months: 1 ml/day; ages 1–3: 1.5 ml/day; ages 4–10: 2–2.5 ml/day."), text("Trẻ dưới 2 tuổi, trẻ có thalassemia hoặc đang điều trị thiếu máu chỉ dùng theo hướng dẫn bác sĩ; không tự tăng liều hay kéo dài thời gian dùng.", "Children under 2, children with thalassemia, or those being treated for anemia should use only under medical direction; do not increase or prolong dosing without advice.")]
+    },
     "special-kid-sommeil-thao-duoc-125ml": {
       steps: [text("Lắc kỹ trước khi dùng, uống trực tiếp hoặc pha với một ít nước.", "Shake well before use; take directly or dilute in a little water."), text("Trẻ dưới 5 tuổi dùng 5 ml buổi tối; từ 5 tuổi dùng 10 ml buổi tối.", "Children under 5 use 5 ml in the evening; age 5 and above use 10 ml in the evening."), text("Trẻ dưới 24 tháng chỉ dùng khi có hướng dẫn chuyên môn; không phối hợp thuốc an thần nếu chưa hỏi bác sĩ.", "Children under 24 months should use only with professional guidance; do not combine with sedatives without medical advice.")]
     },
@@ -462,6 +554,9 @@
     },
     "easycol-baby-plus-lactase-15ml": {
       steps: [text("Với trẻ bú mẹ, nhỏ liều theo bảng trên nhãn vào thìa và cho dùng ngay trước cữ bú.", "For breastfed infants, place the label-directed dose on a spoon and give immediately before feeding."), text("Với sữa công thức hoặc sữa mẹ vắt, thêm 4 giọt vào bình, lắc đều và nếu có thể chuẩn bị trước khoảng 30 phút.", "For formula or expressed breast milk, add 4 drops to the bottle, shake well, and if possible prepare about 30 minutes before feeding."), text("Dùng ở mỗi cữ theo nhãn; không thêm vào sữa nóng và không dùng thay cho xử trí dị ứng đạm sữa bò.", "Use at each feed as labelled; do not add to hot milk and do not use as a substitute for managing cow's milk protein allergy.")]
+    },
+    "bioamicus-complete-10-strain-probiotic-drops-10ml": {
+      steps: [text("Lắc kỹ trước mỗi lần dùng. Nhỏ trực tiếp, cho ra thìa hoặc trộn với sữa, nước hay thức ăn nguội; không pha vào đồ nóng.", "Shake well before each use. Give directly, on a spoon, or mix with cool milk, water, or food; do not add to hot food or drinks."), text("Trẻ dưới 1 tuổi: theo hướng dẫn chuyên môn, liều tham khảo 5 giọt/lần, ngày 1 lần. Từ 1 tuổi và người lớn: 5 giọt/lần, ngày 2 lần.", "Under age 1: use with professional guidance; the reference serving is 5 drops once daily. From age 1 and adults: 5 drops twice daily."), text("Dùng cách kháng sinh ít nhất 2–3 giờ. Không để đầu nhỏ giọt chạm miệng hoặc chất lỏng; sau mở nắp đậy kín và bảo quản ngăn mát 2–8°C.", "Separate from antibiotics by at least 2–3 hours. Keep the dropper tip away from the mouth and liquids; close tightly and refrigerate at 2–8°C after opening.")]
     },
     "buona-peginpol-macrogol-3350-20-goi-5g": {
       steps: [text("Liều theo hãng: 6 tháng–2 tuổi (đến 12 kg) 1–2 gói/ngày; 2–11 tuổi (12–20 kg) 2–4 gói/ngày; trên 11 tuổi (trên 20 kg) 2–6 gói/ngày.", "Manufacturer guidance: 6 months–2 years (up to 12 kg), 1–2 sachets/day; ages 2–11 (12–20 kg), 2–4/day; over 11 years (over 20 kg), 2–6/day."), text("Hòa tan theo tờ hướng dẫn của hộp và duy trì đủ lượng nước trong ngày.", "Dissolve according to the package leaflet and maintain adequate fluid intake."), text("Nên dùng liều thấp nhất có hiệu quả; trẻ nhỏ hoặc cần dùng kéo dài phải được nhân viên y tế theo dõi.", "Use the lowest effective amount; young children or prolonged use require professional follow-up.")]
@@ -562,12 +657,12 @@
     {
       id: "vitamin", area: "nutrition", label: text("Vitamin và khoáng chất", "Vitamins & minerals"), shortLabel: text("Vitamin & khoáng chất", "Vitamins & minerals"),
       description: text("Vitamin, khoáng chất và sản phẩm bổ sung chuyên biệt theo thông tin trên nhãn.", "Vitamins, minerals, and specialized supplements with label-backed information."),
-      subcategories: [["all", text("Tất cả", "All")], ["d3", "Vitamin D3"], ["d3-k2", "Vitamin D3 + K2"], ["multi", text("Vitamin tổng hợp", "Multivitamin")], ["immune", text("Hỗ trợ miễn dịch", "Immune support")], ["sleep", text("Hỗ trợ giấc ngủ", "Sleep support")], ["dha", "DHA"], ["omega-3", "Omega-3"], ["iron", text("Sắt", "Iron")], ["calcium", text("Canxi", "Calcium")]]
+      subcategories: [["all", text("Tất cả", "All")], ["d3", "Vitamin D3"], ["d3-k2", "Vitamin D3 + K2"], ["multi", text("Vitamin tổng hợp", "Multivitamin")], ["immune", text("Hỗ trợ miễn dịch", "Immune support")], ["sleep", text("Hỗ trợ giấc ngủ", "Sleep support")], ["dha", "DHA"], ["omega-3", "Omega-3"], ["zinc", text("Kẽm", "Zinc")], ["iron", text("Sắt", "Iron")], ["calcium", text("Canxi", "Calcium")]]
     },
     {
       id: "probiotic", area: "nutrition", label: text("Men vi sinh & enzyme tiêu hóa", "Probiotics & digestive enzymes"), shortLabel: text("Men vi sinh & enzyme", "Probiotics & enzymes"),
       description: text("Men vi sinh và enzyme tiêu hóa được phân biệt rõ theo chủng, hoạt tính và mục đích sử dụng trên nhãn.", "Probiotics and digestive enzymes are clearly separated by strain, activity, and labelled use."),
-      subcategories: [["all", text("Tất cả", "All")], ["lactase", "Enzyme lactase"], ["diarrhea", text("Tiêu chảy", "Diarrhea")], ["constipation", text("Táo bón", "Constipation")], ["antibiotic", text("Sau kháng sinh", "After antibiotics")], ["colic", "Colic"]]
+      subcategories: [["all", text("Tất cả", "All")], ["multi-strain", text("Men đa chủng", "Multi-strain")], ["lactase", "Enzyme lactase"], ["diarrhea", text("Tiêu chảy", "Diarrhea")], ["constipation", text("Táo bón", "Constipation")], ["antibiotic", text("Sau kháng sinh", "After antibiotics")], ["colic", "Colic"]]
     },
     {
       id: "fiber", area: "nutrition", label: text("Chất xơ & hỗ trợ táo bón", "Fiber & constipation support"), shortLabel: text("Chất xơ & táo bón", "Fiber & constipation"),
