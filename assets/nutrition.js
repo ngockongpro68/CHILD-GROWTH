@@ -160,7 +160,7 @@
       protein: 3,
       calcium: 110,
       vitaminD: null,
-      sugar: null,
+      sugar: text("Không đường", "Unsweetened"),
       lactose: text("Có sữa bò và lactose tự nhiên; 'không đường' nghĩa là không bổ sung sucrose", "Contains cow's milk and natural lactose; 'unsweetened' means no added sucrose"),
       suitable: [text("Trẻ từ 2 tuổi và người lớn cần bổ sung đạm, canxi trong khẩu phần", "Children from age 2 and adults needing dietary protein and calcium"), text("Người cần kiểm soát lượng chất béo và không muốn dùng sữa bổ sung sucrose", "People limiting fat intake and avoiding added sucrose")],
       cautions: [text("Không phù hợp khi dị ứng đạm sữa bò, galactosemia hoặc không dung nạp lactose chưa được đánh giá", "Not suitable for cow's milk protein allergy, galactosemia, or unassessed lactose intolerance"), text("Không dùng làm sữa uống thường quy cho trẻ 12-23 tháng nếu không có chỉ định chuyên môn", "Do not use as routine milk for ages 12-23 months without professional advice")],
@@ -789,6 +789,7 @@
   }
 
   function metric(value, unit) {
+    if (typeof value === "string") return value;
     if (!Number.isFinite(value)) return `<span class="nutrition-metric-missing">${text("Chưa chuẩn hóa", "Not normalized")}</span>`;
     return `${new Intl.NumberFormat(isVietnamese ? "vi-VN" : "en-US", { maximumFractionDigits: 1 }).format(value)} ${unit}`;
   }
