@@ -802,22 +802,10 @@
   --nutrition-image-scale: 1.1;
 }
 
-.nutrition-product-media[data-product-id="pediasure-pha-san-vani-110ml-4-loc"] img,
-.nutrition-detail-product[data-product-id="pediasure-pha-san-vani-110ml-4-loc"] img,
-.nutrition-product-media[data-product-id="nutren-junior-pha-san-vani-110ml-thung-36"] img,
-.nutrition-detail-product[data-product-id="nutren-junior-pha-san-vani-110ml-thung-36"] img,
 .nutrition-product-media[data-product-id="lineabon-d3k2-drops-10ml"] img,
 .nutrition-detail-product[data-product-id="lineabon-d3k2-drops-10ml"] img,
 .nutrition-product-media[data-product-id="orzax-imunol-syrup-150ml"] img,
-.nutrition-detail-product[data-product-id="orzax-imunol-syrup-150ml"] img,
-.nutrition-product-media[data-product-id="special-kid-sommeil-thao-duoc-125ml"] img,
-.nutrition-detail-product[data-product-id="special-kid-sommeil-thao-duoc-125ml"] img,
-.nutrition-product-media[data-product-id="delictase-oral-drops-lactase-15ml"] img,
-.nutrition-detail-product[data-product-id="delictase-oral-drops-lactase-15ml"] img,
-.nutrition-product-media[data-product-id="menarini-atopiclair-cream-40ml"] img,
-.nutrition-detail-product[data-product-id="menarini-atopiclair-cream-40ml"] img,
-.nutrition-product-media[data-product-id="lsi-silderma-sodermix-cream-15g"] img,
-.nutrition-detail-product[data-product-id="lsi-silderma-sodermix-cream-15g"] img {
+.nutrition-detail-product[data-product-id="orzax-imunol-syrup-150ml"] img {
   mix-blend-mode: multiply;
 }
 

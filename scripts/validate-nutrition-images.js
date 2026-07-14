@@ -4,20 +4,7 @@ const path = require("path");
 const root = path.resolve(__dirname, "..");
 const catalogPath = path.join(root, "assets", "nutrition.js");
 const minimumEdge = 1000;
-const legacyLowResolutionImages = new Set([
-  "atopiclair-cream-40ml.jpg",
-  "bioamicus-complete-10ml.jpg",
-  "biolizin-syrup-50ml.jpg",
-  "delictase-lactase-15ml.jpg",
-  "easycol-baby-lactase-15ml.png",
-  "infogoss-iap-30x3g-thumb.jpg",
-  "latopic-active-75ml.png",
-  "nutren-junior-ready-110ml.jpg",
-  "pediasure-ready-110ml-4pack.jpg",
-  "sodermix-cream-15g.jpg",
-  "special-kid-sommeil-125ml.jpg",
-  "wellkid-multivitamin-150ml-clean.png"
-]);
+const legacyLowResolutionImages = new Set();
 
 function pngDimensions(buffer) {
   if (buffer.length < 24 || buffer.toString("ascii", 1, 4) !== "PNG") return null;
