@@ -2582,6 +2582,10 @@
     activeLanguage = languageCode;
     saveLanguage(languageCode);
     const nextPath = pathForLanguage(languageCode);
+    if (page === "nutrition" && nextPath !== window.location.pathname) {
+      window.location.assign(`${nextPath}${window.location.search}${window.location.hash}`);
+      return;
+    }
     if (nextPath !== window.location.pathname && window.history && window.history.replaceState) {
       window.history.replaceState(null, "", `${nextPath}${window.location.search}${window.location.hash}`);
     }
