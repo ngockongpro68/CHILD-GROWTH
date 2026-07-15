@@ -2058,6 +2058,7 @@
 
   const pnTranslations = {
     vi: {
+      "Support Tools": "C&#244;ng c&#7909; h&#7895; tr&#7907;",
       "Parenteral Nutrition": "Pha d&#7883;ch nu&#244;i &#259;n t&#297;nh m&#7841;ch",
       "Neonatal Bilirubin": "&#272;&#225;nh gi&#225; bilirubin s&#417; sinh",
       "Neonatal Bilirubin Assessment | GrowthKid": "&#272;&#225;nh gi&#225; bilirubin s&#417; sinh | GrowthKid",
@@ -2121,6 +2122,34 @@
   };
 
   Object.entries(pnTranslations).forEach(([language, values]) => {
+    translations[language] = { ...(translations[language] || {}), ...values };
+  });
+
+  const calculatorExperienceTranslations = {
+    vi: {
+      "Child information": "Th&#244;ng tin c&#7911;a tr&#7867;",
+      "Basic details used to select the right WHO reference.": "Th&#244;ng tin c&#417; b&#7843;n &#273;&#7875; ch&#7885;n &#273;&#250;ng b&#7843;ng tham chi&#7871;u WHO.",
+      "Current measurements": "S&#7889; &#273;o hi&#7879;n t&#7841;i",
+      "Use measurements taken on the selected date.": "Nh&#7853;p c&#225;c s&#7889; &#273;o &#273;&#432;&#7907;c ghi nh&#7853;n trong ng&#224;y &#273;&#227; ch&#7885;n.",
+      "Calculated age": "Tu&#7893;i t&#7841;i ng&#224;y &#273;o",
+      "Enter birth and measurement dates to calculate age.": "Nh&#7853;p ng&#224;y sinh v&#224; ng&#224;y &#273;o &#273;&#7875; t&#237;nh tu&#7893;i.",
+      "Measurement date must be after date of birth.": "Ng&#224;y &#273;o ph&#7843;i sau ng&#224;y sinh.",
+      "Weight": "C&#226;n n&#7863;ng",
+      "Height": "Chi&#7873;u cao",
+      "Head Circumference": "V&#242;ng &#273;&#7847;u",
+      "Save result": "L&#432;u k&#7871;t qu&#7843;",
+      "Share": "Chia s&#7867;",
+      "More actions": "Th&#234;m l&#7921;a ch&#7885;n",
+      "Calculator guidance": "H&#432;&#7899;ng d&#7851;n s&#7917; d&#7909;ng c&#244;ng c&#7909;",
+      "Helpful context is available when you need it, without slowing down the calculation.": "M&#7903; ph&#7847;n c&#7847;n xem khi b&#7841;n mu&#7889;n t&#236;m hi&#7875;u th&#234;m m&#224; kh&#244;ng l&#224;m gi&#225;n &#273;o&#7841;n vi&#7879;c t&#237;nh.",
+      "Four steps from dates and measurements to z-scores.": "B&#7889;n b&#432;&#7899;c t&#7915; ng&#224;y th&#225;ng, s&#7889; &#273;o &#273;&#7871;n z-score.",
+      "Practical reminders for more reliable measurements.": "C&#225;c l&#432;u &#253; th&#7921;c h&#224;nh &#273;&#7875; s&#7889; &#273;o &#273;&#225;ng tin c&#7853;y h&#417;n.",
+      "Short answers before interpreting a growth result.": "Gi&#7843;i &#273;&#225;p ng&#7855;n tr&#432;&#7899;c khi di&#7877;n gi&#7843;i k&#7871;t qu&#7843;.",
+      "Open supporting information": "M&#7903; th&#244;ng tin h&#7895; tr&#7907;"
+    }
+  };
+
+  Object.entries(calculatorExperienceTranslations).forEach(([language, values]) => {
     translations[language] = { ...(translations[language] || {}), ...values };
   });
 
@@ -2244,6 +2273,7 @@
   let growth3dCleanup = null;
   let ambientPointerCleanup = null;
   let navigationEventsController = null;
+  let mobileSubmitObserver = null;
   let growth3dGeneration = 0;
 
   const navItems = [
@@ -2252,8 +2282,13 @@
     { label: "Articles", href: "/articles/" },
     { label: "Nutrition", href: "/nutrition/" },
     { label: "About", href: "/about/" },
-    { label: "Parenteral Nutrition", href: "/parenteral-nutrition-calculator/" },
-    { label: "Neonatal Bilirubin", href: "/neonatal-bilirubin-assessment/" }
+    {
+      label: "Support Tools",
+      children: [
+        { label: "Parenteral Nutrition", href: "/parenteral-nutrition-calculator/" },
+        { label: "Neonatal Bilirubin", href: "/neonatal-bilirubin-assessment/" }
+      ]
+    }
   ];
 
   const tools = [
@@ -2608,8 +2643,11 @@
   function restoreFormDraft() {
     if (!formDraft) return;
     Object.entries(formDraft).forEach(([name, value]) => {
-      const input = document.querySelector(`[name="${name}"]`);
-      if (input) input.value = value;
+      const inputs = Array.from(document.querySelectorAll(`[name="${name}"]`));
+      inputs.forEach((input) => {
+        if (input.type === "radio" || input.type === "checkbox") input.checked = input.value === value;
+        else input.value = value;
+      });
     });
   }
 
@@ -2761,6 +2799,8 @@
     const icons = {
       spark: '<svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 3l1.9 5.3L19 10.2l-5.1 1.9L12 17.5l-1.9-5.4L5 10.2l5.1-1.9L12 3z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M5 16l.8 2.2L8 19l-2.2.8L5 22l-.8-2.2L2 19l2.2-.8L5 16z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg>',
       menu: '<svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>',
+      chevron: '<svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="m7 9 5 5 5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>',
+      more: '<svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="5" cy="12" r="1.7" fill="currentColor"/><circle cx="12" cy="12" r="1.7" fill="currentColor"/><circle cx="19" cy="12" r="1.7" fill="currentColor"/></svg>',
       arrow: '<svg viewBox="0 0 24 24" width="18" height="18" fill="none" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>',
       chart: '<svg viewBox="0 0 24 24" width="20" height="20" fill="none" aria-hidden="true"><path d="M4 19V5M4 19h16M7 15l3-4 4 2 5-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>',
       shield: '<svg viewBox="0 0 24 24" width="20" height="20" fill="none" aria-hidden="true"><path d="M12 3l7 3v5c0 4.4-2.8 8.4-7 10-4.2-1.6-7-5.6-7-10V6l7-3z" stroke="currentColor" stroke-width="2"/><path d="M9 12l2 2 4-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>',
@@ -2785,9 +2825,44 @@
 
   function navbar() {
     const currentPath = pathWithoutLanguagePrefix(window.location.pathname);
+    const isNavItemActive = (item) => item.children
+      ? item.children.some((child) => currentPath === child.href || currentPath.startsWith(child.href))
+      : currentPath === item.href || (item.href !== "/" && currentPath.startsWith(item.href));
     const renderNavLink = (item) => {
       const isActive = currentPath === item.href || (item.href !== "/" && currentPath.startsWith(item.href));
       return `<a class="nav-link${isActive ? " is-active" : ""}" href="${localizedHref(item.href)}"${isActive ? ' aria-current="page"' : ""}>${t(item.label)}</a>`;
+    };
+    const renderDesktopNavItem = (item, index) => {
+      if (!item.children) return renderNavLink(item);
+      const isActive = isNavItemActive(item);
+      const menuId = `desktopSupportMenu${index}`;
+      return `
+        <div class="nav-group${isActive ? " is-active" : ""}" data-nav-disclosure>
+          <button class="nav-group-trigger${isActive ? " is-active" : ""}" type="button" aria-expanded="false" aria-controls="${menuId}">
+            <span>${t(item.label)}</span>
+            ${icon("chevron")}
+          </button>
+          <div class="nav-submenu" id="${menuId}">
+            ${item.children.map(renderNavLink).join("")}
+          </div>
+        </div>
+      `;
+    };
+    const renderMobileNavItem = (item, index) => {
+      if (!item.children) return renderNavLink(item);
+      const isActive = isNavItemActive(item);
+      const menuId = `mobileSupportMenu${index}`;
+      return `
+        <div class="mobile-nav-group${isActive ? " is-active" : ""}" data-nav-disclosure>
+          <button class="mobile-nav-group-trigger${isActive ? " is-active" : ""}" type="button" aria-expanded="false" aria-controls="${menuId}">
+            <span>${t(item.label)}</span>
+            ${icon("chevron")}
+          </button>
+          <div class="mobile-nav-submenu" id="${menuId}">
+            ${item.children.map(renderNavLink).join("")}
+          </div>
+        </div>
+      `;
     };
 
     return `
@@ -2798,7 +2873,7 @@
             <span class="brand-name">GrowthKid</span>
           </a>
           <nav class="nav-links" aria-label="Primary navigation">
-            ${navItems.map(renderNavLink).join("")}
+            ${navItems.map(renderDesktopNavItem).join("")}
           </nav>
           <div class="nav-actions">
             <label class="language" aria-label="Language selector">
@@ -2818,7 +2893,7 @@
               ${languageSelectOptions()}
             </select>
           </label>
-          ${navItems.map(renderNavLink).join("")}
+          ${navItems.map(renderMobileNavItem).join("")}
           <a class="mobile-menu-cta btn btn-primary" href="${localizedHref("/child-growth-calculator/")}">${t("Start Calculator")} ${icon("arrow")}</a>
         </div>
       </header>
@@ -2860,49 +2935,78 @@
   function calculatorCard(compact) {
     const today = currentDateInputValues();
     return `
-      <form class="calculator-card" id="growthForm">
+      <form class="calculator-card growth-calculator-card${compact ? " is-compact" : ""}" id="growthForm">
         <div class="card-header">
           <div>
             <h2>Child Growth Calculator</h2>
             <p>Enter measurements to calculate z-scores and percentiles.</p>
           </div>
         </div>
-        <div class="form-grid">
-          <div class="field">
-            <label for="dob">Date of Birth</label>
-            <div class="date-input-wrap">
-              <input id="dob" name="dob" type="text" inputmode="numeric" autocomplete="bday" placeholder="DD/MM/YYYY" pattern="\\d{2}/\\d{2}/\\d{4}" value="15/05/2022" data-date-text required>
-              <span class="date-calendar-icon" aria-hidden="true"></span>
-              <input class="date-picker-native" type="date" value="2022-05-15" aria-label="Choose date of birth" data-date-picker data-target="dob">
+        <div class="calculator-form-sections">
+          <fieldset class="calculator-form-section">
+            <legend>
+              <span class="form-section-number">1</span>
+              <span><strong>Child information</strong><small>Basic details used to select the right WHO reference.</small></span>
+            </legend>
+            <div class="form-grid form-grid-child">
+              <div class="field">
+                <label for="dob">Date of Birth</label>
+                <div class="date-input-wrap">
+                  <input id="dob" name="dob" type="text" inputmode="numeric" autocomplete="bday" placeholder="DD/MM/YYYY" pattern="\\d{2}/\\d{2}/\\d{4}" value="15/05/2022" data-date-text required>
+                  <span class="date-calendar-icon" aria-hidden="true"></span>
+                  <input class="date-picker-native" type="date" value="2022-05-15" aria-label="Choose date of birth" data-date-picker data-target="dob">
+                </div>
+              </div>
+              <fieldset class="field sex-segment-field">
+                <legend>Sex</legend>
+                <div class="sex-segmented" role="radiogroup" aria-label="Sex">
+                  <label><input type="radio" name="sex" value="boy" checked><span>Boy</span></label>
+                  <label><input type="radio" name="sex" value="girl"><span>Girl</span></label>
+                </div>
+              </fieldset>
             </div>
-          </div>
-          <div class="field">
-            <label for="sex">Sex</label>
-            <select id="sex" name="sex">
-              <option value="boy">Boy</option>
-              <option value="girl">Girl</option>
-            </select>
-          </div>
-          <div class="field">
-            <label for="measureDate">Measurement Date</label>
-            <div class="date-input-wrap">
-              <input id="measureDate" name="measureDate" type="text" inputmode="numeric" placeholder="DD/MM/YYYY" pattern="\\d{2}/\\d{2}/\\d{4}" value="${today.display}" data-date-text required>
-              <span class="date-calendar-icon" aria-hidden="true"></span>
-              <input class="date-picker-native" type="date" value="${today.iso}" aria-label="Choose measurement date" data-date-picker data-target="measureDate">
+            <div class="age-preview" id="agePreview" aria-live="polite">
+              <span>Calculated age</span>
+              <strong data-age-value>Enter birth and measurement dates to calculate age.</strong>
             </div>
-          </div>
-          <div class="field">
-            <label for="weight">Weight (kg)</label>
-            <input id="weight" name="weight" type="number" step="0.1" min="1" value="12.5" required>
-          </div>
-          <div class="field">
-            <label for="height">Height (cm)</label>
-            <input id="height" name="height" type="number" step="0.1" min="30" value="87" required>
-          </div>
-          <div class="field">
-            <label for="head">Head Circumference (cm)</label>
-            <input id="head" name="head" type="number" step="0.1" min="20" placeholder="Optional">
-          </div>
+          </fieldset>
+          <fieldset class="calculator-form-section">
+            <legend>
+              <span class="form-section-number">2</span>
+              <span><strong>Current measurements</strong><small>Use measurements taken on the selected date.</small></span>
+            </legend>
+            <div class="form-grid form-grid-measurements">
+              <div class="field field-measure-date">
+                <label for="measureDate">Measurement Date</label>
+                <div class="date-input-wrap">
+                  <input id="measureDate" name="measureDate" type="text" inputmode="numeric" placeholder="DD/MM/YYYY" pattern="\\d{2}/\\d{2}/\\d{4}" value="${today.display}" data-date-text required>
+                  <span class="date-calendar-icon" aria-hidden="true"></span>
+                  <input class="date-picker-native" type="date" value="${today.iso}" aria-label="Choose measurement date" data-date-picker data-target="measureDate">
+                </div>
+              </div>
+              <div class="field">
+                <label for="weight">Weight</label>
+                <div class="input-with-unit">
+                  <input id="weight" name="weight" type="number" step="0.1" min="1" value="12.5" required>
+                  <span>kg</span>
+                </div>
+              </div>
+              <div class="field">
+                <label for="height">Height</label>
+                <div class="input-with-unit">
+                  <input id="height" name="height" type="number" step="0.1" min="30" value="87" required>
+                  <span>cm</span>
+                </div>
+              </div>
+              <div class="field">
+                <label for="head">Head Circumference</label>
+                <div class="input-with-unit">
+                  <input id="head" name="head" type="number" step="0.1" min="20" placeholder="Optional">
+                  <span>cm</span>
+                </div>
+              </div>
+            </div>
+          </fieldset>
         </div>
         <button class="btn btn-primary calc-submit" type="submit">Calculate Growth ${icon("arrow")}</button>
         <div class="form-error" id="formError"></div>
@@ -2967,31 +3071,122 @@
     const cfg = pageConfig[kind] || pageConfig.calculator;
     return shell(`
       <main>
-        <section class="page-hero">
-          <div class="growth-3d-scene" data-growth-3d aria-hidden="true"></div>
-          <div class="container page-hero-row">
-            <div>
+        <section class="calculator-workspace" id="calculator">
+          <div class="growth-3d-scene calculator-workspace-scene" data-growth-3d aria-hidden="true"></div>
+          <div class="container calculator-workspace-inner">
+            <div class="calculator-intro">
               <span class="eyebrow">${cfg.eyebrow}</span>
               <h1>${cfg.title}</h1>
               <p class="page-copy">${cfg.copy}</p>
+              <div class="calculator-trust-row" aria-label="WHO calculator highlights">
+                <span><span class="check-dot">&#10003;</span> WHO standards</span>
+                <span><span class="check-dot">&#10003;</span> Private by design</span>
+                <span><span class="check-dot">&#10003;</span> No signup</span>
+              </div>
             </div>
-            ${snapshotCard()}
+            <div class="calculator-workspace-grid">
+              ${calculatorCard(false)}
+              <div class="calculator-preview">${snapshotCard()}</div>
+            </div>
           </div>
-        </section>
-        <section class="section section-soft" id="calculator">
-          <div class="container">
-            ${calculatorCard(false)}
-          </div>
+          <button class="btn btn-primary calc-mobile-submit" type="submit" form="growthForm">Calculate Growth ${icon("arrow")}</button>
         </section>
         ${resultsBlock(false)}
-        ${viralToolkitSection()}
-        ${calculatorSeoContent(kind)}
-        ${methodologySection()}
-        ${measurementGuideSection()}
-        ${faqSection(kind)}
+        ${calculatorGuidanceSection(kind)}
         ${seoLinksSection()}
       </main>
     `);
+  }
+
+  function calculatorGuidanceSection(kind) {
+    const steps = [
+      { title: "Age in months", text: "The calculator converts date of birth and measurement date into age in months." },
+      { title: "Sex-specific curves", text: "Growth references differ for boys and girls, so sex is part of the calculation." },
+      { title: "Z-score estimate", text: "A z-score estimates how far a measurement is from the reference median." },
+      { title: "Percentile view", text: "Percentiles make the result easier for parents to compare with chart lines." }
+    ];
+    const tips = [
+      "Use a recent and accurate measurement date.",
+      "Weigh the child without heavy clothing or shoes.",
+      "Measure length or height on a flat surface with the child properly positioned.",
+      "Repeat measurements if a result looks very different from the child's usual trend.",
+      "Talk to a pediatrician for growth concerns, sudden changes, or extreme z-scores."
+    ];
+    const faqTitle = kind === "bmi" ? "BMI calculator FAQ" : kind === "weight" ? "Weight-for-age FAQ" : kind === "height" ? "Height-for-age FAQ" : "Child growth FAQ";
+    const questions = [
+      {
+        q: "What are WHO Child Growth Standards?",
+        a: "They are international growth references developed from the WHO Multicentre Growth Reference Study for assessing young children's physical growth."
+      },
+      {
+        q: "What does a z-score mean?",
+        a: "A z-score describes how far a measurement is from the reference median. Values near zero are close to the median."
+      },
+      {
+        q: "When should parents talk to a clinician?",
+        a: "A single result is only one signal. Discuss growth concerns, sudden trend changes, or extreme z-scores with a qualified healthcare professional."
+      }
+    ];
+
+    return `
+      <section class="section calculator-guidance">
+        <div class="container">
+          <div class="section-header calculator-guidance-header">
+            <span class="eyebrow">Open supporting information</span>
+            <h2>Calculator guidance</h2>
+            <p>Helpful context is available when you need it, without slowing down the calculation.</p>
+          </div>
+          <div class="calculator-guidance-list">
+            <details class="calculator-guidance-item">
+              <summary>
+                <span class="guidance-summary-icon">${icon("chart")}</span>
+                <span><strong>How this calculator works</strong><small>Four steps from dates and measurements to z-scores.</small></span>
+                ${icon("chevron")}
+              </summary>
+              <div class="guidance-body method-grid guidance-method-grid">
+                ${steps.map((step, index) => `
+                  <article class="method-card">
+                    <span class="method-index">${index + 1}</span>
+                    <h3>${step.title}</h3>
+                    <p>${step.text}</p>
+                  </article>
+                `).join("")}
+              </div>
+            </details>
+            <details class="calculator-guidance-item">
+              <summary>
+                <span class="guidance-summary-icon">${icon("ruler")}</span>
+                <span><strong>Measurement guide</strong><small>Practical reminders for more reliable measurements.</small></span>
+                ${icon("chevron")}
+              </summary>
+              <div class="guidance-body guide-panel guidance-guide-panel">
+                ${tips.map((tip) => `<div class="guide-row"><span class="check-dot">&#10003;</span><p>${tip}</p></div>`).join("")}
+              </div>
+            </details>
+            <details class="calculator-guidance-item">
+              <summary>
+                <span class="guidance-summary-icon">${icon("shield")}</span>
+                <span><strong>${faqTitle}</strong><small>Short answers before interpreting a growth result.</small></span>
+                ${icon("chevron")}
+              </summary>
+              <div class="guidance-body faq-grid guidance-faq-grid">
+                ${questions.map((item) => `
+                  <article class="faq-item">
+                    <h3>${item.q}</h3>
+                    <p>${item.a}</p>
+                  </article>
+                `).join("")}
+              </div>
+            </details>
+          </div>
+          <div class="tool-links calculator-guidance-links">
+            <a href="${localizedHref("/methodology/")}">Data source and methodology</a>
+            <a href="${localizedHref("/medical-disclaimer/")}">Medical disclaimer</a>
+            <a href="${localizedHref("/articles/")}">Read article ${icon("arrow")}</a>
+          </div>
+        </div>
+      </section>
+    `;
   }
 
   function resultsPage() {
@@ -4595,11 +4790,18 @@
               </div>
             </div>
             <div class="results-actions">
-              <button class="btn btn-primary" id="downloadReport" type="button">${icon("download")} Download report</button>
-              <button class="btn btn-secondary" id="downloadSnapshot" type="button">${icon("download")} Download PNG</button>
-              <button class="btn btn-secondary" id="shareSnapshot" type="button">${icon("share")} Share snapshot</button>
-              <button class="btn btn-quiet" id="saveTrendPoint" type="button">${icon("chart")} Save to trend</button>
-              <a class="btn btn-secondary" href="${localizedHref("/growth-results/")}">View results page</a>
+              <button class="btn btn-primary" id="saveTrendPoint" type="button">${icon("chart")} Save result</button>
+              <button class="btn btn-secondary" id="shareSnapshot" type="button">${icon("share")} Share</button>
+              <div class="results-more" data-results-more>
+                <button class="btn btn-secondary results-more-trigger" type="button" aria-label="More actions" aria-expanded="false" aria-controls="resultsMoreMenu">
+                  ${icon("more")} <span>More actions</span>
+                </button>
+                <div class="results-more-menu" id="resultsMoreMenu">
+                  <button id="downloadReport" type="button">${icon("download")} Download report</button>
+                  <button id="downloadSnapshot" type="button">${icon("download")} Download PNG</button>
+                  <a href="${localizedHref("/growth-results/")}">${icon("arrow")} View results page</a>
+                </div>
+              </div>
             </div>
           </div>
           <div class="results-layout">
@@ -4680,11 +4882,11 @@
     return `
       <div class="trend-header">
         <div>
-          <span class="eyebrow">Trend tracker</span>
-          <h2>Saved measurements</h2>
-          <p>Stored on this device only. Trends are more useful than one isolated point.</p>
+          <span class="eyebrow">${t("Trend tracker")}</span>
+          <h2>${t("Saved measurements")}</h2>
+          <p>${t("Stored on this device only. Trends are more useful than one isolated point.")}</p>
         </div>
-        <button class="btn btn-quiet" id="clearTrend" type="button" ${hasPoints ? "" : "disabled"}>Clear</button>
+        <button class="btn btn-quiet" id="clearTrend" type="button" ${hasPoints ? "" : "disabled"}>${t("Clear")}</button>
       </div>
       <div class="trend-chart">${hasPoints ? trendSvg(points) : emptyTrendState(currentResult)}</div>
       ${hasPoints ? trendTable(points) : ""}
@@ -6419,20 +6621,61 @@
         mobileMenu.classList.remove("is-open");
         menuButton.setAttribute("aria-expanded", "false");
       };
+      const navDisclosures = Array.from(document.querySelectorAll("[data-nav-disclosure]"));
+      const closeNavDisclosure = (group) => {
+        group.classList.remove("is-open");
+        group.querySelector(":scope > button")?.setAttribute("aria-expanded", "false");
+      };
+      const resultsMore = document.querySelector("[data-results-more]");
+      const resultsMoreTrigger = resultsMore?.querySelector(".results-more-trigger");
+      const closeResultsMore = () => {
+        resultsMore?.classList.remove("is-open");
+        resultsMoreTrigger?.setAttribute("aria-expanded", "false");
+      };
+
+      navDisclosures.forEach((group) => {
+        const trigger = group.querySelector(":scope > button");
+        if (!trigger) return;
+        trigger.addEventListener("click", () => {
+          const willOpen = !group.classList.contains("is-open");
+          navDisclosures.forEach((otherGroup) => {
+            if (otherGroup !== group) closeNavDisclosure(otherGroup);
+          });
+          group.classList.toggle("is-open", willOpen);
+          trigger.setAttribute("aria-expanded", String(willOpen));
+        }, { signal });
+      });
 
       menuButton.addEventListener("click", () => {
         const isOpen = mobileMenu.classList.toggle("is-open");
         menuButton.setAttribute("aria-expanded", String(isOpen));
       }, { signal });
 
+      resultsMoreTrigger?.addEventListener("click", () => {
+        const willOpen = !resultsMore.classList.contains("is-open");
+        resultsMore.classList.toggle("is-open", willOpen);
+        resultsMoreTrigger.setAttribute("aria-expanded", String(willOpen));
+      }, { signal });
+
       document.addEventListener("click", (event) => {
+        navDisclosures.forEach((group) => {
+          if (!group.contains(event.target)) closeNavDisclosure(group);
+        });
+        if (resultsMore && !resultsMore.contains(event.target)) closeResultsMore();
         if (!mobileMenu.contains(event.target) && !menuButton.contains(event.target)) closeMenu();
       }, { signal });
 
       document.addEventListener("keydown", (event) => {
         if (event.key === "Escape") {
+          const openDisclosure = navDisclosures.find((group) => group.classList.contains("is-open"));
+          const mobileMenuWasOpen = mobileMenu.classList.contains("is-open");
+          const resultsMoreWasOpen = Boolean(resultsMore?.classList.contains("is-open"));
+          navDisclosures.forEach(closeNavDisclosure);
+          closeResultsMore();
           closeMenu();
-          menuButton.focus();
+          if (mobileMenuWasOpen) menuButton.focus();
+          else if (resultsMoreWasOpen) resultsMoreTrigger?.focus();
+          else openDisclosure?.querySelector(":scope > button")?.focus();
         }
       }, { signal });
 
@@ -6450,8 +6693,11 @@
     const form = document.getElementById("growthForm");
     if (form) {
       bindDateInputs(form);
+      bindAgePreview(form);
+      bindMobileCalculateButton(form);
       form.addEventListener("submit", (event) => {
         event.preventDefault();
+        document.querySelector(".calc-mobile-submit")?.classList.remove("is-visible");
         const errorBox = document.getElementById("formError");
         try {
           const result = calculateGrowth(form);
@@ -6619,6 +6865,63 @@
         target.dispatchEvent(new Event("input", { bubbles: true }));
       });
     });
+  }
+
+  function updateAgePreview(form) {
+    const value = form.querySelector("[data-age-value]");
+    if (!value) return;
+    const dob = parseInputDate(form.elements.dob?.value);
+    const measureDate = parseInputDate(form.elements.measureDate?.value);
+    if (!Number.isFinite(dob.getTime()) || !Number.isFinite(measureDate.getTime())) {
+      value.textContent = decodeHtmlEntities(t("Enter birth and measurement dates to calculate age."));
+      value.classList.remove("is-error");
+      return;
+    }
+    const ageMonths = monthDiff(dob, measureDate);
+    if (!Number.isFinite(ageMonths) || ageMonths < 0) {
+      value.textContent = decodeHtmlEntities(t("Measurement date must be after date of birth."));
+      value.classList.add("is-error");
+      return;
+    }
+    value.textContent = decodeHtmlEntities(ageLabel(ageMonths));
+    value.classList.remove("is-error");
+  }
+
+  function bindAgePreview(form) {
+    const update = () => updateAgePreview(form);
+    form.querySelectorAll('[name="dob"], [name="measureDate"]').forEach((input) => {
+      input.addEventListener("input", update);
+      input.addEventListener("change", update);
+    });
+    update();
+  }
+
+  function bindMobileCalculateButton(form) {
+    if (mobileSubmitObserver) {
+      mobileSubmitObserver.disconnect();
+      mobileSubmitObserver = null;
+    }
+    const button = document.querySelector(".calc-mobile-submit");
+    if (!button || typeof IntersectionObserver === "undefined") return;
+    let isFormVisible = false;
+    let hasInteracted = false;
+    const syncVisibility = () => {
+      button.classList.toggle("is-visible", isFormVisible && hasInteracted);
+    };
+    form.addEventListener("focusin", () => {
+      hasInteracted = true;
+      syncVisibility();
+    });
+    form.addEventListener("input", () => {
+      hasInteracted = true;
+      syncVisibility();
+    });
+    mobileSubmitObserver = new IntersectionObserver((entries) => {
+      const entry = entries[0];
+      isFormVisible = Boolean(entry && entry.isIntersecting);
+      syncVisibility();
+    }, { threshold: 0.08 });
+    mobileSubmitObserver.observe(form);
   }
 
   function render() {
