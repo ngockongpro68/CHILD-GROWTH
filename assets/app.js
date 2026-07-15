@@ -26,7 +26,7 @@
       "WHO Growth Charts | GrowthKid": "Biểu đồ tăng trưởng WHO | GrowthKid",
       "Growth Articles | GrowthKid": "Bài viết tăng trưởng | GrowthKid",
       "About GrowthKid | GrowthKid": "Giới thiệu GrowthKid | GrowthKid",
-      "Calculator": "Công cụ tính",
+      "Calculator": "Theo dõi tăng trưởng của trẻ",
       "Growth Charts": "Biểu đồ tăng trưởng",
       "Articles": "Bài viết",
       "About": "Giới thiệu",
@@ -1241,7 +1241,7 @@
     vi: {
       "Child Growth Calculator": "Công cụ theo dõi tăng trưởng của trẻ",
       "Child Growth Calculator | GrowthKid": "Công cụ theo dõi tăng trưởng của trẻ | GrowthKid",
-      "Calculator": "Công cụ tính",
+      "Calculator": "Theo dõi tăng trưởng của trẻ",
       "Growth Charts": "Biểu đồ tăng trưởng",
       "Articles": "Bài viết",
       "About": "Giới thiệu",
@@ -2797,6 +2797,7 @@
 
   function icon(name) {
     const icons = {
+      brand: '<img src="/assets/brand-mark-blue.png" width="512" height="512" alt="" aria-hidden="true">',
       spark: '<svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 3l1.9 5.3L19 10.2l-5.1 1.9L12 17.5l-1.9-5.4L5 10.2l5.1-1.9L12 3z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M5 16l.8 2.2L8 19l-2.2.8L5 22l-.8-2.2L2 19l2.2-.8L5 16z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg>',
       menu: '<svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>',
       chevron: '<svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="m7 9 5 5 5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>',
@@ -2869,7 +2870,7 @@
       <header class="nav">
         <div class="container nav-inner">
           <a class="brand" href="${localizedHref("/")}" aria-label="GrowthKid home">
-            <span class="brand-mark">${icon("spark")}</span>
+            <span class="brand-mark">${icon("brand")}</span>
             <span class="brand-name">GrowthKid</span>
           </a>
           <nav class="nav-links" aria-label="Primary navigation">
@@ -2906,7 +2907,7 @@
         <div class="container footer-grid">
           <div class="footer-about">
             <a class="brand" href="${localizedHref("/")}">
-              <span class="brand-mark">${icon("spark")}</span>
+              <span class="brand-mark">${icon("brand")}</span>
               <span>GrowthKid</span>
             </a>
             <p>Child growth calculator concept for parents and healthcare professionals. Educational use only and not a substitute for medical advice.</p>
@@ -4474,7 +4475,7 @@
       <main class="embed-shell">
         <section class="embed-head">
           <a class="brand" href="${localizedHref("/")}" target="_blank" rel="noreferrer">
-            <span class="brand-mark">${icon("spark")}</span>
+            <span class="brand-mark">${icon("brand")}</span>
             <span>GrowthKid</span>
           </a>
           <a class="btn btn-quiet" href="${localizedHref("/child-growth-calculator/")}" target="_blank" rel="noreferrer">Open full calculator</a>

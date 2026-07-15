@@ -137,18 +137,15 @@ button {
 .brand-mark {
   display: grid;
   place-items: center;
-  width: 38px;
-  height: 38px;
-  color: #ffffff;
-  background: linear-gradient(145deg, #3b82f6, #2563eb);
-  border: 1px solid rgba(29, 78, 216, 0.18);
-  border-radius: 11px;
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.3), 0 5px 12px rgba(37, 99, 235, 0.2);
+  width: 42px;
+  height: 42px;
+  background: transparent;
 }
 
-.brand-mark svg {
-  width: 20px;
-  height: 20px;
+.brand-mark img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
 }
 
 .nav-links {
