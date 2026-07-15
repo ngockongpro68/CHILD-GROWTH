@@ -5701,10 +5701,41 @@
     try {
       const raw = localStorage.getItem("growthkid:trendPoints");
       const points = raw ? JSON.parse(raw) : [];
-      return Array.isArray(points) ? points.sort((a, b) => new Date(a.measureDate) - new Date(b.measureDate)) : [];
+      if (!Array.isArray(points)) return [];
+      return points
+        .map(normalizeTrendPoint)
+        .filter(Boolean)
+        .sort((a, b) => new Date(a.measureDate) - new Date(b.measureDate));
     } catch (error) {
       return [];
     }
+  }
+
+  function normalizeTrendPoint(point) {
+    if (!point || typeof point !== "object" || Array.isArray(point)) return null;
+    const measureDate = typeof point.measureDate === "string" && /^\d{4}-\d{2}-\d{2}$/.test(point.measureDate)
+      ? point.measureDate
+      : "";
+    const ageMonths = Number(point.ageMonths);
+    const weight = Number(point.weight);
+    const height = Number(point.height);
+    const heightPercentile = Number(point.heightPercentile);
+    if (!measureDate || !Number.isFinite(new Date(`${measureDate}T00:00:00Z`).getTime())) return null;
+    if (!Number.isFinite(ageMonths) || ageMonths < 0 || ageMonths > 228) return null;
+    if (!Number.isFinite(weight) || weight <= 0 || weight > 300) return null;
+    if (!Number.isFinite(height) || height <= 0 || height > 250) return null;
+    if (!Number.isFinite(heightPercentile) || heightPercentile < 0 || heightPercentile > 100) return null;
+    return {
+      ...point,
+      id: typeof point.id === "string" ? point.id.slice(0, 160) : `${measureDate}-${ageMonths}-${weight}-${height}`,
+      measureDate,
+      sex: point.sex === "female" ? "female" : "male",
+      ageMonths,
+      ageLabel: ageLabel(ageMonths),
+      weight,
+      height,
+      heightPercentile
+    };
   }
 
   function writeTrendPoints(points) {

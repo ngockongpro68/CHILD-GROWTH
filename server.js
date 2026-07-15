@@ -34,7 +34,8 @@ const baseSecurityHeaders = {
 };
 
 function contentSecurityPolicy(urlPath) {
-  const isEmbed = decodeURIComponent((urlPath || "").split("?")[0]).includes("/embed/child-growth-calculator/");
+  const decodedPath = safeDecode((urlPath || "").split("?")[0]) || "";
+  const isEmbed = decodedPath.includes("/embed/child-growth-calculator/");
   return [
     "default-src 'self'",
     "script-src 'self'",

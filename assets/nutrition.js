@@ -5,6 +5,21 @@
   const language = window.location.pathname.split("/").filter(Boolean)[0] || "en";
   const isVietnamese = language === "vi";
   const text = (vi, en) => isVietnamese ? vi : en;
+  const escapeHtml = (value) => String(value ?? "").replace(/[&<>"']/g, (character) => ({
+    "&": "&amp;",
+    "<": "&lt;",
+    ">": "&gt;",
+    "\"": "&quot;",
+    "'": "&#39;"
+  })[character]);
+  const safeExternalUrl = (value) => {
+    try {
+      const parsed = new URL(String(value || ""));
+      return ["http:", "https:"].includes(parsed.protocol) ? parsed.href : "";
+    } catch (error) {
+      return "";
+    }
+  };
   const formatPrice = (value) => value ? `${new Intl.NumberFormat(isVietnamese ? "vi-VN" : "en-US").format(value)}${isVietnamese ? "đ" : " VND"}` : text("Xem giá", "See price");
   const icon = (name) => {
     const icons = {
@@ -1035,30 +1050,20 @@
   }
 
   function sellerLink(seller) {
-    let url = "#";
-    try {
-      const parsed = new URL(seller.url);
-      if (["http:", "https:"].includes(parsed.protocol)) url = parsed.href;
-    } catch (error) {
-      url = "#";
-    }
+    const url = safeExternalUrl(seller.url);
+    if (!url) return `<span class="is-disabled">${escapeHtml(seller.name)}</span>`;
     const isAffiliate = seller.kind === "affiliate";
     const rel = isAffiliate ? "sponsored nofollow noopener noreferrer" : "noopener noreferrer";
-    return `<a href="${url}" target="_blank" rel="${rel}" data-seller-kind="${seller.kind || "official"}" data-marketplace="${seller.platform || "official"}"><span>${seller.name}</span>${icon("external")}</a>`;
+    return `<a href="${escapeHtml(url)}" target="_blank" rel="${rel}" data-seller-kind="${escapeHtml(seller.kind || "official")}" data-marketplace="${escapeHtml(seller.platform || "official")}"><span>${escapeHtml(seller.name)}</span>${icon("external")}</a>`;
   }
 
   function productSellerLink(product, platform, label) {
     const seller = product.sellers.find((item) => platform === "official" ? item.kind === "official" : item.platform === platform);
     if (!seller) return `<span class="is-disabled">${label}</span>`;
-    let url = "#";
-    try {
-      const parsed = new URL(seller.url);
-      if (["http:", "https:"].includes(parsed.protocol)) url = parsed.href;
-    } catch (error) {
-      url = "#";
-    }
+    const url = safeExternalUrl(seller.url);
+    if (!url) return `<span class="is-disabled">${escapeHtml(label)}</span>`;
     const rel = seller.kind === "affiliate" ? "sponsored nofollow noopener noreferrer" : "noopener noreferrer";
-    return `<a href="${url}" target="_blank" rel="${rel}" data-marketplace="${platform}">${label}${icon("external")}</a>`;
+    return `<a href="${escapeHtml(url)}" target="_blank" rel="${rel}" data-marketplace="${escapeHtml(platform)}">${escapeHtml(label)}${icon("external")}</a>`;
   }
 
   function activeCategory() {
@@ -1459,6 +1464,7 @@
     if (!backdrop || !detail) return;
     const displayMetrics = productDisplayMetrics(product);
     const usage = usageGuides[product.id];
+    const sourceUrl = safeExternalUrl(product.source);
     detail.innerHTML = `
       <div class="nutrition-detail-header">
         <div><span class="nutrition-kicker">${product.brand}</span><h2 id="nutritionDetailTitle">${product.name}</h2><p>${product.needLabel}</p></div>
@@ -1500,7 +1506,7 @@
         <div><span>${text("Phân tích nhãn", "Label analysis")}</span><h3>${text("GrowthKid tóm tắt", "GrowthKid summary")}</h3><p>${product.analysis}</p><small>${text("Cập nhật", "Updated")}: ${product.updated}</small></div>
       </section>
       <section class="nutrition-sources">
-        <div><h3>${text("Nguồn thông tin", "Information source")}</h3>${product.source ? `<a href="${product.source}" target="_blank" rel="noreferrer">${product.sourceLabel} ${icon("external")}</a>` : `<span class="nutrition-source-name">${product.sourceLabel}</span>`}</div>
+        <div><h3>${text("Nguồn thông tin", "Information source")}</h3>${sourceUrl ? `<a href="${escapeHtml(sourceUrl)}" target="_blank" rel="noopener noreferrer">${escapeHtml(product.sourceLabel)} ${icon("external")}</a>` : `<span class="nutrition-source-name">${escapeHtml(product.sourceLabel)}</span>`}</div>
         <p>${product.normalizationNote || text("Thông số được chuẩn hóa theo 100 ml khi nguồn có đủ dữ liệu. Dấu 'chưa chuẩn hóa' nghĩa là GrowthKid chưa xác minh được phép quy đổi từ nhãn hiện hành.", "Values are normalized per 100 ml when sufficient source data is available. 'Not normalized' means GrowthKid has not yet verified a conversion from the current label.")}</p>
       </section>
       <section class="nutrition-sellers">
