@@ -1,5 +1,5 @@
 {
-  "builtAt": "2026-07-14T17:04:58.954Z",
+  "builtAt": "2026-07-15T06:41:23.094Z",
   "sourceMaps": false,
   "privateArtifacts": false,
   "note": "Production build contains only public browser assets. Do not place secrets in frontend code."

@@ -32,6 +32,7 @@
       fiber: '<svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M19.5 4.5C12 4.8 7.2 8 6.4 14.2c4.7.7 10.8-.7 13.1-9.7Z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/><path d="M4 20c2.6-5.2 6.3-8.4 11.3-10.5" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>',
       medical: '<svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="4" y="5" width="16" height="15" rx="2" stroke="currentColor" stroke-width="1.7"/><path d="M9 5V3h6v2M12 9v7M8.5 12.5h7" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>',
       food: '<svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 11h16c0 5-3.6 9-8 9s-8-4-8-9Z" stroke="currentColor" stroke-width="1.7"/><path d="M7 7c1.4-1.7 3.1-2.5 5-2.5M18 4v8" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>',
+      skills: '<svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="3.5" y="12.5" width="7" height="7" rx="1.4" stroke="currentColor" stroke-width="1.7"/><path d="m7 8 3.5-4 3.5 4-3.5 4L7 8Z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/><circle cx="17.5" cy="16" r="3.5" stroke="currentColor" stroke-width="1.7"/></svg>',
       care: '<svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 3c3 4 5 6.6 5 10a5 5 0 0 1-10 0c0-3.4 2-6 5-10Z" stroke="currentColor" stroke-width="1.7"/><path d="M9.6 13.4c.4 1.2 1.2 1.8 2.4 1.8" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>'
     };
     const aliases = {
@@ -550,8 +551,152 @@
       analysis: text("Hoạt chất chính theo hãng là Superoxide Dismutase thực vật từ dịch chiết cà chua xanh; nền kem còn có dầu quả bơ, dầu khoáng và petrolatum.", "The manufacturer identifies plant-derived Superoxide Dismutase from green tomato extract as the key active; the cream base also includes avocado oil, mineral oil, and petrolatum."),
       source: "https://www.lsisilderma.com/sodermix/", sourceLabel: "LSI Silderma – SODERMIX",
       sellers: workbookSellers(text("Trang sản phẩm LSI Silderma", "LSI Silderma product page"), "https://www.lsisilderma.com/sodermix/", "lsi-silderma", "https://s.shopee.vn/3g23YlYkOW")
+    }),
+    workbookProduct({
+      id: "mammy-combo-5-dau-an-dam-100ml", section: "nutrition", category: "weaning", subcategory: "oil",
+      name: "Combo 5 dầu ăn dặm Mămmy 100 ml", brand: "Mămmy", image: "/assets/nutrition/mammy-combo-5-dau-an-dam-100ml-cutout.png",
+      age: text("Từ 6 tháng đến 3 tuổi", "From 6 months to 3 years"), ageGroups: ["6-11", "12-23", "2-5"], targets: ["infant", "child"],
+      needs: ["energy", "daily"], needLabel: text("Bổ sung chất béo cho bữa ăn dặm", "Added fats for complementary meals"), price: 729000,
+      priceStatus: text("Giá tham khảo từ dữ liệu nhập ngày 15/07/2026", "Reference price from data entered on 15/07/2026"), updated: "15/07/2026",
+      displayMetrics: [
+        { label: text("Quy cách", "Package"), value: text("5 chai × 100 ml", "5 × 100 ml bottles") }, { label: text("Nguồn dầu", "Oil sources"), value: text("Cá & thực vật", "Fish & plant") },
+        { label: text("Cách dùng", "Use"), value: text("Thêm sau nấu", "Add after cooking") }, { label: text("Liều hãng", "Label serving"), value: "5 ml × 2 / ngày" }
+      ],
+      lactose: text("Gồm dầu cá hồi, hạt lanh, olive, óc chó và gấc đỏ; nguồn hãng chưa công bố bảng dinh dưỡng định lượng đầy đủ cho từng chai.", "Includes salmon, flaxseed, olive, walnut, and gac oils; the manufacturer does not publish a complete quantitative nutrition panel for each bottle."),
+      suitable: [text("Trẻ đã bắt đầu ăn dặm cần bổ sung chất béo vào khẩu phần", "Children who have started complementary feeding and need added dietary fat"), text("Gia đình muốn luân phiên nguồn acid béo từ cá và thực vật", "Families wishing to rotate fish- and plant-derived fat sources")],
+      cautions: [text("Không dùng dưới 6 tháng; thận trọng khi trẻ dị ứng cá hoặc các loại hạt", "Do not use under 6 months; use caution with fish or nut allergy"), text("Không dùng để chiên xào và không trộn cả năm loại trong cùng một bữa", "Do not use for frying and do not combine all five oils in one meal")],
+      analysis: text("Bộ 5 chai 100 ml gồm dầu cá hồi, hạt lanh Extra Virgin, olive Extra Virgin, óc chó Extra Virgin và gấc đỏ. Các dầu thực vật được hãng mô tả là ép lạnh; thành phần acid béo đặc trưng thay đổi theo từng loại.", "The five 100 ml bottles contain salmon, extra-virgin flaxseed, extra-virgin olive, extra-virgin walnut, and red gac oils. The manufacturer describes the plant oils as cold pressed; the characteristic fatty-acid profile varies by oil."),
+      source: "", sourceLabel: "Mămmy Việt Nam",
+      sellers: [{ name: "Shopee", url: "https://s.shopee.vn/6L2r78MK6C", kind: "affiliate", platform: "shopee" }]
+    }),
+    workbookProduct({
+      id: "mammy-combo-3-pho-mai-rau-cu-tach-giam-muoi-30g", section: "nutrition", category: "weaning", subcategory: "seasoning",
+      name: "Combo 3 phô mai rau củ tách giảm muối Mămmy 30 g – mua 3 tặng 3", brand: "Mămmy", image: "/assets/nutrition/mammy-combo-3-pho-mai-rau-cu-30g-cutout.png",
+      age: text("Từ 6 tháng tuổi", "From 6 months"), ageGroups: ["6-11", "12-23", "2-5", "6-9"], targets: ["infant", "child"],
+      needs: ["calcium", "meal"], needLabel: text("Bột phô mai rau củ dùng sau khi nấu", "Vegetable cheese powder added after cooking"), price: 259000,
+      priceStatus: text("Giá tham khảo từ dữ liệu nhập ngày 15/07/2026", "Reference price from data entered on 15/07/2026"), updated: "15/07/2026",
+      displayMetrics: [
+        { label: text("Mỗi hộp", "Per box"), value: "10 gói × 3 g" }, { label: text("Bột phô mai", "Cheese powder"), value: "30%" },
+        { label: text("Rau củ", "Vegetables"), value: "2% + 2%" }, { label: text("Combo", "Bundle"), value: text("3 hộp + tặng 3", "3 boxes + 3 bonus") }
+      ],
+      lactose: text("Có bột sữa béo và bột phô mai. Tên gọi tách giảm muối không có nghĩa là không chứa natri; nguồn hãng chưa công bố lượng natri mỗi gói.", "Contains milk fat powder and cheese powder. Reduced salt does not mean sodium-free; per-sachet sodium is not published."),
+      suitable: [text("Trẻ đã bắt đầu ăn dặm cần đa dạng hương vị món ăn", "Children who have started complementary feeding and need flavor variety"), text("Dùng rắc hoặc trộn vào món đã nấu chín", "For sprinkling or mixing into cooked food")],
+      cautions: [text("Không dùng khi dị ứng đạm sữa bò hoặc thành phần sản phẩm", "Do not use with cow's milk protein or ingredient allergy"), text("Không thêm muối, nước mắm hoặc bột nêm trong cùng bữa", "Do not add salt, fish sauce, or seasoning powder to the same meal")],
+      analysis: text("Mỗi hộp 30 g gồm 10 gói 3 g. Ba vị phối hợp bột phô mai 30% với cải ngọt và cà rốt, cải xoăn và cà rốt, hoặc bí đỏ và bông cải xanh.", "Each 30 g box contains ten 3 g sachets. Three flavors combine 30% cheese powder with bok choy and carrot, kale and carrot, or pumpkin and broccoli."),
+      source: "", sourceLabel: "Mămmy Việt Nam",
+      sellers: [{ name: "Shopee", url: "https://s.shopee.vn/9AN2UO1fAy", kind: "affiliate", platform: "shopee" }]
+    }),
+    workbookProduct({
+      id: "seoul-milk-angpang-organic-cheese-step-1-180g", section: "nutrition", category: "weaning", subcategory: "cheese",
+      name: "Phô mai hữu cơ giảm natri Seoul Milk Angpang Step 1 180 g", brand: "Seoul Milk – Angpang", image: "/assets/nutrition/seoul-milk-angpang-cheese-step-1-cutout.webp",
+      age: text("Step 1: 6–18 tháng", "Step 1: 6–18 months"), ageGroups: ["6-11", "12-23"], targets: ["infant", "child"],
+      needs: ["calcium", "meal"], needLabel: text("Phô mai lát hữu cơ giảm natri", "Reduced-sodium organic cheese slices"), price: 162000,
+      priceStatus: text("Giá tham khảo từ dữ liệu nhập ngày 15/07/2026", "Reference price from data entered on 15/07/2026"), updated: "15/07/2026",
+      displayMetrics: [
+        { label: text("Năng lượng", "Energy"), value: "61 kcal / lát" }, { label: text("Protein", "Protein"), value: "3,5 g / lát" },
+        { label: text("Canxi", "Calcium"), value: "130 mg / lát" }, { label: text("Natri", "Sodium"), value: "55 mg / lát" }
+      ],
+      lactose: text("Sản phẩm chứa sữa; mỗi lát 18 g vẫn có 55 mg natri dù được định vị là giảm natri.", "Contains milk; each 18 g slice still contains 55 mg sodium despite its reduced-sodium positioning."),
+      suitable: [text("Trẻ 6–18 tháng đã ăn dặm và dung nạp được đạm sữa bò", "Children 6–18 months who tolerate cow's milk protein and have started complementary feeding"), text("Dùng trực tiếp hoặc phối hợp với cháo, bột và rau củ nghiền", "Use directly or with porridge, cereal, or vegetable puree")],
+      cautions: [text("Không dùng khi dị ứng đạm sữa bò", "Do not use with cow's milk protein allergy"), text("Cắt nhỏ hoặc làm mềm phù hợp kỹ năng ăn; luôn cho trẻ ngồi thẳng", "Cut or soften to match feeding skills and keep the child seated upright")],
+      analysis: text("Mỗi lát 18 g cung cấp khoảng 61 kcal, 3,5 g protein, 5 g chất béo, 130 mg canxi, 55 mg natri và không có đường theo nhãn Hàn Quốc được đối chiếu.", "Each 18 g slice provides about 61 kcal, 3.5 g protein, 5 g fat, 130 mg calcium, 55 mg sodium, and zero sugar according to the reviewed Korean label."),
+      source: "https://www.seoulmilk.co.kr/enterprise/eng/product/product_view.sm?gubun=&nmNo=10000000000550&page=1&subname=P4", sourceLabel: "Seoul Dairy Co-op – Angpang Organic Cheese",
+      sellers: workbookSellers(text("Trang sản phẩm Seoul Milk", "Seoul Milk product page"), "https://www.seoulmilk.co.kr/enterprise/eng/product/product_view.sm?gubun=&nmNo=10000000000550&page=1&subname=P4", "seoul-milk", "https://s.shopee.vn/1gH1YkJQie")
+    }),
+    workbookProduct({
+      id: "hoff-pho-mai-tuoi-nguyen-ban-4x55g", section: "nutrition", category: "weaning", subcategory: "cheese",
+      name: "Phô mai tươi Höff vị nguyên bản – lốc 4 hộp × 55 g", brand: "Höff – Interbos", image: "/assets/nutrition/hoff-fresh-cheese-4x55g-cutout.png",
+      age: text("Từ 1 tuổi", "From 1 year"), ageGroups: ["12-23", "2-5", "6-9"], targets: ["child"],
+      needs: ["meal", "calcium", "energy"], needLabel: text("Phô mai tươi lên men dùng làm bữa phụ", "Cultured fresh cheese for snacks"), price: 55000,
+      priceStatus: text("Giá tham khảo từ dữ liệu nhập ngày 15/07/2026", "Reference price from data entered on 15/07/2026"), updated: "15/07/2026",
+      displayMetrics: [
+        { label: text("Năng lượng", "Energy"), value: "87 kcal / hộp" }, { label: text("Protein", "Protein"), value: "1,7 g / hộp" },
+        { label: text("Canxi", "Calcium"), value: "120 mg / hộp" }, { label: text("Vitamin D3", "Vitamin D3"), value: "1 mcg / hộp" }
+      ],
+      lactose: text("Có sữa, đường và chất tạo ngọt steviol glycoside; bảo quản lạnh và dùng hết ngay sau khi mở.", "Contains milk, sugar, and steviol glycosides; keep refrigerated and finish immediately after opening."),
+      suitable: [text("Trẻ từ 1 tuổi dung nạp được đạm sữa bò", "Children from 1 year who tolerate cow's milk protein"), text("Dùng trực tiếp như một phần của bữa phụ đa dạng", "Use directly as part of a varied snack")],
+      cautions: [text("Không dùng dưới 1 tuổi hoặc khi dị ứng đạm sữa bò", "Do not use under 1 year or with cow's milk protein allergy"), text("Không dùng thay sữa mẹ, sữa công thức hoặc bữa chính", "Do not replace breast milk, formula, or a main meal")],
+      analysis: text("Mỗi hộp 55 g cung cấp 87 kcal, 1,7 g protein, 5,5 g chất béo, 7,5 g carbohydrate, 120 mg canxi, 38,5 mg natri, 1 mcg vitamin D3 và 2,5 mcg vitamin K2.", "Each 55 g cup provides 87 kcal, 1.7 g protein, 5.5 g fat, 7.5 g carbohydrate, 120 mg calcium, 38.5 mg sodium, 1 mcg vitamin D3, and 2.5 mcg vitamin K2."),
+      source: "", sourceLabel: "Interbos – Höff Fresh Cheese",
+      sellers: [{ name: "Shopee", url: "https://s.shopee.vn/7Aby6vuXzo", kind: "affiliate", platform: "shopee" }]
+    }),
+    workbookProduct({
+      id: "tinyfeet-wj05-giay-tap-di", section: "care", category: "skills", subcategory: "first-walker-shoes",
+      name: "Giày tập đi cho bé TinyFeet WJ05", brand: "TinyFeet – dòng Weijun", image: "/assets/nutrition/tinyfeet-wj05-cutout.png",
+      age: text("Khoảng 8 tháng–3 tuổi; chọn theo chiều dài chân", "About 8 months–3 years; size by foot length"), ageGroups: ["6-11", "12-23", "2-5"], targets: ["infant", "child"],
+      needs: ["walking", "anti-slip"], needLabel: text("Giày lưới nhẹ với đế TPR chống trượt", "Lightweight mesh shoes with slip-resistant TPR soles"), price: 235000,
+      priceStatus: text("Giá tham khảo từ dữ liệu nhập ngày 15/07/2026", "Reference price from data entered on 15/07/2026"), updated: "15/07/2026",
+      displayMetrics: [
+        { label: text("Size", "Sizes"), value: "14–21" }, { label: text("Chiều dài chân", "Foot length"), value: "11–14,5 cm" },
+        { label: text("Thân giày", "Upper"), value: text("Vải lưới", "Mesh") }, { label: text("Đế", "Sole"), value: "TPR" }
+      ],
+      lactose: text("Có ba màu Trắng, Xanh Dương và Hồng; size phải chọn theo chiều dài bàn chân lớn hơn, không chỉ dựa vào tuổi.", "Available in white, blue, and pink; size using the longer foot rather than age alone."),
+      suitable: [text("Bé đã tự đứng, tập đi hoặc đi vững cần bảo vệ chân khi ra ngoài", "Children standing or walking who need foot protection outdoors"), text("Chân cần chất liệu thoáng và quai dán dễ điều chỉnh", "Feet needing breathable material and an adjustable strap")],
+      cautions: [text("Giày không điều trị hoặc phòng ngừa bàn chân bẹt hay bất thường dáng đi", "Shoes do not treat or prevent flat feet or gait abnormalities"), text("Ngừng dùng khi có đỏ da, phồng rộp, đau chân hoặc bé thường xuyên vấp", "Stop use with redness, blisters, pain, or repeated tripping")],
+      analysis: text("WJ05 có thân vải lưới, đế TPR, lót tháo rời, mũi hếch khoảng 15° và quai dán bản rộng. Bảng size hãng chạy từ 11 cm ở size 14 đến 14,5 cm ở size 21.", "WJ05 uses a mesh upper, TPR sole, removable insole, roughly 15° upturned toe, and wide hook-and-loop strap. The size chart runs from 11 cm at size 14 to 14.5 cm at size 21."),
+      normalizationNote: text("Thông số kích thước và vật liệu hiển thị theo dữ liệu sản phẩm; cần đối chiếu nhãn và đo chân thực tế trước khi chọn.", "Dimensions and materials follow the product data; verify the label and measure the child's feet before choosing."),
+      source: "", sourceLabel: "TinyFeet – WJ05 / dòng Weijun",
+      sellers: [{ name: "Shopee", url: "https://s.shopee.vn/9zw9TT0j7s", kind: "affiliate", platform: "shopee" }]
+    }),
+    workbookProduct({
+      id: "heorshe-antler-feeder-hos-08-001", section: "care", category: "skills", subcategory: "feeding-tools",
+      name: "Túi nhai ăn dặm sừng hươu HEORSHE Antler Feeder", brand: "HEORSHE", image: "/assets/nutrition/heorshe-antler-feeder-cutout.png",
+      age: text("Từ khoảng 6 tháng khi trẻ sẵn sàng ăn dặm", "From about 6 months when ready for complementary feeding"), ageGroups: ["6-11", "12-23"], targets: ["infant", "child"],
+      needs: ["independent-eating", "hand-eye"], needLabel: text("Túi nhai silicone hỗ trợ tự cầm ăn", "Silicone feeder supporting self-feeding"), price: 380000,
+      priceStatus: text("Giá tham khảo từ dữ liệu nhập ngày 15/07/2026", "Reference price from data entered on 15/07/2026"), updated: "15/07/2026",
+      displayMetrics: [
+        { label: text("Chất liệu", "Material"), value: text("Silicone thực phẩm", "Food-grade silicone") }, { label: text("Túi thay thế", "Feeder sacs"), value: text("2 kích cỡ", "2 sizes") },
+        { label: text("Kích thước", "Dimensions"), value: "~6 × 5 × 12 cm" }, { label: text("Khối lượng", "Weight"), value: "~73 g" }
+      ],
+      lactose: text("Toàn bộ thân bằng silicone không BPA theo hãng; bộ gồm túi nhỏ và lớn với kích thước lỗ khác nhau.", "The manufacturer states an all-silicone, BPA-free body; the set includes small and large sacs with different hole sizes."),
+      suitable: [text("Trẻ đã kiểm soát đầu cổ và ngồi ăn có hỗ trợ", "Children with head control who can sit supported for feeding"), text("Làm quen trái cây, rau củ chín và thức ăn mềm", "Introducing fruit, cooked vegetables, and soft foods")],
+      cautions: [text("Luôn giám sát trực tiếp; dụng cụ không loại bỏ hoàn toàn nguy cơ hóc", "Always supervise directly; the feeder does not eliminate choking risk"), text("Không dùng thức ăn có hạt cứng, xương, vỏ dai hoặc xơ dài", "Do not use hard seeds, bones, tough skins, or long fibrous pieces")],
+      analysis: text("Khoang chứa khoảng 30 mm, có cơ chế lò xo silicone tự đẩy thức ăn. Bộ kèm hai túi silicone; lỗ công bố dao động khoảng 1,2–2,0 mm theo kích cỡ.", "The food chamber is about 30 mm and uses a silicone spring to advance food. Two silicone sacs are included, with stated hole sizes of about 1.2–2.0 mm depending on size."),
+      normalizationNote: text("Thông số vật liệu, kích thước và phụ kiện hiển thị theo nguồn sản phẩm; kiểm tra bộ thực tế trước mỗi lần dùng.", "Materials, dimensions, and included parts follow the product source; inspect the actual set before each use."),
+      source: "https://www.heorshe.com/products/antler-feeder", sourceLabel: "HEORSHE – Antler Feeder",
+      sellers: workbookSellers(text("Trang sản phẩm HEORSHE", "HEORSHE product page"), "https://www.heorshe.com/products/antler-feeder", "heorshe", "https://s.shopee.vn/1qaRkmbDCH")
+    }),
+    workbookProduct({
+      id: "emoon-bo-an-dam-silicone-6-mon", section: "care", category: "skills", subcategory: "feeding-tools",
+      name: "Bộ ăn dặm silicone Emoon 6 món", brand: "EMOON", image: "/assets/nutrition/emoon-weaning-set-6-piece-cutout.png",
+      age: text("Từ khoảng 6 tháng khi trẻ sẵn sàng ăn dặm", "From about 6 months when ready for complementary feeding"), ageGroups: ["6-11", "12-23", "2-5"], targets: ["infant", "child"],
+      needs: ["independent-eating", "hand-eye", "drinking"], needLabel: text("Bộ silicone hỗ trợ tập ăn và tập uống", "Silicone set for learning to eat and drink"), price: 304000,
+      priceStatus: text("Giá tham khảo từ dữ liệu nhập ngày 15/07/2026", "Reference price from data entered on 15/07/2026"), updated: "15/07/2026",
+      displayMetrics: [
+        { label: text("Số món", "Pieces"), value: "6" }, { label: text("Chất liệu", "Material"), value: text("Silicone", "Silicone") },
+        { label: text("Đế hút", "Suction base"), value: text("Bát & khay", "Bowl & plate") }, { label: text("Màu", "Colors"), value: text("3 màu", "3 colors") }
+      ],
+      lactose: text("Bộ gồm yếm, bát, thìa, dĩa, cốc hai tay cầm kèm nắp và ống hút, cùng khay chia ba ngăn.", "The set includes a bib, bowl, spoon, fork, handled cup with lid and straw, and a three-section plate."),
+      suitable: [text("Trẻ bắt đầu ăn dặm, tập tự xúc và tập uống", "Children starting complementary feeding, self-feeding, and cup practice"), text("Dùng trên bề mặt bàn ghế ăn phẳng, sạch và khô", "Use on a flat, clean, dry high-chair surface")],
+      cautions: [text("Luôn cho trẻ ngồi thẳng và giám sát trong suốt bữa ăn", "Keep the child upright and supervised throughout meals"), text("Thay chi tiết bị rách, nứt, biến dạng, bám mùi hoặc xuống cấp", "Replace parts that are torn, cracked, deformed, odorous, or degraded")],
+      analysis: text("Bộ sáu món màu pastel dùng silicone, có yếm bốn nấc, bát và khay đế hút, cốc hai tay cầm và bộ thìa dĩa bo tròn. Các kích thước chi tiết được công bố trên hình ảnh gian hàng.", "The pastel six-piece silicone set includes a four-position bib, suction bowl and plate, handled cup, and rounded spoon and fork. Item dimensions are stated in the seller's product images."),
+      normalizationNote: text("Vật liệu và kích thước là thông tin do nhà bán hàng công bố; GrowthKid chưa đối chiếu hồ sơ chứng nhận gốc.", "Materials and dimensions are seller-stated; GrowthKid has not independently reviewed original certification records."),
+      source: "", sourceLabel: "EMOON Việt Nam / EMOON.House",
+      sellers: [{ name: "Shopee", url: "https://s.shopee.vn/5Aqtivxw0g", kind: "affiliate", platform: "shopee" }]
+    }),
+    workbookProduct({
+      id: "beige-ghe-an-dam-gap-gon-hop-kim-nhom", section: "care", category: "skills", subcategory: "high-chair",
+      name: "Ghế ăn dặm gấp gọn siêu nhẹ Beige", brand: "Beige", image: "/assets/nutrition/beige-foldable-high-chair-cutout.png",
+      age: text("Từ khoảng 6 tháng khi trẻ tự ngồi vững", "From about 6 months when sitting independently"), ageGroups: ["6-11", "12-23", "2-5"], targets: ["infant", "child"],
+      needs: ["independent-eating"], needLabel: text("Ghế ăn gấp gọn dùng độc lập hoặc làm ghế nâng", "Foldable chair for floor use or as a booster"), price: 495000,
+      priceStatus: text("Giá tham khảo từ dữ liệu nhập ngày 15/07/2026", "Reference price from data entered on 15/07/2026"), updated: "15/07/2026",
+      displayMetrics: [
+        { label: text("Kích thước mở", "Open size"), value: "~43 × 36 × 48 cm" }, { label: text("Kích thước gấp", "Folded size"), value: "~41 × 9 cm" },
+        { label: text("Khay", "Tray"), value: "~37 × 22 cm" }, { label: text("Cách dùng", "Modes"), value: text("Sàn / ghế nâng", "Floor / booster") }
+      ],
+      lactose: text("Bộ gồm khay tháo rời, dây an toàn, dây cố định vào ghế người lớn, đệm PU nhỏ và túi lưu trữ.", "Includes a removable tray, child restraint, adult-chair attachment straps, small PU pad, and storage bag."),
+      suitable: [text("Trẻ đã tự ngồi vững và cần vị trí ăn riêng ổn định", "Children sitting independently who need a stable feeding seat"), text("Gia đình cần ghế gấp gọn để mang theo hoặc cất giữ", "Families needing a portable, compact feeding chair")],
+      cautions: [text("Luôn khóa khung và cài đầy đủ dây an toàn; khay không thay cho dây đai", "Lock the frame and use the full restraint; the tray is not a restraint"), text("Không đặt trên bàn, quầy, ghế đẩu hoặc ghế có bánh xe", "Do not place on tables, counters, stools, or wheeled chairs")],
+      analysis: text("Gian hàng công bố kích thước mở khoảng 43 × 36 × 48 cm, gấp khoảng 41 × 9 cm, khay 37 × 22 cm và tựa lưng khoảng 95°. Chưa có tải trọng tối đa hoặc tiêu chuẩn an toàn được xác minh.", "The seller states an open size of about 43 × 36 × 48 cm, folded size of 41 × 9 cm, 37 × 22 cm tray, and roughly 95° backrest. A verified maximum load or safety standard is not available."),
+      normalizationNote: text("Thông số và vật liệu do nhà bán hàng công bố; cần đối chiếu nhãn, khóa, dây đai và giới hạn tải trọng trên sản phẩm thực tế.", "Specifications and materials are seller-stated; verify the actual label, locks, straps, and load limit."),
+      source: "", sourceLabel: "BEIGE MALL.VN",
+      sellers: [{ name: "Shopee", url: "https://s.shopee.vn/9zw9TprVMC", kind: "affiliate", platform: "shopee" }]
     })
   );
+
+  products.forEach((product) => {
+    if (product.category === "snack") product.category = "weaning";
+  });
 
   const usageGuides = {
     "growplus-tieu-hoa-2-800g": {
@@ -628,6 +773,30 @@
     },
     "lsi-silderma-sodermix-cream-15g": {
       steps: [text("Làm sạch, lau khô vùng da và thoa một lớp kem mỏng.", "Clean and dry the area, then apply a thin layer of cream."), text("Massage nhẹ đến khi thấm, dùng 2 lần mỗi ngày theo hướng dẫn của hãng.", "Massage gently until absorbed and use twice daily according to the manufacturer."), text("Không bôi lên mắt, niêm mạc, vết thương hở hoặc vùng nhiễm trùng; tổn thương rộng cần được đánh giá.", "Do not apply to eyes, mucosa, open wounds, or infected skin; extensive lesions require assessment.")]
+    },
+    "mammy-combo-5-dau-an-dam-100ml": {
+      steps: [text("Dùng cho trẻ 6 tháng–3 tuổi; liều hãng khuyến nghị 5 ml/lần, ngày 2 lần.", "For ages 6 months–3 years; the manufacturer recommends 5 ml per serving, twice daily."), text("Thêm một loại dầu vào cháo, bột, súp hoặc mì sau khi đã nấu chín và hạ nhiệt dưới 120°C; không chiên xào hoặc đun lâu.", "Add one oil to porridge, cereal, soup, or noodles after cooking and cooling below 120°C; do not fry or heat for long."), text("Khi bắt đầu, thử từng loại riêng với lượng nhỏ trong 2–3 ngày; đậy kín, tránh nắng và bỏ nếu dầu ôi, đổi màu hoặc quá hạn.", "When starting, try each oil separately in a small amount for 2–3 days; close tightly, avoid sunlight, and discard if rancid, discolored, or expired.")]
+    },
+    "mammy-combo-3-pho-mai-rau-cu-tach-giam-muoi-30g": {
+      steps: [text("Dùng cho trẻ từ 6 tháng đã bắt đầu ăn dặm; mỗi bữa dùng 1 gói 3 g.", "For children from 6 months who have started complementary feeding; use one 3 g sachet per meal."), text("Rắc hoặc trộn vào cháo, bột, cơm, súp, nui hay món ăn nhẹ sau khi đã nấu chín; không nấu lại và không thêm gia vị mặn.", "Sprinkle or mix into porridge, cereal, rice, soup, pasta, or snacks after cooking; do not recook or add salty seasoning."), text("Dùng hết ngay sau khi mở; giữ các gói chưa mở nơi khô mát và bỏ sản phẩm vón ẩm, đổi màu, có mùi lạ hoặc quá hạn.", "Use immediately after opening; keep unopened sachets cool and dry, and discard if damp, discolored, odorous, or expired.")]
+    },
+    "seoul-milk-angpang-organic-cheese-step-1-180g": {
+      steps: [text("Dùng cho trẻ 6–18 tháng; khi mới dùng, bắt đầu khoảng 1/4–1/2 lát và theo dõi dung nạp sữa.", "For ages 6–18 months; start with about 1/4–1/2 slice and monitor milk tolerance."), text("Cắt hoặc xé mềm phù hợp kỹ năng ăn; có thể trộn vào cháo, bột, súp hoặc rau củ nghiền sau khi tắt bếp, không đun sôi kéo dài.", "Cut or soften for the child's feeding skills, or mix into porridge, cereal, soup, or puree after turning off the heat; do not boil for long."), text("Bảo quản liên tục ở 0–10°C, bóc từng lát ngay trước khi dùng và không thêm muối hay gia vị mặn trong cùng bữa.", "Keep continuously at 0–10°C, unwrap each slice just before use, and do not add salt or salty seasoning to the same meal.")]
+    },
+    "hoff-pho-mai-tuoi-nguyen-ban-4x55g": {
+      steps: [text("Dùng cho trẻ từ 1 tuổi vào bữa phụ; theo hãng dùng 1–3 hộp/ngày tùy khẩu phần và khả năng dung nạp.", "For children from 1 year as a snack; the manufacturer suggests 1–3 cups daily depending on diet and tolerance."), text("Mở nắp, dùng trực tiếp bằng thìa sạch; cho trẻ ngồi thẳng và không cần đun nóng hoặc pha loãng.", "Open and serve directly with a clean spoon; keep the child upright and do not heat or dilute."), text("Bảo quản ở 4–18°C, dùng hết ngay sau khi mở và bỏ hộp phồng, rò rỉ, đổi mùi, đổi màu hoặc quá hạn.", "Store at 4–18°C, finish immediately after opening, and discard swollen, leaking, odorous, discolored, or expired cups.")]
+    },
+    "tinyfeet-wj05-giay-tap-di": {
+      steps: [text("Đo cả hai bàn chân vào cuối ngày khi trẻ đứng chịu lực; chọn size theo bàn chân dài hơn và không chỉ dựa vào tuổi.", "Measure both feet late in the day while weight-bearing; size to the longer foot rather than age alone."), text("Thử cả hai chiếc với loại tất thường dùng; gót phải ổn định, ngón chân cử động được và trẻ không trượt gót, co ngón hoặc vấp.", "Try both shoes with the usual socks; the heel should be stable, toes should move freely, and the child should not slip, curl toes, or trip."), text("Hong lót khi ẩm, vệ sinh nhẹ và kiểm tra size, đế cùng quai dán mỗi tháng; thay khi chật, biến dạng hoặc mất độ bám.", "Air the insoles when damp, clean gently, and check fit, soles, and straps monthly; replace when tight, deformed, or worn smooth.")]
+    },
+    "heorshe-antler-feeder-hos-08-001": {
+      steps: [text("Trước lần đầu, tháo rời, rửa sạch rồi luộc 3–5 phút hoặc ngâm nước sôi khoảng 5 phút; để nguội và khô hoàn toàn.", "Before first use, disassemble, wash, then boil for 3–5 minutes or soak in boiling water for about 5 minutes; cool and dry fully."), text("Cho lượng vừa phải trái cây mềm hoặc rau củ chín vào túi phù hợp, khóa nắp đúng khớp và chỉ cho trẻ dùng khi ngồi thẳng dưới giám sát liên tục.", "Place a modest amount of soft fruit or cooked vegetables in the correct sac, lock the lid, and use only while the child sits upright under continuous supervision."), text("Sau mỗi lần dùng, tháo rời, làm sạch kỹ các lỗ và hong khô; thay túi silicone ngay nếu rách, thủng, đổi màu, bám mùi hoặc biến dạng.", "After each use, disassemble, clean the holes thoroughly, and air-dry; replace the silicone sac if torn, punctured, discolored, odorous, or deformed.")]
+    },
+    "emoon-bo-an-dam-silicone-6-mon": {
+      steps: [text("Trước lần đầu, tháo rời, rửa bằng mút mềm và tiệt trùng theo hướng dẫn nhà bán hàng; để nguội và khô hoàn toàn.", "Before first use, disassemble, wash with a soft sponge, and sterilize as the seller directs; cool and dry fully."), text("Ấn đều đế hút lên mặt bàn phẳng, sạch, khô; chỉnh yếm vừa cổ, lắp cốc đúng khớp và luôn cho trẻ ngồi thẳng dưới giám sát.", "Press suction bases onto a flat, clean, dry surface; fit the bib comfortably, assemble the cup correctly, and keep the child upright and supervised."), text("Sau bữa, tháo rời cốc, nắp và ống hút, rửa sạch các rãnh rồi hong khô; không dùng búi sắt, vật sắc hoặc chất tẩy mạnh.", "After meals, disassemble the cup, lid, and straw, clean all grooves, and air-dry; avoid metal scrubbers, sharp tools, and harsh cleaners.")]
+    },
+    "beige-ghe-an-dam-gap-gon-hop-kim-nhom": {
+      steps: [text("Đặt ghế trên sàn phẳng, mở khung đến khi khóa đúng vị trí rồi kiểm tra chốt, khay, chân và dây trước khi đặt trẻ vào.", "Place on a level floor, open until fully locked, then check the locks, tray, feet, and straps before seating the child."), text("Cài toàn bộ dây an toàn vừa khít; khi dùng làm ghế nâng, siết cả dây dưới mặt ghế và dây quanh tựa lưng của một ghế người lớn chắc chắn, không bánh xe.", "Use the full restraint snugly; as a booster, tighten both the under-seat and backrest straps around a stable, non-wheeled adult chair."), text("Luôn ở trong tầm tay; lấy trẻ ra trước khi gấp, giữ tay tránh điểm kẹp và ngừng dùng nếu khung, khóa, dây, khay hoặc chân chống trượt hư hỏng.", "Stay within reach; remove the child before folding, avoid pinch points, and stop use if the frame, locks, straps, tray, or non-slip feet are damaged.")]
     }
   };
 
@@ -699,7 +868,7 @@
     {
       id: "care",
       label: text("Chăm sóc Mẹ & Bé", "Mother & baby care"),
-      description: text("Sản phẩm chăm sóc da, vệ sinh và đồ dùng thiết yếu cho mẹ và trẻ nhỏ.", "Skin care, hygiene, and everyday essentials for mothers and children."),
+      description: text("Sản phẩm chăm sóc, vệ sinh và đồ dùng hỗ trợ trẻ phát triển kỹ năng hằng ngày.", "Care, hygiene, and everyday products that support children's developing skills."),
       defaultCategory: "skin-care"
     }
   ];
@@ -731,19 +900,19 @@
       subcategories: [["all", text("Tất cả", "All")], ["high-energy", text("Năng lượng cao", "Higher energy")], ["complete", text("Dinh dưỡng toàn phần", "Complete nutrition")], ["peptide", "Peptide"], ["tube", text("Qua ống", "Tube feeding")], ["recovery", text("Phục hồi", "Recovery")]]
     },
     {
-      id: "weaning", area: "nutrition", label: text("Đồ ăn dặm", "Weaning foods"), shortLabel: text("Đồ ăn dặm", "Weaning foods"),
-      description: text("Bột, cháo, nui, mì, gia vị và dầu ăn dặm với thành phần rõ ràng.", "Cereals, porridge, pasta, seasonings, and weaning oils with clear ingredients."),
-      subcategories: [["all", text("Tất cả", "All")], ["cereal", text("Bột ăn dặm", "Baby cereal")], ["porridge", text("Cháo", "Porridge")], ["noodle", text("Nui và mì", "Pasta & noodles")], ["seasoning", text("Gia vị ăn dặm", "Seasoning")], ["oil", text("Dầu ăn dặm", "Weaning oil")]]
-    },
-    {
-      id: "snack", area: "nutrition", label: text("Snack lành mạnh", "Healthy snacks"), shortLabel: text("Snack lành mạnh", "Healthy snacks"),
-      description: text("Bánh ăn dặm, bánh gạo, puff, trái cây sấy và rong biển.", "Baby biscuits, rice crackers, puffs, dried fruit, and seaweed."),
-      subcategories: [["all", text("Tất cả", "All")], ["baby-biscuit", text("Bánh ăn dặm", "Baby biscuits")], ["rice-cracker", text("Bánh gạo", "Rice crackers")], ["puff", "Puff"], ["dried-fruit", text("Trái cây sấy", "Dried fruit")], ["seaweed", text("Rong biển", "Seaweed")]]
+      id: "weaning", area: "nutrition", label: text("Đồ ăn dặm & snack lành mạnh", "Weaning foods & healthy snacks"), shortLabel: text("Ăn dặm & snack", "Weaning & snacks"),
+      description: text("Bột, cháo, nui, mì, gia vị, dầu ăn dặm và snack với thành phần, đường và natri rõ ràng.", "Cereals, porridge, pasta, seasonings, weaning oils, and snacks with clear ingredient, sugar, and sodium information."),
+      subcategories: [["all", text("Tất cả", "All")], ["cereal", text("Bột ăn dặm", "Baby cereal")], ["porridge", text("Cháo", "Porridge")], ["noodle", text("Nui và mì", "Pasta & noodles")], ["seasoning", text("Gia vị ăn dặm", "Seasoning")], ["oil", text("Dầu ăn dặm", "Weaning oil")], ["cheese", text("Phô mai & bữa phụ", "Cheese & snacks")], ["baby-biscuit", text("Bánh ăn dặm", "Baby biscuits")], ["rice-cracker", text("Bánh gạo", "Rice crackers")], ["puff", "Puff"], ["dried-fruit", text("Trái cây sấy", "Dried fruit")], ["seaweed", text("Rong biển", "Seaweed")]]
     },
     {
       id: "skin-care", area: "care", label: text("Chăm sóc da & chống hăm", "Skin & diaper-area care"), shortLabel: text("Chăm sóc da & chống hăm", "Skin & diaper care"),
       description: text("Kem dưỡng ẩm, phục hồi hàng rào da, làm dịu và bảo vệ vùng da mặc tã trong cùng một nhóm dễ tra cứu.", "Moisturizers, barrier repair, soothing care, and diaper-area protection in one easy-to-browse group."),
       subcategories: [["all", text("Tất cả", "All")], ["moisturizer", text("Dưỡng ẩm", "Moisturizers")], ["barrier", text("Phục hồi hàng rào da", "Barrier repair")], ["soothing", text("Làm dịu & chăm sóc sẹo", "Soothing & scar care")], ["diaper", text("Bảo vệ vùng tã", "Diaper-area protection")]]
+    },
+    {
+      id: "skills", area: "care", label: text("Đồ dùng phát triển kỹ năng cho bé", "Skill-building essentials"), shortLabel: text("Phát triển kỹ năng", "Skill-building"),
+      description: text("Đồ dùng hỗ trợ bé tập ăn, tập uống, tập đi và rèn khả năng tự lập theo từng giai đoạn.", "Products that support independent eating, drinking, walking, and everyday skill development by stage."),
+      subcategories: [["all", text("Tất cả", "All")], ["feeding-tools", text("Dụng cụ ăn dặm", "Feeding tools")], ["bowls-trays", text("Bát và khay ăn dặm", "Bowls & trays")], ["training-spoons", text("Thìa tập ăn", "Training spoons")], ["training-cups", text("Cốc tập uống", "Training cups")], ["bibs", text("Yếm ăn dặm", "Bibs")], ["high-chair", text("Ghế ăn dặm", "High chairs")], ["first-walker-shoes", text("Giày tập đi", "First-walker shoes")], ["first-walker-sandals", text("Dép tập đi", "First-walker sandals")], ["anti-slip-socks", text("Tất chống trượt", "Anti-slip socks")]]
     },
     {
       id: "sun", area: "care", label: text("Kem chống nắng trẻ em", "Children's sunscreen"), shortLabel: text("Chống nắng trẻ em", "Sunscreen"),
@@ -802,7 +971,8 @@
     const requestedArea = productAreas.some((area) => area.id === saved.area) ? saved.area : "nutrition";
     const availableCategories = categories.filter((category) => category.area === requestedArea && !category.hidden);
     const area = productAreas.find((item) => item.id === requestedArea);
-    const category = availableCategories.find((item) => item.id === saved.category)
+    const savedCategory = saved.category === "snack" ? "weaning" : saved.category;
+    const category = availableCategories.find((item) => item.id === savedCategory)
       || availableCategories.find((item) => item.id === area?.defaultCategory)
       || availableCategories[0];
     const availableSubcategories = category?.subcategories?.map(([id]) => id) || ["all"];
@@ -1041,6 +1211,8 @@
       : [["all", text("Tất cả đối tượng", "All audiences")], ["infant", text("Trẻ sơ sinh", "Infants")], ["child", text("Trẻ em", "Children")], ["mother", text("Mẹ sau sinh", "Mothers")], ["family", text("Cả gia đình", "Family")]];
     const needOptions = state.area === "nutrition"
       ? [["all", text("Tất cả nhu cầu", "All needs")], ["daily", text("Dùng hằng ngày", "Daily use")], ["digestion", text("Hỗ trợ tiêu hóa", "Digestive support")], ["constipation", text("Hỗ trợ táo bón", "Constipation support")], ["immune", text("Hỗ trợ miễn dịch", "Immune support")], ["sleep", text("Hỗ trợ giấc ngủ", "Sleep support")], ["energy", text("Bổ sung năng lượng", "More energy")], ["less-sugar", text("Ít đường", "Lower sugar")], ["lactose-free", text("Không lactose", "Lactose-free")], ["calcium", text("Canxi & vitamin D", "Calcium & vitamin D")], ["meal", text("Bữa phụ dinh dưỡng", "Nutritional snack")]]
+      : state.category === "skills"
+        ? [["all", text("Tất cả nhu cầu", "All needs")], ["independent-eating", text("Tập ăn độc lập", "Independent eating")], ["hand-eye", text("Phối hợp tay-mắt", "Hand-eye coordination")], ["drinking", text("Tập uống", "Learning to drink")], ["walking", text("Tập đi", "Learning to walk")], ["anti-slip", text("Chống trượt", "Slip resistance")]]
       : [["all", text("Tất cả nhu cầu", "All needs")], ["daily", text("Dùng hằng ngày", "Daily use")], ["sensitive", text("Da nhạy cảm", "Sensitive skin")], ["fragrance-free", text("Không hương liệu", "Fragrance-free")], ["rash", text("Bảo vệ vùng tã", "Diaper-area care")], ["dry-skin", text("Da khô", "Dry skin")]];
     const brands = [...new Set(products.filter((product) => product.section === state.area && product.category === state.category).map((product) => product.brand))].sort((a, b) => a.localeCompare(b, isVietnamese ? "vi" : "en"));
     const brandOptions = [["all", text("Tất cả thương hiệu", "All brands")], ...brands.map((brand) => [brand, brand])];
@@ -1093,7 +1265,9 @@
     if (title) title.textContent = category.label;
     if (safety) safety.textContent = state.area === "nutrition"
       ? text("Các nhu cầu như tiêu chảy, dị ứng, colic hoặc dinh dưỡng y học chỉ mang tính tham khảo; trẻ có bệnh lý hoặc tăng trưởng bất thường cần được đánh giá chuyên môn.", "Diarrhea, allergy, colic, and medical nutrition categories are for reference; children with medical or growth concerns need professional assessment.")
-      : text("Kiểm tra độ tuổi, thành phần, cảnh báo kích ứng và hướng dẫn sử dụng trên nhãn trước khi dùng sản phẩm chăm sóc cho trẻ.", "Check age guidance, ingredients, irritation warnings, and label directions before using care products on children.");
+      : state.category === "skills"
+        ? text("Kiểm tra độ tuổi, vật liệu, kích thước, cảnh báo an toàn và hướng dẫn vệ sinh trên nhãn trước khi cho trẻ sử dụng.", "Check age guidance, materials, sizing, safety warnings, and cleaning directions before a child uses the product.")
+        : text("Kiểm tra độ tuổi, thành phần, cảnh báo kích ứng và hướng dẫn sử dụng trên nhãn trước khi dùng sản phẩm chăm sóc cho trẻ.", "Check age guidance, ingredients, irritation warnings, and label directions before using care products on children.");
   }
 
   function renderToolbarState() {
@@ -1182,7 +1356,9 @@
         <span class="nutrition-category-icon is-large">${categoryIcon(category.id)}</span>
         <span class="nutrition-kicker">${text("Dữ liệu đang được chuẩn hóa", "Data is being normalized")}</span>
         <h3>${text(`Chưa có sản phẩm ${category.label.toLocaleLowerCase("vi")} đủ nguồn`, `No source-ready ${category.label.toLocaleLowerCase("en")} products yet`)}</h3>
-        <p>${text("GrowthKid chỉ đưa sản phẩm lên danh sách khi có thông tin nhãn, nguồn hãng và độ tuổi sử dụng rõ ràng.", "GrowthKid lists a product only when label information, manufacturer sources, and age guidance are clear.")}</p>
+        <p>${state.category === "skills"
+          ? text("GrowthKid chỉ đưa sản phẩm lên danh sách khi có nguồn hãng, độ tuổi, vật liệu và hướng dẫn sử dụng rõ ràng.", "GrowthKid lists a product only when manufacturer sources, age guidance, materials, and directions are clear.")
+          : text("GrowthKid chỉ đưa sản phẩm lên danh sách khi có thông tin nhãn, nguồn hãng và độ tuổi sử dụng rõ ràng.", "GrowthKid lists a product only when label information, manufacturer sources, and age guidance are clear.")}</p>
         <div class="nutrition-empty-tags">${category.subcategories.filter(([value]) => value !== "all").map(([, label]) => `<span>${label}</span>`).join("")}</div>
         <button class="nutrition-btn nutrition-btn-secondary" type="button" data-nutrition-action="category" data-category="milk">${text("Xem sản phẩm đang có", "View available products")} ${icon("arrow")}</button>
       </div>`;
