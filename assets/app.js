@@ -2709,8 +2709,6 @@
       ".article-card",
       ".feature-card",
       ".faq-item",
-      ".seo-card",
-      ".trust-card",
       ".method-card",
       ".education-card",
       ".content-panel",
@@ -3056,13 +3054,11 @@
             <div class="hero-panel" id="calculator">${calculatorCard(false)}</div>
           </div>
         </section>
-        ${trustBandSection()}
         ${resultsBlock(false)}
         ${viralToolkitSection()}
         ${methodologySection()}
         ${measurementGuideSection()}
         ${assessmentSection()}
-        ${seoLinksSection()}
         ${articlesSection()}
       </main>
     `);
@@ -3094,7 +3090,6 @@
         </section>
         ${resultsBlock(false)}
         ${calculatorGuidanceSection(kind)}
-        ${seoLinksSection()}
       </main>
     `);
   }
@@ -3216,7 +3211,6 @@
         </section>
         ${resultsBlock(true)}
         ${viralToolkitSection()}
-        ${seoLinksSection()}
       </main>
     `);
   }
@@ -3271,7 +3265,6 @@
         ${assessmentSection()}
         ${methodologySection()}
         ${measurementGuideSection()}
-        ${seoLinksSection()}
       </main>
     `);
   }
@@ -4465,7 +4458,6 @@
             </div>
           </div>
         </section>
-        ${seoLinksSection()}
       </main>
     `);
   }
@@ -4483,31 +4475,6 @@
         ${calculatorCard(true)}
         ${resultsBlock(false)}
       </main>
-    `;
-  }
-
-  function trustBandSection() {
-    const items = [
-      { title: "WHO reference", text: "Designed around WHO Child Growth Standards and z-score interpretation." },
-      { title: "No signup", text: "Parents can check growth without creating an account." },
-      { title: "Local first", text: "Measurements stay in the browser unless the user chooses to download them." },
-      { title: "Educational", text: "Clear medical disclaimers keep the tool supportive, not diagnostic." }
-    ];
-
-    return `
-      <section class="trust-band">
-        <div class="container trust-band-grid">
-          ${items.map((item) => `
-            <div class="trust-card">
-              <span class="check-dot">✓</span>
-              <div>
-                <strong>${item.title}</strong>
-                <p>${item.text}</p>
-              </div>
-            </div>
-          `).join("")}
-        </div>
-      </section>
     `;
   }
 
@@ -4571,8 +4538,6 @@
   }
 
   function viralToolkitSection() {
-    const embedCode = `<iframe src="${window.location.origin}/embed/child-growth-calculator/" width="100%" height="720" loading="lazy" title="GrowthKid Child Growth Calculator"></iframe>`;
-
     return `
       <section class="section">
         <div class="container viral-grid">
@@ -4587,15 +4552,6 @@
             <h2>Trend tracker</h2>
             <p>Save repeated measurements on this device to compare a child's pattern over time instead of reacting to one point.</p>
             <a class="btn btn-secondary" href="${localizedHref("/growth-results/")}">View trend tracker</a>
-          </article>
-          <article class="viral-card">
-            <span class="icon-box">${icon("copy")}</span>
-            <h2>Embed the calculator</h2>
-            <p>Clinics, newsletters, and parenting blogs can embed the calculator with a simple iframe.</p>
-            <div class="embed-actions">
-              <button class="btn btn-quiet" id="copyEmbedCode" data-embed-code="${escapeHtml(embedCode)}" type="button">${icon("copy")} Copy embed code</button>
-              <a class="btn btn-secondary" href="${localizedHref("/embed/child-growth-calculator/")}" target="_blank" rel="noreferrer">Preview widget</a>
-            </div>
           </article>
         </div>
       </section>
@@ -4633,27 +4589,6 @@
                 <h3>${feature.title}</h3>
                 <p>${feature.text}</p>
               </article>
-            `).join("")}
-          </div>
-        </div>
-      </section>
-    `;
-  }
-
-  function seoLinksSection() {
-    return `
-      <section class="section">
-        <div class="container">
-          <div class="section-header">
-            <h2>Calculator tools</h2>
-            <p>Each calculator has its own landing page, FAQ, WHO explanation, and internal links for organic search.</p>
-          </div>
-          <div class="seo-grid">
-            ${tools.map((tool) => `
-              <a class="seo-card" href="${localizedHref(tool.href)}">
-                <h3>${tool.label}</h3>
-                <p>Open a focused calculator page with result cards, chart context, and parent-friendly explanations.</p>
-              </a>
             `).join("")}
           </div>
         </div>
@@ -6849,13 +6784,6 @@
       });
     }
 
-    const copyEmbedButton = document.getElementById("copyEmbedCode");
-    if (copyEmbedButton) {
-      copyEmbedButton.addEventListener("click", async () => {
-        await navigator.clipboard.writeText(copyEmbedButton.dataset.embedCode || "");
-        setActionFeedback("copyEmbedCode", "Copied");
-      });
-    }
   }
 
   function bindDateInputs(scope) {

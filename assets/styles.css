@@ -651,8 +651,6 @@ button {
 .article-card,
 .feature-card,
 .faq-item,
-.seo-card,
-.trust-card,
 .method-card,
 .education-card,
 .content-panel,
@@ -677,8 +675,6 @@ button {
 .article-card:hover,
 .feature-card:hover,
 .faq-item:hover,
-.seo-card:hover,
-.trust-card:hover,
 .method-card:hover,
 .education-card:hover,
 .viral-card:hover,
@@ -1536,38 +1532,6 @@ button {
   font-size: 1rem;
 }
 
-.trust-band {
-  padding: 18px 0;
-  border-top: 1px solid var(--soft);
-  border-bottom: 1px solid var(--soft);
-  background: rgba(255, 255, 255, 0.7);
-  backdrop-filter: blur(14px);
-}
-
-.trust-band-grid {
-  display: grid;
-  gap: 12px;
-}
-
-.trust-card {
-  display: flex;
-  align-items: flex-start;
-  gap: 12px;
-  padding: 14px;
-  box-shadow: none;
-}
-
-.trust-card strong {
-  display: block;
-  font-size: 0.94rem;
-}
-
-.trust-card p {
-  margin: 4px 0 0;
-  color: var(--muted);
-  font-size: 0.86rem;
-}
-
 .split-section {
   display: grid;
   gap: 24px;
@@ -1698,30 +1662,8 @@ button {
   font-size: 0.95rem;
 }
 
-.embed-code {
-  overflow: auto;
-  max-width: 100%;
-  margin: 0;
-  padding: 12px;
-  border: 1px solid var(--soft);
-  border-radius: 8px;
-  color: #334155;
-  background: var(--secondary);
-  font-size: 0.78rem;
-  line-height: 1.45;
-  white-space: pre-wrap;
-  word-break: break-word;
-}
-
-.embed-actions {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-}
-
 .feature-grid,
-.article-grid,
-.seo-grid {
+.article-grid {
   display: grid;
   gap: 14px;
 }
@@ -1744,7 +1686,6 @@ button {
 
 .feature-card h3,
 .article-card h3,
-.seo-card h3,
 .faq-item h3 {
   margin: 0;
   font-size: 1rem;
@@ -1752,15 +1693,13 @@ button {
 
 .feature-card p,
 .article-card p,
-.seo-card p,
 .faq-item p {
   margin: 0;
   color: var(--muted);
   font-size: 0.94rem;
 }
 
-.article-card,
-.seo-card {
+.article-card {
   display: grid;
   gap: 12px;
   padding: 18px;
@@ -2711,8 +2650,6 @@ button {
 
   .feature-grid,
   .article-grid,
-  .seo-grid,
-  .trust-band-grid,
   .method-grid,
   .education-grid,
   .viral-grid,
@@ -2786,14 +2723,12 @@ button {
     grid-template-columns: repeat(4, minmax(0, 1fr));
   }
 
-  .trust-band-grid {
-    grid-template-columns: repeat(4, minmax(0, 1fr));
+  .article-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 
-  .article-grid,
-  .seo-grid,
   .viral-grid {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   .post-results-grid {
@@ -3116,8 +3051,6 @@ button {
   .article-card:hover,
   .feature-card:hover,
   .faq-item:hover,
-  .seo-card:hover,
-  .trust-card:hover,
   .method-card:hover,
   .education-card:hover,
   .viral-card:hover,
@@ -3136,8 +3069,6 @@ button {
   .article-card,
   .feature-card,
   .faq-item,
-  .seo-card,
-  .trust-card,
   .method-card,
   .education-card,
   .content-panel,

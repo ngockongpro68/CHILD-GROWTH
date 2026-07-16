@@ -815,7 +815,7 @@
 }
 
 .nutrition-product-media[data-product-id="lineabon-d3k2-drops-10ml"] img,
-.nutrition-detail-product[data-product-id="lineabon-d3k2-drops-10ml"] img {
+.nutrition-detail-product[data-product-id="lineabon-d3k2-drops-10ml"] > img {
   mix-blend-mode: multiply;
 }
 
@@ -1413,6 +1413,7 @@ body.nutrition-detail-open {
 }
 
 .nutrition-detail-product {
+  position: relative;
   display: grid;
   align-content: center;
   justify-items: center;
@@ -1424,7 +1425,7 @@ body.nutrition-detail-open {
   background: #f5f8f7;
 }
 
-.nutrition-detail-product img {
+.nutrition-detail-product > img {
   width: 100%;
   height: 240px;
   object-fit: contain;
@@ -1434,6 +1435,7 @@ body.nutrition-detail-open {
 }
 
 .nutrition-detail-product span {
+  justify-self: start;
   margin-top: 8px;
   padding: 5px 8px;
   border-radius: 6px;
@@ -1442,6 +1444,37 @@ body.nutrition-detail-open {
   font-size: 0.72rem;
   font-weight: 750;
   text-align: center;
+}
+
+.nutrition-photo-qr {
+  position: absolute;
+  right: 12px;
+  bottom: 12px;
+  z-index: 3;
+  display: grid;
+  justify-items: center;
+  width: 108px;
+  padding: 7px 7px 5px;
+  border: 1px solid #cbdad5;
+  border-radius: 7px;
+  color: var(--nutrition-green-dark);
+  background: #ffffff;
+  box-shadow: 0 8px 20px rgba(22, 43, 53, 0.12);
+}
+
+.nutrition-photo-qr img {
+  display: block;
+  width: 92px;
+  height: 92px;
+  image-rendering: pixelated;
+}
+
+.nutrition-photo-qr small {
+  margin-top: 4px;
+  font-size: 0.58rem;
+  font-weight: 800;
+  line-height: 1;
+  white-space: nowrap;
 }
 
 .nutrition-fit-grid {
@@ -1536,7 +1569,6 @@ body.nutrition-detail-open {
 
 .nutrition-analysis,
 .nutrition-usage,
-.nutrition-detail-qr,
 .nutrition-sources,
 .nutrition-sellers {
   margin: 0 22px 18px;
@@ -1684,69 +1716,6 @@ body.nutrition-detail-open {
 .nutrition-analysis small {
   color: #7b898f;
   font-size: 0.65rem;
-}
-
-.nutrition-detail-qr {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) 220px;
-  align-items: center;
-  gap: 20px;
-  overflow: hidden;
-  border-color: #c8dfd4;
-  background: #f1f8f4;
-}
-
-.nutrition-detail-qr-copy > span {
-  display: block;
-  margin-bottom: 4px;
-  color: var(--nutrition-green);
-  font-size: 0.68rem;
-  font-weight: 800;
-  text-transform: uppercase;
-}
-
-.nutrition-detail-qr h3 {
-  margin: 0;
-  color: var(--nutrition-ink);
-  font-size: 1rem;
-}
-
-.nutrition-detail-qr p {
-  max-width: 520px;
-  margin: 7px 0 12px;
-  color: var(--nutrition-muted);
-  font-size: 0.75rem;
-  line-height: 1.55;
-}
-
-.nutrition-detail-qr-copy > a {
-  display: inline-flex;
-  align-items: center;
-  gap: 7px;
-  min-height: 40px;
-  padding: 9px 12px;
-  border-radius: 7px;
-  color: #ffffff;
-  background: var(--nutrition-green);
-  font-size: 0.73rem;
-  font-weight: 800;
-}
-
-.nutrition-detail-qr-copy > a svg {
-  width: 16px;
-  height: 16px;
-}
-
-.nutrition-detail-qr-image {
-  display: block;
-  justify-self: end;
-}
-
-.nutrition-detail-qr-image img {
-  display: block;
-  width: 210px;
-  height: 210px;
-  object-fit: contain;
 }
 
 .nutrition-sources {
@@ -1944,7 +1913,6 @@ body.nutrition-detail-open {
 
   .nutrition-fit-grid,
   .nutrition-usage,
-  .nutrition-detail-qr,
   .nutrition-sources {
     grid-template-columns: 1fr;
   }
@@ -2109,33 +2077,23 @@ body.nutrition-detail-open {
     min-height: 270px;
   }
 
+  .nutrition-photo-qr {
+    right: 10px;
+    bottom: 10px;
+    width: 104px;
+  }
+
+  .nutrition-photo-qr img {
+    width: 88px;
+    height: 88px;
+  }
+
   .nutrition-analysis,
   .nutrition-usage,
-  .nutrition-detail-qr,
   .nutrition-sources,
   .nutrition-sellers {
     margin-right: 16px;
     margin-left: 16px;
-  }
-
-  .nutrition-detail-qr {
-    grid-template-columns: 1fr;
-    justify-items: center;
-    text-align: center;
-  }
-
-  .nutrition-detail-qr p {
-    margin-right: auto;
-    margin-left: auto;
-  }
-
-  .nutrition-detail-qr-image {
-    justify-self: center;
-  }
-
-  .nutrition-detail-qr-image img {
-    width: min(240px, 100%);
-    height: auto;
   }
 
   .nutrition-compare-dock {

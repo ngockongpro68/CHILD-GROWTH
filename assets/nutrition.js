@@ -1471,7 +1471,14 @@
         <button class="nutrition-detail-close" type="button" title="${text("Đóng", "Close")}" aria-label="${text("Đóng chi tiết", "Close details")}" data-nutrition-action="close-detail">${icon("close")}</button>
       </div>
       <div class="nutrition-detail-main">
-        <div class="nutrition-detail-product" data-product-id="${product.id}"><img src="${product.image}" alt="${product.name}"><span>${product.age}</span></div>
+        <div class="nutrition-detail-product" data-product-id="${product.id}">
+          <img src="${product.image}" alt="${product.name}">
+          <span>${product.age}</span>
+          <a class="nutrition-photo-qr" href="https://growthkid.xyz/vi/nutrition/" target="_blank" rel="noopener noreferrer" aria-label="${text("Quét mã để mở GrowthKid Dinh dưỡng", "Scan to open GrowthKid Nutrition")}">
+            <img src="/assets/growthkid-nutrition-qr-code.png" width="900" height="900" alt="">
+            <small>${text("Quét GrowthKid", "Scan GrowthKid")}</small>
+          </a>
+        </div>
         <div class="nutrition-detail-summary">
           <div class="nutrition-fit-grid">
             <div><h3>${text("Phù hợp khi", "May fit when")}</h3><ul>${product.suitable.map((item) => `<li>${icon("check")}<span>${item}</span></li>`).join("")}</ul></div>
@@ -1482,17 +1489,6 @@
           </div>
         </div>
       </div>
-      <section class="nutrition-detail-qr">
-        <div class="nutrition-detail-qr-copy">
-          <span>${text("Tiếp tục trên điện thoại", "Continue on your phone")}</span>
-          <h3>${text("Quét để mở GrowthKid Dinh dưỡng", "Scan to open GrowthKid Nutrition")}</h3>
-          <p>${text("Dùng camera điện thoại để xem lại sản phẩm, so sánh và mở liên kết mua hàng thuận tiện hơn.", "Use your phone camera to revisit products, compare options, and open seller links more easily.")}</p>
-          <a href="https://growthkid.xyz/vi/nutrition/" target="_blank" rel="noreferrer">${text("Mở trang dinh dưỡng", "Open nutrition guide")} ${icon("arrow")}</a>
-        </div>
-        <a class="nutrition-detail-qr-image" href="https://growthkid.xyz/vi/nutrition/" target="_blank" rel="noreferrer" aria-label="${text("Mở GrowthKid Dinh dưỡng", "Open GrowthKid Nutrition")}">
-          <img src="/assets/growthkid-nutrition-qr.png" width="1254" height="1254" loading="lazy" alt="${text("Mã QR mở GrowthKid Dinh dưỡng", "QR code to open GrowthKid Nutrition")}">
-        </a>
-      </section>
       <section class="nutrition-usage">
         <div class="nutrition-usage-heading">
           <div class="nutrition-usage-icon">${icon("usage")}</div>
