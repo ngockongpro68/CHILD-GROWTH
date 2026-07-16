@@ -814,8 +814,13 @@
   --nutrition-image-scale: 1.1;
 }
 
+.nutrition-product-media[data-product-id="neopeptine-f-drops-digestive-enzymes-15ml"],
+.nutrition-detail-product[data-product-id="neopeptine-f-drops-digestive-enzymes-15ml"] {
+  --nutrition-image-scale: 1.12;
+}
+
 .nutrition-product-media[data-product-id="lineabon-d3k2-drops-10ml"] img,
-.nutrition-detail-product[data-product-id="lineabon-d3k2-drops-10ml"] > img {
+.nutrition-detail-product[data-product-id="lineabon-d3k2-drops-10ml"] .nutrition-detail-product-image > img {
   mix-blend-mode: multiply;
 }
 
@@ -1407,16 +1412,18 @@ body.nutrition-detail-open {
 
 .nutrition-detail-main {
   display: grid;
-  grid-template-columns: 280px minmax(0, 1fr);
-  gap: 22px;
+  grid-template-columns: 400px minmax(0, 1fr);
+  gap: 18px;
   padding: 22px;
 }
 
 .nutrition-detail-product {
-  position: relative;
   display: grid;
+  grid-template-columns: minmax(0, 1fr) 100px;
+  grid-template-rows: minmax(240px, 1fr) auto;
   align-content: center;
-  justify-items: center;
+  align-items: center;
+  gap: 8px 12px;
   overflow: hidden;
   min-height: 310px;
   padding: 18px;
@@ -1425,7 +1432,18 @@ body.nutrition-detail-open {
   background: #f5f8f7;
 }
 
-.nutrition-detail-product > img {
+.nutrition-detail-product-image {
+  grid-column: 1;
+  grid-row: 1;
+  display: grid;
+  place-items: center;
+  align-self: stretch;
+  width: 100%;
+  min-width: 0;
+  overflow: hidden;
+}
+
+.nutrition-detail-product-image > img {
   width: 100%;
   height: 240px;
   object-fit: contain;
@@ -1435,8 +1453,9 @@ body.nutrition-detail-open {
 }
 
 .nutrition-detail-product span {
+  grid-column: 1;
+  grid-row: 2;
   justify-self: start;
-  margin-top: 8px;
   padding: 5px 8px;
   border-radius: 6px;
   color: var(--nutrition-green-dark);
@@ -1447,31 +1466,31 @@ body.nutrition-detail-open {
 }
 
 .nutrition-photo-qr {
-  position: absolute;
-  right: 12px;
-  bottom: 12px;
-  z-index: 3;
   display: grid;
+  grid-column: 2;
+  grid-row: 1 / 3;
+  align-self: end;
+  justify-self: end;
   justify-items: center;
-  width: 108px;
-  padding: 7px 7px 5px;
+  width: 100px;
+  padding: 7px 7px 6px;
   border: 1px solid #cbdad5;
   border-radius: 7px;
   color: var(--nutrition-green-dark);
   background: #ffffff;
-  box-shadow: 0 8px 20px rgba(22, 43, 53, 0.12);
+  box-shadow: 0 8px 20px rgba(22, 43, 53, 0.1);
 }
 
 .nutrition-photo-qr img {
   display: block;
-  width: 92px;
-  height: 92px;
+  width: 86px;
+  height: 86px;
   image-rendering: pixelated;
 }
 
 .nutrition-photo-qr small {
   margin-top: 4px;
-  font-size: 0.58rem;
+  font-size: 0.56rem;
   font-weight: 800;
   line-height: 1;
   white-space: nowrap;
@@ -1908,10 +1927,9 @@ body.nutrition-detail-open {
   }
 
   .nutrition-detail-main {
-    grid-template-columns: 220px minmax(0, 1fr);
+    grid-template-columns: 1fr;
   }
 
-  .nutrition-fit-grid,
   .nutrition-usage,
   .nutrition-sources {
     grid-template-columns: 1fr;
@@ -1919,23 +1937,6 @@ body.nutrition-detail-open {
 
   .nutrition-usage > p {
     grid-column: 1;
-  }
-
-  .nutrition-fit-grid > div + div {
-    border-top: 1px solid var(--nutrition-line);
-    border-left: 0;
-  }
-
-  .nutrition-detail-metrics {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-
-  .nutrition-detail-metrics > div:nth-child(2) {
-    border-right: 0;
-  }
-
-  .nutrition-detail-metrics > div:nth-child(-n + 2) {
-    border-bottom: 1px solid var(--nutrition-line);
   }
 
   .nutrition-sellers > div:last-child {
@@ -2077,15 +2078,25 @@ body.nutrition-detail-open {
     min-height: 270px;
   }
 
-  .nutrition-photo-qr {
-    right: 10px;
-    bottom: 10px;
-    width: 104px;
+  .nutrition-fit-grid {
+    grid-template-columns: 1fr;
   }
 
-  .nutrition-photo-qr img {
-    width: 88px;
-    height: 88px;
+  .nutrition-fit-grid > div + div {
+    border-top: 1px solid var(--nutrition-line);
+    border-left: 0;
+  }
+
+  .nutrition-detail-metrics {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .nutrition-detail-metrics > div:nth-child(2) {
+    border-right: 0;
+  }
+
+  .nutrition-detail-metrics > div:nth-child(-n + 2) {
+    border-bottom: 1px solid var(--nutrition-line);
   }
 
   .nutrition-analysis,

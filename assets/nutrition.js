@@ -488,6 +488,25 @@
       sellers: workbookSellers(text("Trang sản phẩm AORA Health", "AORA Health product page"), "https://www.aorahealth.com/en/products/digestive-range/1872-enzymax-kids", "aora-health", "https://s.shopee.vn/9zw8gJhxyf")
     }),
     workbookProduct({
+      id: "neopeptine-f-drops-digestive-enzymes-15ml", section: "nutrition", category: "probiotic", subcategory: "digestive-enzyme",
+      name: "Neopeptine F Drops – dung dịch enzyme tiêu hóa 15 ml", brand: "Neopeptine – Raptakos", image: "/assets/nutrition/neopeptine-f-drops-15ml-cutout.png",
+      age: text("Từ sơ sinh; trẻ nhỏ dùng theo hướng dẫn chuyên môn", "From birth; young children need professional guidance"), ageGroups: ["under-6", "6-11", "12-23", "2-5", "6-9", "10-15"], targets: ["infant", "child", "teen", "adult"],
+      needs: ["digestion"], needLabel: text("Enzyme tiêu hóa dạng nhỏ giọt hỗ trợ đầy hơi và khó tiêu", "Digestive enzyme drops supporting bloating and indigestion"), price: 56000,
+      displayMetrics: [
+        { label: "Alpha-amylase", value: "20 mg / 1 ml" }, { label: "Papain", value: "10 mg / 1 ml" },
+        { label: text("Tinh dầu hỗ trợ", "Carminative oils"), value: "6 mg / 1 ml" }, { label: text("Quy cách", "Package"), value: "15 ml" }
+      ],
+      lactose: text("Nguồn công bố không nêu thành phần sữa; đây là enzyme tiêu hóa, không phải men vi sinh.", "The published information does not list milk ingredients; this is a digestive enzyme, not a probiotic."),
+      suitable: [text("Trẻ em hoặc người lớn cần hỗ trợ tiêu hóa tinh bột và protein sau bữa ăn", "Children or adults needing support with starch and protein digestion after meals"), text("Đầy hơi, chướng bụng hoặc khó tiêu cần hỗ trợ ngắn hạn sau khi đã loại trừ dấu hiệu cảnh báo", "Bloating, abdominal fullness, or indigestion needing short-term support after red flags are excluded")],
+      cautions: [text("Không dùng khi dị ứng papain, đu đủ, amylase hoặc các loại tinh dầu trong sản phẩm; thận trọng nếu dị ứng latex", "Do not use with allergy to papain, papaya, amylase, or the included oils; use caution with latex allergy"), text("Trẻ bú kém, nôn nhiều, sốt, mất nước, phân máu hoặc chậm tăng cân cần được khám thay vì tự dùng kéo dài", "Poor feeding, repeated vomiting, fever, dehydration, bloody stools, or growth faltering needs assessment rather than prolonged self-use")],
+      analysis: text("Mỗi 1 ml chứa alpha-amylase 20 mg, papain 10 mg, dầu thì là 2 mg, dầu hồi 2 mg và dầu caraway 2 mg. Đây là hỗn hợp enzyme và tinh dầu hỗ trợ tiêu hóa, không bổ sung lợi khuẩn.", "Each 1 ml contains 20 mg alpha-amylase, 10 mg papain, 2 mg fennel oil, 2 mg anise oil, and 2 mg caraway oil. This digestive enzyme and oil blend does not provide probiotic organisms."),
+      normalizationNote: text("Thành phần hiển thị theo 1 ml như nguồn công bố; liều dùng cần đối chiếu nhãn của đúng lô sản phẩm.", "Composition is shown per 1 ml as published; directions should be checked against the label on the actual pack."),
+      priceStatus: text("Giá tham khảo từ dữ liệu nhập ngày 16/07/2026", "Reference price from data entered on 16/07/2026"),
+      updated: "16/07/2026",
+      source: "https://www.raptakos.com/index.php/pharmaceutical/", sourceLabel: "Raptakos, Brett & Co. Ltd. – Neopeptine Drops",
+      sellers: workbookSellers(text("Trang hãng Raptakos", "Raptakos manufacturer page"), "https://www.raptakos.com/index.php/pharmaceutical/", "raptakos", "https://s.shopee.vn/6VMJXVDHEm")
+    }),
+    workbookProduct({
       id: "buona-peginpol-macrogol-3350-20-goi-5g", section: "nutrition", category: "fiber", subcategory: "constipation",
       name: "Buona PEGinpol Macrogol 3350 – hộp 20 gói × 5 g", brand: "Buona", image: "/assets/nutrition/buona-peginpol-20x5g.png",
       age: text("Từ 6 tháng tuổi", "From 6 months"), ageGroups: ["6-11", "12-23", "2-5", "6-9", "10-15"], targets: ["infant", "child", "teen", "adult"],
@@ -773,6 +792,9 @@
     },
     "enzymax-kids-digestive-enzymes-30-sachets": {
       steps: [text("Dùng vào đầu bữa ăn chính. Pha liều cần dùng với khoảng 50 ml nước ở nhiệt độ phòng, khuấy nhẹ và uống ngay.", "Use at the start of a main meal. Mix the dose with about 50 ml room-temperature water, stir gently, and drink promptly."), text("Trẻ 3–4 tuổi dùng 1 gói/lần, ngày 3 lần; trẻ trên 4 tuổi dùng 1–2 gói/lần, ngày 3 lần.", "Ages 3–4 use one sachet three times daily; over age 4 use one to two sachets three times daily."), text("Có thể trộn với thức ăn nguội hoặc ấm; không pha với nước hay thức ăn nóng. Trẻ dưới 3 tuổi chỉ dùng khi có tư vấn chuyên môn.", "May be mixed with cool or warm food; do not use hot water or food. Under age 3 only with professional advice.")]
+    },
+    "neopeptine-f-drops-digestive-enzymes-15ml": {
+      steps: [text("Dùng sau khi ăn hoặc bú. Có thể nhỏ trực tiếp vào miệng hoặc trộn với một lượng nhỏ sữa, nước hay thức ăn nguội.", "Use after a meal or feed. Give directly by mouth or mix with a small amount of cool milk, water, or food."), text("Trẻ dưới 2 tuổi: 0,5 ml (khoảng 12 giọt) mỗi ngày, dùng một lần hoặc chia hai lần theo hướng dẫn chuyên môn.", "Under age 2: 0.5 ml (about 12 drops) daily, given once or divided into two doses with professional guidance."), text("Trẻ trên 2 tuổi: 0,5 ml mỗi lần, ngày 2–3 lần hoặc theo hướng dẫn của nhân viên y tế.", "Over age 2: 0.5 ml per dose, two to three times daily or as directed by a healthcare professional."), text("Không pha với thức ăn hoặc đồ uống nóng; dùng hết phần đã pha, giữ đầu nhỏ giọt sạch và đóng kín chai sau mỗi lần dùng.", "Do not mix with hot food or drinks; finish the mixed portion, keep the dropper clean, and close the bottle tightly after use.")]
     },
     "buona-peginpol-macrogol-3350-20-goi-5g": {
       steps: [text("Liều theo hãng: 6 tháng–2 tuổi (đến 12 kg) 1–2 gói/ngày; 2–11 tuổi (12–20 kg) 2–4 gói/ngày; trên 11 tuổi (trên 20 kg) 2–6 gói/ngày.", "Manufacturer guidance: 6 months–2 years (up to 12 kg), 1–2 sachets/day; ages 2–11 (12–20 kg), 2–4/day; over 11 years (over 20 kg), 2–6/day."), text("Hòa tan theo tờ hướng dẫn của hộp và duy trì đủ lượng nước trong ngày.", "Dissolve according to the package leaflet and maintain adequate fluid intake."), text("Nên dùng liều thấp nhất có hiệu quả; trẻ nhỏ hoặc cần dùng kéo dài phải được nhân viên y tế theo dõi.", "Use the lowest effective amount; young children or prolonged use require professional follow-up.")]
@@ -1472,7 +1494,9 @@
       </div>
       <div class="nutrition-detail-main">
         <div class="nutrition-detail-product" data-product-id="${product.id}">
-          <img src="${product.image}" alt="${product.name}">
+          <div class="nutrition-detail-product-image">
+            <img src="${product.image}" alt="${product.name}">
+          </div>
           <span>${product.age}</span>
           <a class="nutrition-photo-qr" href="https://growthkid.xyz/vi/nutrition/" target="_blank" rel="noopener noreferrer" aria-label="${text("Quét mã để mở GrowthKid Dinh dưỡng", "Scan to open GrowthKid Nutrition")}">
             <img src="/assets/growthkid-nutrition-qr-code.png" width="900" height="900" alt="">
