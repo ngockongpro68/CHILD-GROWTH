@@ -89,6 +89,10 @@
       "Parents": "Phụ huynh",
       "What to prepare before a growth check": "Cần chuẩn bị gì trước khi kiểm tra tăng trưởng",
       "Measurement tips for dates, height, weight, and follow-up conversations with a clinician.": "Mẹo ghi ngày đo, chiều cao, cân nặng và trao đổi tiếp theo với nhân viên y tế.",
+      "Parent guide": "Cẩm nang cho ba mẹ",
+      "A tall, big child is not automatically overweight": "Con cao to hơn bạn cùng tuổi chưa chắc đã thừa cân",
+      "Learn why weight must be read together with height, age, sex, and the child's growth trend.": "Hiểu vì sao cần đọc cân nặng cùng chiều cao, tuổi, giới tính và đường tăng trưởng của con.",
+      "A Vietnamese family measuring their child's height at home": "Ba mẹ đo chiều cao cho con tại nhà",
       "Read article": "Đọc bài viết",
       "Calculate weight-for-age, height-for-age, BMI-for-age, and view a clean growth chart in one flow.": "Tính cân nặng theo tuổi, chiều cao theo tuổi, BMI theo tuổi và xem biểu đồ tăng trưởng trong một luồng rõ ràng.",
       "Estimate BMI-for-age z-score and percentile, then compare the result with a growth chart.": "Ước tính z-score và bách phân vị BMI theo tuổi, rồi so sánh kết quả trên biểu đồ.",
@@ -2301,6 +2305,14 @@
 
   const articles = [
     {
+      tag: "Parent guide",
+      title: "A tall, big child is not automatically overweight",
+      text: "Learn why weight must be read together with height, age, sex, and the child's growth trend.",
+      href: "/tall-child-not-always-overweight/",
+      image: "/assets/articles/child-tall-weight-hero.webp",
+      imageAlt: "A Vietnamese family measuring their child's height at home"
+    },
+    {
       tag: "Growth charts",
       title: "How to read child growth percentiles",
       text: "A simple guide to percentile lines, z-scores, and when a trend needs closer attention.",
@@ -4462,6 +4474,237 @@
     `);
   }
 
+  function tallChildWeightArticlePage() {
+    const isVietnamese = activeLanguage === "vi";
+    const copy = isVietnamese ? {
+      eyebrow: "Tăng trưởng & vóc dáng",
+      title: "Con cao to hơn bạn cùng tuổi: chưa chắc đã thừa cân",
+      dek: "Khi ai cũng nhận xét “bé mập quá”, ba mẹ rất dễ lo. Nhưng với trẻ em, cân nặng chỉ có ý nghĩa khi được đọc cùng chiều cao, tuổi, giới tính và đường tăng trưởng.",
+      readTime: "7 phút đọc",
+      updated: "Cập nhật 17/07/2026",
+      reviewed: "Đối chiếu chuẩn WHO",
+      lead: "“Con mới 5 tuổi mà cao gần bằng anh chị lớp lớn. Bé cũng nặng hơn các bạn, vậy có phải béo phì không?” Đây là băn khoăn rất thường gặp. Tin tốt là: một em bé cao lớn hơn bạn cùng tuổi không đồng nghĩa với thừa cân hoặc béo phì.",
+      answerTitle: "Điều cần nhìn không phải chỉ là số kilogram",
+      answer: "Một trẻ cao hơn thường cần cân nặng lớn hơn để phù hợp với khung người. Điều quan trọng là cân nặng có tương xứng với chiều cao hay không, và các chỉ số có tăng đều theo thời gian hay không.",
+      summary: [
+        ["01", "Chiều cao", "Con có thực sự cao hơn so với tuổi và giới tính không?"],
+        ["02", "Tương quan", "Cân nặng có phù hợp với chiều cao hiện tại không?"],
+        ["03", "Xu hướng", "Đường tăng trưởng ổn định hay vừa tăng nhanh bất thường?"]
+      ],
+      weightTitle: "Đừng nhìn riêng con số trên cân",
+      weightP1: "Hai trẻ cùng tuổi và cùng cân nặng vẫn có thể có vóc dáng rất khác nhau. Khi chiều cao khác nhau, BMI cũng khác nhau đáng kể.",
+      childA: "Bé A",
+      childAText: "125 cm · 28 kg",
+      childABmi: "BMI khoảng 17,9",
+      childB: "Bé B",
+      childBText: "108 cm · 28 kg",
+      childBBmi: "BMI khoảng 24,0",
+      exampleNote: "Ví dụ này chỉ minh họa phép tính. Muốn phân loại chính xác vẫn phải đối chiếu BMI theo tuổi tính bằng tháng và giới tính của từng trẻ, không dùng ngưỡng BMI người lớn.",
+      layersTitle: "Bác sĩ thường nhìn 3 lớp thông tin",
+      layers: [
+        ["Chiều cao theo tuổi", "Cho biết trẻ đang ở vị trí nào so với trẻ cùng tuổi và giới tính. Một trẻ cao vượt trội có thể đơn giản là mang đặc điểm di truyền của gia đình."],
+        ["Cân nặng theo chiều cao hoặc BMI theo tuổi", "Đây mới là phần giúp xem cân nặng có hài hòa với chiều cao hay không. BMI của trẻ phải được đối chiếu theo đúng tuổi và giới tính."],
+        ["Đường tăng trưởng qua nhiều lần đo", "Một điểm đo chỉ là ảnh chụp tại một thời điểm. Xu hướng qua nhiều tháng giúp nhận ra trẻ đang đi đều theo đường của mình hay vừa đổi hướng nhanh."]
+      ],
+      ageTitle: "Đọc kết quả theo đúng nhóm tuổi",
+      ageRows: [
+        ["0–5 tuổi", "WHO có thể đánh giá cân nặng theo chiều dài/chiều cao hoặc BMI theo tuổi. Trên +1 SD là nguy cơ thừa cân, trên +2 SD là thừa cân và trên +3 SD là béo phì."],
+        ["5–19 tuổi", "WHO dùng BMI theo tuổi và giới tính: trên +1 SD là thừa cân, trên +2 SD là béo phì."]
+      ],
+      ageNote: "Các ngưỡng giúp sàng lọc, không thay thế đánh giá lâm sàng. Bác sĩ còn xem tiền sử, thói quen, khám thực thể và các yếu tố sức khỏe khác.",
+      figureAlt: "Hai trẻ cùng tuổi có chiều cao khác nhau cùng vui chơi ngoài trời",
+      figureCaption: "Trẻ cùng tuổi có thể có chiều cao và khung người khác nhau. Mục tiêu không phải để mọi bé giống nhau, mà là phát triển hài hòa và khỏe mạnh.",
+      whyTitle: "Vì sao con có thể cao lớn hơn bạn bè?",
+      reasons: [
+        ["Di truyền", "Bố mẹ hoặc người thân có vóc dáng cao lớn, trẻ thường có xu hướng tương tự."],
+        ["Nhịp phát triển riêng", "Có trẻ tăng trưởng sớm hơn bạn bè rồi chậm lại ở giai đoạn sau."],
+        ["Dinh dưỡng và giấc ngủ", "Khẩu phần đa dạng, ngủ đủ và sức khỏe ổn định giúp trẻ phát huy tiềm năng tăng trưởng."],
+        ["Vận động đều đặn", "Chạy nhảy, chơi thể thao và ít ngồi lâu hỗ trợ xương, cơ và sức khỏe chuyển hóa."]
+      ],
+      concernTitle: "Khi nào ba mẹ nên đưa con đi đánh giá?",
+      concerns: [
+        "Cân nặng hoặc BMI tăng nhanh hơn rõ rệt so với chiều cao, đường tăng trưởng đổi hướng hoặc vượt nhiều đường tham chiếu trong thời gian ngắn.",
+        "Trẻ ít vận động, thường xuyên dùng nước ngọt, thức ăn nhanh hoặc ăn uống mất kiểm soát.",
+        "Trẻ ngáy to, có lúc ngưng thở khi ngủ, khó thở khi vận động hoặc mệt nhiều.",
+        "Đã có tăng huyết áp, gan nhiễm mỡ, rối loạn đường huyết hoặc dấu hiệu dậy thì sớm.",
+        "Gia đình có tiền sử béo phì, đái tháo đường hoặc rối loạn chuyển hóa và ba mẹ vẫn còn lo sau khi đo lại đúng cách."
+      ],
+      doTitle: "Ba mẹ có thể làm gì ngay hôm nay?",
+      actions: [
+        ["Đo lại cho đúng", "Cân nhẹ quần áo, đo chiều cao chân trần, lưng thẳng và ghi đúng ngày đo."],
+        ["Theo dõi thay vì so sánh", "Lưu nhiều lần đo của chính con; đừng lấy vóc dáng của bạn cùng lớp làm chuẩn duy nhất."],
+        ["Giữ nếp sống lành mạnh cho cả nhà", "Ưu tiên bữa ăn đa dạng, nước lọc, ngủ đủ và vận động hằng ngày; không ép trẻ ăn kiêng chỉ vì lời nhận xét ngoại hình."],
+        ["Mang biểu đồ khi đi khám", "Nếu đường tăng trưởng thay đổi nhanh hoặc có dấu hiệu cảnh báo, biểu đồ nhiều lần đo sẽ giúp cuộc trao đổi với bác sĩ rõ ràng hơn."]
+      ],
+      closeTitle: "Một lời nhắn để ba mẹ yên tâm hơn",
+      close: "Một em bé khỏe mạnh không nhất thiết phải nhỏ người. Con có thể cao, chắc người và nặng hơn bạn bè nhưng vẫn phát triển hài hòa. Thay vì hỏi “con nặng bao nhiêu?”, hãy hỏi thêm “cân nặng có phù hợp với chiều cao và con đang đi theo đường tăng trưởng nào?”.",
+      quote: "Đừng dán nhãn con qua một ánh nhìn hay một con số. Hãy để chiều cao, cân nặng, BMI theo tuổi và xu hướng tăng trưởng cùng kể câu chuyện của con.",
+      refsTitle: "Nguồn tham khảo",
+      tocTitle: "Trong bài này",
+      toc: [["#can-nang", "Cân nặng và chiều cao"], ["#danh-gia", "Cách đánh giá theo tuổi"], ["#vi-sao", "Vì sao trẻ cao lớn"], ["#khi-nao", "Khi nào cần đi khám"], ["#ba-me-lam-gi", "Việc ba mẹ có thể làm"]],
+      toolTitle: "Kiểm tra bằng số đo của con",
+      toolText: "Nhập ngày sinh, giới tính, cân nặng và chiều cao để xem BMI theo tuổi cùng đường tăng trưởng.",
+      toolButton: "Theo dõi tăng trưởng",
+      bmiButton: "Mở máy tính BMI",
+      disclaimer: "Bài viết mang tính giáo dục, không thay thế chẩn đoán hoặc tư vấn dinh dưỡng cá nhân."
+    } : {
+      eyebrow: "Growth & body build",
+      title: "A child who is taller and bigger than peers is not automatically overweight",
+      dek: "Comments about a child looking “too big” can worry parents. In children, weight only makes sense alongside height, age, sex, and the growth trend.",
+      readTime: "7 min read",
+      updated: "Updated 17 July 2026",
+      reviewed: "Checked against WHO guidance",
+      lead: "“My five-year-old is almost as tall as older children and weighs more than classmates. Does that mean obesity?” This is a common concern. A child who is taller and bigger than peers is not automatically overweight or obese.",
+      answerTitle: "Look beyond the number on the scale",
+      answer: "A taller child usually needs more weight to match their frame. The key questions are whether weight is proportionate to height and whether the measurements are following a steady path over time.",
+      summary: [["01", "Height", "Is the child actually tall for age and sex?"], ["02", "Proportion", "Is weight proportionate to current height?"], ["03", "Trend", "Is the growth curve steady or changing quickly?"]],
+      weightTitle: "Weight alone cannot answer the question",
+      weightP1: "Two children of the same age and weight can have very different builds. A difference in height creates a substantial difference in BMI.",
+      childA: "Child A", childAText: "125 cm · 28 kg", childABmi: "BMI about 17.9",
+      childB: "Child B", childBText: "108 cm · 28 kg", childBBmi: "BMI about 24.0",
+      exampleNote: "This example only illustrates the calculation. Classification still requires sex-specific BMI-for-age using the child's exact age; adult BMI cut-offs do not apply.",
+      layersTitle: "Clinicians usually read three layers of information",
+      layers: [["Height-for-age", "Shows where height sits relative to children of the same age and sex. Tall stature may simply reflect family genetics."], ["Weight-for-height or BMI-for-age", "This helps assess whether weight is proportionate to height. A child's BMI must be interpreted by age and sex."], ["The trend across visits", "One measurement is a snapshot. A series of measurements shows whether the child is following a steady path or changing direction quickly."]],
+      ageTitle: "Use the right reference for age",
+      ageRows: [["Ages 0–5", "WHO may use weight-for-length/height or BMI-for-age. Above +1 SD indicates risk of overweight, above +2 SD overweight, and above +3 SD obesity."], ["Ages 5–19", "WHO uses sex-specific BMI-for-age: above +1 SD indicates overweight and above +2 SD obesity."]],
+      ageNote: "These thresholds support screening rather than replace clinical assessment. Medical history, health behaviors, examination, and other findings still matter.",
+      figureAlt: "Two children of the same age and different heights playing outdoors",
+      figureCaption: "Children of the same age can have different heights and frames. The goal is not to make every child look alike, but to support balanced, healthy growth.",
+      whyTitle: "Why might a child be taller and bigger than peers?",
+      reasons: [["Genetics", "Tall or larger-framed parents and relatives often have children with similar traits."], ["Individual timing", "Some children grow earlier than peers and slow down later."], ["Nutrition and sleep", "A varied diet, enough sleep, and good health help children reach their growth potential."], ["Regular movement", "Active play and less sitting support bone, muscle, and metabolic health."]],
+      concernTitle: "When should parents seek an assessment?",
+      concerns: ["Weight or BMI rises clearly faster than height, or the growth curve changes direction across several reference lines.", "The child is largely inactive or frequently consumes sugary drinks and fast food.", "There is loud snoring, pauses in breathing during sleep, breathlessness with activity, or marked fatigue.", "High blood pressure, fatty liver, altered glucose, or early puberty has already been identified.", "There is a strong family history of obesity, diabetes, or metabolic disease and concern remains after accurate remeasurement."],
+      doTitle: "What parents can do today",
+      actions: [["Measure carefully", "Use light clothing for weight, measure standing height barefoot, and record the exact date."], ["Track rather than compare", "Save repeated measurements for your child instead of using classmates as the only reference."], ["Keep healthy routines family-wide", "Offer varied meals, water, adequate sleep, and daily movement; do not place a child on a restrictive diet because of appearance comments."], ["Bring the chart to a visit", "When a trend changes quickly or warning signs appear, a series of measurements makes the clinical conversation clearer."]],
+      closeTitle: "A reassuring note for parents",
+      close: "A healthy child does not have to be small. A child may be tall, solidly built, and heavier than peers while still growing proportionately. Ask not only “how much does my child weigh?” but also “is that weight appropriate for height, and what does the trend show?”.",
+      quote: "Do not label a child from one glance or one number. Let height, weight, BMI-for-age, and the growth trend tell the story together.",
+      refsTitle: "References",
+      tocTitle: "In this article",
+      toc: [["#can-nang", "Weight and height"], ["#danh-gia", "Age-based assessment"], ["#vi-sao", "Why children differ"], ["#khi-nao", "When to seek care"], ["#ba-me-lam-gi", "What parents can do"]],
+      toolTitle: "Check your child's measurements",
+      toolText: "Enter birth date, sex, weight, and height to review BMI-for-age and the growth curve.",
+      toolButton: "Track growth",
+      bmiButton: "Open BMI calculator",
+      disclaimer: "Educational content only; not a diagnosis or individual nutrition advice."
+    };
+
+    return shell(`
+      <main class="parent-article">
+        <section class="article-story-hero">
+          <img src="/assets/articles/child-tall-weight-hero.webp" alt="${copy.figureAlt}" width="1536" height="1024" fetchpriority="high">
+          <div class="article-story-hero-overlay" aria-hidden="true"></div>
+          <div class="container article-story-hero-content">
+            <a class="article-story-back" href="${localizedHref("/articles/")}">${icon("arrow")} ${isVietnamese ? "Bài viết" : "Articles"}</a>
+            <span class="article-story-kicker">${copy.eyebrow}</span>
+            <h1>${copy.title}</h1>
+            <p>${copy.dek}</p>
+            <div class="article-story-meta"><span>${copy.readTime}</span><span>${copy.updated}</span><span>${copy.reviewed}</span></div>
+          </div>
+        </section>
+
+        <section class="article-story-opening">
+          <div class="container article-story-opening-inner">
+            <p class="article-story-lead">${copy.lead}</p>
+            <div class="article-story-answer"><span>${icon("check")}</span><div><h2>${copy.answerTitle}</h2><p>${copy.answer}</p></div></div>
+          </div>
+        </section>
+
+        <section class="article-story-summary">
+          <div class="container article-story-summary-grid">
+            ${copy.summary.map(([number, title, textValue]) => `<div><span>${number}</span><div><h2>${title}</h2><p>${textValue}</p></div></div>`).join("")}
+          </div>
+        </section>
+
+        <section class="article-story-content">
+          <div class="container article-story-layout">
+            <article class="article-story-body">
+              <section id="can-nang" class="article-story-section">
+                <h2>${copy.weightTitle}</h2>
+                <p>${copy.weightP1}</p>
+                <div class="article-story-comparison" aria-label="${copy.weightTitle}">
+                  <div><span>${copy.childA}</span><strong>${copy.childAText}</strong><em>${copy.childABmi}</em></div>
+                  <div class="article-story-equals">=</div>
+                  <div><span>${copy.childB}</span><strong>${copy.childBText}</strong><em>${copy.childBBmi}</em></div>
+                </div>
+                <p class="article-story-note">${copy.exampleNote}</p>
+              </section>
+
+              <section id="danh-gia" class="article-story-section">
+                <h2>${copy.layersTitle}</h2>
+                <div class="article-story-steps">
+                  ${copy.layers.map(([title, textValue], index) => `<div><span>${index + 1}</span><div><h3>${title}</h3><p>${textValue}</p></div></div>`).join("")}
+                </div>
+                <div class="article-story-age-guide">
+                  <h3>${copy.ageTitle}</h3>
+                  ${copy.ageRows.map(([age, textValue]) => `<div><strong>${age}</strong><p>${textValue}</p></div>`).join("")}
+                  <p class="article-story-note">${copy.ageNote}</p>
+                </div>
+              </section>
+
+              <figure class="article-story-figure">
+                <img src="/assets/articles/child-tall-weight-play.webp" alt="${copy.figureAlt}" loading="lazy" width="1536" height="1024">
+                <figcaption>${copy.figureCaption}</figcaption>
+              </figure>
+
+              <section id="vi-sao" class="article-story-section">
+                <h2>${copy.whyTitle}</h2>
+                <div class="article-story-reasons">
+                  ${copy.reasons.map(([title, textValue]) => `<div><h3>${title}</h3><p>${textValue}</p></div>`).join("")}
+                </div>
+              </section>
+
+              <section id="khi-nao" class="article-story-section article-story-concern">
+                <h2>${copy.concernTitle}</h2>
+                <ul>${copy.concerns.map((item) => `<li>${icon("info")}<span>${item}</span></li>`).join("")}</ul>
+              </section>
+
+              <section id="ba-me-lam-gi" class="article-story-section">
+                <h2>${copy.doTitle}</h2>
+                <div class="article-story-actions">
+                  ${copy.actions.map(([title, textValue], index) => `<div><span>${String(index + 1).padStart(2, "0")}</span><div><h3>${title}</h3><p>${textValue}</p></div></div>`).join("")}
+                </div>
+              </section>
+
+              <section class="article-story-close">
+                <h2>${copy.closeTitle}</h2>
+                <p>${copy.close}</p>
+                <blockquote>${copy.quote}</blockquote>
+                <div class="article-story-inline-cta">
+                  <a class="btn btn-primary" href="${localizedHref("/child-growth-calculator/")}">${copy.toolButton} ${icon("arrow")}</a>
+                  <a class="btn btn-secondary" href="${localizedHref("/bmi-calculator-for-kids/")}">${copy.bmiButton}</a>
+                </div>
+              </section>
+
+              <section class="article-story-references">
+                <h2>${copy.refsTitle}</h2>
+                <ol>
+                  <li><a href="https://www.who.int/news-room/questions-and-answers/item/child-growth-standards" target="_blank" rel="noreferrer">WHO Child Growth Standards: questions and answers</a></li>
+                  <li><a href="https://www.who.int/tools/growth-reference-data-for-5to19-years/indicators/bmi-for-age" target="_blank" rel="noreferrer">WHO BMI-for-age reference, 5–19 years</a></li>
+                  <li><a href="https://www.cdc.gov/bmi/child-teen-calculator/index.html" target="_blank" rel="noreferrer">CDC Child and Teen BMI Calculator</a></li>
+                </ol>
+                <p>${copy.disclaimer}</p>
+              </section>
+            </article>
+
+            <aside class="article-story-aside">
+              <nav aria-label="${copy.tocTitle}">
+                <strong>${copy.tocTitle}</strong>
+                ${copy.toc.map(([href, label]) => `<a href="${href}">${label}</a>`).join("")}
+              </nav>
+              <div class="article-story-tool">
+                <span>${icon("brand")}</span>
+                <h2>${copy.toolTitle}</h2>
+                <p>${copy.toolText}</p>
+                <a class="btn btn-primary" href="${localizedHref("/child-growth-calculator/")}">${copy.toolButton} ${icon("arrow")}</a>
+              </div>
+            </aside>
+          </div>
+        </section>
+      </main>
+    `);
+  }
+
   function embedPage() {
     return `
       <main class="embed-shell">
@@ -4657,11 +4900,14 @@
           </div>
           <div class="article-grid">
             ${articles.map((article) => `
-              <article class="article-card">
-                <span class="article-meta">${article.tag}</span>
-                <h3>${article.title}</h3>
-                <p>${article.text}</p>
-                <a class="btn btn-quiet" href="${localizedHref(article.href || "/articles/")}">Read article ${icon("arrow")}</a>
+              <article class="article-card${article.image ? " article-card-visual" : ""}">
+                ${article.image ? `<a class="article-card-media" href="${localizedHref(article.href)}" tabindex="-1" aria-hidden="true"><img src="${article.image}" alt="${article.imageAlt || ""}" loading="lazy" width="1536" height="1024"></a>` : ""}
+                <div class="article-card-copy">
+                  <span class="article-meta">${article.tag}</span>
+                  <h3>${article.title}</h3>
+                  <p>${article.text}</p>
+                  <a class="btn btn-quiet" href="${localizedHref(article.href || "/articles/")}">Read article ${icon("arrow")}</a>
+                </div>
               </article>
             `).join("")}
           </div>
@@ -5497,6 +5743,7 @@
       "is-baby-weight-normal": "Is My Baby's Weight Normal? | GrowthKid",
       "who-vs-cdc": "WHO vs CDC Growth Charts | GrowthKid",
       "read-growth-chart": "How to Read a Growth Chart | GrowthKid",
+      "tall-child-weight": activeLanguage === "vi" ? "Con cao to chưa chắc thừa cân | GrowthKid" : "A Tall, Big Child Is Not Automatically Overweight | GrowthKid",
       embed: "Child Growth Calculator Widget | GrowthKid",
       bmi: "BMI Calculator for Kids | GrowthKid",
       weight: "Weight-for-age Calculator | GrowthKid",
@@ -6901,6 +7148,7 @@
     else if (page === "medical-disclaimer") app.innerHTML = medicalDisclaimerPage();
     else if (page === "terms") app.innerHTML = termsPage();
     else if (["baby-weight-percentile", "is-baby-weight-normal", "who-vs-cdc", "read-growth-chart"].includes(page)) app.innerHTML = seoQuestionPage(page);
+    else if (page === "tall-child-weight") app.innerHTML = tallChildWeightArticlePage();
     else if (page === "embed") app.innerHTML = embedPage();
     else app.innerHTML = homePage();
 
