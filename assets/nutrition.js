@@ -190,6 +190,45 @@
       ]
     },
     {
+      id: "nestle-kid-essentials-nutritionally-complete-800g",
+      section: "nutrition",
+      category: "milk",
+      subcategory: "medical",
+      name: "Nestlé KID ESSENTIALS Nutritionally Complete 800 g – vị vani",
+      brand: "Nestlé Health Science",
+      image: "/assets/nutrition/nestle-kid-essentials-800g-cutout.png",
+      age: text("Trẻ 1–10 tuổi", "Children 1–10 years"),
+      ageGroups: ["12-23", "2-5", "6-9"],
+      targets: ["child"],
+      needs: ["energy", "meal", "digestion", "calcium"],
+      needLabel: text("Dinh dưỡng y học dạng bột, đầy đủ và cân đối", "Nutritionally complete powdered medical nutrition"),
+      price: 499000,
+      priceStatus: text("Giá tham khảo từ dữ liệu nhập ngày 17/07/2026", "Reference price from data entered on 17/07/2026"),
+      energy: 102,
+      protein: 3,
+      calcium: 84,
+      vitaminD: 0.9,
+      sugar: 5.3,
+      lactose: text("Lactose dưới 0,10 g/100 ml; có chứa sữa, đậu nành và cá", "Less than 0.10 g lactose/100 ml; contains milk, soy, and fish"),
+      suitable: [
+        text("Trẻ 1–10 tuổi có khẩu phần không đáp ứng đủ nhu cầu hoặc tăng trưởng dưới tối ưu sau đánh giá", "Children aged 1–10 with inadequate intake or suboptimal growth after assessment"),
+        text("Trẻ có nhu cầu năng lượng tăng hoặc cần hỗ trợ dinh dưỡng trong bệnh lý dưới giám sát y tế", "Children with increased energy needs or medical nutrition requirements under healthcare supervision")
+      ],
+      cautions: [
+        text("Đây là thực phẩm dùng cho chế độ ăn đặc biệt; phải sử dụng dưới giám sát của nhân viên y tế và không dùng cho trẻ dưới 1 tuổi", "This is a food for special medical purposes; use under healthcare supervision and not under age 1"),
+        text("Không phù hợp khi dị ứng đạm sữa bò, cá hoặc đậu nành; không tự thay đổi tỷ lệ pha hay cô đặc sản phẩm", "Not suitable for milk-protein, fish, or soy allergy; do not change the mixing ratio or concentrate without direction")
+      ],
+      analysis: text("Trong 100 ml sữa pha chuẩn: 102 kcal; 3,0 g protein; 4,0 g chất béo; 13,4 g carbohydrate; 5,3 g đường; dưới 0,10 g lactose; 0,6 g chất xơ; 4 mg DHA; 84 mg canxi; 1,0 mg sắt; 0,7 mg kẽm; 0,9 mcg vitamin D; 22 triệu CFU L. paracasei và 22 triệu CFU B. longum.", "Per 100 ml prepared: 102 kcal; 3.0 g protein; 4.0 g fat; 13.4 g carbohydrate; 5.3 g sugars; less than 0.10 g lactose; 0.6 g fibre; 4 mg DHA; 84 mg calcium; 1.0 mg iron; 0.7 mg zinc; 0.9 mcg vitamin D; 22 million CFU L. paracasei; and 22 million CFU B. longum."),
+      normalizationNote: text("Thông số so sánh lấy trực tiếp từ bảng dinh dưỡng trên 100 ml sữa pha chuẩn của hãng, theo tỷ lệ 55 g bột với 210 ml nước để thu được khoảng 250 ml.", "Comparison values come directly from the manufacturer's table per 100 ml prepared, using 55 g powder with 210 ml water to make about 250 ml."),
+      source: "https://www.nestlehealthscience.com.au/brands/kidessentials/kid-essentials-nutritionally-complete-800",
+      sourceLabel: "Nestlé Health Science Australia – KID ESSENTIALS 800G",
+      updated: "17/07/2026",
+      sellers: [
+        { name: text("Trang sản phẩm Nestlé Health Science", "Nestlé Health Science product page"), url: "https://www.nestlehealthscience.com.au/brands/kidessentials/kid-essentials-nutritionally-complete-800", kind: "official", platform: "nestle" },
+        { name: "Shopee", url: "https://s.shopee.vn/BSIzuxlun", kind: "affiliate", platform: "shopee" }
+      ]
+    },
+    {
       id: "lineabon-d3k2-drops-10ml",
       section: "nutrition",
       category: "vitamin",
@@ -744,6 +783,9 @@
     },
     "vinamilk-sua-tuoi-tach-beo-khong-duong-180ml-thung-48": {
       steps: [text("Lắc đều trước khi uống và dùng trực tiếp.", "Shake well before drinking and serve directly."), text("Uống theo khẩu phần phù hợp với tuổi và chế độ ăn; không dùng thay thế bữa ăn chính.", "Use an age- and diet-appropriate serving; do not use as a replacement for main meals."), text("Không cần bảo quản lạnh khi chưa mở; sau khi mở nên dùng hết ngay.", "Refrigeration is not required before opening; consume immediately once opened.")]
+    },
+    "nestle-kid-essentials-nutritionally-complete-800g": {
+      steps: [text("Rửa tay và làm sạch dụng cụ; đong 210 ml nước sạch ở nhiệt độ phòng để duy trì hoạt tính của lợi khuẩn.", "Wash hands and clean utensils; measure 210 ml clean room-temperature water to help preserve probiotic activity."), text("Dùng muỗng trong lon, cho 7 muỗng gạt ngang (khoảng 55 g bột) vào nước và khuấy ngay đến khi tan hoàn toàn; thu được khoảng 250 ml.", "Using the enclosed scoop, add 7 level scoops (about 55 g powder) to the water and stir immediately until fully mixed; this makes about 250 ml."), text("Dùng 2–3 khẩu phần mỗi ngày hoặc theo kế hoạch của nhân viên y tế; không tự thay đổi tỷ lệ pha.", "Use 2–3 servings daily or according to a healthcare plan; do not change the mixing ratio without direction."), text("Đậy kín sữa đã pha và dùng trong 4 giờ ở nhiệt độ phòng hoặc 24 giờ nếu bảo quản lạnh; đậy kín lon và dùng hết trong 4 tuần sau khi mở.", "Keep prepared formula covered and use within 4 hours at room temperature or 24 hours refrigerated; close the can tightly and use within 4 weeks of opening.")]
     },
     "lineabon-d3k2-drops-10ml": {
       steps: [text("Lắc kỹ chai trước mỗi lần dùng và đếm giọt bằng đầu nhỏ giọt của sản phẩm.", "Shake well before each use and count drops with the product dropper."), text("Liều tham khảo theo hãng: 0–12 tháng 6 giọt/ngày; 1–3 tuổi 6–8 giọt/ngày; 3–12 tuổi 8–12 giọt/ngày; người lớn 12 giọt/ngày.", "Manufacturer guidance: 0–12 months 6 drops/day; ages 1–3, 6–8 drops/day; ages 3–12, 8–12 drops/day; adults 12 drops/day."), text("Dùng trực tiếp hoặc cùng thức ăn nguội; không nhỏ vào đồ ăn, thức uống nóng.", "Give directly or with cool food; do not add to hot food or drinks.")]

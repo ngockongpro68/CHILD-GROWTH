@@ -36,6 +36,8 @@
       "Open menu": "Mở menu",
       "Start Calculator": "Bắt đầu tính",
       "Track Your Child's Growth Using WHO Growth Standards": "Theo dõi tăng trưởng của trẻ theo chuẩn WHO",
+      "Track your child's growth": "Theo dõi tăng trưởng của trẻ",
+      "Enter measurements to see z-scores, percentiles, and a WHO growth chart.": "Nhập số đo để xem điểm z, bách phân vị và biểu đồ WHO.",
       "Measure growth, calculate z-scores, and monitor development in seconds.": "Nhập số đo, tính z-score và theo dõi phát triển chỉ trong vài giây.",
       "View Growth Charts": "Xem biểu đồ tăng trưởng",
       "WHO standards": "Chuẩn WHO",
@@ -93,7 +95,24 @@
       "A tall, big child is not automatically overweight": "Con cao to hơn bạn cùng tuổi chưa chắc đã thừa cân",
       "Learn why weight must be read together with height, age, sex, and the child's growth trend.": "Hiểu vì sao cần đọc cân nặng cùng chiều cao, tuổi, giới tính và đường tăng trưởng của con.",
       "A Vietnamese family measuring their child's height at home": "Ba mẹ đo chiều cao cho con tại nhà",
+      "Child health": "Sức khỏe trẻ em",
+      "Adenovirus cases are rising: 7 warning signs parents should not miss": "Adenovirus đang tăng: 7 dấu hiệu ba mẹ không nên bỏ qua",
+      "A practical guide to symptoms, differences from flu, home care, testing, and when a child needs urgent medical attention.": "Hướng dẫn dễ hiểu về triệu chứng, điểm khác với cúm, cách chăm sóc, xét nghiệm và khi nào trẻ cần đi khám gấp.",
+      "A Vietnamese mother caring for her child with a viral fever at home": "Mẹ Việt Nam chăm bé sốt do virus tại nhà",
       "Read article": "Đọc bài viết",
+      "Knowledge for every stage of childhood": "Kiến thức đồng hành cùng từng giai đoạn của con",
+      "Medical information made approachable, helping parents understand their child and make better care decisions every day.": "Thông tin y khoa được trình bày gần gũi, giúp ba mẹ hiểu con và chăm sóc đúng hơn mỗi ngày.",
+      "Featured article": "Bài viết nổi bật",
+      "Explore by topic": "Khám phá theo chủ đề",
+      "Latest guidance for parents": "Kiến thức mới dành cho ba mẹ",
+      "Explore clear, practical guidance reviewed against trusted medical references.": "Khám phá các hướng dẫn rõ ràng, thực tế và được đối chiếu với nguồn y khoa tin cậy.",
+      "All articles": "Tất cả bài viết",
+      "Growth": "Tăng trưởng",
+      "No articles in this topic yet.": "Chưa có bài viết trong chủ đề này.",
+      "min read": "phút đọc",
+      "A pediatric clinician reviewing a child growth chart with a parent": "Nhân viên y tế nhi khoa cùng phụ huynh xem biểu đồ tăng trưởng của trẻ",
+      "A nurse measuring a child's height while a parent observes": "Điều dưỡng đo chiều cao cho trẻ với phụ huynh bên cạnh",
+      "A parent preparing a scale and notes before measuring a child": "Ba mẹ chuẩn bị cân và sổ ghi chép trước khi đo cho trẻ",
       "Calculate weight-for-age, height-for-age, BMI-for-age, and view a clean growth chart in one flow.": "Tính cân nặng theo tuổi, chiều cao theo tuổi, BMI theo tuổi và xem biểu đồ tăng trưởng trong một luồng rõ ràng.",
       "Estimate BMI-for-age z-score and percentile, then compare the result with a growth chart.": "Ước tính z-score và bách phân vị BMI theo tuổi, rồi so sánh kết quả trên biểu đồ.",
       "Check how a child's weight compares with age-based growth references.": "Kiểm tra cân nặng của trẻ so với tham chiếu tăng trưởng theo tuổi.",
@@ -1163,6 +1182,18 @@
       "Parent FAQ": "FAQ cho phụ huynh",
       "Short answers for parents before they interpret a growth result.": "Câu trả lời ngắn cho phụ huynh trước khi diễn giải kết quả tăng trưởng.",
       "Start calculator": "Bắt đầu tính",
+      "Enter your child's measurements": "Nhập số đo của trẻ",
+      "It takes about a minute. No personal account is required.": "Chỉ mất khoảng một phút và không cần tạo tài khoản.",
+      "WHO growth references": "Tham chiếu tăng trưởng WHO",
+      "Birth to 19 years": "Từ sơ sinh đến 19 tuổi",
+      "Results preview": "Xem trước kết quả",
+      "Your growth summary will appear here": "Kết quả tăng trưởng sẽ hiển thị tại đây",
+      "Enter the child's information and current measurements, then view the result.": "Nhập thông tin và số đo hiện tại của trẻ để xem kết quả.",
+      "No sample data is shown": "Không hiển thị dữ liệu mẫu",
+      "Latest result": "Kết quả vừa tính",
+      "Full charts and interpretation are available below.": "Biểu đồ đầy đủ và phần diễn giải được trình bày bên dưới.",
+      "WHO reference note": "Thông tin tham chiếu WHO",
+      "Your child's growth summary": "Tóm tắt tăng trưởng của trẻ",
       "View charts": "Xem biểu đồ",
       "Open full calculator": "Mở công cụ đầy đủ",
       "Baby weight percentile calculator": "Công cụ tính bách phân vị cân nặng của bé",
@@ -2159,7 +2190,7 @@
 
   const referenceComparisonTranslations = {
     vi: {
-      "WHO 50th percentile reference": "M&#7889;c tham chi&#7871;u WHO 50th percentile",
+      "WHO 50th percentile reference": "Mốc tham chiếu bách phân vị 50 của WHO",
       "A quick comparison with the WHO median for this age and sex. This is a reference point, not a required target.": "So s&#225;nh nhanh v&#7899;i trung v&#7883; WHO theo tu&#7893;i v&#224; gi&#7899;i t&#237;nh. &#272;&#226;y l&#224; m&#7889;c tham chi&#7871;u, kh&#244;ng ph&#7843;i m&#7909;c ti&#234;u b&#7855;t bu&#7897;c.",
       "Current": "Hi&#7879;n t&#7841;i",
       "Reference": "Tham chi&#7871;u",
@@ -2305,30 +2336,64 @@
 
   const articles = [
     {
+      category: "health",
+      categoryLabel: "Child health",
+      tag: "Child health",
+      title: "Adenovirus cases are rising: 7 warning signs parents should not miss",
+      text: "A practical guide to symptoms, differences from flu, home care, testing, and when a child needs urgent medical attention.",
+      href: "/adenovirus-in-children/",
+      image: "/assets/articles/adenovirus-child-hero.webp",
+      imageAlt: "A Vietnamese mother caring for her child with a viral fever at home",
+      minutes: 8,
+      published: "2026-07-18"
+    },
+    {
+      category: "growth",
+      categoryLabel: "Growth",
       tag: "Parent guide",
       title: "A tall, big child is not automatically overweight",
       text: "Learn why weight must be read together with height, age, sex, and the child's growth trend.",
       href: "/tall-child-not-always-overweight/",
       image: "/assets/articles/child-tall-weight-hero.webp",
-      imageAlt: "A Vietnamese family measuring their child's height at home"
+      imageAlt: "A Vietnamese family measuring their child's height at home",
+      minutes: 6,
+      published: "2026-07-15"
     },
     {
+      category: "growth",
+      categoryLabel: "Growth",
       tag: "Growth charts",
       title: "How to read child growth percentiles",
       text: "A simple guide to percentile lines, z-scores, and when a trend needs closer attention.",
-      href: "/how-to-read-a-growth-chart/"
+      href: "/how-to-read-a-growth-chart/",
+      image: "/assets/articles/growth-percentiles-guide.webp",
+      imageAlt: "A pediatric clinician reviewing a child growth chart with a parent",
+      minutes: 5,
+      published: "2026-07-10"
     },
     {
+      category: "growth",
+      categoryLabel: "Growth",
       tag: "WHO standards",
       title: "What WHO growth standards measure",
       text: "Understand weight-for-age, height-for-age, BMI-for-age, and why age in months matters.",
-      href: "/who-vs-cdc-growth-charts/"
+      href: "/who-vs-cdc-growth-charts/",
+      image: "/assets/articles/who-growth-standards.webp",
+      imageAlt: "A nurse measuring a child's height while a parent observes",
+      minutes: 5,
+      published: "2026-07-08"
     },
     {
+      category: "growth",
+      categoryLabel: "Growth",
       tag: "Parents",
       title: "What to prepare before a growth check",
       text: "Measurement tips for dates, height, weight, and follow-up conversations with a clinician.",
-      href: "/is-my-babys-weight-normal/"
+      href: "/is-my-babys-weight-normal/",
+      image: "/assets/articles/prepare-growth-check.webp",
+      imageAlt: "A parent preparing a scale and notes before measuring a child",
+      minutes: 4,
+      published: "2026-07-05"
     }
   ];
 
@@ -2390,8 +2455,8 @@
       eyebrow: "Child Growth Calculator"
     },
     calculator: {
-      title: "Child Growth Calculator",
-      copy: "Calculate weight-for-age, height-for-age, BMI-for-age, and view a clean growth chart in one flow.",
+      title: "Track your child's growth",
+      copy: "Enter measurements to see z-scores, percentiles, and a WHO growth chart.",
       eyebrow: "WHO-based growth assessment"
     },
     bmi: {
@@ -2686,10 +2751,17 @@
     }
 
     const generation = ++growth3dGeneration;
-    import("/assets/growth-3d.js")
-      .then((module) => {
+    Promise.all([
+      import("/assets/growth-3d.js"),
+      import("/assets/growth-motion.js")
+    ])
+      .then(([growth3d, growthMotion]) => {
         if (generation !== growth3dGeneration) return;
-        growth3dCleanup = module.mountGrowthScene(document);
+        const cleanups = [
+          growth3d.mountGrowthScene(document),
+          growthMotion.mountGrowthMotion(document)
+        ];
+        growth3dCleanup = () => cleanups.forEach((cleanup) => cleanup());
       })
       .catch(() => {
         document.documentElement.classList.add("no-webgl-scene");
@@ -2819,6 +2891,7 @@
       lock: '<svg viewBox="0 0 24 24" width="20" height="20" fill="none" aria-hidden="true"><path d="M7 10V8a5 5 0 0 1 10 0v2M6 10h12v10H6V10z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg>',
       download: '<svg viewBox="0 0 24 24" width="18" height="18" fill="none" aria-hidden="true"><path d="M12 4v10m0 0 4-4m-4 4-4-4M5 20h14" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>',
       share: '<svg viewBox="0 0 24 24" width="18" height="18" fill="none" aria-hidden="true"><path d="M8 12h8M16 12l-4-4m4 4-4 4M5 20h14a1 1 0 0 0 1-1v-4M4 15v4a1 1 0 0 0 1 1" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>',
+      info: '<svg viewBox="0 0 24 24" width="18" height="18" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="2"/><path d="M12 11v5M12 8h.01" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>',
       copy: '<svg viewBox="0 0 24 24" width="18" height="18" fill="none" aria-hidden="true"><path d="M8 8h10v12H8V8zM6 16H5a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h10a1 1 0 0 1 1 1v1" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg>'
     };
     return icons[name] || icons.spark;
@@ -2943,14 +3016,14 @@
     `;
   }
 
-  function calculatorCard(compact) {
+  function calculatorCard(compact, showSourceNote = true) {
     const today = currentDateInputValues();
     return `
       <form class="calculator-card growth-calculator-card${compact ? " is-compact" : ""}" id="growthForm">
         <div class="card-header">
           <div>
-            <h2>Child Growth Calculator</h2>
-            <p>Enter measurements to calculate z-scores and percentiles.</p>
+            <h2>Enter your child's measurements</h2>
+            <p>It takes about a minute. No personal account is required.</p>
           </div>
         </div>
         <div class="calculator-form-sections">
@@ -3021,9 +3094,54 @@
         </div>
         <button class="btn btn-primary calc-submit" type="submit">Calculate Growth ${icon("arrow")}</button>
         <div class="form-error" id="formError"></div>
-        ${compact ? "" : '<p class="source-note">Supports WHO Child Growth Standards for 0-5 years and WHO Growth Reference 2007 for 5-19 years. Weight-for-age is available to 10 years in WHO 2007.</p>'}
+        ${compact || !showSourceNote ? "" : '<p class="source-note">Supports WHO Child Growth Standards for 0-5 years and WHO Growth Reference 2007 for 5-19 years. Weight-for-age is available to 10 years in WHO 2007.</p>'}
       </form>
     `;
+  }
+
+  function workspacePreviewContent(result) {
+    if (!result) {
+      return `
+        <div class="calculator-preview-empty">
+          <span class="calculator-preview-icon">${icon("chart")}</span>
+          <span class="eyebrow">Results preview</span>
+          <h2>Your growth summary will appear here</h2>
+          <p>Enter the child's information and current measurements, then view the result.</p>
+          <div class="calculator-preview-curve" aria-hidden="true">
+            <span></span><span></span><span></span><i></i>
+          </div>
+          <div class="calculator-preview-foot">
+            <span class="check-dot">&#10003;</span>
+            <span>No sample data is shown</span>
+          </div>
+        </div>
+      `;
+    }
+
+    const metric = highlightMetric(result);
+    const status = statusLabel(metric.status);
+    return `
+      <div class="calculator-preview-result">
+        <div class="calculator-preview-result-head">
+          <div>
+            <span class="eyebrow">Latest result</span>
+            <h2>${t(titleFor(metric.key))}</h2>
+          </div>
+          ${statusPill(metric.status)}
+        </div>
+        <div class="mini-chart calculator-preview-chart">${chartSvg(result, metric.key === "head" ? "height" : metric.key, true)}</div>
+        <div class="calculator-preview-metrics">
+          <div><span>${t("Z-score")}</span><strong>${metric.z === null ? "--" : signed(metric.z)}</strong></div>
+          <div><span>${t("Percentile")}</span><strong>${metric.percentile === null ? "--" : Math.round(metric.percentile)}</strong></div>
+          <div><span>${t("Status")}</span><strong>${t(compactStatusLabel(status))}</strong></div>
+        </div>
+        <p>${t("Full charts and interpretation are available below.")}</p>
+      </div>
+    `;
+  }
+
+  function workspacePreviewCard() {
+    return `<aside class="calculator-preview-card calculator-card" id="calculatorPreviewCard" aria-live="polite">${workspacePreviewContent(null)}</aside>`;
   }
 
   function snapshotCard() {
@@ -3080,22 +3198,27 @@
     const cfg = pageConfig[kind] || pageConfig.calculator;
     return shell(`
       <main>
-        <section class="calculator-workspace" id="calculator">
-          <div class="growth-3d-scene calculator-workspace-scene" data-growth-3d aria-hidden="true"></div>
+        <section class="calculator-workspace growth-motion-stage" id="calculator">
+          <div class="growth-motion-host growth-motion-host-calculator" data-growth-motion="calculator" aria-hidden="true"></div>
           <div class="container calculator-workspace-inner">
             <div class="calculator-intro">
-              <span class="eyebrow">${cfg.eyebrow}</span>
-              <h1>${cfg.title}</h1>
-              <p class="page-copy">${cfg.copy}</p>
-              <div class="calculator-trust-row" aria-label="WHO calculator highlights">
-                <span><span class="check-dot">&#10003;</span> WHO standards</span>
-                <span><span class="check-dot">&#10003;</span> Private by design</span>
-                <span><span class="check-dot">&#10003;</span> No signup</span>
+              <div class="calculator-intro-copy">
+                <span class="eyebrow">${cfg.eyebrow}</span>
+                <h1>${cfg.title}</h1>
+                <p class="page-copy">${cfg.copy}</p>
+              </div>
+              <div class="calculator-standard-note" aria-label="WHO calculator highlights">
+                <span class="calculator-standard-icon">${icon("shield")}</span>
+                <span><strong>WHO growth references</strong><small>${t("Birth to 19 years")} · ${t("No signup")}</small></span>
               </div>
             </div>
             <div class="calculator-workspace-grid">
-              ${calculatorCard(false)}
-              <div class="calculator-preview">${snapshotCard()}</div>
+              ${calculatorCard(false, false)}
+              <div class="calculator-preview">${workspacePreviewCard()}</div>
+            </div>
+            <div class="calculator-reference-note">
+              <span>${icon("info")}</span>
+              <p><strong>${t("WHO reference note")}</strong><span>${t("Supports WHO Child Growth Standards for 0-5 years and WHO Growth Reference 2007 for 5-19 years. Weight-for-age is available to 10 years in WHO 2007.")}</span></p>
             </div>
           </div>
           <button class="btn btn-primary calc-mobile-submit" type="submit" form="growthForm">Calculate Growth ${icon("arrow")}</button>
@@ -3210,8 +3333,8 @@
   function chartsPage() {
     return shell(`
       <main>
-        <section class="page-hero">
-          <div class="growth-3d-scene" data-growth-3d aria-hidden="true"></div>
+        <section class="page-hero growth-charts-hero growth-motion-stage">
+          <div class="growth-motion-host growth-motion-host-charts" data-growth-motion="charts" aria-hidden="true"></div>
           <div class="container page-hero-row">
             <div>
               <span class="eyebrow">Growth Charts</span>
@@ -3229,17 +3352,15 @@
 
   function articlesPage() {
     return shell(`
-      <main>
-        <section class="page-hero">
-          <div class="growth-3d-scene" data-growth-3d aria-hidden="true"></div>
-          <div class="container">
+      <main class="articles-page">
+        <section class="articles-intro">
+          <div class="container articles-intro-inner">
             <span class="eyebrow">Articles</span>
-            <h1>Recent Articles</h1>
-            <p class="page-copy">SEO-ready educational content for parents searching for child growth calculators, percentiles, and WHO chart explanations.</p>
+            <h1>Knowledge for every stage of childhood</h1>
+            <p>Medical information made approachable, helping parents understand their child and make better care decisions every day.</p>
           </div>
         </section>
-        ${articlesSection(true)}
-        ${faqSection("calculator")}
+        ${articlesLibrary()}
       </main>
     `);
   }
@@ -4705,6 +4826,294 @@
     `);
   }
 
+  function adenovirusArticlePage() {
+    const isVietnamese = activeLanguage === "vi";
+    const copy = isVietnamese ? {
+      eyebrow: "Sức khỏe trẻ em",
+      title: "Adenovirus đang tăng: 7 dấu hiệu ba mẹ không nên bỏ qua",
+      dek: "Sốt cao, ho, đau mắt đỏ hay tiêu chảy đều có thể xuất hiện. Điều quan trọng không phải là tự đoán tên virus, mà là biết chăm con đúng và nhận ra lúc cần đưa trẻ đi khám.",
+      readTime: "8 phút đọc",
+      updated: "Cập nhật 18/07/2026",
+      reviewed: "Đối chiếu CDC & AAP",
+      lead: "Những ngày gần đây, nhiều ba mẹ lo lắng khi nghe số trẻ dương tính với Adenovirus tăng nhanh. Tại Bệnh viện Nhi Trung ương, 2.777 ca đã được ghi nhận từ đầu năm 2026, gấp ba lần cùng kỳ năm trước; riêng những ngày đầu tháng 7 có thêm 383 trẻ.",
+      answerTitle: "Có cần hoảng sợ không?",
+      answer: "Không. Đây là số liệu tại một bệnh viện, không phải số ca toàn quốc. Phần lớn trẻ nhiễm Adenovirus chỉ mắc bệnh nhẹ và hồi phục với chăm sóc hỗ trợ. Ba mẹ nên tập trung theo dõi nhịp thở, khả năng uống, lượng nước tiểu và mức độ tỉnh táo của con.",
+      summary: [
+        ["01", "Gợi ý", "Sốt kèm ho, đau họng, đau mắt đỏ hoặc rối loạn tiêu hóa."],
+        ["02", "Không tự đoán", "Adenovirus và cúm có thể rất giống nhau; xét nghiệm chỉ dùng khi cần."],
+        ["03", "Theo dõi", "Nhịp thở, uống nước, tiểu tiện và sự tỉnh táo quan trọng hơn tên virus."]
+      ],
+      situationTitle: "Số ca tăng, nhưng cần hiểu đúng con số",
+      situationText: "Thông tin này cho thấy Adenovirus đang có xu hướng gia tăng trong nhóm trẻ đến khám tại Bệnh viện Nhi Trung ương. Nó không có nghĩa mọi trẻ sốt đều mắc Adenovirus, cũng không phải mọi ca dương tính đều cần nhập viện.",
+      statLabel: "Ca dương tính từ đầu năm 2026",
+      statValue: "2.777",
+      statNote: "Tăng gấp 3 lần cùng kỳ 2025; thêm 383 ca trong những ngày đầu tháng 7 tại Bệnh viện Nhi Trung ương.",
+      knowTitle: "Adenovirus là gì và lây như thế nào?",
+      knowText: "Adenovirus là một nhóm virus phổ biến, có thể gây bệnh quanh năm. Trẻ nhỏ, đặc biệt trẻ đi nhà trẻ hoặc thường sinh hoạt tập thể, dễ tiếp xúc với virus qua nhiều con đường.",
+      spread: [
+        ["Hô hấp", "Giọt bắn khi ho, hắt hơi và tiếp xúc gần."],
+        ["Bề mặt", "Tay, đồ chơi, tay nắm cửa hoặc khăn có virus rồi chạm lên mắt, mũi, miệng."],
+        ["Phân - miệng", "Có thể lây khi thay tã hoặc vệ sinh tay không kỹ sau khi trẻ đi tiêu."],
+        ["Nguồn nước", "Ít gặp hơn, nhưng có thể liên quan bể bơi không được khử khuẩn phù hợp."]
+      ],
+      symptomsTitle: "Các biểu hiện ba mẹ thường gặp",
+      symptoms: [
+        ["Đường hô hấp", "Sốt, ho, sổ mũi, đau họng; đôi khi viêm phế quản hoặc viêm phổi."],
+        ["Mắt", "Đỏ mắt, chảy nước mắt, cộm mắt hoặc có ghèn."],
+        ["Tiêu hóa", "Nôn, tiêu chảy, đau bụng hoặc ăn uống kém."],
+        ["Ít gặp hơn", "Đau khi tiểu, tiểu máu hoặc biểu hiện thần kinh cần được bác sĩ đánh giá."]
+      ],
+      compareTitle: "Adenovirus và cúm khác nhau thế nào?",
+      compareText: "Không thể chẩn đoán chắc chắn chỉ bằng triệu chứng. Bảng dưới đây chỉ giúp ba mẹ định hướng ban đầu, không thay thế thăm khám hoặc xét nghiệm.",
+      compareHeaders: ["Đặc điểm", "Adenovirus", "Cúm"],
+      compareRows: [
+        ["Khởi phát", "Có thể từ từ hoặc sốt cao kéo dài", "Thường đột ngột, trẻ mệt rõ"],
+        ["Đau mắt đỏ", "Khá gợi ý, có thể kèm chảy nước mắt", "Không phải biểu hiện điển hình"],
+        ["Tiêu hóa", "Có thể nổi bật cùng triệu chứng hô hấp", "Có thể gặp ở trẻ nhỏ nhưng thường không nổi bật"],
+        ["Đau nhức", "Có thể gặp nhưng thường không phải triệu chứng chính", "Đau đầu, đau mỏi và rét run thường rõ hơn"],
+        ["Điều trị đặc hiệu", "Chưa có thuốc kháng virus dùng thường quy", "Có thuốc kháng virus theo chỉ định bác sĩ trong một số trường hợp"],
+        ["Vaccine cộng đồng", "Hiện chưa có", "Có vaccine cúm, cần tiêm nhắc theo khuyến cáo"]
+      ],
+      compareNote: "Đau mắt đỏ hoặc tiêu chảy đi cùng sốt và triệu chứng hô hấp có thể gợi ý Adenovirus hơn, nhưng trẻ vẫn có thể nhiễm cúm, RSV, COVID-19 hoặc đồng nhiễm nhiều tác nhân.",
+      careTitle: "Chăm trẻ tại nhà: làm ít nhưng làm đúng",
+      careSteps: [
+        ["Bù đủ nước", "Cho trẻ bú nhiều lần hơn hoặc uống từng ngụm nhỏ; ưu tiên dung dịch bù nước khi có tiêu chảy theo hướng dẫn y tế."],
+        ["Giúp trẻ dễ thở", "Nhỏ hoặc rửa mũi bằng nước muối sinh lý khi nghẹt mũi; giữ phòng thông thoáng."],
+        ["Hạ sốt an toàn", "Dùng thuốc đúng loại và đúng liều theo cân nặng, nhãn thuốc hoặc hướng dẫn của nhân viên y tế."],
+        ["Chia nhỏ bữa", "Không ép ăn khi trẻ mệt; ưu tiên thức ăn mềm, dễ nuốt và tiếp tục cho uống."],
+        ["Ghi lại diễn tiến", "Theo dõi nhiệt độ, nhịp thở, số lần tiểu, lượng uống và mức độ tỉnh táo."],
+        ["Không tự phối thuốc", "Không tự dùng kháng sinh, thuốc kháng virus cúm hoặc nhiều loại thuốc cảm, ho cùng lúc."]
+      ],
+      antibioticTitle: "Kháng sinh không điều trị được Adenovirus",
+      antibioticText: "Kháng sinh chỉ có vai trò khi bác sĩ xác định hoặc nghi ngờ bội nhiễm vi khuẩn. Tự dùng thuốc có thể gây tác dụng phụ, tăng kháng kháng sinh và che lấp diễn tiến bệnh.",
+      figureAlt: "Bố hướng dẫn con rửa tay bằng xà phòng tại nhà",
+      figureCaption: "Rửa tay kỹ, không dùng chung khăn và vệ sinh đồ chơi thường xuyên là những việc đơn giản nhưng thiết thực để giảm lây nhiễm trong gia đình.",
+      visitTitle: "7 dấu hiệu nên đưa trẻ đi khám sớm",
+      visitSigns: [
+        "Sốt cao kéo dài, khó hạ hoặc trẻ sốt trở lại sau khi đã đỡ.",
+        "Ho tăng dần, thở nhanh hơn bình thường, khò khè hoặc đau ngực.",
+        "Đau mắt đỏ nhiều, sưng quanh mắt, đau mắt hoặc có nhiều ghèn.",
+        "Nôn hoặc tiêu chảy nhiều, uống kém hay tiểu ít hơn rõ rệt.",
+        "Trẻ mệt hơn, ngủ li bì, khó đánh thức hoặc phản ứng chậm.",
+        "Trẻ dưới 3 tháng tuổi có sốt, dù chưa thấy triệu chứng khác.",
+        "Trẻ có bệnh tim, bệnh phổi mạn, suy dinh dưỡng hoặc suy giảm miễn dịch và xuất hiện triệu chứng nhiễm trùng."
+      ],
+      emergencyTitle: "Đưa trẻ đi cấp cứu ngay khi",
+      emergencySigns: [
+        "Khó thở, rút lõm lồng ngực, cánh mũi phập phồng hoặc tím môi.",
+        "Co giật, li bì, khó đánh thức hoặc phản ứng rất kém.",
+        "Không uống hoặc không bú được, nôn liên tục, không tiểu nhiều giờ, mắt trũng hoặc khóc không có nước mắt.",
+        "Tình trạng nặng lên nhanh hoặc ba mẹ cảm thấy trẻ khác hẳn mọi khi."
+      ],
+      testingTitle: "Có cần xét nghiệm Adenovirus cho mọi trẻ sốt?",
+      testingText: "Không. Bác sĩ thường cân nhắc xét nghiệm khi trẻ sốt kéo dài, có viêm phổi, đau mắt đỏ kèm triệu chứng hô hấp, tiêu chảy nhiều, có bệnh nền, diễn tiến bất thường hoặc khi kết quả có thể thay đổi cách điều trị và kiểm soát lây nhiễm.",
+      testingNote: "Một kết quả dương tính cũng cần được đặt trong bối cảnh lâm sàng, vì virus có thể còn được thải ra sau khi trẻ đã hồi phục.",
+      preventTitle: "Giảm lây nhiễm trong gia đình và trường học",
+      preventSteps: [
+        ["Rửa tay", "Dùng xà phòng, nhất là trước khi ăn, sau khi đi vệ sinh và sau khi thay tã."],
+        ["Không dùng chung", "Tách riêng khăn mặt, ly, muỗng, bình sữa và vật dụng cá nhân."],
+        ["Làm sạch đúng", "Vệ sinh đồ chơi và bề mặt thường chạm; Adenovirus có thể tồn tại trên bề mặt."],
+        ["Cho trẻ nghỉ", "Không đưa trẻ đang sốt, ho nhiều, đau mắt đỏ, nôn hoặc tiêu chảy đến lớp hay bể bơi."],
+        ["Tiêm vaccine cúm", "Vaccine cúm không phòng Adenovirus nhưng giúp giảm nguy cơ mắc và diễn tiến nặng do cúm."]
+      ],
+      closeTitle: "Ba mẹ cần nhớ điều gì?",
+      close: "Sốt cao khiến ba mẹ lo, nhưng tên virus không phải điều quan trọng nhất trong những giờ đầu. Hãy chăm con đủ nước, dùng thuốc an toàn, theo dõi nhịp thở và sự tỉnh táo. Khi có dấu hiệu cảnh báo, đưa trẻ đi khám sớm thay vì tự đổi thêm thuốc tại nhà.",
+      quote: "Đừng cố phân biệt Adenovirus và cúm chỉ bằng một triệu chứng. Hãy nhìn toàn trạng của con và ưu tiên phát hiện dấu hiệu nặng.",
+      refsTitle: "Nguồn tham khảo",
+      tocTitle: "Trong bài này",
+      toc: [["#tinh-hinh", "Tình hình hiện nay"], ["#nhan-biet", "Nhận biết Adenovirus"], ["#phan-biet", "So với cúm"], ["#cham-soc", "Chăm sóc tại nhà"], ["#khi-nao", "Khi nào cần đi khám"], ["#phong-benh", "Cách phòng lây"]],
+      sideTitle: "Điều quan trọng nhất",
+      sideText: "Khó thở, li bì, co giật hoặc không uống được là lý do đưa trẻ đi cấp cứu, bất kể xét nghiệm là virus nào.",
+      sideButton: "Xem thêm bài cho ba mẹ",
+      disclaimer: "Bài viết mang tính giáo dục và không thay thế chẩn đoán, kê đơn hoặc tư vấn trực tiếp của bác sĩ."
+    } : {
+      eyebrow: "Child health",
+      title: "Adenovirus cases are rising: 7 warning signs parents should not miss",
+      dek: "High fever, cough, pink eye, or diarrhea can all occur. The priority is not guessing the virus at home, but caring safely and recognizing when a child needs medical attention.",
+      readTime: "8 min read",
+      updated: "Updated 18 July 2026",
+      reviewed: "Checked against CDC & AAP guidance",
+      lead: "Recent reports have worried many parents. Vietnam National Children's Hospital recorded 2,777 adenovirus-positive cases from the start of 2026, three times the same period in 2025, including 383 children in the first days of July.",
+      answerTitle: "Should parents panic?",
+      answer: "No. These are figures from one hospital, not nationwide case counts. Most adenovirus infections in children are mild and improve with supportive care. Focus on breathing, drinking, urine output, and alertness.",
+      summary: [["01", "Clues", "Fever with cough, sore throat, pink eye, or digestive symptoms."], ["02", "Do not guess", "Adenovirus and flu can look alike; testing is used when it matters."], ["03", "Monitor", "Breathing, hydration, urine output, and alertness matter more than the virus name."]],
+      situationTitle: "Cases are rising, but the numbers need context",
+      situationText: "The report shows an upward trend among children tested at Vietnam National Children's Hospital. It does not mean every fever is adenovirus or every positive child requires admission.",
+      statLabel: "Positive cases since the start of 2026",
+      statValue: "2,777",
+      statNote: "Three times the same period in 2025, with 383 cases in early July at Vietnam National Children's Hospital.",
+      knowTitle: "What is adenovirus and how does it spread?",
+      knowText: "Adenoviruses are common viruses that circulate year-round. Young children, especially those in childcare and group activities, may be exposed through several routes.",
+      spread: [["Respiratory", "Droplets from coughs and sneezes, and close contact."], ["Surfaces", "Hands, toys, handles, or towels followed by touching the eyes, nose, or mouth."], ["Fecal-oral", "During diaper changes or when hand hygiene after toileting is incomplete."], ["Water", "Less commonly, inadequately disinfected swimming pools or other water."]],
+      symptomsTitle: "Symptoms parents may see",
+      symptoms: [["Respiratory", "Fever, cough, runny nose, and sore throat; sometimes bronchitis or pneumonia."], ["Eyes", "Redness, watering, irritation, or discharge."], ["Digestive", "Vomiting, diarrhea, stomach pain, or reduced intake."], ["Less common", "Painful urination, blood in urine, or neurologic symptoms that require medical review."]],
+      compareTitle: "How is adenovirus different from flu?",
+      compareText: "Symptoms alone cannot confirm the cause. This comparison is for orientation only and does not replace examination or testing.",
+      compareHeaders: ["Feature", "Adenovirus", "Flu"],
+      compareRows: [["Onset", "May be gradual or include prolonged high fever", "Often abrupt with marked fatigue"], ["Pink eye", "A useful clue; watering may occur", "Not a typical feature"], ["Digestive symptoms", "May be prominent alongside respiratory symptoms", "Can occur in young children but is usually less prominent"], ["Body aches", "Possible but often not central", "Headache, aches, and chills are often clearer"], ["Specific treatment", "No routine approved antiviral treatment", "Prescription antivirals may be used in selected cases"], ["Public vaccine", "None currently available", "Seasonal flu vaccine is available"]],
+      compareNote: "Pink eye or diarrhea with fever and respiratory symptoms may point more toward adenovirus, but flu, RSV, COVID-19, or co-infections are still possible.",
+      careTitle: "Home care: keep it simple and safe",
+      careSteps: [["Maintain fluids", "Offer breastfeeds more often or small, frequent sips; use oral rehydration for diarrhea when advised."], ["Ease congestion", "Use nasal saline and keep the room comfortably ventilated."], ["Treat fever safely", "Use the right medicine and weight-based dose according to the label or a clinician's instructions."], ["Offer small meals", "Do not force food; prioritize soft foods and continued fluids."], ["Record the trend", "Track temperature, breathing, urine output, intake, and alertness."], ["Do not combine medicines", "Do not start antibiotics, flu antivirals, or multiple cough-and-cold products without medical advice."]],
+      antibioticTitle: "Antibiotics do not treat adenovirus",
+      antibioticText: "Antibiotics are reserved for a suspected or confirmed bacterial complication. Unnecessary use can cause side effects, contribute to resistance, and obscure the illness course.",
+      figureAlt: "A father helps his child wash hands with soap at home",
+      figureCaption: "Careful handwashing, separate towels, and regular toy cleaning are practical ways to reduce spread at home.",
+      visitTitle: "7 reasons to seek medical care promptly",
+      visitSigns: ["High fever that persists, is difficult to settle, or returns after improvement.", "Increasing cough, faster breathing, wheeze, or chest pain.", "Marked eye redness, swelling around the eye, eye pain, or heavy discharge.", "Repeated vomiting or diarrhea, poor drinking, or clearly reduced urine.", "Increasing fatigue, unusual sleepiness, difficulty waking, or slow responses.", "Any fever in a baby younger than 3 months.", "Symptoms in a child with chronic heart or lung disease, malnutrition, or weakened immunity."],
+      emergencyTitle: "Seek emergency care now for",
+      emergencySigns: ["Breathing difficulty, chest retractions, nasal flaring, or blue lips.", "Seizure, marked drowsiness, difficulty waking, or very poor responsiveness.", "Inability to drink or feed, persistent vomiting, no urine for many hours, sunken eyes, or no tears when crying.", "Rapid worsening or a child who seems profoundly different from usual."],
+      testingTitle: "Does every child with fever need an adenovirus test?",
+      testingText: "No. Clinicians may consider testing for prolonged fever, pneumonia, pink eye with respiratory symptoms, substantial diarrhea, underlying disease, unusual progression, or when the result would change treatment or infection-control decisions.",
+      testingNote: "A positive result still needs clinical context because viral shedding may continue after recovery.",
+      preventTitle: "Reduce spread at home and school",
+      preventSteps: [["Wash hands", "Use soap, especially before meals, after toileting, and after diaper changes."], ["Do not share", "Keep towels, cups, spoons, bottles, and personal items separate."], ["Clean well", "Clean toys and frequently touched surfaces; adenoviruses can persist on surfaces."], ["Keep a sick child home", "Avoid school and swimming while fever, heavy cough, pink eye, vomiting, or diarrhea continues."], ["Use flu vaccination", "Flu vaccine does not prevent adenovirus but reduces influenza risk and severe outcomes."]],
+      closeTitle: "What should parents remember?",
+      close: "A high fever is worrying, but identifying the virus is not the first priority at home. Keep fluids going, use medicines safely, and watch breathing and alertness. Seek care early when warning signs appear instead of adding more medicines on your own.",
+      quote: "Do not try to separate adenovirus from flu using one symptom. Look at the whole child and prioritize signs of severe illness.",
+      refsTitle: "References",
+      tocTitle: "In this article",
+      toc: [["#tinh-hinh", "Current situation"], ["#nhan-biet", "Recognizing adenovirus"], ["#phan-biet", "Compared with flu"], ["#cham-soc", "Home care"], ["#khi-nao", "When to seek care"], ["#phong-benh", "Prevention"]],
+      sideTitle: "The most important point",
+      sideText: "Breathing difficulty, marked drowsiness, seizure, or inability to drink needs emergency care regardless of the test result.",
+      sideButton: "More parent articles",
+      disclaimer: "Educational content only. It does not replace diagnosis, prescribing, or direct medical advice."
+    };
+
+    return shell(`
+      <main class="parent-article adenovirus-article">
+        <section class="article-story-hero article-story-hero--adenovirus">
+          <img src="/assets/articles/adenovirus-child-hero.webp" alt="${copy.figureAlt}" width="1536" height="1024" fetchpriority="high">
+          <div class="article-story-hero-overlay" aria-hidden="true"></div>
+          <div class="container article-story-hero-content">
+            <a class="article-story-back" href="${localizedHref("/articles/")}">${icon("arrow")} ${isVietnamese ? "Bài viết" : "Articles"}</a>
+            <span class="article-story-kicker">${copy.eyebrow}</span>
+            <h1>${copy.title}</h1>
+            <p>${copy.dek}</p>
+            <div class="article-story-meta"><span>${copy.readTime}</span><span>${copy.updated}</span><span>${copy.reviewed}</span></div>
+          </div>
+        </section>
+
+        <section class="article-story-opening">
+          <div class="container article-story-opening-inner">
+            <p class="article-story-lead">${copy.lead}</p>
+            <div class="article-story-answer"><span>${icon("check")}</span><div><h2>${copy.answerTitle}</h2><p>${copy.answer}</p></div></div>
+          </div>
+        </section>
+
+        <section class="article-story-summary">
+          <div class="container article-story-summary-grid">
+            ${copy.summary.map(([number, title, textValue]) => `<div><span>${number}</span><div><h2>${title}</h2><p>${textValue}</p></div></div>`).join("")}
+          </div>
+        </section>
+
+        <section class="article-story-content">
+          <div class="container article-story-layout">
+            <article class="article-story-body">
+              <section id="tinh-hinh" class="article-story-section">
+                <h2>${copy.situationTitle}</h2>
+                <p>${copy.situationText}</p>
+                <div class="article-outbreak-stat">
+                  <div><span>${copy.statLabel}</span><strong>${copy.statValue}</strong></div>
+                  <p>${copy.statNote}</p>
+                </div>
+              </section>
+
+              <section id="nhan-biet" class="article-story-section">
+                <h2>${copy.knowTitle}</h2>
+                <p>${copy.knowText}</p>
+                <div class="article-story-reasons">
+                  ${copy.spread.map(([title, textValue]) => `<div><h3>${title}</h3><p>${textValue}</p></div>`).join("")}
+                </div>
+                <div class="article-story-age-guide article-symptom-guide">
+                  <h3>${copy.symptomsTitle}</h3>
+                  ${copy.symptoms.map(([title, textValue]) => `<div><strong>${title}</strong><p>${textValue}</p></div>`).join("")}
+                </div>
+              </section>
+
+              <section id="phan-biet" class="article-story-section">
+                <h2>${copy.compareTitle}</h2>
+                <p>${copy.compareText}</p>
+                <div class="article-virus-compare">
+                  <div class="article-virus-head"><strong>${copy.compareHeaders[0]}</strong><strong>${copy.compareHeaders[1]}</strong><strong>${copy.compareHeaders[2]}</strong></div>
+                  ${copy.compareRows.map(([feature, adeno, flu]) => `<div class="article-virus-row"><strong>${feature}</strong><div><small>${copy.compareHeaders[1]}</small><p>${adeno}</p></div><div><small>${copy.compareHeaders[2]}</small><p>${flu}</p></div></div>`).join("")}
+                </div>
+                <p class="article-story-note">${copy.compareNote}</p>
+              </section>
+
+              <section id="cham-soc" class="article-story-section">
+                <h2>${copy.careTitle}</h2>
+                <div class="article-story-actions">
+                  ${copy.careSteps.map(([title, textValue], index) => `<div><span>${String(index + 1).padStart(2, "0")}</span><div><h3>${title}</h3><p>${textValue}</p></div></div>`).join("")}
+                </div>
+                <div class="article-antibiotic-note"><span>${icon("info")}</span><div><h3>${copy.antibioticTitle}</h3><p>${copy.antibioticText}</p></div></div>
+              </section>
+
+              <figure class="article-story-figure">
+                <img src="/assets/articles/adenovirus-prevention.webp" alt="${copy.figureAlt}" loading="lazy" width="1536" height="1024">
+                <figcaption>${copy.figureCaption}</figcaption>
+              </figure>
+
+              <section id="khi-nao" class="article-story-section article-story-concern">
+                <h2>${copy.visitTitle}</h2>
+                <ul>${copy.visitSigns.map((item) => `<li>${icon("info")}<span>${item}</span></li>`).join("")}</ul>
+              </section>
+
+              <section class="article-story-section article-story-emergency">
+                <h2>${copy.emergencyTitle}</h2>
+                <ul>${copy.emergencySigns.map((item) => `<li><span aria-hidden="true">!</span><strong>${item}</strong></li>`).join("")}</ul>
+              </section>
+
+              <section class="article-story-section">
+                <h2>${copy.testingTitle}</h2>
+                <p>${copy.testingText}</p>
+                <p class="article-story-note">${copy.testingNote}</p>
+              </section>
+
+              <section id="phong-benh" class="article-story-section">
+                <h2>${copy.preventTitle}</h2>
+                <div class="article-story-steps">
+                  ${copy.preventSteps.map(([title, textValue], index) => `<div><span>${index + 1}</span><div><h3>${title}</h3><p>${textValue}</p></div></div>`).join("")}
+                </div>
+              </section>
+
+              <section class="article-story-close">
+                <h2>${copy.closeTitle}</h2>
+                <p>${copy.close}</p>
+                <blockquote>${copy.quote}</blockquote>
+                <div class="article-story-inline-cta"><a class="btn btn-primary" href="${localizedHref("/articles/")}">${copy.sideButton} ${icon("arrow")}</a></div>
+              </section>
+
+              <section class="article-story-references">
+                <h2>${copy.refsTitle}</h2>
+                <ol>
+                  <li><a href="https://benhviennhitrunguong.gov.vn/adenovirus-co-xu-huong-gia-tang-cha-me-can-canh-giac-voi-cac-nguy-co-lay-nhiem.html" target="_blank" rel="noreferrer">Vietnam National Children's Hospital: Adenovirus cases and prevention advice</a></li>
+                  <li><a href="https://www.cdc.gov/adenovirus/index.html" target="_blank" rel="noreferrer">CDC: About Adenovirus</a></li>
+                  <li><a href="https://www.healthychildren.org/english/health-issues/conditions/infections/pages/adenovirus-infections.aspx" target="_blank" rel="noreferrer">American Academy of Pediatrics: Adenovirus Infections in Infants and Children</a></li>
+                  <li><a href="https://www.cdc.gov/flu/hcp/clinical-signs/index.html" target="_blank" rel="noreferrer">CDC: Clinical Signs and Symptoms of Influenza</a></li>
+                  <li><a href="https://www.cdc.gov/flu/treatment/children-antiviral.html" target="_blank" rel="noreferrer">CDC: Treatment of Flu in Children</a></li>
+                </ol>
+                <p>${copy.disclaimer}</p>
+              </section>
+            </article>
+
+            <aside class="article-story-aside">
+              <nav aria-label="${copy.tocTitle}">
+                <strong>${copy.tocTitle}</strong>
+                ${copy.toc.map(([href, label]) => `<a href="${href}">${label}</a>`).join("")}
+              </nav>
+              <div class="article-story-tool article-story-tool--warning">
+                <span>${icon("brand")}</span>
+                <h2>${copy.sideTitle}</h2>
+                <p>${copy.sideText}</p>
+                <a class="btn btn-primary" href="${localizedHref("/articles/")}">${copy.sideButton} ${icon("arrow")}</a>
+              </div>
+            </aside>
+          </div>
+        </section>
+      </main>
+    `);
+  }
+
   function embedPage() {
     return `
       <main class="embed-shell">
@@ -4890,26 +5299,92 @@
     `;
   }
 
-  function articlesSection(full) {
+  function articleDate(article) {
+    try {
+      return new Intl.DateTimeFormat(activeLanguage || "en", {
+        day: "numeric",
+        month: "short",
+        year: "numeric"
+      }).format(new Date(`${article.published}T12:00:00`));
+    } catch {
+      return article.published;
+    }
+  }
+
+  function articleCard(article, extraClass = "") {
     return `
-      <section class="section ${full ? "section-soft" : ""}">
+      <article class="article-card article-card-visual ${extraClass}" data-article-item data-article-category="${article.category}">
+        <a class="article-card-media" href="${localizedHref(article.href)}">
+          <img src="${article.image}" alt="${t(article.imageAlt || "")}" loading="lazy" width="1536" height="1024">
+        </a>
+        <div class="article-card-copy">
+          <span class="article-meta">${article.tag}</span>
+          <h3><a href="${localizedHref(article.href)}">${article.title}</a></h3>
+          <p>${article.text}</p>
+          <div class="article-card-footer">
+            <span>${article.minutes} <span>min read</span> · ${articleDate(article)}</span>
+            <a class="article-card-link" href="${localizedHref(article.href)}" aria-label="${t("Read article")}: ${t(article.title)}">Read article ${icon("arrow")}</a>
+          </div>
+        </div>
+      </article>
+    `;
+  }
+
+  function articlesLibrary() {
+    const featured = articles[0];
+    const categories = Array.from(new Map(articles.map((article) => [article.category, article.categoryLabel])).entries());
+    return `
+      <section class="articles-library-section">
+        <div class="container articles-library">
+          <article class="articles-featured" data-article-item data-article-category="${featured.category}">
+            <a class="articles-featured-media" href="${localizedHref(featured.href)}">
+              <img src="${featured.image}" alt="${t(featured.imageAlt)}" width="1536" height="1024">
+            </a>
+            <div class="articles-featured-copy">
+              <div class="articles-featured-labels">
+                <span class="articles-featured-kicker">Featured article</span>
+                <span class="article-meta">${featured.tag}</span>
+              </div>
+              <h2><a href="${localizedHref(featured.href)}">${featured.title}</a></h2>
+              <p>${featured.text}</p>
+              <div class="articles-featured-footer">
+                <span>${featured.minutes} <span>min read</span> · ${articleDate(featured)}</span>
+                <a class="article-card-link" href="${localizedHref(featured.href)}">Read article ${icon("arrow")}</a>
+              </div>
+            </div>
+          </article>
+
+          <div class="articles-library-toolbar">
+            <div>
+              <span class="eyebrow">Explore by topic</span>
+              <h2>Latest guidance for parents</h2>
+              <p>Explore clear, practical guidance reviewed against trusted medical references.</p>
+            </div>
+            <div class="article-filters" role="group" aria-label="Explore by topic">
+              <button class="article-filter is-active" type="button" data-article-filter="all" aria-pressed="true">All articles</button>
+              ${categories.map(([key, label]) => `<button class="article-filter" type="button" data-article-filter="${key}" aria-pressed="false">${label}</button>`).join("")}
+            </div>
+          </div>
+
+          <div class="articles-library-grid">
+            ${articles.slice(1).map((article) => articleCard(article)).join("")}
+          </div>
+          <p class="articles-empty" data-articles-empty hidden>No articles in this topic yet.</p>
+        </div>
+      </section>
+    `;
+  }
+
+  function articlesSection() {
+    return `
+      <section class="section section-soft">
         <div class="container">
           <div class="section-header">
             <h2>Recent Articles</h2>
-            <p>Short, practical content designed for international search traffic.</p>
+            <p>Medical information made approachable, helping parents understand their child and make better care decisions every day.</p>
           </div>
-          <div class="article-grid">
-            ${articles.map((article) => `
-              <article class="article-card${article.image ? " article-card-visual" : ""}">
-                ${article.image ? `<a class="article-card-media" href="${localizedHref(article.href)}" tabindex="-1" aria-hidden="true"><img src="${article.image}" alt="${article.imageAlt || ""}" loading="lazy" width="1536" height="1024"></a>` : ""}
-                <div class="article-card-copy">
-                  <span class="article-meta">${article.tag}</span>
-                  <h3>${article.title}</h3>
-                  <p>${article.text}</p>
-                  <a class="btn btn-quiet" href="${localizedHref(article.href || "/articles/")}">Read article ${icon("arrow")}</a>
-                </div>
-              </article>
-            `).join("")}
+          <div class="article-grid article-grid-home">
+            ${articles.slice(0, 3).map((article) => articleCard(article)).join("")}
           </div>
         </div>
       </section>
@@ -4966,14 +5441,15 @@
         <div class="container">
           <div class="results-header">
             <div>
-              <h1>Growth Results</h1>
+              <span class="eyebrow">Growth Results</span>
+              <h1>Your child's growth summary</h1>
               <div class="results-meta" id="resultMeta">
                 ${localizedResultMeta(result)}
               </div>
             </div>
             <div class="results-actions">
-              <button class="btn btn-primary" id="saveTrendPoint" type="button">${icon("chart")} Save result</button>
-              <button class="btn btn-secondary" id="shareSnapshot" type="button">${icon("share")} Share</button>
+              <button class="btn btn-primary" id="shareSnapshot" type="button">${icon("share")} Share</button>
+              <button class="btn btn-secondary" id="saveTrendPoint" type="button">${icon("chart")} Save result</button>
               <div class="results-more" data-results-more>
                 <button class="btn btn-secondary results-more-trigger" type="button" aria-label="More actions" aria-expanded="false" aria-controls="resultsMoreMenu">
                   ${icon("more")} <span>More actions</span>
@@ -5744,6 +6220,7 @@
       "who-vs-cdc": "WHO vs CDC Growth Charts | GrowthKid",
       "read-growth-chart": "How to Read a Growth Chart | GrowthKid",
       "tall-child-weight": activeLanguage === "vi" ? "Con cao to chưa chắc thừa cân | GrowthKid" : "A Tall, Big Child Is Not Automatically Overweight | GrowthKid",
+      adenovirus: activeLanguage === "vi" ? "Adenovirus đang tăng: 7 dấu hiệu cần nhớ | GrowthKid" : "Adenovirus in Children: 7 Warning Signs | GrowthKid",
       embed: "Child Growth Calculator Widget | GrowthKid",
       bmi: "BMI Calculator for Kids | GrowthKid",
       weight: "Weight-for-age Calculator | GrowthKid",
@@ -6798,6 +7275,7 @@
     const interpretationBox = document.getElementById("interpretation");
     const title = document.getElementById("chartTitle");
     const sharePreview = document.getElementById("shareSnapshotPreview");
+    const workspacePreview = document.getElementById("calculatorPreviewCard");
 
     if (!section || !cards || !chart) return;
 
@@ -6811,6 +7289,10 @@
     if (interpretationBox) interpretationBox.innerHTML = interpretation(result, "height");
     if (title) title.textContent = chartTitle("height");
     if (sharePreview) sharePreview.innerHTML = snapshotPreview(result);
+    if (workspacePreview) {
+      workspacePreview.innerHTML = workspacePreviewContent(result);
+      workspacePreview.classList.add("has-result");
+    }
     refreshTrendTracker(result);
     document.querySelectorAll(".chart-tab").forEach((tab) => tab.classList.toggle("is-active", tab.dataset.chart === "height"));
     section.scrollIntoView({ behavior: "smooth", block: "start" });
@@ -6903,6 +7385,29 @@
         changeLanguage(event.target.value);
       });
     });
+
+    const articleFilters = Array.from(document.querySelectorAll("[data-article-filter]"));
+    if (articleFilters.length) {
+      const articleItems = Array.from(document.querySelectorAll("[data-article-item]"));
+      const emptyState = document.querySelector("[data-articles-empty]");
+      articleFilters.forEach((button) => {
+        button.addEventListener("click", () => {
+          const filter = button.dataset.articleFilter;
+          let visibleCount = 0;
+          articleFilters.forEach((item) => {
+            const isActive = item === button;
+            item.classList.toggle("is-active", isActive);
+            item.setAttribute("aria-pressed", String(isActive));
+          });
+          articleItems.forEach((item) => {
+            const isVisible = filter === "all" || item.dataset.articleCategory === filter;
+            item.hidden = !isVisible;
+            if (isVisible) visibleCount += 1;
+          });
+          if (emptyState) emptyState.hidden = visibleCount > 0;
+        });
+      });
+    }
 
     const form = document.getElementById("growthForm");
     if (form) {
@@ -7149,6 +7654,7 @@
     else if (page === "terms") app.innerHTML = termsPage();
     else if (["baby-weight-percentile", "is-baby-weight-normal", "who-vs-cdc", "read-growth-chart"].includes(page)) app.innerHTML = seoQuestionPage(page);
     else if (page === "tall-child-weight") app.innerHTML = tallChildWeightArticlePage();
+    else if (page === "adenovirus") app.innerHTML = adenovirusArticlePage();
     else if (page === "embed") app.innerHTML = embedPage();
     else app.innerHTML = homePage();
 

@@ -23,6 +23,10 @@ export function mountGrowthScene(root = document) {
 }
 
 function createScene(host, index, reducedMotion) {
+  if (host.classList.contains("calculator-workspace-scene") && window.matchMedia("(max-width: 700px)").matches) {
+    return null;
+  }
+
   const canvas = document.createElement("canvas");
   canvas.className = "growth-3d-canvas";
   host.textContent = "";
