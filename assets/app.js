@@ -3164,25 +3164,30 @@
   function homePage() {
     return shell(`
       <main>
-        <section class="hero">
-          <div class="growth-3d-scene growth-3d-scene-home" data-growth-3d aria-hidden="true"></div>
-          <div class="container hero-grid">
-            <div>
-              <span class="eyebrow">${pageConfig.home.eyebrow}</span>
-              <h1>${pageConfig.home.title}</h1>
-              <p class="hero-copy">${pageConfig.home.copy}</p>
-              <div class="hero-actions">
-                <a class="btn btn-primary" href="#calculator">Start Calculator ${icon("arrow")}</a>
-                <a class="btn btn-secondary" href="${localizedHref("/growth-charts/")}">View Growth Charts</a>
+        <section class="calculator-workspace growth-motion-stage" id="calculator">
+          <div class="growth-motion-host growth-motion-host-calculator" data-growth-motion="calculator" aria-hidden="true"></div>
+          <div class="container calculator-workspace-inner">
+            <div class="calculator-intro">
+              <div class="calculator-intro-copy">
+                <span class="eyebrow">${pageConfig.home.eyebrow}</span>
+                <h1>${pageConfig.home.title}</h1>
+                <p class="page-copy">${pageConfig.home.copy}</p>
               </div>
-              <div class="trust-row">
-                <span><span class="check-dot">✓</span> WHO standards</span>
-                <span><span class="check-dot">✓</span> Private by design</span>
-                <span><span class="check-dot">✓</span> Parent friendly</span>
+              <div class="calculator-standard-note" aria-label="WHO calculator highlights">
+                <span class="calculator-standard-icon">${icon("shield")}</span>
+                <span><strong>WHO growth references</strong><small>${t("Birth to 19 years")} &middot; ${t("No signup")}</small></span>
               </div>
             </div>
-            <div class="hero-panel" id="calculator">${calculatorCard(false)}</div>
+            <div class="calculator-workspace-grid">
+              ${calculatorCard(false, false)}
+              <div class="calculator-preview">${workspacePreviewCard()}</div>
+            </div>
+            <div class="calculator-reference-note">
+              <span>${icon("info")}</span>
+              <p><strong>${t("WHO reference note")}</strong><span>${t("Supports WHO Child Growth Standards for 0-5 years and WHO Growth Reference 2007 for 5-19 years. Weight-for-age is available to 10 years in WHO 2007.")}</span></p>
+            </div>
           </div>
+          <button class="btn btn-primary calc-mobile-submit" type="submit" form="growthForm">Calculate Growth ${icon("arrow")}</button>
         </section>
         ${resultsBlock(false)}
         ${viralToolkitSection()}
