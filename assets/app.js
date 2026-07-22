@@ -115,6 +115,9 @@
       "Early puberty in children: which signs need a medical visit?": "Dậy thì sớm ở trẻ: dấu hiệu nào cần đưa con đi khám?",
       "A parent-friendly guide to early puberty signs, growth acceleration, home tracking, and when a child should see a pediatric endocrinologist.": "Hướng dẫn gần gũi giúp ba mẹ nhận biết dấu hiệu dậy thì sớm, theo dõi tăng tốc chiều cao và biết khi nào cần khám nội tiết nhi.",
       "A Vietnamese mother and pediatric endocrinologist reviewing a school-age child's height and growth chart": "Mẹ Việt Nam cùng bác sĩ nội tiết nhi xem chiều cao và biểu đồ tăng trưởng của trẻ tuổi học đường",
+      "Thyroid disorders in children: signs parents often miss": "Rối loạn chức năng tuyến giáp ở trẻ: dấu hiệu ba mẹ dễ bỏ qua",
+      "Learn how low and high thyroid function can affect growth, weight, sleep, mood, heart rate, digestion, and school performance.": "Hiểu cách suy giáp và cường giáp ảnh hưởng đến tăng trưởng, cân nặng, giấc ngủ, cảm xúc, nhịp tim, tiêu hóa và việc học của trẻ.",
+      "A Vietnamese family and pediatric endocrinologist reviewing a child's growth and thyroid health": "Gia đình Việt Nam cùng bác sĩ nội tiết nhi xem đường tăng trưởng và sức khỏe tuyến giáp của trẻ",
       "Read article": "Đọc bài viết",
       "Knowledge for every stage of childhood": "Kiến thức đồng hành cùng từng giai đoạn của con",
       "Medical information made approachable, helping parents understand their child and make better care decisions every day.": "Thông tin y khoa được trình bày gần gũi, giúp ba mẹ hiểu con và chăm sóc đúng hơn mỗi ngày.",
@@ -2351,6 +2354,18 @@
   ];
 
   const articles = [
+    {
+      category: "growth",
+      categoryLabel: "Growth",
+      tag: "Pediatric endocrinology",
+      title: "Thyroid disorders in children: signs parents often miss",
+      text: "Learn how low and high thyroid function can affect growth, weight, sleep, mood, heart rate, digestion, and school performance.",
+      href: "/thyroid-disorders-in-children/",
+      image: "/assets/articles/thyroid-disorders-child-hero.webp",
+      imageAlt: "A Vietnamese family and pediatric endocrinologist reviewing a child's growth and thyroid health",
+      minutes: 10,
+      published: "2026-07-22"
+    },
     {
       category: "growth",
       categoryLabel: "Growth",
@@ -5253,6 +5268,130 @@
     `);
   }
 
+  function thyroidDisordersArticlePage() {
+    const isVietnamese = activeLanguage === "vi";
+    const copy = isVietnamese ? {
+      eyebrow: "Tăng trưởng & nội tiết nhi",
+      title: "Rối loạn chức năng tuyến giáp ở trẻ: dấu hiệu ba mẹ dễ bỏ qua",
+      dek: "Khi tuyến giáp hoạt động quá ít hoặc quá nhiều, trẻ có thể thay đổi chiều cao, cân nặng, nhịp tim, giấc ngủ, tiêu hóa và khả năng tập trung. Nhiều biểu hiện rất giống mệt mỏi hay thay đổi tuổi học đường.",
+      readTime: "10 phút đọc",
+      updated: "Cập nhật 22/07/2026",
+      reviewed: "Đối chiếu PES, ATA & WHO",
+      lead: "Tuyến giáp là một tuyến nhỏ hình cánh bướm ở trước cổ nhưng hormone của tuyến lại tham gia điều hòa chuyển hóa, nhiệt độ, tim mạch, tiêu hóa, não bộ và tăng trưởng. Vì vậy, rối loạn tuyến giáp ở trẻ không chỉ biểu hiện bằng một chiếc cổ to hay một con số cân nặng.",
+      answerTitle: "Một đường tăng trưởng thay đổi có thể là manh mối sớm",
+      answer: "Chiều cao tăng chậm dần là dấu hiệu quan trọng của suy giáp mắc phải. Ngược lại, cường giáp có thể làm trẻ sụt cân dù ăn tốt, tim nhanh, khó ngủ và ở trẻ nhỏ đôi khi cao nhanh hơn. Biểu đồ chỉ giúp nhận ra xu hướng; chẩn đoán cần khám và xét nghiệm.",
+      summary: [
+        ["01", "Đọc cả một cụm dấu hiệu", "Mệt, táo bón hay sút cân riêng lẻ có nhiều nguyên nhân; nhiều thay đổi xuất hiện cùng nhau mới đáng chú ý hơn."],
+        ["02", "Ưu tiên đường chiều cao", "Tăng trưởng chậm hoặc đổi rõ bách phân vị có thể xuất hiện trước khi gia đình nhận ra các triệu chứng khác."],
+        ["03", "Không tự bổ sung i-ốt", "I-ốt, thuốc hay sản phẩm hỗ trợ tuyến giáp dùng sai có thể làm bệnh nặng hơn và gây khó cho việc đánh giá."]
+      ],
+      basicsTitle: "Rối loạn chức năng tuyến giáp là gì?",
+      basicsText: "Tuyến yên tiết TSH để điều khiển tuyến giáp tạo hormone T4 và T3. Suy giáp là khi cơ thể thiếu hormone tuyến giáp; cường giáp là khi hormone quá nhiều. Bướu giáp chỉ mô tả tuyến giáp to và có thể gặp khi tuyến hoạt động thấp, cao hoặc vẫn bình thường, nên không thể nhìn cổ để tự kết luận.",
+      hypoTitle: "Suy giáp: cơ thể như đang chạy chậm lại",
+      hypoSigns: ["Chiều cao tăng chậm, đường chiều cao đi xuống qua các bách phân vị hoặc dậy thì muộn.", "Mệt, buồn ngủ, lạnh hơn người khác, da khô, tóc dễ rụng, táo bón.", "Khó tập trung, học giảm sút, vận động chậm hơn hoặc tâm trạng trầm xuống.", "Có thể tăng cân mức độ vừa và có bướu giáp; suy giáp đơn thuần hiếm khi giải thích béo phì nặng."],
+      hyperTitle: "Cường giáp: cơ thể bị thúc chạy quá nhanh",
+      hyperSigns: ["Sụt cân hoặc khó tăng cân dù trẻ ăn ngon; đi ngoài nhiều hoặc tiêu chảy.", "Tim đập nhanh, hồi hộp, run tay, ra mồ hôi, nóng bức và khó ngủ.", "Bồn chồn, dễ cáu, tăng hoạt động, khó tập trung hoặc kết quả học tập thay đổi.", "Bướu giáp, mắt lồi hoặc khó chịu ở mắt có thể gặp; trẻ nhỏ đôi khi tăng chiều cao nhanh."],
+      newbornTitle: "Suy giáp bẩm sinh: trẻ có thể trông hoàn toàn bình thường lúc mới sinh",
+      newbornText: "Phần lớn trẻ suy giáp bẩm sinh chưa có biểu hiện rõ trong những ngày đầu. Khi bệnh nặng, trẻ có thể bú kém, ngủ nhiều, khó đánh thức, khóc yếu, táo bón, giảm trương lực hoặc vàng da kéo dài. Vì hormone tuyến giáp rất quan trọng với não đang phát triển, kết quả sàng lọc sơ sinh bất thường cần được xác nhận và điều trị sớm, không chờ trẻ có triệu chứng.",
+      causesTitle: "Nguyên nhân thường gặp thay đổi theo lứa tuổi",
+      causes: [
+        ["Suy giáp mắc phải", "Viêm tuyến giáp Hashimoto, một bệnh tự miễn, là nguyên nhân thường gặp nhất ở trẻ lớn và thanh thiếu niên."],
+        ["Cường giáp", "Bệnh Graves là nguyên nhân phổ biến nhất; kháng thể kích thích tuyến giáp tạo quá nhiều hormone."],
+        ["Nguyên nhân khác", "Viêm tuyến giáp, thuốc, lượng i-ốt quá nhiều hoặc quá ít, bất thường tuyến giáp bẩm sinh và hiếm hơn là bệnh tuyến yên."]
+      ],
+      trackTitle: "Dùng GrowthKid để nhận ra xu hướng cần đi khám",
+      trackIntro: "GrowthKid giúp đặt chiều cao, cân nặng và BMI vào bối cảnh tuổi và giới tính theo tham chiếu WHO. Công cụ không đo hormone và không chẩn đoán bệnh tuyến giáp.",
+      trackSteps: [
+        ["Đo đúng và ghi đúng ngày", "Bỏ giày khi đo chiều cao, dùng cùng một cách đo và nhập chính xác ngày sinh, ngày đo."],
+        ["Tạo chuỗi số đo", "Với trẻ tuổi học đường, đo chiều cao khoảng mỗi 2–3 tháng thường hữu ích hơn đo hằng tuần; trẻ nhỏ theo lịch chăm sóc định kỳ."],
+        ["Xem chiều cao trước, cân nặng trong bối cảnh", "Chú ý khi đường chiều cao chậm lại hoặc đổi bách phân vị; đừng kết luận tuyến giáp chỉ từ việc tăng hay giảm cân."],
+        ["Ghi thêm triệu chứng", "Mang theo ghi chú về giấc ngủ, tiêu hóa, nhịp tim, khả năng chịu nóng/lạnh, học tập và thuốc hoặc thực phẩm bổ sung đang dùng."],
+        ["Chia sẻ biểu đồ khi đi khám", "Bác sĩ đọc xu hướng cùng khám cổ, nhịp tim, giai đoạn dậy thì, tiền sử gia đình và xét nghiệm."]
+      ],
+      trackButton: "Theo dõi chiều cao, cân nặng theo tuổi",
+      chartButton: "Xem biểu đồ tăng trưởng",
+      testsTitle: "Xét nghiệm nào thường được dùng?",
+      testsText: "TSH và free T4 thường là cặp xét nghiệm nền tảng. T3, kháng thể tuyến giáp hoặc siêu âm chỉ được thêm khi tình huống lâm sàng phù hợp. Kết quả cần được đọc theo khoảng tham chiếu của trẻ em, tuổi và bối cảnh bệnh; một giá trị đơn lẻ không nên được tự diễn giải bằng khoảng chuẩn của người lớn.",
+      testsNoteTitle: "Bướu giáp không cho biết tuyến đang hoạt động cao hay thấp",
+      testsNote: "Bác sĩ có thể khám kích thước, độ chắc, tính đối xứng và nốt tuyến giáp; xét nghiệm và đôi khi siêu âm mới giúp xác định hướng đánh giá tiếp theo.",
+      visitTitle: "Khi nào nên đưa trẻ đi khám?",
+      visitSigns: ["Chiều cao tăng chậm, đường chiều cao đi xuống hoặc dậy thì chậm so với trước.", "Sụt cân không chủ ý, khó tăng cân dù ăn tốt, hoặc tăng cân kèm chậm cao.", "Tim nhanh, hồi hộp, run tay, nóng nhiều, khó ngủ hoặc thay đổi hành vi và học tập kéo dài.", "Mệt kéo dài, lạnh, táo bón, da khô, tóc rụng hoặc giảm hoạt động rõ.", "Cổ to, có khối ở cổ, đau vùng tuyến giáp hoặc mắt lồi/khó chịu ở mắt.", "Gia đình có bệnh tuyến giáp tự miễn hoặc trẻ mắc bệnh tự miễn khác như đái tháo đường type 1 hay celiac."],
+      urgent: "Đưa trẻ đi cấp cứu khi có đau ngực, khó thở, ngất, tim đập rất nhanh hoặc loạn nhịp, lú lẫn/kích động dữ dội, co giật hay yếu kiệt. Với trẻ sơ sinh, kết quả sàng lọc bất thường cần liên hệ cơ sở y tế ngay theo hướng dẫn.",
+      treatmentTitle: "Điều trị có giúp trẻ tăng trưởng bình thường trở lại không?",
+      treatmentText: "Suy giáp rõ thường được điều trị bằng levothyroxine với liều theo tuổi, cân nặng và xét nghiệm; bác sĩ thường kiểm tra lại sau thay đổi liều. Cường giáp do Graves thường bắt đầu bằng thuốc kháng giáp như methimazole; một số trường hợp được cân nhắc phẫu thuật hoặc i-ốt phóng xạ. Khi chẩn đoán và điều trị đúng, phần lớn trẻ có thể trở lại nhịp sinh hoạt và tăng trưởng phù hợp.",
+      medicineWarning: "Không tự đổi liều, ngừng thuốc, đổi nhãn thuốc hay cho trẻ dùng viên i-ốt/sản phẩm “bổ tuyến giáp”. Trẻ đang dùng thuốc kháng giáp mà sốt hoặc đau họng cần liên hệ bác sĩ ngay để được hướng dẫn kiểm tra tác dụng phụ hiếm nhưng nghiêm trọng.",
+      supportTitle: "Ba mẹ có thể giúp con bằng những việc rất thực tế",
+      supportText: "Cho trẻ uống thuốc đúng giờ, mang danh sách thuốc và kết quả xét nghiệm khi tái khám, lưu số đo tăng trưởng và trao đổi với giáo viên nếu khả năng tập trung thay đổi. Đừng vội gắn nhãn con lười, tăng động hoặc ăn quá nhiều khi những thay đổi này xuất hiện cùng dấu hiệu cơ thể.",
+      faqTitle: "Câu hỏi ba mẹ thường gặp",
+      faqs: [
+        ["Bệnh tuyến giáp có phải là nguyên nhân thường gặp của béo phì?", "Không. Suy giáp có thể gây tăng cân mức độ vừa, thường kèm chậm cao. Béo phì nhiều mà chiều cao vẫn tăng tốt thường cần xem thêm khẩu phần, vận động, giấc ngủ và các nguyên nhân khác."],
+        ["Có bướu cổ là chắc chắn cường giáp?", "Không. Bướu giáp có thể đi cùng suy giáp, cường giáp hoặc chức năng tuyến giáp bình thường."],
+        ["TSH bình thường có đủ để loại trừ mọi bệnh tuyến giáp?", "Không phải trong mọi tình huống. Bác sĩ chọn và đọc TSH cùng free T4, triệu chứng, thuốc đang dùng và tình trạng tuyến yên khi cần."],
+        ["Bệnh tuyến giáp ở trẻ có chữa được không?", "Nhiều tình trạng kiểm soát rất tốt bằng thuốc và theo dõi. Thời gian điều trị phụ thuộc nguyên nhân; không tự ngừng thuốc khi trẻ thấy khỏe."]
+      ],
+      closeTitle: "Ba mẹ cần nhớ",
+      close: "Một triệu chứng đơn lẻ hiếm khi nói lên bệnh tuyến giáp. Hãy chú ý cụm dấu hiệu, đặc biệt là đường chiều cao thay đổi, rồi mang chuỗi số đo và ghi chú triệu chứng đến bác sĩ để được xét nghiệm đúng.",
+      quote: "Theo dõi tăng trưởng giúp phát hiện điều bất thường sớm hơn; xét nghiệm mới giúp gọi đúng tên vấn đề.",
+      refsTitle: "Nguồn tham khảo y khoa",
+      disclaimer: "Nội dung nhằm mục đích giáo dục, không thay thế khám, xét nghiệm, chẩn đoán hoặc kế hoạch điều trị trực tiếp.",
+      tocTitle: "Trong bài này",
+      toc: [["#phan-biet", "Suy giáp và cường giáp"], ["#so-sinh", "Suy giáp bẩm sinh"], ["#theo-doi", "Theo dõi tăng trưởng"], ["#xet-nghiem", "Xét nghiệm"], ["#khi-nao-kham", "Khi nào cần khám"]],
+      toolTitle: "Xem đường tăng trưởng của con",
+      toolText: "Nhập chiều cao và cân nặng theo ngày đo để xem z-score, bách phân vị và biểu đồ WHO."
+    } : {
+      eyebrow: "Growth & pediatric endocrinology", title: "Thyroid disorders in children: signs parents often miss", dek: "Too little or too much thyroid hormone can affect growth, weight, heart rate, sleep, digestion, mood, and school performance.", readTime: "10 min read", updated: "Updated July 22, 2026", reviewed: "Reviewed against PES, ATA & WHO",
+      lead: "The thyroid is a small butterfly-shaped gland, but its hormones help regulate metabolism, temperature, the heart, digestion, brain function, and growth.", answerTitle: "A changing growth curve can be an early clue", answer: "Slowing height can be an important sign of acquired hypothyroidism. Hyperthyroidism may cause weight loss despite appetite, fast heart rate, poor sleep, and sometimes faster height gain in younger children.",
+      summary: [["01", "Look for a pattern", "One symptom has many causes; a cluster and its trend are more useful."], ["02", "Prioritize height", "Slower growth or crossing height percentiles may appear before other symptoms are obvious."], ["03", "Do not self-use iodine", "Iodine or thyroid supplements can worsen disease or confuse assessment."]],
+      basicsTitle: "What is thyroid dysfunction?", basicsText: "TSH from the brain tells the thyroid to make T4 and T3. Hypothyroidism means too little thyroid hormone; hyperthyroidism means too much. A goiter can occur with low, high, or normal thyroid function.",
+      hypoTitle: "Hypothyroidism: the body slows down", hypoSigns: ["Slower height growth, falling height percentiles, or delayed puberty.", "Fatigue, sleepiness, cold intolerance, dry skin, hair loss, or constipation.", "Reduced concentration, school difficulties, slower activity, or low mood.", "Modest weight gain and goiter may occur; hypothyroidism rarely explains severe obesity alone."],
+      hyperTitle: "Hyperthyroidism: the body speeds up", hyperSigns: ["Weight loss or poor gain despite appetite; frequent stool or diarrhea.", "Fast heartbeat, palpitations, tremor, sweating, heat intolerance, or poor sleep.", "Restlessness, irritability, school changes, or difficulty concentrating.", "Goiter and eye symptoms may occur; younger children can grow faster in height."],
+      newbornTitle: "Congenital hypothyroidism may be silent at birth", newbornText: "Most affected newborns have no obvious early symptoms. Poor feeding, excess sleep, a weak cry, constipation, low tone, or prolonged jaundice can occur. An abnormal newborn screen needs prompt confirmation and treatment.",
+      causesTitle: "Common causes vary by age", causes: [["Acquired hypothyroidism", "Hashimoto thyroiditis is the most common cause in older children and adolescents."], ["Hyperthyroidism", "Graves disease is the most common cause in children."], ["Other causes", "Thyroiditis, medicines, iodine exposure, congenital conditions, and rarely pituitary disease."]],
+      trackTitle: "Use GrowthKid to notice a trend worth discussing", trackIntro: "GrowthKid organizes height, weight, and BMI against WHO references. It does not measure hormones or diagnose thyroid disease.", trackSteps: [["Measure accurately", "Use consistent technique and exact dates."], ["Build a series", "For school-age children, height every 2–3 months is more useful than weekly checks."], ["Read height first", "Notice slowing height or percentile crossing; interpret weight in context."], ["Record symptoms", "Note sleep, stool, heart rate symptoms, temperature tolerance, school changes, and supplements."], ["Bring the chart", "A clinician combines growth, examination, history, and testing."]], trackButton: "Track height and weight by age", chartButton: "View growth charts",
+      testsTitle: "Which tests are commonly used?", testsText: "TSH and free T4 are the basic pair. T3, thyroid antibodies, or ultrasound are added when clinically indicated and interpreted with pediatric ranges.", testsNoteTitle: "A goiter does not reveal high or low function", testsNote: "Examination, blood tests, and sometimes ultrasound guide the next step.",
+      visitTitle: "When should a child be assessed?", visitSigns: ["Slowing height, falling height percentiles, or delayed puberty.", "Unintended weight loss, poor gain despite appetite, or weight gain with poor height growth.", "Persistent fast heart rate, tremor, heat intolerance, poor sleep, or behavior and school change.", "Persistent fatigue, cold intolerance, constipation, dry skin, or hair loss.", "Goiter, neck lump, thyroid pain, or prominent/uncomfortable eyes.", "Family or personal history of autoimmune disease."], urgent: "Chest pain, breathing difficulty, fainting, very fast or irregular heartbeat, severe agitation/confusion, seizure, or profound weakness requires urgent care. Follow an abnormal newborn screen immediately.",
+      treatmentTitle: "Can treatment restore normal growth?", treatmentText: "Overt hypothyroidism is usually treated with levothyroxine and monitored with tests. Graves hyperthyroidism commonly starts with methimazole; selected children need surgery or radioactive iodine. Most children do well with correct treatment and follow-up.", medicineWarning: "Do not change doses, stop medicine, or add iodine supplements without clinical guidance. Fever or sore throat while taking an antithyroid drug requires prompt clinician contact.",
+      supportTitle: "Practical ways parents can help", supportText: "Give medicine consistently, keep results and growth records, list all supplements, and share relevant school changes without labeling the child as lazy or difficult.",
+      faqTitle: "Common parent questions", faqs: [["Does thyroid disease commonly cause obesity?", "No. Hypothyroidism usually causes modest gain with slower height; severe obesity often has other contributors."], ["Does a goiter always mean hyperthyroidism?", "No. Thyroid function can be high, low, or normal."], ["Does normal TSH exclude every thyroid disorder?", "Not in every context. Clinicians interpret TSH with free T4, symptoms, medicines, and pituitary context."], ["Can childhood thyroid disease be treated?", "Many conditions are controlled very well. Duration depends on the cause; do not stop treatment without advice."]],
+      closeTitle: "The takeaway", close: "Look for a cluster of symptoms and a changing height curve, then bring accurate measurements to a clinician for the right tests.", quote: "Growth tracking can reveal a concern; testing gives it the right name.", refsTitle: "Medical references", disclaimer: "Educational information only; not a substitute for examination, testing, diagnosis, or treatment.", tocTitle: "In this article", toc: [["#phan-biet", "Low vs high function"], ["#so-sinh", "Newborn screening"], ["#theo-doi", "Growth tracking"], ["#xet-nghiem", "Testing"], ["#khi-nao-kham", "When to seek care"]], toolTitle: "Review your child's growth curve", toolText: "Enter dated height and weight to view WHO z-scores, percentiles, and charts."
+    };
+
+    return shell(`
+      <main class="parent-article thyroid-disorders-article">
+        <section class="article-story-hero article-story-hero--thyroid">
+          <img src="/assets/articles/thyroid-disorders-child-hero.webp" alt="${isVietnamese ? "Gia đình cùng bác sĩ nội tiết nhi xem biểu đồ tăng trưởng và mô hình tuyến giáp" : "A family and pediatric endocrinologist review a growth chart and thyroid model"}" width="1536" height="1024" fetchpriority="high">
+          <div class="article-story-hero-overlay" aria-hidden="true"></div>
+          <div class="container article-story-hero-content"><a class="article-story-back" href="${localizedHref("/articles/")}">${icon("arrow")} ${isVietnamese ? "Bài viết" : "Articles"}</a><span class="article-story-kicker">${copy.eyebrow}</span><h1>${copy.title}</h1><p>${copy.dek}</p><div class="article-story-meta"><span>${copy.readTime}</span><span>${copy.updated}</span><span>${copy.reviewed}</span></div></div>
+        </section>
+        <section class="article-story-opening"><div class="container article-story-opening-inner"><p class="article-story-lead">${copy.lead}</p><div class="article-story-answer"><span>${icon("check")}</span><div><h2>${copy.answerTitle}</h2><p>${copy.answer}</p></div></div></div></section>
+        <section class="article-story-summary"><div class="container article-story-summary-grid">${copy.summary.map(([number, title, textValue]) => `<div><span>${number}</span><div><h2>${title}</h2><p>${textValue}</p></div></div>`).join("")}</div></section>
+        <section class="article-story-content"><div class="container article-story-layout">
+          <article class="article-story-body">
+            <section class="article-story-section"><h2>${copy.basicsTitle}</h2><p>${copy.basicsText}</p></section>
+            <section id="phan-biet" class="article-story-section"><div class="article-thyroid-compare"><div class="article-thyroid-card article-thyroid-card--low"><span>${icon("arrow")}</span><h2>${copy.hypoTitle}</h2><ul>${copy.hypoSigns.map((item) => `<li>${item}</li>`).join("")}</ul></div><div class="article-thyroid-card article-thyroid-card--high"><span>${icon("arrow")}</span><h2>${copy.hyperTitle}</h2><ul>${copy.hyperSigns.map((item) => `<li>${item}</li>`).join("")}</ul></div></div></section>
+            <section id="so-sinh" class="article-story-section article-thyroid-newborn"><h2>${copy.newbornTitle}</h2><p>${copy.newbornText}</p></section>
+            <section class="article-story-section"><h2>${copy.causesTitle}</h2><div class="article-story-reasons">${copy.causes.map(([title, textValue]) => `<div><h3>${title}</h3><p>${textValue}</p></div>`).join("")}</div></section>
+            <section id="theo-doi" class="article-story-section article-growth-tracker"><h2>${copy.trackTitle}</h2><p>${copy.trackIntro}</p><div class="article-story-actions">${copy.trackSteps.map(([title, textValue], index) => `<div><span>${String(index + 1).padStart(2, "0")}</span><div><h3>${title}</h3><p>${textValue}</p></div></div>`).join("")}</div><div class="article-story-inline-cta"><a class="btn btn-primary" href="${localizedHref("/child-growth-calculator/")}">${copy.trackButton} ${icon("arrow")}</a><a class="btn btn-secondary" href="${localizedHref("/growth-charts/")}">${copy.chartButton}</a></div></section>
+            <section id="xet-nghiem" class="article-story-section"><h2>${copy.testsTitle}</h2><p>${copy.testsText}</p><div class="article-antibiotic-note"><span>${icon("info")}</span><div><h3>${copy.testsNoteTitle}</h3><p>${copy.testsNote}</p></div></div></section>
+            <section id="khi-nao-kham" class="article-story-section article-story-concern"><h2>${copy.visitTitle}</h2><ul>${copy.visitSigns.map((item) => `<li>${icon("info")}<span>${item}</span></li>`).join("")}</ul><p class="article-story-note">${copy.urgent}</p></section>
+            <section class="article-story-section"><h2>${copy.treatmentTitle}</h2><p>${copy.treatmentText}</p><div class="article-antibiotic-note"><span>${icon("info")}</span><p>${copy.medicineWarning}</p></div><h2>${copy.supportTitle}</h2><p>${copy.supportText}</p></section>
+            <section class="article-story-section"><h2>${copy.faqTitle}</h2><div class="article-thyroid-faq">${copy.faqs.map(([question, answer]) => `<details><summary>${question}</summary><p>${answer}</p></details>`).join("")}</div></section>
+            <section class="article-story-close"><h2>${copy.closeTitle}</h2><p>${copy.close}</p><blockquote>${copy.quote}</blockquote><div class="article-story-inline-cta"><a class="btn btn-primary" href="${localizedHref("/child-growth-calculator/")}">${copy.trackButton} ${icon("arrow")}</a></div></section>
+            <section class="article-story-references"><h2>${copy.refsTitle}</h2><ol>
+              <li><a href="https://pedsendo.org/patient-resource/acquired-hypothyroidism/" target="_blank" rel="noreferrer">Pediatric Endocrine Society: Acquired Hypothyroidism</a></li>
+              <li><a href="https://pedsendo.org/patient-resource/congenital-hypothyroidism/" target="_blank" rel="noreferrer">Pediatric Endocrine Society: Congenital Hypothyroidism</a></li>
+              <li><a href="https://pedsendo.org/patient-resource/hyperthyroidism/" target="_blank" rel="noreferrer">Pediatric Endocrine Society: Hyperthyroidism</a></li>
+              <li><a href="https://www.thyroid.org/hypothyroidism-children-adolescents/" target="_blank" rel="noreferrer">American Thyroid Association: Hypothyroidism in Children and Adolescents</a></li>
+              <li><a href="https://www.thyroid.org/hyperthyroidism-children-adolescents/" target="_blank" rel="noreferrer">American Thyroid Association: Hyperthyroidism in Children and Adolescents</a></li>
+              <li><a href="https://www.who.int/tools/growth-reference-data-for-5to19-years" target="_blank" rel="noreferrer">WHO: Growth reference data for 5-19 years</a></li>
+            </ol><p>${copy.disclaimer}</p></section>
+          </article>
+          <aside class="article-story-aside"><nav aria-label="${copy.tocTitle}"><strong>${copy.tocTitle}</strong>${copy.toc.map(([href, label]) => `<a href="${href}">${label}</a>`).join("")}</nav><div class="article-story-tool"><span>${icon("brand")}</span><h2>${copy.toolTitle}</h2><p>${copy.toolText}</p><a class="btn btn-primary" href="${localizedHref("/child-growth-calculator/")}">${copy.trackButton} ${icon("arrow")}</a></div></aside>
+        </div></section>
+      </main>
+    `);
+  }
+
   function precociousPubertyArticlePage() {
     const isVietnamese = activeLanguage === "vi";
     const copy = isVietnamese ? {
@@ -6894,6 +7033,7 @@
       "hand-foot-mouth": activeLanguage === "vi" ? "Tay chân miệng ở trẻ: khi nào cần đi viện? | GrowthKid" : "Hand, Foot and Mouth Disease in Children | GrowthKid",
       "growth-hormone-deficiency": activeLanguage === "vi" ? "Trẻ chậm cao có phải thiếu hormone tăng trưởng? | GrowthKid" : "Growth Hormone Deficiency in Children | GrowthKid",
       "precocious-puberty": activeLanguage === "vi" ? "Dậy thì sớm ở trẻ: dấu hiệu và cách theo dõi | GrowthKid" : "Early Puberty in Children: Signs and Growth Tracking | GrowthKid",
+      "thyroid-disorders": activeLanguage === "vi" ? "Rối loạn chức năng tuyến giáp ở trẻ | GrowthKid" : "Thyroid Disorders in Children | GrowthKid",
       embed: "Child Growth Calculator Widget | GrowthKid",
       bmi: "BMI Calculator for Kids | GrowthKid",
       weight: "Weight-for-age Calculator | GrowthKid",
@@ -8332,6 +8472,7 @@
     else if (page === "hand-foot-mouth") app.innerHTML = handFootMouthArticlePage();
     else if (page === "growth-hormone-deficiency") app.innerHTML = growthHormoneDeficiencyArticlePage();
     else if (page === "precocious-puberty") app.innerHTML = precociousPubertyArticlePage();
+    else if (page === "thyroid-disorders") app.innerHTML = thyroidDisordersArticlePage();
     else if (page === "embed") app.innerHTML = embedPage();
     else app.innerHTML = homePage();
 

@@ -4233,6 +4233,105 @@ button {
   background: linear-gradient(90deg, rgba(12, 32, 47, 0.88) 0%, rgba(19, 51, 66, 0.62) 50%, rgba(34, 76, 76, 0.14) 100%);
 }
 
+.article-story-hero--thyroid > img {
+  object-position: 62% center;
+}
+
+.article-story-hero--thyroid .article-story-hero-overlay {
+  background: linear-gradient(90deg, rgba(8, 35, 53, 0.9) 0%, rgba(20, 57, 72, 0.64) 48%, rgba(44, 92, 97, 0.12) 100%);
+}
+
+.article-thyroid-compare {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.article-thyroid-card {
+  padding: 24px;
+  border: 1px solid #d8e5e5;
+  border-radius: 8px;
+  background: #f8fbfb;
+}
+
+.article-thyroid-card > span {
+  display: grid;
+  width: 38px;
+  height: 38px;
+  margin-bottom: 18px;
+  place-items: center;
+  border-radius: 50%;
+}
+
+.article-thyroid-card > span svg {
+  width: 18px;
+  height: 18px;
+}
+
+.article-thyroid-card--low > span {
+  color: #2563a8;
+  background: #e5f1fb;
+  transform: rotate(90deg);
+}
+
+.article-thyroid-card--high > span {
+  color: #b45309;
+  background: #fff0d9;
+  transform: rotate(-90deg);
+}
+
+.article-thyroid-card h2 {
+  margin: 0 0 14px;
+  font-size: 1.2rem;
+}
+
+.article-thyroid-card ul {
+  display: grid;
+  gap: 11px;
+  margin: 0;
+  padding-left: 19px;
+}
+
+.article-thyroid-card li {
+  color: var(--muted);
+  line-height: 1.65;
+}
+
+.article-thyroid-newborn {
+  padding: 26px;
+  border: 1px solid #cce2dc;
+  border-radius: 8px;
+  background: #f2faf7;
+}
+
+.article-thyroid-newborn h2 {
+  margin-top: 0;
+}
+
+.article-thyroid-faq {
+  display: grid;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.article-thyroid-faq details {
+  border: 1px solid #dbe5e7;
+  border-radius: 8px;
+  background: #ffffff;
+}
+
+.article-thyroid-faq summary {
+  padding: 17px 20px;
+  color: var(--ink);
+  font-weight: 750;
+  cursor: pointer;
+}
+
+.article-thyroid-faq details p {
+  margin: 0;
+  padding: 0 20px 18px;
+}
+
 .article-puberty-signs {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -4594,6 +4693,10 @@ button {
     object-position: 72% center;
   }
 
+  .article-story-hero--thyroid > img {
+    object-position: 68% center;
+  }
+
   .article-story-hero h1 {
     max-width: 680px;
     font-size: 3rem;
@@ -4635,7 +4738,12 @@ button {
     background: rgba(10, 31, 45, 0.72);
   }
 
-  .article-puberty-signs {
+  .article-story-hero--thyroid .article-story-hero-overlay {
+    background: rgba(8, 35, 49, 0.7);
+  }
+
+  .article-puberty-signs,
+  .article-thyroid-compare {
     grid-template-columns: 1fr;
   }
 
