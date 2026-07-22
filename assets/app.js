@@ -1361,6 +1361,7 @@
       "WHO does not provide this reference for the selected age range.": "WHO không cung cấp dữ liệu tham chiếu này cho độ tuổi đã chọn.",
       "WHO reference is not available for the selected age range.": "Chưa có dữ liệu tham chiếu WHO cho độ tuổi đã chọn.",
       "This result is within the typical range for age and sex. Keep tracking growth over time.": "Kết quả này nằm trong khoảng thường gặp theo tuổi và giới tính. Bạn nên tiếp tục theo dõi xu hướng theo thời gian.",
+      "This result is within the typical range for the child's current height and sex. Keep tracking growth over time.": "Kết quả này nằm trong khoảng thường gặp theo chiều cao hiện tại và giới tính. Bạn nên tiếp tục theo dõi xu hướng theo thời gian.",
       "This result is outside the typical range. Recheck the measurement and monitor the trend over time.": "Kết quả này nằm ngoài khoảng thường gặp. Hãy kiểm tra lại số đo và theo dõi thêm trong các lần đo sau.",
       "This result is far from the reference range. Consider discussing it with a healthcare professional.": "Kết quả này cách khá xa khoảng tham chiếu. Bạn nên trao đổi với bác sĩ hoặc nhân viên y tế.",
       "Please enter weight and height.": "Vui lòng nhập cân nặng và chiều cao.",
@@ -2210,12 +2211,19 @@
   const referenceComparisonTranslations = {
     vi: {
       "WHO 50th percentile reference": "Mốc tham chiếu bách phân vị 50 của WHO",
+      "A quick comparison with WHO medians for age or height and sex. These are reference points, not required targets.": "So s&#225;nh nhanh v&#7899;i trung v&#7883; WHO theo tu&#7893;i ho&#7863;c theo chi&#7873;u cao v&#224; gi&#7899;i t&#237;nh. &#272;&#226;y l&#224; c&#225;c m&#7889;c tham chi&#7871;u, kh&#244;ng ph&#7843;i m&#7909;c ti&#234;u b&#7855;t bu&#7897;c.",
       "A quick comparison with the WHO median for this age and sex. This is a reference point, not a required target.": "So s&#225;nh nhanh v&#7899;i trung v&#7883; WHO theo tu&#7893;i v&#224; gi&#7899;i t&#237;nh. &#272;&#226;y l&#224; m&#7889;c tham chi&#7871;u, kh&#244;ng ph&#7843;i m&#7909;c ti&#234;u b&#7855;t bu&#7897;c.",
       "Current": "Hi&#7879;n t&#7841;i",
       "Reference": "Tham chi&#7871;u",
       "Difference": "Ch&#234;nh l&#7879;ch",
       "WHO reference is not available for this age.": "WHO kh&#244;ng c&#243; m&#7889;c tham chi&#7871;u cho &#273;&#7897; tu&#7893;i n&#224;y.",
-      "Compared with WHO median": "So v&#7899;i trung v&#7883; WHO"
+      "Compared with WHO median": "So v&#7899;i trung v&#7883; WHO",
+      "At the WHO median": "&#7902; m&#7913;c trung v&#7883; WHO",
+      "below the WHO median": "th&#7845;p h&#417;n trung v&#7883; WHO",
+      "above the WHO median": "cao h&#417;n trung v&#7883; WHO",
+      "WHO reference unavailable": "WHO kh&#244;ng c&#243; tham chi&#7871;u",
+      "WHO weight-for-height reference data are available from birth to 5 years only.": "WHO ch&#7881; c&#243; tham chi&#7871;u c&#226;n n&#7863;ng theo chi&#7873;u cao t&#7915; s&#417; sinh &#273;&#7871;n 5 tu&#7893;i.",
+      "WHO weight-for-height reference is not available for this measured length or height.": "WHO kh&#244;ng c&#243; tham chi&#7871;u c&#226;n n&#7863;ng cho chi&#7873;u d&#224;i ho&#7863;c chi&#7873;u cao &#273;&#227; nh&#7853;p."
     },
     es: {
       "WHO 50th percentile reference": "Referencia OMS del percentil 50",
@@ -2349,6 +2357,7 @@
     { label: "Child Growth Calculator", href: "/child-growth-calculator/" },
     { label: "BMI Calculator for Kids", href: "/bmi-calculator-for-kids/" },
     { label: "Weight-for-age Calculator", href: "/weight-for-age-calculator/" },
+    { label: "Weight-for-height", href: "/child-growth-calculator/#growthForm" },
     { label: "Height-for-age Calculator", href: "/height-for-age-calculator/" },
     { label: "Head Circumference Calculator", href: "/head-circumference-calculator/" }
   ];
@@ -2673,6 +2682,7 @@
   };
 
   const who2007 = window.GROWTHKID_WHO_2007 || null;
+  const whoWeightHeight = window.GROWTHKID_WHO_WEIGHT_HEIGHT || null;
   const underFiveMaxMonths = 60;
   const who2007MaxMonths = 228;
   const who2007WeightMaxMonths = 120;
@@ -6293,6 +6303,7 @@
                     <div class="chart-tabs">
                       <button class="chart-tab ${chartIndicator === "weight" ? "is-active" : ""}" data-chart="weight" type="button">Weight</button>
                       <button class="chart-tab ${chartIndicator === "height" ? "is-active" : ""}" data-chart="height" type="button">Height</button>
+                      <button class="chart-tab ${chartIndicator === "wfh" ? "is-active" : ""}" data-chart="wfh" type="button">Weight-for-height</button>
                       <button class="chart-tab ${chartIndicator === "bmi" ? "is-active" : ""}" data-chart="bmi" type="button">BMI</button>
                     </div>
                   </div>
@@ -6388,7 +6399,7 @@
   }
 
   function resultCards(result) {
-    return result.metrics.map((metric) => `
+    return result.metrics.filter((metric) => metric.key !== "head" || metric.status !== "notEntered").map((metric) => `
       <article class="result-card">
         <div class="result-title">
           <span class="icon-box">${icon(metric.icon)}</span>
@@ -6403,6 +6414,7 @@
           <span class="result-value"><span>${t("Percentile")}</span></span>
           <span class="percentile">${metric.percentile === null ? "--" : ordinal(metric.percentile)}</span>
         </div>
+        ${metricMedianGap(result, metric)}
       </article>
     `).join("");
   }
@@ -6410,14 +6422,15 @@
   function referenceComparison(result) {
     const items = [
       referenceComparisonItem(result, "weight", result.weight, "kg"),
-      referenceComparisonItem(result, "height", result.height, "cm")
+      referenceComparisonItem(result, "height", result.height, "cm"),
+      referenceComparisonItem(result, "wfh", result.weight, "kg")
     ];
 
     return `
       <div class="reference-comparison-header">
         <div>
           <h2>${t("WHO 50th percentile reference")}</h2>
-          <p>${t("A quick comparison with the WHO median for this age and sex. This is a reference point, not a required target.")}</p>
+          <p>${t("A quick comparison with WHO medians for age or height and sex. These are reference points, not required targets.")}</p>
         </div>
       </div>
       <div class="reference-comparison-grid">
@@ -6428,13 +6441,13 @@
 
   function referenceComparisonItem(result, key, currentValue, unit) {
     const reference = idealReferenceValue(result, key);
-    const title = key === "weight" ? "Weight" : "Height";
+    const title = key === "weight" ? "Weight" : key === "height" ? "Height" : "Weight-for-height";
 
     if (!Number.isFinite(reference)) {
       return `
         <article class="reference-card">
           <div class="reference-card-title">
-            <span class="icon-box">${icon(key === "weight" ? "chart" : "ruler")}</span>
+            <span class="icon-box">${icon(key === "height" ? "ruler" : "chart")}</span>
             <strong>${t(title)}</strong>
           </div>
           <p class="reference-unavailable">${t("WHO reference is not available for this age.")}</p>
@@ -6446,7 +6459,7 @@
     return `
       <article class="reference-card">
         <div class="reference-card-title">
-          <span class="icon-box">${icon(key === "weight" ? "chart" : "ruler")}</span>
+            <span class="icon-box">${icon(key === "height" ? "ruler" : "chart")}</span>
           <strong>${t(title)}</strong>
         </div>
         <div class="reference-values">
@@ -6460,8 +6473,25 @@
   }
 
   function idealReferenceValue(result, key) {
+    if (key === "wfh") {
+      const lms = weightHeightLmsAt(result.sex || "boy", result.ageMonths || 0, result.height);
+      return lms ? lms.m : null;
+    }
     const value = referenceValue(result.sex || "boy", key, result.ageMonths || 0, 0);
     return Number.isFinite(value) ? value : null;
+  }
+
+  function metricMedianGap(result, metric) {
+    if (!metric || metric.z === null) return "";
+    const currentValue = metric.key === "height" ? result.height : metric.key === "bmi" ? result.bmi : result.weight;
+    const reference = idealReferenceValue(result, metric.key);
+    if (!Number.isFinite(currentValue) || !Number.isFinite(reference)) return "";
+    const unit = metric.key === "height" ? "cm" : metric.key === "bmi" ? "kg/m\u00b2" : "kg";
+    const difference = currentValue - reference;
+    const comparison = Math.abs(difference) < 0.05
+      ? t("At the WHO median")
+      : `${formatMeasurement(Math.abs(difference), unit)} ${t(difference < 0 ? "below the WHO median" : "above the WHO median")}`;
+    return `<p class="metric-median-gap">${comparison}</p>`;
   }
 
   function formatMeasurement(value, unit) {
@@ -6507,7 +6537,7 @@
     return `
       <h2>${t("Interpretation")}</h2>
       <p>${sentence}</p>
-      <p>${t(statusDetail(metric.status))}</p>
+      <p>${t(statusDetail(metric.status, metric.key))}</p>
       <div>
         <h3>${t("About z-score")}</h3>
         <ul>
@@ -6520,7 +6550,7 @@
     `;
   }
 
-  function statusDetail(status) {
+  function statusDetail(status, metricKey) {
     const label = statusLabel(status);
     if (label === "Not available") {
       return "WHO does not provide this reference for the selected age range.";
@@ -6533,6 +6563,9 @@
     }
     if (label === "Monitor") {
       return "This result is outside the typical range. Recheck the measurement and monitor the trend over time.";
+    }
+    if (metricKey === "wfh") {
+      return "This result is within the typical range for the child's current height and sex. Keep tracking growth over time.";
     }
     return "This result is within the typical range for age and sex. Keep tracking growth over time.";
   }
@@ -6569,8 +6602,9 @@
 
     const bmi = weight / Math.pow(height / 100, 2);
     const metrics = [
-      metric("weight", "Weight-for-age", "chart", sex, ageMonths, weight),
       metric("height", "Height-for-age", "ruler", sex, ageMonths, height),
+      metric("weight", "Weight-for-age", "chart", sex, ageMonths, weight),
+      weightHeightMetric(sex, ageMonths, weight, height),
       metric("bmi", "BMI-for-age", "spark", sex, ageMonths, bmi),
       head ? metric("head", "Head circumference", "shield", sex, ageMonths, head) : unavailableMetric(
         "head",
@@ -6691,6 +6725,84 @@
       percentile: zToPercentile(z),
       status: statusForMetric(key, z, ageMonths)
     };
+  }
+
+  function weightHeightMetric(sex, ageMonths, weight, height) {
+    if (ageMonths > underFiveMaxMonths) {
+      return unavailableMetric(
+        "wfh",
+        "Weight-for-height",
+        "chart",
+        weight,
+        "notAvailable",
+        "WHO weight-for-height reference data are available from birth to 5 years only."
+      );
+    }
+
+    const lms = weightHeightLmsAt(sex, ageMonths, height);
+    if (!lms) {
+      return unavailableMetric(
+        "wfh",
+        "Weight-for-height",
+        "chart",
+        weight,
+        "notAvailable",
+        "WHO weight-for-height reference is not available for this measured length or height."
+      );
+    }
+
+    const z = clamp(extendedLmsZScore(weight, lms), -4, 4);
+    return {
+      key: "wfh",
+      label: "Weight-for-height",
+      icon: "chart",
+      value: weight,
+      z,
+      percentile: zToPercentile(z),
+      status: statusForMetric("wfh", z, ageMonths)
+    };
+  }
+
+  function weightHeightLmsAt(sex, ageMonths, measuredHeight) {
+    const rows = weightHeightRows(sex, ageMonths);
+    if (!rows || !rows.length || !Number.isFinite(measuredHeight)) return null;
+    if (measuredHeight < rows[0][0] || measuredHeight > rows[rows.length - 1][0]) return null;
+
+    for (let index = 0; index < rows.length - 1; index += 1) {
+      const current = rows[index];
+      const next = rows[index + 1];
+      if (measuredHeight >= current[0] && measuredHeight <= next[0]) {
+        const ratio = (measuredHeight - current[0]) / (next[0] - current[0] || 1);
+        return {
+          l: current[1] + (next[1] - current[1]) * ratio,
+          m: current[2] + (next[2] - current[2]) * ratio,
+          s: current[3] + (next[3] - current[3]) * ratio
+        };
+      }
+    }
+
+    const last = rows[rows.length - 1];
+    return { l: last[1], m: last[2], s: last[3] };
+  }
+
+  function weightHeightRows(sex, ageMonths) {
+    const mode = ageMonths < 24 ? "length" : "height";
+    return whoWeightHeight && whoWeightHeight.data && whoWeightHeight.data[sex] && whoWeightHeight.data[sex][mode];
+  }
+
+  function extendedLmsZScore(value, lms) {
+    const raw = lmsZScore(value, lms);
+    if (raw > 3) {
+      const sd2 = lmsValueAtZ(lms, 2);
+      const sd3 = lmsValueAtZ(lms, 3);
+      return 3 + (value - sd3) / (sd3 - sd2 || 1);
+    }
+    if (raw < -3) {
+      const sd2 = lmsValueAtZ(lms, -2);
+      const sd3 = lmsValueAtZ(lms, -3);
+      return -3 + (value - sd3) / (sd2 - sd3 || 1);
+    }
+    return raw;
   }
 
   function who2007Metric(key, label, iconName, sex, ageMonths, value) {
@@ -6863,6 +6975,7 @@
   }
 
   function chartSvg(result, indicator, compact) {
+    if (indicator === "wfh") return weightHeightChartSvg(result, compact);
     const sex = result.sex || "boy";
     const width = compact ? 560 : 760;
     const height = compact ? 310 : 520;
@@ -6937,6 +7050,63 @@
     `;
   }
 
+  function weightHeightChartSvg(result, compact) {
+    const width = compact ? 560 : 760;
+    const height = compact ? 310 : 520;
+    const padding = compact ? { left: 48, right: 22, top: 28, bottom: 42 } : { left: 62, right: 86, top: 38, bottom: 66 };
+    const metric = result.metrics && result.metrics.find((item) => item.key === "wfh");
+    const rows = weightHeightRows(result.sex || "boy", result.ageMonths || 0);
+    if (!rows || !metric || metric.status === "notAvailable") {
+      return unavailableChartSvg("wfh", compact, metric && metric.reason);
+    }
+
+    const zLines = [
+      { z: 2, label: "+2", color: "#ef4444" },
+      { z: 1, label: "+1", color: "#f97316" },
+      { z: 0, label: "0", color: "#16a34a" },
+      { z: -1, label: "-1", color: "#2563eb" },
+      { z: -2, label: "-2", color: "#ef4444" }
+    ];
+    const minHeight = rows[0][0];
+    const maxHeight = rows[rows.length - 1][0];
+    const values = rows.flatMap((row) => zLines.map((line) => lmsValueAtZ({ l: row[1], m: row[2], s: row[3] }, line.z)));
+    const minValue = Math.min(...values);
+    const maxValue = Math.max(...values);
+    const span = maxValue - minValue || 1;
+    const scale = { min: Math.max(0, minValue - span * 0.05), max: maxValue + span * 0.05 };
+    const x = (value) => padding.left + ((value - minHeight) / (maxHeight - minHeight)) * (width - padding.left - padding.right);
+    const y = (value) => chartValueToY(value, scale, padding.top, height - padding.bottom);
+    const pathFor = (z) => rows.map((row, index) => {
+      const lms = { l: row[1], m: row[2], s: row[3] };
+      return `${index === 0 ? "M" : "L"}${x(row[0]).toFixed(1)},${y(lmsValueAtZ(lms, z)).toFixed(1)}`;
+    }).join(" ");
+    const xTicks = Array.from({ length: 6 }, (_, index) => minHeight + ((maxHeight - minHeight) * index) / 5);
+    const yTicks = Array.from({ length: 5 }, (_, index) => scale.min + ((scale.max - scale.min) * index) / 4);
+    const childX = x(clamp(result.height, minHeight, maxHeight));
+    const childY = y(result.weight);
+
+    return `
+      <svg viewBox="0 0 ${width} ${height}" role="img" aria-label="weight-for-height growth chart">
+        <rect x="0" y="0" width="${width}" height="${height}" fill="#ffffff"></rect>
+        ${yTicks.map((value) => `
+          <line x1="${padding.left}" y1="${y(value).toFixed(1)}" x2="${width - padding.right}" y2="${y(value).toFixed(1)}" stroke="#e2e8f0" stroke-width="1"></line>
+          <text x="${padding.left - 10}" y="${y(value).toFixed(1)}" text-anchor="end" dominant-baseline="middle" fill="#64748b" font-size="12">${value.toFixed(1)}</text>
+        `).join("")}
+        ${xTicks.map((value) => `
+          <line x1="${x(value).toFixed(1)}" y1="${padding.top}" x2="${x(value).toFixed(1)}" y2="${height - padding.bottom}" stroke="#eef2f7" stroke-width="1"></line>
+          <text x="${x(value).toFixed(1)}" y="${height - 22}" text-anchor="middle" fill="#64748b" font-size="12">${value.toFixed(0)}</text>
+        `).join("")}
+        ${zLines.map((line) => `
+          <path d="${pathFor(line.z)}" fill="none" stroke="${line.color}" stroke-width="${line.z === 0 ? 2.5 : 1.7}" opacity="${line.z === 0 ? 0.95 : 0.76}"></path>
+          ${compact ? "" : `<text x="${width - padding.right + 14}" y="${y(lmsValueAtZ({ l: rows[rows.length - 1][1], m: rows[rows.length - 1][2], s: rows[rows.length - 1][3] }, line.z)).toFixed(1)}" fill="#334155" font-size="12" dominant-baseline="middle">${line.label}</text>`}
+        `).join("")}
+        <circle cx="${childX.toFixed(1)}" cy="${childY.toFixed(1)}" r="${compact ? 5 : 7}" fill="#2563eb" stroke="#ffffff" stroke-width="3"></circle>
+        <text x="${padding.left}" y="22" fill="#0f172a" font-size="${compact ? 14 : 16}" font-weight="800">${t("Weight-for-height")} (kg)</text>
+        <text x="${(width - padding.right + padding.left) / 2}" y="${height - 5}" text-anchor="middle" fill="#64748b" font-size="12">${t("Height (cm)")}</text>
+      </svg>
+    `;
+  }
+
   function unavailableChartSvg(indicator, compact, reason) {
     const width = compact ? 560 : 760;
     const height = compact ? 310 : 520;
@@ -7004,6 +7174,7 @@
     const titles = {
       weight: "Weight-for-age",
       height: "Height-for-age",
+      wfh: "Weight-for-height",
       bmi: "BMI-for-age",
       head: "Head circumference"
     };
@@ -7160,10 +7331,20 @@
   function readSavedResult() {
     try {
       const raw = localStorage.getItem("growthkid:lastResult");
-      return raw ? JSON.parse(raw) : null;
+      return raw ? enrichGrowthResult(JSON.parse(raw)) : null;
     } catch (error) {
       return null;
     }
+  }
+
+  function enrichGrowthResult(result) {
+    if (!result || !Number.isFinite(result.weight) || !Number.isFinite(result.height)) return result;
+    const bmi = Number.isFinite(result.bmi) ? result.bmi : result.weight / Math.pow(result.height / 100, 2);
+    const existing = Array.isArray(result.metrics) ? result.metrics.filter((item) => item && item.key !== "wfh") : [];
+    const wfh = weightHeightMetric(result.sex || "boy", result.ageMonths || 0, result.weight, result.height);
+    const orderedKeys = ["height", "weight", "wfh", "bmi", "head"];
+    const metrics = [...existing, wfh].sort((left, right) => orderedKeys.indexOf(left.key) - orderedKeys.indexOf(right.key));
+    return { ...result, bmi, metrics };
   }
 
   function saveResult(result) {
@@ -7322,15 +7503,16 @@
 
   async function createSnapshotCanvas(result) {
     if (document.fonts && document.fonts.ready) await document.fonts.ready;
+    result = enrichGrowthResult(result);
     const canvas = document.createElement("canvas");
     canvas.width = 1080;
     canvas.height = 1530;
     const ctx = canvas.getContext("2d");
     const primary = highlightMetric(result);
-    const resultItems = ["height", "weight", "bmi"].map((key) => metricSnapshotItem(
+    const resultItems = ["height", "weight", "wfh", "bmi"].map((key) => metricSnapshotItem(
       result,
       key,
-      key === "weight" ? `${result.weight.toFixed(1)} kg` : key === "height" ? `${result.height.toFixed(1)} cm` : result.bmi.toFixed(1)
+      key === "height" ? `${result.height.toFixed(1)} cm` : key === "bmi" ? result.bmi.toFixed(1) : `${result.weight.toFixed(1)} kg`
     ));
 
     ctx.fillStyle = "#ffffff";
@@ -7393,23 +7575,24 @@
     drawSnapshotPanel(ctx, 44, 304, 992, 204);
     drawMeasurementSummary(ctx, result, 72, 332);
 
-    resultItems.forEach((item, index) => drawResultSnapshotTile(ctx, 44 + index * 338, 532, 328, 184, item, index));
+    resultItems.forEach((item, index) => drawResultSnapshotTile(ctx, 44 + index * 250, 532, 242, 206, item, index));
 
-    drawSnapshotPanel(ctx, 44, 742, 992, 366);
+    drawSnapshotPanel(ctx, 44, 758, 992, 386);
     ctx.fillStyle = "#0f172a";
     ctx.font = "900 22px Inter, sans-serif";
-    ctx.fillText(canvasText("Growth Curves"), 72, 784);
-    drawGrowthChartLegend(ctx, 72, 804);
-    drawZScoreLegend(ctx, 620, 778);
-    drawChartPreview(ctx, result, "height", 72, 840, 282, 214, "#14b8a6");
-    drawChartPreview(ctx, result, "weight", 398, 840, 282, 214, "#2563eb");
-    drawChartPreview(ctx, result, "bmi", 724, 840, 282, 214, "#7c3aed");
+    ctx.fillText(canvasText("Growth Curves"), 72, 794);
+    drawGrowthChartLegend(ctx, 72, 814);
+    drawZScoreLegend(ctx, 660, 788);
+    drawChartPreview(ctx, result, "height", 72, 852, 438, 122, "#14b8a6");
+    drawChartPreview(ctx, result, "weight", 570, 852, 438, 122, "#2563eb");
+    drawChartPreview(ctx, result, "wfh", 72, 1012, 438, 122, "#059669");
+    drawChartPreview(ctx, result, "bmi", 570, 1012, 438, 122, "#7c3aed");
     ctx.fillStyle = "#64748b";
-    ctx.font = "750 15px Inter, sans-serif";
-    centerText(ctx, `${canvasText("WHO standards")} - ${canvasText("Your child")} - ${canvasText("Educational use only - not medical advice")}`, 540, 1082);
+    ctx.font = "750 13px Inter, sans-serif";
+    centerText(ctx, `${canvasText("WHO standards")} - ${canvasText("Your child")} - ${canvasText("Educational use only - not medical advice")}`, 540, 1137);
 
-    drawSnapshotPanel(ctx, 44, 1170, 992, 198);
-    drawSnapshotAdvice(ctx, primary, 84, 1208);
+    drawSnapshotPanel(ctx, 44, 1164, 992, 198);
+    drawSnapshotAdvice(ctx, primary, 84, 1202);
 
     ctx.fillStyle = "#475569";
     ctx.font = "750 16px Inter, sans-serif";
@@ -7419,10 +7602,12 @@
     ctx.fillText(canvasText("Source: World Health Organization (WHO)"), 72, 1480);
     ctx.fillStyle = "#2563eb";
     ctx.font = "900 24px Inter, sans-serif";
-    ctx.fillText("GrowthKid", 760, 1438);
+    ctx.fillText("GrowthKid", 680, 1438);
     ctx.fillStyle = "#64748b";
     ctx.font = "750 16px Inter, sans-serif";
-    ctx.fillText("growthkid.xyz", 760, 1464);
+    ctx.fillText("growthkid.xyz", 680, 1464);
+    const qrImage = await loadCanvasImage("/assets/growthkid-growth-qr-code.png");
+    if (qrImage) drawSnapshotQr(ctx, qrImage, 866, 1358, 148);
     return canvas;
   }
 
@@ -7430,13 +7615,25 @@
     const metric = result.metrics.find((item) => item.key === key) || {};
     const label = metric.z === null || metric.z === undefined ? statusLabel(metric.status || "notEntered") : statusLabel(metric.status);
     return {
+      key,
       title: canvasText(titleFor(key)),
       value,
       percentile: metric.percentile === null || metric.percentile === undefined ? "--" : ordinal(metric.percentile),
       percentileNumber: metric.percentile === null || metric.percentile === undefined ? "--" : String(Math.round(metric.percentile)),
       z: metric.z === null || metric.z === undefined ? "--" : signed(metric.z),
-      status: label
+      status: label,
+      medianGap: snapshotMedianGap(result, key)
     };
+  }
+
+  function snapshotMedianGap(result, key) {
+    const reference = idealReferenceValue(result, key);
+    const current = key === "height" ? result.height : key === "bmi" ? result.bmi : result.weight;
+    if (!Number.isFinite(reference) || !Number.isFinite(current)) return canvasText("WHO reference unavailable");
+    const difference = current - reference;
+    if (Math.abs(difference) < 0.05) return canvasText("At the WHO median");
+    const unit = key === "height" ? "cm" : key === "bmi" ? "kg/m\u00b2" : "kg";
+    return `${Math.abs(difference).toFixed(1)} ${unit} ${canvasText(difference < 0 ? "below the WHO median" : "above the WHO median")}`;
   }
 
   function centerText(ctx, text, x, y) {
@@ -7540,6 +7737,7 @@
     const palettes = [
       { bg: "#f0fdf8", fg: "#0f9f8f", border: "#99f6e4" },
       { bg: "#f7fbff", fg: "#2563eb", border: "#bfdbfe" },
+      { bg: "#f0fdf4", fg: "#059669", border: "#bbf7d0" },
       { bg: "#fdf8ff", fg: "#7c3aed", border: "#e9d5ff" }
     ];
     const palette = palettes[index] || palettes[0];
@@ -7560,47 +7758,50 @@
     ctx.stroke();
 
     ctx.fillStyle = palette.fg;
-    ctx.font = "900 16px Inter, sans-serif";
+    ctx.font = `900 ${item.title.length > 22 ? 13 : 15}px Inter, sans-serif`;
     centerText(ctx, item.title, x + width / 2, y + 26);
 
     ctx.strokeStyle = `${palette.fg}33`;
     ctx.lineWidth = 3;
     ctx.beginPath();
-    ctx.arc(x + 66, y + 78, 36, 0, Math.PI * 2);
+    ctx.arc(x + 52, y + 78, 34, 0, Math.PI * 2);
     ctx.stroke();
     ctx.fillStyle = palette.fg;
-    drawSnapshotMetricIcon(ctx, x + 66, y + 78, palette.fg, index);
+    drawSnapshotMetricIcon(ctx, x + 52, y + 78, palette.fg, item.key);
 
     ctx.fillStyle = palette.fg;
-    ctx.font = "900 38px Inter, sans-serif";
-    centerText(ctx, item.z, x + width / 2 + 42, y + 84);
+    ctx.font = "900 34px Inter, sans-serif";
+    centerText(ctx, item.z, x + width / 2 + 35, y + 84);
 
     ctx.fillStyle = statusColor;
-    roundRect(ctx, x + width / 2 + 4, y + 100, 122, 26, 13);
+    roundRect(ctx, x + width / 2 - 8, y + 100, 124, 26, 13);
     ctx.fill();
     ctx.fillStyle = "#ffffff";
     ctx.font = "850 12px Inter, sans-serif";
-    centerText(ctx, `✓ ${badgeText}`, x + width / 2 + 65, y + 118);
+    centerText(ctx, `✓ ${badgeText}`, x + width / 2 + 54, y + 118);
 
     ctx.strokeStyle = "#dbe4f0";
     ctx.lineWidth = 1;
     ctx.beginPath();
-    ctx.moveTo(x + 24, y + 136);
-    ctx.lineTo(x + width - 24, y + 136);
+    ctx.moveTo(x + 18, y + 134);
+    ctx.lineTo(x + width - 18, y + 134);
     ctx.stroke();
 
     ctx.fillStyle = "#334155";
     ctx.font = "750 14px Inter, sans-serif";
-    centerText(ctx, canvasText("Percentile"), x + width / 2, y + 158);
+    centerText(ctx, canvasText("Percentile"), x + width / 2, y + 153);
     ctx.fillStyle = palette.fg;
-    ctx.font = "900 24px Inter, sans-serif";
-    centerText(ctx, item.percentileNumber, x + width / 2, y + 181);
+    ctx.font = "900 22px Inter, sans-serif";
+    centerText(ctx, item.percentileNumber, x + width / 2, y + 174);
+    ctx.fillStyle = "#475569";
+    ctx.font = "750 11px Inter, sans-serif";
+    centerText(ctx, item.medianGap, x + width / 2, y + 198);
   }
 
-  function drawSnapshotMetricIcon(ctx, x, y, color, index) {
+  function drawSnapshotMetricIcon(ctx, x, y, color, key) {
     ctx.save();
     ctx.fillStyle = color;
-    if (index === 1) {
+    if (key === "weight" || key === "wfh") {
       roundRect(ctx, x - 13, y - 12, 26, 26, 6);
       ctx.fill();
       ctx.fillStyle = "#ffffff";
@@ -7614,7 +7815,7 @@
       ctx.fillRect(x - 6, y - 6, 12, 28);
       ctx.fillRect(x - 16, y - 2, 8, 22);
       ctx.fillRect(x + 8, y - 2, 8, 22);
-      if (index === 0) {
+      if (key === "height") {
         ctx.fillRect(x + 24, y - 28, 3, 54);
         for (let i = 0; i < 6; i += 1) {
           ctx.fillRect(x + 31, y - 24 + i * 9, 5, 2);
@@ -7622,6 +7823,27 @@
       }
     }
     ctx.restore();
+  }
+
+  function loadCanvasImage(src) {
+    return new Promise((resolve) => {
+      const image = new Image();
+      image.onload = () => resolve(image);
+      image.onerror = () => resolve(null);
+      image.src = src;
+    });
+  }
+
+  function drawSnapshotQr(ctx, image, x, y, size) {
+    ctx.save();
+    ctx.shadowColor = "rgba(15, 23, 42, 0.12)";
+    ctx.shadowBlur = 14;
+    ctx.shadowOffsetY = 5;
+    ctx.fillStyle = "#ffffff";
+    roundRect(ctx, x, y, size, size, 14);
+    ctx.fill();
+    ctx.restore();
+    ctx.drawImage(image, x + 8, y + 8, size - 16, size - 16);
   }
 
   function drawChartPreview(ctx, result, indicator, x, y, width, height, color) {
@@ -7803,6 +8025,10 @@
   }
 
   function drawSocialSnapshotChart(ctx, result, indicator, left, top, width, height) {
+    if (indicator === "wfh") {
+      drawWeightHeightSnapshotChart(ctx, result, left, top, width, height);
+      return;
+    }
     const sex = result.sex || "boy";
     const metric = result.metrics.find((item) => item.key === indicator);
     if (metric && metric.status === "notAvailable") return;
@@ -7917,6 +8143,90 @@
       centerText(ctx, String(month), xx, plotTop + plotHeight + 16);
     });
     centerText(ctx, t("Age (months)"), plotLeft + plotWidth / 2, plotTop + plotHeight + 34);
+  }
+
+  function drawWeightHeightSnapshotChart(ctx, result, left, top, width, height) {
+    const rows = weightHeightRows(result.sex || "boy", result.ageMonths || 0);
+    const metric = result.metrics.find((item) => item.key === "wfh");
+    if (!rows || !metric || metric.status === "notAvailable") return;
+    const bands = [
+      { z: 2, color: "#ef4444" },
+      { z: 1, color: "#f97316" },
+      { z: 0, color: "#16a34a" },
+      { z: -1, color: "#2563eb" },
+      { z: -2, color: "#ef4444" }
+    ];
+    const plotLeft = left + 34;
+    const plotTop = top + 12;
+    const plotWidth = width - 42;
+    const plotHeight = height - 50;
+    const minHeight = rows[0][0];
+    const maxHeight = rows[rows.length - 1][0];
+    const values = rows.flatMap((row) => bands.map((band) => lmsValueAtZ({ l: row[1], m: row[2], s: row[3] }, band.z)));
+    const minValue = Math.min(...values);
+    const maxValue = Math.max(...values);
+    const span = maxValue - minValue || 1;
+    const scale = { min: Math.max(0, minValue - span * 0.05), max: maxValue + span * 0.05 };
+    const x = (value) => plotLeft + ((value - minHeight) / (maxHeight - minHeight)) * plotWidth;
+    const y = (value) => chartValueToY(value, scale, plotTop, plotTop + plotHeight);
+
+    ctx.fillStyle = "#334155";
+    ctx.font = "800 10px Inter, sans-serif";
+    ctx.fillText("kg", left + 2, top + 2);
+    for (let index = 0; index <= 4; index += 1) {
+      const value = scale.min + ((scale.max - scale.min) * (4 - index)) / 4;
+      const yy = y(value);
+      ctx.fillStyle = "#475569";
+      ctx.fillText(value.toFixed(0), left + 3, yy + 3);
+      ctx.strokeStyle = "#e2e8f0";
+      ctx.lineWidth = 1;
+      ctx.beginPath();
+      ctx.moveTo(plotLeft, yy);
+      ctx.lineTo(plotLeft + plotWidth, yy);
+      ctx.stroke();
+    }
+    for (let index = 0; index <= 5; index += 1) {
+      const xx = plotLeft + (plotWidth / 5) * index;
+      ctx.strokeStyle = "#eef2f7";
+      ctx.beginPath();
+      ctx.moveTo(xx, plotTop);
+      ctx.lineTo(xx, plotTop + plotHeight);
+      ctx.stroke();
+    }
+    bands.forEach((band) => {
+      ctx.strokeStyle = band.color;
+      ctx.lineWidth = band.z === 0 ? 2.2 : 1.4;
+      ctx.beginPath();
+      rows.forEach((row, index) => {
+        const value = lmsValueAtZ({ l: row[1], m: row[2], s: row[3] }, band.z);
+        if (index === 0) ctx.moveTo(x(row[0]), y(value));
+        else ctx.lineTo(x(row[0]), y(value));
+      });
+      ctx.stroke();
+    });
+    const childX = x(clamp(result.height, minHeight, maxHeight));
+    const childY = y(result.weight);
+    ctx.strokeStyle = "#94a3b8";
+    ctx.setLineDash([4, 4]);
+    ctx.beginPath();
+    ctx.moveTo(childX, plotTop);
+    ctx.lineTo(childX, plotTop + plotHeight);
+    ctx.stroke();
+    ctx.setLineDash([]);
+    ctx.fillStyle = "#0f172a";
+    ctx.beginPath();
+    ctx.arc(childX, childY, 5, 0, Math.PI * 2);
+    ctx.fill();
+    ctx.strokeStyle = "#ffffff";
+    ctx.lineWidth = 2;
+    ctx.stroke();
+    ctx.fillStyle = "#334155";
+    ctx.font = "800 10px Inter, sans-serif";
+    for (let index = 0; index <= 5; index += 1) {
+      const value = minHeight + ((maxHeight - minHeight) * index) / 5;
+      centerText(ctx, String(Math.round(value)), x(value), plotTop + plotHeight + 16);
+    }
+    centerText(ctx, canvasText("Height (cm)"), plotLeft + plotWidth / 2, plotTop + plotHeight + 34);
   }
 
   function drawGrowthKidCanvasMark(ctx, x, y, size) {
