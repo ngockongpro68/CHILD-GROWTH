@@ -4201,6 +4201,169 @@ button {
   background: rgba(9, 33, 40, 0.6);
 }
 
+.article-story-hero--growth-hormone > img {
+  object-position: 56% center;
+}
+
+.article-story-hero--growth-hormone .article-story-hero-overlay {
+  background: linear-gradient(90deg, rgba(8, 34, 44, 0.82) 0%, rgba(10, 47, 55, 0.6) 52%, rgba(16, 55, 50, 0.3) 100%);
+}
+
+.article-story-hero--hand-foot-mouth > img {
+  object-position: 58% center;
+}
+
+.article-story-hero--hand-foot-mouth .article-story-hero-overlay {
+  background: linear-gradient(90deg, rgba(8, 35, 45, 0.88) 0%, rgba(10, 48, 57, 0.62) 52%, rgba(22, 70, 69, 0.22) 100%);
+}
+
+.article-story-hero--dengue > img {
+  object-position: 58% center;
+}
+
+.article-story-hero--dengue .article-story-hero-overlay {
+  background: linear-gradient(90deg, rgba(10, 28, 40, 0.9) 0%, rgba(15, 47, 58, 0.62) 52%, rgba(30, 70, 75, 0.18) 100%);
+}
+
+.article-story-hero--precocious-puberty > img {
+  object-position: 58% center;
+}
+
+.article-story-hero--precocious-puberty .article-story-hero-overlay {
+  background: linear-gradient(90deg, rgba(12, 32, 47, 0.88) 0%, rgba(19, 51, 66, 0.62) 50%, rgba(34, 76, 76, 0.14) 100%);
+}
+
+.article-puberty-signs {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+  margin: 22px 0;
+}
+
+.article-puberty-signs > div {
+  position: relative;
+  padding: 22px;
+  border: 1px solid #d9e7e5;
+  border-radius: 8px;
+  background: #f7fbfa;
+}
+
+.article-puberty-signs > div > span {
+  display: grid;
+  place-items: center;
+  width: 34px;
+  height: 34px;
+  margin-bottom: 14px;
+  border-radius: 50%;
+  color: #1f7668;
+  background: #e2f2ed;
+}
+
+.article-puberty-signs svg {
+  width: 18px;
+  height: 18px;
+}
+
+.article-puberty-signs h3 {
+  margin: 0 0 12px;
+  color: #17313a;
+  font-size: 1.05rem;
+}
+
+.article-puberty-signs ul {
+  display: grid;
+  gap: 10px;
+  margin: 0;
+  padding-left: 20px;
+  color: #52676d;
+  line-height: 1.65;
+}
+
+.article-dengue-phases > div:nth-child(2) > span {
+  color: #9b4f13;
+  background: #ffecd5;
+}
+
+.article-dengue-fluid-note {
+  display: grid;
+  grid-template-columns: 34px minmax(0, 1fr);
+  gap: 14px;
+  margin-top: 14px;
+  padding: 20px 22px;
+  border: 1px solid #bedbe2;
+  border-radius: 8px;
+  background: #f1f8fa;
+}
+
+.article-dengue-fluid-note > span {
+  display: grid;
+  place-items: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  color: #236f82;
+  background: #dceff3;
+}
+
+.article-dengue-fluid-note svg {
+  width: 18px;
+  height: 18px;
+}
+
+.article-dengue-fluid-note h3,
+.article-dengue-fluid-note p {
+  margin: 0;
+}
+
+.article-dengue-fluid-note h3 {
+  color: #18586a;
+  font-size: 1rem;
+}
+
+.article-dengue-fluid-note p {
+  margin-top: 5px;
+  color: #456c76;
+  font-size: 0.9rem;
+  line-height: 1.62;
+}
+
+.article-ev71-note {
+  padding: 28px 30px;
+  border: 1px solid #cfe1eb;
+  border-left: 4px solid #2d7ea2;
+  border-radius: 8px;
+  background: #f2f8fb;
+}
+
+.article-ev71-note .article-story-kicker {
+  margin-bottom: 14px;
+  border-color: #a8ccdc;
+  color: #236b8b;
+  background: #e4f1f7;
+}
+
+.article-story-emergency > p {
+  margin: 0;
+  color: #8e3128;
+  font-weight: 750;
+  line-height: 1.65;
+}
+
+.article-growth-tracker {
+  padding: 28px;
+  border: 1px solid #cfe2da;
+  border-radius: 8px;
+  background: #f4f9f6;
+}
+
+.article-growth-tracker .article-story-actions {
+  margin-top: 24px;
+}
+
+.article-growth-tracker .article-story-inline-cta {
+  margin-top: 24px;
+}
+
 .article-outbreak-stat {
   display: grid;
   grid-template-columns: minmax(190px, 0.55fr) minmax(0, 1fr);
@@ -4427,6 +4590,10 @@ button {
     object-position: 68% center;
   }
 
+  .article-story-hero--precocious-puberty > img {
+    object-position: 72% center;
+  }
+
   .article-story-hero h1 {
     max-width: 680px;
     font-size: 3rem;
@@ -4462,6 +4629,14 @@ button {
 
   .article-story-hero--adenovirus .article-story-hero-overlay {
     background: rgba(9, 28, 35, 0.69);
+  }
+
+  .article-story-hero--precocious-puberty .article-story-hero-overlay {
+    background: rgba(10, 31, 45, 0.72);
+  }
+
+  .article-puberty-signs {
+    grid-template-columns: 1fr;
   }
 
   .article-story-hero-content {

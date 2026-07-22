@@ -59,6 +59,9 @@
       "Demo engine uses simplified reference curves for interface validation. Production should import official WHO LMS tables.": "Bản demo dùng đường tham chiếu giản lược để kiểm thử giao diện. Bản production nên nhập bảng WHO LMS chính thức.",
       "WHO Growth Chart": "Biểu đồ tăng trưởng WHO",
       "0-60 months": "0-60 tháng",
+      "0-19 years": "0-19 tuổi",
+      "44th": "44",
+      "and": "và",
       "Z-score": "Z-score",
       "Percentile": "Bách phân vị",
       "Status": "Trạng thái",
@@ -99,6 +102,19 @@
       "Adenovirus cases are rising: 7 warning signs parents should not miss": "Adenovirus đang tăng: 7 dấu hiệu ba mẹ không nên bỏ qua",
       "A practical guide to symptoms, differences from flu, home care, testing, and when a child needs urgent medical attention.": "Hướng dẫn dễ hiểu về triệu chứng, điểm khác với cúm, cách chăm sóc, xét nghiệm và khi nào trẻ cần đi khám gấp.",
       "A Vietnamese mother caring for her child with a viral fever at home": "Mẹ Việt Nam chăm bé sốt do virus tại nhà",
+      "Pediatric endocrinology": "Nội tiết nhi",
+      "Growth hormone deficiency in children: 7 signs parents should not miss": "Trẻ chậm cao có phải thiếu hormone tăng trưởng? 7 dấu hiệu cần khám sớm",
+      "Learn how to spot slow height growth, track height and weight with WHO references, and know when to see a pediatric endocrinologist.": "Nhận biết trẻ tăng chiều cao chậm, theo dõi chiều cao và cân nặng theo chuẩn WHO, đồng thời biết khi nào cần khám nội tiết nhi.",
+      "A Vietnamese mother measuring her child's height while a pediatric clinician reviews the growth chart": "Mẹ Việt Nam đo chiều cao cho con trong khi bác sĩ nhi khoa xem biểu đồ tăng trưởng",
+      "Hand, foot and mouth disease in children: home care or hospital?": "Tay chân miệng ở trẻ: khi nào chăm tại nhà, khi nào phải đi viện?",
+      "A calm guide to symptoms, home care, warning signs, prevention, and the small but important role of EV71.": "Hướng dẫn bình tĩnh về triệu chứng, chăm sóc tại nhà, dấu hiệu cảnh báo, phòng lây và vai trò ngắn gọn nhưng quan trọng của EV71.",
+      "A Vietnamese mother and pediatric clinician checking a toddler's palm and mouth": "Mẹ Việt Nam cùng bác sĩ nhi khoa kiểm tra lòng bàn tay và miệng của trẻ",
+      "Dengue fever in children: why the fever going down is not always the end": "Sốt xuất huyết ở trẻ: vì sao hạ sốt vẫn phải theo dõi sát?",
+      "A parent-friendly guide to dengue symptoms, the critical phase, safe home care, warning signs, and mosquito prevention.": "Hướng dẫn dành cho ba mẹ về triệu chứng sốt xuất huyết, giai đoạn nguy hiểm, chăm sóc an toàn, dấu hiệu cảnh báo và phòng muỗi.",
+      "A Vietnamese mother offering water and checking the forehead of her child resting under a mosquito net": "Mẹ Việt Nam cho trẻ uống nước và kiểm tra trán khi trẻ nghỉ dưới màn chống muỗi",
+      "Early puberty in children: which signs need a medical visit?": "Dậy thì sớm ở trẻ: dấu hiệu nào cần đưa con đi khám?",
+      "A parent-friendly guide to early puberty signs, growth acceleration, home tracking, and when a child should see a pediatric endocrinologist.": "Hướng dẫn gần gũi giúp ba mẹ nhận biết dấu hiệu dậy thì sớm, theo dõi tăng tốc chiều cao và biết khi nào cần khám nội tiết nhi.",
+      "A Vietnamese mother and pediatric endocrinologist reviewing a school-age child's height and growth chart": "Mẹ Việt Nam cùng bác sĩ nội tiết nhi xem chiều cao và biểu đồ tăng trưởng của trẻ tuổi học đường",
       "Read article": "Đọc bài viết",
       "Knowledge for every stage of childhood": "Kiến thức đồng hành cùng từng giai đoạn của con",
       "Medical information made approachable, helping parents understand their child and make better care decisions every day.": "Thông tin y khoa được trình bày gần gũi, giúp ba mẹ hiểu con và chăm sóc đúng hơn mỗi ngày.",
@@ -2336,6 +2352,54 @@
 
   const articles = [
     {
+      category: "growth",
+      categoryLabel: "Growth",
+      tag: "Pediatric endocrinology",
+      title: "Early puberty in children: which signs need a medical visit?",
+      text: "A parent-friendly guide to early puberty signs, growth acceleration, home tracking, and when a child should see a pediatric endocrinologist.",
+      href: "/precocious-puberty-in-children/",
+      image: "/assets/articles/precocious-puberty-child-hero.webp",
+      imageAlt: "A Vietnamese mother and pediatric endocrinologist reviewing a school-age child's height and growth chart",
+      minutes: 9,
+      published: "2026-07-22"
+    },
+    {
+      category: "health",
+      categoryLabel: "Child health",
+      tag: "Child health",
+      title: "Dengue fever in children: why the fever going down is not always the end",
+      text: "A parent-friendly guide to dengue symptoms, the critical phase, safe home care, warning signs, and mosquito prevention.",
+      href: "/dengue-fever-in-children/",
+      image: "/assets/articles/dengue-child-home-care-hero.webp",
+      imageAlt: "A Vietnamese mother offering water and checking the forehead of her child resting under a mosquito net",
+      minutes: 9,
+      published: "2026-07-22"
+    },
+    {
+      category: "health",
+      categoryLabel: "Child health",
+      tag: "Child health",
+      title: "Hand, foot and mouth disease in children: home care or hospital?",
+      text: "A calm guide to symptoms, home care, warning signs, prevention, and the small but important role of EV71.",
+      href: "/hand-foot-mouth-disease-in-children/",
+      image: "/assets/articles/hand-foot-mouth-child-hero.webp",
+      imageAlt: "A Vietnamese mother and pediatric clinician checking a toddler's palm and mouth",
+      minutes: 8,
+      published: "2026-07-22"
+    },
+    {
+      category: "growth",
+      categoryLabel: "Growth",
+      tag: "Pediatric endocrinology",
+      title: "Growth hormone deficiency in children: 7 signs parents should not miss",
+      text: "Learn how to spot slow height growth, track height and weight with WHO references, and know when to see a pediatric endocrinologist.",
+      href: "/growth-hormone-deficiency-in-children/",
+      image: "/assets/articles/growth-hormone-deficiency-child-hero.webp",
+      imageAlt: "A Vietnamese mother measuring her child's height while a pediatric clinician reviews the growth chart",
+      minutes: 9,
+      published: "2026-07-22"
+    },
+    {
       category: "health",
       categoryLabel: "Child health",
       tag: "Child health",
@@ -2444,6 +2508,57 @@
         ["What is the 50th percentile?", "It is the reference median, not a target every child must hit."],
         ["What is a z-score?", "It estimates how far a measurement is from the reference median."],
         ["When should I worry?", "Discuss sudden changes, extreme values, or symptoms with a qualified healthcare professional."]
+      ]
+    }
+  };
+
+  const seoQuestionPagesVi = {
+    "baby-weight-percentile": {
+      eyebrow: "Công cụ bách phân vị cân nặng",
+      title: "Tính bách phân vị cân nặng của trẻ",
+      copy: "Ước tính bách phân vị cân nặng và đọc kết quả trong bối cảnh tuổi, giới tính cùng xu hướng tăng trưởng.",
+      intro: "Một con số bách phân vị chỉ là điểm khởi đầu. Ba mẹ nên xem cùng chiều cao, tuổi chính xác theo tháng và các lần đo trước đó, không dùng một kết quả để tự chẩn đoán.",
+      points: ["Nhập ngày sinh, ngày đo, giới tính, cân nặng và chiều cao.", "Đọc bách phân vị cùng z-score và vị trí trên biểu đồ.", "Lưu số đo để so sánh với những lần kiểm tra tiếp theo."],
+      faq: [
+        ["Bách phân vị thấp luôn là bất thường?", "Không hẳn. Trẻ đi đều theo một đường tăng trưởng có thể vẫn khỏe mạnh; thay đổi đột ngột mới cần được chú ý hơn."],
+        ["Nên dùng biểu đồ WHO hay CDC?", "WHO thường được dùng cho trẻ nhỏ; lựa chọn tham chiếu còn tùy tuổi, quốc gia và hướng dẫn của nhân viên y tế."],
+        ["Có thể chia sẻ kết quả không?", "Bạn có thể tải ảnh tóm tắt không kèm tên trẻ để trao đổi với gia đình hoặc bác sĩ."]
+      ]
+    },
+    "is-baby-weight-normal": {
+      eyebrow: "Cẩm nang cho ba mẹ",
+      title: "Cân nặng của con có bình thường không?",
+      copy: "Cách đọc cân nặng của trẻ bình tĩnh và đúng bối cảnh, thay vì lo lắng vì một con số đơn lẻ.",
+      intro: "Cân nặng chỉ là một phần của bức tranh tăng trưởng. Tuổi, giới tính, tiền sử sinh, bệnh gần đây, cách nuôi dưỡng và xu hướng qua nhiều lần đo đều quan trọng.",
+      points: ["Kiểm tra đúng ngày đo và tuổi của trẻ theo tháng.", "So sánh với các lần đo trước nếu đã có dữ liệu.", "Trao đổi với bác sĩ nhi khi chỉ số quá xa hoặc đường tăng trưởng đổi hướng nhanh."],
+      faq: [
+        ["Bách phân vị hay xu hướng quan trọng hơn?", "Xu hướng qua nhiều lần đo thường cung cấp nhiều thông tin hơn một điểm bách phân vị đơn lẻ."],
+        ["Nếu trẻ trên bách phân vị 97 thì sao?", "Hãy đo lại đúng cách và trao đổi với nhân viên y tế nếu kết quả cao kéo dài."],
+        ["Nếu trẻ dưới bách phân vị 3 thì sao?", "Nên kiểm tra lại số đo và được tư vấn chuyên môn, nhất là khi tốc độ tăng trưởng đang chậm lại."]
+      ]
+    },
+    "who-vs-cdc": {
+      eyebrow: "Hướng dẫn biểu đồ tăng trưởng",
+      title: "Biểu đồ tăng trưởng WHO và CDC khác nhau thế nào?",
+      copy: "Hiểu vì sao ba mẹ có thể gặp chuẩn WHO hoặc biểu đồ CDC khi theo dõi tăng trưởng của trẻ.",
+      intro: "Mỗi hệ thống y tế có thể dùng bộ tham chiếu khác nhau theo tuổi và quốc gia. Điều quan trọng là chọn đúng bộ tham chiếu rồi theo dõi nhất quán theo thời gian.",
+      points: ["Chuẩn WHO được sử dụng rộng rãi để đánh giá tăng trưởng trẻ nhỏ.", "Biểu đồ CDC thường được tham khảo cho trẻ lớn hơn tại Hoa Kỳ.", "Không trộn hai hệ thống biểu đồ khi so sánh xu hướng của trẻ."],
+      faq: [
+        ["Vì sao các biểu đồ cho kết quả khác nhau?", "Chúng được xây dựng từ quần thể tham chiếu và phương pháp khác nhau."],
+        ["Bách phân vị có đổi khi đổi biểu đồ không?", "Có. Cùng một số đo có thể nằm ở bách phân vị khác nếu bộ tham chiếu thay đổi."],
+        ["Nên tin biểu đồ nào?", "Hãy theo hệ thống mà bác sĩ sử dụng phù hợp với tuổi và nơi trẻ sinh sống."]
+      ]
+    },
+    "read-growth-chart": {
+      eyebrow: "Hướng dẫn biểu đồ tăng trưởng",
+      title: "Cách đọc biểu đồ tăng trưởng của trẻ",
+      copy: "Hiểu đường bách phân vị, z-score và vì sao nhiều lần đo liên tiếp có giá trị hơn một điểm đơn lẻ.",
+      intro: "Biểu đồ tăng trưởng là công cụ trực quan giúp ba mẹ và nhân viên y tế xem trẻ có đang đi tương đối ổn định theo đường phát triển của mình hay không.",
+      points: ["Điểm hiện tại biểu thị một số đo tại một độ tuổi cụ thể.", "Các đường bách phân vị so sánh vị trí của trẻ với quần thể tham chiếu.", "Đường xu hướng qua nhiều lần khám hữu ích hơn một điểm đo riêng lẻ."],
+      faq: [
+        ["Bách phân vị 50 có nghĩa là gì?", "Đó là trung vị của quần thể tham chiếu, không phải mục tiêu mà mọi trẻ đều phải đạt."],
+        ["Z-score là gì?", "Z-score ước tính số đo cách trung vị tham chiếu bao xa."],
+        ["Khi nào cần lo lắng?", "Hãy trao đổi với nhân viên y tế khi đường tăng trưởng đổi hướng nhanh, chỉ số quá xa hoặc trẻ có triệu chứng bất thường."]
       ]
     }
   };
@@ -4549,7 +4664,26 @@
   }
 
   function seoQuestionPage(key) {
-    const item = seoQuestionPages[key] || seoQuestionPages["baby-weight-percentile"];
+    const isVietnamese = activeLanguage === "vi";
+    const source = isVietnamese ? seoQuestionPagesVi : seoQuestionPages;
+    const item = source[key] || source["baby-weight-percentile"];
+    const labels = isVietnamese ? {
+      start: "Bắt đầu theo dõi",
+      charts: "Xem biểu đồ",
+      free: "Công cụ miễn phí",
+      freeText: "Theo dõi số đo trên thiết bị và tải ảnh tóm tắt gọn gàng để trao đổi với bác sĩ.",
+      calculate: "Theo dõi tăng trưởng",
+      faq: "Câu hỏi thường gặp",
+      faqText: "Giải đáp ngắn gọn trước khi ba mẹ đọc kết quả tăng trưởng."
+    } : {
+      start: "Start calculator",
+      charts: "View charts",
+      free: "Free calculator",
+      freeText: "Use the calculator, save a device-only trend, and download a privacy-friendly snapshot.",
+      calculate: "Calculate growth",
+      faq: "Parent FAQ",
+      faqText: "Short answers for parents before they interpret a growth result."
+    };
     return shell(`
       <main>
         <section class="page-hero">
@@ -4560,8 +4694,8 @@
               <h1>${item.title}</h1>
               <p class="page-copy">${item.copy}</p>
               <div class="hero-actions">
-                <a class="btn btn-primary" href="${localizedHref("/child-growth-calculator/")}">Start calculator ${icon("arrow")}</a>
-                <a class="btn btn-secondary" href="${localizedHref("/growth-charts/")}">View charts</a>
+                <a class="btn btn-primary" href="${localizedHref("/child-growth-calculator/")}">${labels.start} ${icon("arrow")}</a>
+                <a class="btn btn-secondary" href="${localizedHref("/growth-charts/")}">${labels.charts}</a>
               </div>
             </div>
             ${snapshotCard()}
@@ -4575,21 +4709,21 @@
                 <p>${item.intro}</p>
               </div>
               <div class="education-grid">
-                ${item.points.map((point) => `<article class="education-card"><span class="check-dot">âœ“</span><p>${point}</p></article>`).join("")}
+                ${item.points.map((point) => `<article class="education-card"><span class="check-dot">${icon("check")}</span><p>${point}</p></article>`).join("")}
               </div>
             </article>
             <aside class="side-panel">
-              <h2>Free calculator</h2>
-              <p>Use the calculator, save a device-only trend, and download a privacy-friendly snapshot.</p>
-              <a class="btn btn-primary" href="${localizedHref("/child-growth-calculator/")}">Calculate growth</a>
+              <h2>${labels.free}</h2>
+              <p>${labels.freeText}</p>
+              <a class="btn btn-primary" href="${localizedHref("/child-growth-calculator/")}">${labels.calculate}</a>
             </aside>
           </div>
         </section>
         <section class="section section-soft">
           <div class="container">
             <div class="section-header">
-              <h2>Parent FAQ</h2>
-              <p>Short answers for parents before they interpret a growth result.</p>
+              <h2>${labels.faq}</h2>
+              <p>${labels.faqText}</p>
             </div>
             <div class="faq-grid">
               ${item.faq.map(([q, a]) => `<article class="faq-item"><h3>${q}</h3><p>${a}</p></article>`).join("")}
@@ -5115,6 +5249,536 @@
             </aside>
           </div>
         </section>
+      </main>
+    `);
+  }
+
+  function precociousPubertyArticlePage() {
+    const isVietnamese = activeLanguage === "vi";
+    const copy = isVietnamese ? {
+      eyebrow: "Tăng trưởng & nội tiết nhi",
+      title: "Dậy thì sớm ở trẻ: dấu hiệu nào cần đưa con đi khám?",
+      dek: "Ngực phát triển, mọc lông, mùi cơ thể hay tăng chiều cao nhanh không phải lúc nào cũng đồng nghĩa bệnh lý. Điều quan trọng là tuổi xuất hiện, tốc độ tiến triển và đường tăng trưởng của con.",
+      readTime: "9 phút đọc",
+      updated: "Cập nhật 22/07/2026",
+      reviewed: "Đối chiếu hướng dẫn Nội tiết 2026, PES & WHO",
+      lead: "Dậy thì là một hành trình bình thường, nhưng nếu cơ thể bắt đầu thay đổi quá sớm, trẻ có thể tăng chiều cao nhanh hơn bạn bè rồi kết thúc tăng trưởng sớm hơn. Ba mẹ không cần tự kết luận từ một dấu hiệu đơn lẻ; hãy ghi lại thời điểm xuất hiện, theo dõi diễn tiến và đưa đường tăng trưởng của con cho bác sĩ xem.",
+      answerTitle: "Mốc tuổi giúp ba mẹ biết khi nào nên hỏi bác sĩ",
+      answer: "Dậy thì sớm thường được định nghĩa là xuất hiện đặc tính sinh dục thứ phát trước 8 tuổi ở bé gái và trước 9 tuổi ở bé trai. Mốc tuổi chỉ là điểm bắt đầu đánh giá, không phải kết luận chẩn đoán.",
+      summary: [
+        ["01", "Nhìn sự tiến triển", "Một dấu hiệu đứng riêng có thể là biến thể lành tính; nhiều thay đổi tăng nhanh qua vài tháng đáng chú ý hơn."],
+        ["02", "Theo dõi đường chiều cao", "Tăng tốc chiều cao hoặc đi lên nhanh qua các đường bách phân vị là dữ liệu hữu ích khi đi khám."],
+        ["03", "Không tự dùng hormone", "Xét nghiệm, tuổi xương và điều trị phải được bác sĩ nội tiết nhi chỉ định theo từng trẻ."]
+      ],
+      signsTitle: "Dấu hiệu dậy thì sớm ba mẹ có thể nhận ra",
+      girlsTitle: "Ở bé gái",
+      girls: ["Ngực phát triển trước 8 tuổi, đặc biệt khi tăng dần theo thời gian.", "Tăng chiều cao nhanh, xuất hiện lông mu hoặc lông nách, mùi cơ thể, da dầu hay mụn.", "Ra dịch âm đạo hoặc có kinh sớm; chảy máu âm đạo ở trẻ nhỏ cần được đánh giá sớm."],
+      boysTitle: "Ở bé trai",
+      boys: ["Tinh hoàn hoặc dương vật to dần trước 9 tuổi.", "Tăng cơ, mọc lông, mùi cơ thể, mụn hoặc giọng trầm hơn.", "Tăng chiều cao nhanh trong khi các dấu hiệu cơ thể tiếp tục tiến triển."],
+      commonNote: "Lông mu, lông nách hoặc mùi cơ thể xuất hiện đơn độc có thể liên quan đến hoạt động sớm của tuyến thượng thận. Ngực phát triển đơn độc ở bé gái cũng có thể là một biến thể. Tuy vậy, ba mẹ nên ghi nhận tuổi xuất hiện và cho bác sĩ đánh giá nếu dấu hiệu tiến triển.",
+      growthTitle: "Vì sao dậy thì sớm lại liên quan đến chiều cao?",
+      growthText: "Hormone dậy thì có thể làm trẻ cao nhanh trong giai đoạn đầu, vì vậy con có thể tạm thời cao hơn bạn cùng tuổi. Đồng thời, tuổi xương có thể tiến nhanh và các đầu xương đóng sớm hơn, khiến thời gian còn lại để tăng chiều cao bị rút ngắn. Vì thế, chiều cao hiện tại không nói hết nguy cơ; bác sĩ cần xem tốc độ tăng trưởng và tuổi xương.",
+      trackTitle: "Theo dõi dấu hiệu sớm bằng công cụ GrowthKid",
+      trackIntro: "Công cụ WHO giúp chuẩn hóa số đo và nhìn xu hướng chiều cao, cân nặng, BMI theo tuổi. Công cụ không xác định giai đoạn dậy thì và không thay thế khám nội tiết.",
+      trackSteps: [
+        ["Đo đúng và cùng một cách", "Cho trẻ bỏ giày, đứng thẳng sát thước; cân bằng cùng một cân, quần áo nhẹ."],
+        ["Nhập đủ ngày sinh và ngày đo", "Tuổi theo tháng ảnh hưởng trực tiếp đến bách phân vị và z-score."],
+        ["Lưu số đo theo thời gian", "Đo chiều cao khoảng mỗi 2–3 tháng là đủ để thấy xu hướng tại nhà; không cần đo hằng tuần."],
+        ["Quan sát đường chiều cao", "Ghi nhận khi đường chiều cao đi lên nhanh qua nhiều đường bách phân vị hoặc tốc độ tăng rõ so với trước."],
+        ["Ghi kèm thay đổi cơ thể", "Lưu ngày bắt đầu phát triển ngực, mọc lông, mùi cơ thể, mụn, thay đổi giọng hoặc kinh nguyệt."],
+        ["Mang biểu đồ khi đi khám", "Bác sĩ sẽ đọc xu hướng cùng khám lâm sàng, tiền sử gia đình và tuổi dậy thì của ba mẹ."]
+      ],
+      trackButton: "Theo dõi chiều cao, cân nặng theo tuổi",
+      chartButton: "Xem biểu đồ tăng trưởng",
+      alertTitle: "Đừng chờ đủ 2–3 tháng nếu dấu hiệu tiến triển nhanh",
+      alertText: "Nếu cơ thể thay đổi rõ chỉ trong vài tuần, trẻ tăng chiều cao nhanh, có kinh hoặc chảy máu âm đạo, hay xuất hiện triệu chứng thần kinh, hãy đưa trẻ đi khám thay vì chờ thêm số đo.",
+      variantsTitle: "Một dấu hiệu sớm chưa chắc là dậy thì sớm tiến triển",
+      variants: [
+        ["Ngực phát triển đơn độc", "Một số bé gái nhỏ tuổi có mô ngực nhưng không tăng nhanh và không kèm tăng tốc chiều cao."],
+        ["Mọc lông hoặc mùi cơ thể đơn độc", "Có thể là hoạt động sớm của tuyến thượng thận, thường không cần điều trị nhưng vẫn cần theo dõi đúng."],
+        ["Dậy thì sớm tiến triển", "Nhiều dấu hiệu xuất hiện theo trình tự, tăng dần và đi kèm tăng tốc chiều cao cần được đánh giá nội tiết."]
+      ],
+      diagnosisTitle: "Bác sĩ đánh giá dậy thì sớm như thế nào?",
+      diagnosisIntro: "Không có một xét nghiệm tại nhà nào đủ để kết luận. Việc đánh giá thường đi từ đơn giản đến chuyên sâu.",
+      diagnosis: [
+        ["Xem lại đường tăng trưởng", "Bác sĩ kiểm tra số đo, tốc độ tăng chiều cao và thời điểm các thay đổi bắt đầu."],
+        ["Khám phát triển dậy thì", "Đánh giá mức độ và tốc độ tiến triển, đồng thời tìm dấu hiệu gợi ý nguyên nhân khác."],
+        ["Tuổi xương", "X-quang bàn tay và cổ tay trái có thể cho biết xương đang trưởng thành nhanh đến mức nào."],
+        ["Xét nghiệm hormone", "LH, FSH, estradiol hoặc testosterone và các xét nghiệm liên quan được chỉ định, diễn giải theo tuổi và thời điểm."],
+        ["Hình ảnh khi cần", "Siêu âm hoặc MRI chỉ được chọn cho những tình huống phù hợp, không phải trẻ nào cũng cần."]
+      ],
+      guidelineTitle: "Không phải trẻ nào cũng cần xét nghiệm hoặc điều trị ngay",
+      guidelineText: "Hướng dẫn Nội tiết 2026 cho phép bác sĩ cân nhắc theo dõi 4–6 tháng ở một số bé gái có phát triển ngực sớm nhưng nhẹ và tiến triển chậm. Ngược lại, dấu hiệu tiến triển nhanh, tăng tốc chiều cao, tuổi rất nhỏ hoặc triệu chứng thần kinh cần đánh giá sớm hơn. Quyết định theo dõi phải do bác sĩ thực hiện, không phải trì hoãn khám tại nhà.",
+      visitTitle: "Khi nào nên đưa trẻ đi khám nội tiết nhi?",
+      visitSigns: [
+        "Bé gái có ngực phát triển hoặc dấu hiệu dậy thì trước 8 tuổi; bé trai có dấu hiệu trước 9 tuổi.",
+        "Các thay đổi cơ thể tăng rõ qua vài tháng hoặc xuất hiện nhiều dấu hiệu cùng lúc.",
+        "Đường chiều cao đi lên nhanh qua các bách phân vị hoặc trẻ cao nhanh bất thường so với trước.",
+        "Bé gái ra kinh, chảy máu âm đạo; bé trai tinh hoàn hoặc dương vật to nhanh.",
+        "Trẻ buồn vì khác bạn, bị trêu chọc hoặc gặp khó khăn cảm xúc liên quan đến thay đổi cơ thể.",
+        "Ba mẹ nghi trẻ tiếp xúc kem, thuốc hoặc thực phẩm bổ sung có chứa estrogen, testosterone hay hormone."
+      ],
+      urgent: "Đau đầu dai dẳng hoặc dữ dội, nôn, nhìn mờ, co giật, yếu liệt hay thay đổi ý thức kèm dấu hiệu dậy thì sớm cần được khám khẩn cấp.",
+      treatmentTitle: "Nếu được chẩn đoán, trẻ có nhất thiết phải điều trị?",
+      treatmentText: "Không. Điều trị phụ thuộc nguyên nhân, tuổi bắt đầu, tốc độ tiến triển, tuổi xương, khả năng ảnh hưởng chiều cao và tâm lý của trẻ. Với dậy thì sớm trung ương tiến triển, bác sĩ có thể trao đổi về thuốc đồng vận GnRH để tạm dừng tín hiệu dậy thì. Một số trẻ tiến triển chậm chỉ cần theo dõi. Gia đình không tự mua thuốc hoặc sản phẩm quảng cáo chặn dậy thì.",
+      supportTitle: "Nói với con thế nào để con không xấu hổ?",
+      supportText: "Giải thích rằng mỗi cơ thể có thời điểm thay đổi khác nhau, dùng tên gọi cơ thể phù hợp lứa tuổi và tôn trọng sự riêng tư của con. Chuẩn bị áo lót, sản phẩm vệ sinh hoặc cách xử lý mùi cơ thể khi cần, nhưng không biến mỗi thay đổi thành một cuộc kiểm tra khiến trẻ căng thẳng.",
+      closeTitle: "Ba mẹ cần nhớ",
+      close: "Một số đo cao nhanh hay một dấu hiệu cơ thể chưa đủ để kết luận. Điều hữu ích nhất là ghi đúng tuổi xuất hiện, lưu chuỗi chiều cao và cân nặng, rồi trao đổi sớm với bác sĩ khi dấu hiệu đến trước mốc tuổi hoặc tiến triển rõ.",
+      quote: "Theo dõi để hiểu xu hướng, không theo dõi để tự chẩn đoán.",
+      refsTitle: "Nguồn tham khảo y khoa",
+      disclaimer: "Nội dung nhằm mục đích giáo dục, không thay thế khám, đánh giá giai đoạn dậy thì, xét nghiệm hoặc kế hoạch điều trị trực tiếp.",
+      tocTitle: "Trong bài này",
+      toc: [["#dau-hieu", "Dấu hiệu sớm"], ["#theo-doi", "Theo dõi tăng trưởng"], ["#chan-doan", "Bác sĩ đánh giá"], ["#khi-nao-kham", "Khi nào cần khám"]],
+      toolTitle: "Xem đường tăng trưởng của con",
+      toolText: "Nhập chiều cao và cân nặng theo ngày đo để xem z-score, bách phân vị và biểu đồ WHO."
+    } : {
+      eyebrow: "Growth & pediatric endocrinology",
+      title: "Early puberty in children: which signs need a medical visit?",
+      dek: "Breast development, body hair, odor, or rapid height gain do not each prove a disorder. Age at onset, progression, and the growth curve provide the useful context.",
+      readTime: "9 min read", updated: "Updated July 22, 2026", reviewed: "Reviewed against 2026 Endocrine Society, PES & WHO guidance",
+      lead: "Puberty is normal, but when it starts early a child may grow quickly at first and stop growing sooner. Record when changes begin, follow the trend, and bring that information to a clinician rather than diagnosing from one sign.",
+      answerTitle: "Age thresholds are a reason to ask, not a diagnosis",
+      answer: "Precocious puberty is traditionally defined as secondary sexual characteristics before age 8 in girls and age 9 in boys.",
+      summary: [["01", "Look for progression", "Several changes advancing over months matter more than one isolated sign."], ["02", "Follow height", "Growth acceleration or rising height percentiles are useful clinical clues."], ["03", "Do not self-treat", "Testing, bone age, and treatment belong with pediatric endocrine care."]],
+      signsTitle: "Early signs parents may notice", girlsTitle: "In girls", girls: ["Progressive breast development before age 8.", "Faster height gain, pubic or underarm hair, body odor, oily skin, or acne.", "Vaginal discharge or early menstruation; bleeding in a young child warrants prompt assessment."], boysTitle: "In boys", boys: ["Progressive testicular or penile enlargement before age 9.", "More muscle, body hair, odor, acne, or a deeper voice.", "Rapid height gain alongside continuing body changes."], commonNote: "Isolated body hair or odor may be premature adrenarche, and isolated breast tissue may be a benign variant. Age and progression still deserve review.",
+      growthTitle: "Why can early puberty affect height?", growthText: "Puberty hormones can accelerate early growth while advancing bone age and shortening the remaining growth window. Current height alone does not predict the outcome.",
+      trackTitle: "Track early clues with GrowthKid", trackIntro: "The WHO tool organizes height, weight, and BMI trends. It cannot stage or diagnose puberty.", trackSteps: [["Measure consistently", "No shoes, a stable height method, light clothing, and the same scale."], ["Enter exact dates", "Age in months affects z-scores and percentiles."], ["Build a series", "Home height checks every 2–3 months are usually enough; weekly checks add noise."], ["Review the height curve", "Notice rapid upward crossing of percentile lines."], ["Record body changes", "Note the first date and progression of each sign."], ["Bring the chart", "A clinician interprets growth with examination and family history."]], trackButton: "Track height and weight by age", chartButton: "View growth charts",
+      alertTitle: "Do not wait for another measurement when changes are rapid", alertText: "Prompt assessment is appropriate for rapid progression, bleeding, very early signs, or neurologic symptoms.",
+      variantsTitle: "One early sign may be a benign variant", variants: [["Isolated breast development", "It may remain mild without growth acceleration."], ["Isolated hair or odor", "Premature adrenarche often needs observation rather than treatment."], ["Progressive puberty", "Multiple advancing signs with growth acceleration need endocrine assessment."]],
+      diagnosisTitle: "How clinicians evaluate early puberty", diagnosisIntro: "Assessment is layered rather than based on one home test.", diagnosis: [["Growth history", "Verify measurements and timing."], ["Pubertal examination", "Assess stage and progression."], ["Bone age", "A left hand and wrist X-ray estimates skeletal maturity."], ["Hormone tests", "Age-aware interpretation of LH, FSH, estradiol, testosterone, and related tests."], ["Imaging when indicated", "Ultrasound or MRI is selected for specific situations."]],
+      guidelineTitle: "Not every child needs immediate testing or treatment", guidelineText: "The 2026 Endocrine Society guideline allows clinician-directed observation for 4–6 months in selected young girls with mild, slowly progressive breast development. Rapid progression, growth acceleration, very young age, or neurologic findings warrant earlier evaluation.",
+      visitTitle: "When to see pediatric endocrinology", visitSigns: ["Pubertal signs before age 8 in a girl or age 9 in a boy.", "Clear progression over a few months or several signs together.", "Rapid upward movement across height percentiles.", "Menstruation, vaginal bleeding, or rapid genital enlargement.", "Emotional distress related to being different from peers.", "Possible exposure to hormone-containing creams, medicines, or supplements."], urgent: "Persistent severe headache, vomiting, visual change, seizure, weakness, or altered consciousness with early puberty signs needs urgent care.",
+      treatmentTitle: "Does every diagnosed child need treatment?", treatmentText: "No. Decisions depend on cause, age, progression, bone age, height impact, and psychosocial context. Progressive central precocious puberty may be treated with a GnRH agonist, while slowly progressive cases may be observed.",
+      supportTitle: "Support the child without shame", supportText: "Use calm, age-appropriate language, protect privacy, and prepare practical care without turning every change into an examination.",
+      closeTitle: "The takeaway", close: "Record onset, keep an accurate growth series, and seek assessment when signs are early or progressing.", quote: "Track to understand the trend, not to diagnose at home.",
+      refsTitle: "Medical references", disclaimer: "Educational information only; not a substitute for examination, pubertal staging, testing, or treatment.", tocTitle: "In this article", toc: [["#dau-hieu", "Early signs"], ["#theo-doi", "Growth tracking"], ["#chan-doan", "Clinical assessment"], ["#khi-nao-kham", "When to seek care"]], toolTitle: "Review your child's growth curve", toolText: "Enter dated height and weight to view WHO z-scores, percentiles, and charts."
+    };
+
+    return shell(`
+      <main class="parent-article precocious-puberty-article">
+        <section class="article-story-hero article-story-hero--precocious-puberty">
+          <img src="/assets/articles/precocious-puberty-child-hero.webp" alt="${isVietnamese ? "Mẹ và bác sĩ nội tiết nhi xem chiều cao cùng biểu đồ tăng trưởng của trẻ" : "A mother and pediatric endocrinologist review a child's height and growth chart"}" width="1536" height="1024" fetchpriority="high">
+          <div class="article-story-hero-overlay" aria-hidden="true"></div>
+          <div class="container article-story-hero-content"><a class="article-story-back" href="${localizedHref("/articles/")}">${icon("arrow")} ${isVietnamese ? "Bài viết" : "Articles"}</a><span class="article-story-kicker">${copy.eyebrow}</span><h1>${copy.title}</h1><p>${copy.dek}</p><div class="article-story-meta"><span>${copy.readTime}</span><span>${copy.updated}</span><span>${copy.reviewed}</span></div></div>
+        </section>
+        <section class="article-story-opening"><div class="container article-story-opening-inner"><p class="article-story-lead">${copy.lead}</p><div class="article-story-answer"><span>${icon("check")}</span><div><h2>${copy.answerTitle}</h2><p>${copy.answer}</p></div></div></div></section>
+        <section class="article-story-summary"><div class="container article-story-summary-grid">${copy.summary.map(([number, title, textValue]) => `<div><span>${number}</span><div><h2>${title}</h2><p>${textValue}</p></div></div>`).join("")}</div></section>
+        <section class="article-story-content"><div class="container article-story-layout">
+          <article class="article-story-body">
+            <section id="dau-hieu" class="article-story-section"><h2>${copy.signsTitle}</h2><div class="article-puberty-signs"><div><span>${icon("check")}</span><h3>${copy.girlsTitle}</h3><ul>${copy.girls.map((item) => `<li>${item}</li>`).join("")}</ul></div><div><span>${icon("check")}</span><h3>${copy.boysTitle}</h3><ul>${copy.boys.map((item) => `<li>${item}</li>`).join("")}</ul></div></div><p class="article-story-note">${copy.commonNote}</p></section>
+            <section class="article-story-section"><h2>${copy.growthTitle}</h2><p>${copy.growthText}</p></section>
+            <section id="theo-doi" class="article-story-section article-growth-tracker"><h2>${copy.trackTitle}</h2><p>${copy.trackIntro}</p><div class="article-story-actions">${copy.trackSteps.map(([title, textValue], index) => `<div><span>${String(index + 1).padStart(2, "0")}</span><div><h3>${title}</h3><p>${textValue}</p></div></div>`).join("")}</div><div class="article-story-inline-cta"><a class="btn btn-primary" href="${localizedHref("/child-growth-calculator/")}">${copy.trackButton} ${icon("arrow")}</a><a class="btn btn-secondary" href="${localizedHref("/growth-charts/")}">${copy.chartButton}</a></div><div class="article-antibiotic-note"><span>${icon("info")}</span><div><h3>${copy.alertTitle}</h3><p>${copy.alertText}</p></div></div></section>
+            <section class="article-story-section"><h2>${copy.variantsTitle}</h2><div class="article-story-reasons">${copy.variants.map(([title, textValue]) => `<div><h3>${title}</h3><p>${textValue}</p></div>`).join("")}</div></section>
+            <section id="chan-doan" class="article-story-section"><h2>${copy.diagnosisTitle}</h2><p>${copy.diagnosisIntro}</p><div class="article-story-steps">${copy.diagnosis.map(([title, textValue], index) => `<div><span>${index + 1}</span><div><h3>${title}</h3><p>${textValue}</p></div></div>`).join("")}</div><div class="article-antibiotic-note"><span>${icon("info")}</span><div><h3>${copy.guidelineTitle}</h3><p>${copy.guidelineText}</p></div></div></section>
+            <section id="khi-nao-kham" class="article-story-section article-story-concern"><h2>${copy.visitTitle}</h2><ul>${copy.visitSigns.map((item) => `<li>${icon("info")}<span>${item}</span></li>`).join("")}</ul><p class="article-story-note">${copy.urgent}</p></section>
+            <section class="article-story-section"><h2>${copy.treatmentTitle}</h2><p>${copy.treatmentText}</p><h2>${copy.supportTitle}</h2><p>${copy.supportText}</p></section>
+            <section class="article-story-close"><h2>${copy.closeTitle}</h2><p>${copy.close}</p><blockquote>${copy.quote}</blockquote><div class="article-story-inline-cta"><a class="btn btn-primary" href="${localizedHref("/child-growth-calculator/")}">${copy.trackButton} ${icon("arrow")}</a></div></section>
+            <section class="article-story-references"><h2>${copy.refsTitle}</h2><ol>
+              <li><a href="https://www.endocrine.org/clinical-practice-guidelines/central-precocious-puberty" target="_blank" rel="noreferrer">Endocrine Society: Central Precocious Puberty Clinical Practice Guideline (2026)</a></li>
+              <li><a href="https://pedsendo.org/patient-resource/precocious-puberty/" target="_blank" rel="noreferrer">Pediatric Endocrine Society: Precocious Puberty - A Guide for Families</a></li>
+              <li><a href="https://medlineplus.gov/ency/article/001168.htm" target="_blank" rel="noreferrer">MedlinePlus: Precocious puberty</a></li>
+              <li><a href="https://www.who.int/tools/growth-reference-data-for-5to19-years" target="_blank" rel="noreferrer">WHO: Growth reference data for 5-19 years</a></li>
+            </ol><p>${copy.disclaimer}</p></section>
+          </article>
+          <aside class="article-story-aside"><nav aria-label="${copy.tocTitle}"><strong>${copy.tocTitle}</strong>${copy.toc.map(([href, label]) => `<a href="${href}">${label}</a>`).join("")}</nav><div class="article-story-tool"><span>${icon("brand")}</span><h2>${copy.toolTitle}</h2><p>${copy.toolText}</p><a class="btn btn-primary" href="${localizedHref("/child-growth-calculator/")}">${copy.trackButton} ${icon("arrow")}</a></div></aside>
+        </div></section>
+      </main>
+    `);
+  }
+
+  function dengueArticlePage() {
+    const isVietnamese = activeLanguage === "vi";
+    const copy = isVietnamese ? {
+      eyebrow: "Sức khỏe trẻ em",
+      title: "Sốt xuất huyết ở trẻ: vì sao hạ sốt vẫn phải theo dõi sát?",
+      dek: "Trẻ bớt sốt chưa chắc đã qua giai đoạn nguy hiểm. Khoảng ngày 3–7 của bệnh, ba mẹ cần quan sát kỹ đau bụng, nôn, chảy máu, lượng nước tiểu, tay chân lạnh và thay đổi mức tỉnh táo.",
+      readTime: "9 phút đọc",
+      updated: "Cập nhật 22/07/2026",
+      reviewed: "Đối chiếu WHO, CDC & nguồn nhi khoa Việt Nam",
+      lead: "Sốt xuất huyết Dengue do virus lây qua muỗi Aedes. Ở trẻ em, những ngày đầu có thể rất giống một đợt sốt virus thông thường: sốt cao, mệt, đau đầu, đau nhức, buồn nôn hoặc phát ban. Điểm dễ gây chủ quan là giai đoạn nặng có thể bắt đầu khi nhiệt độ đang giảm.",
+      answerTitle: "Hạ sốt là lúc cần quan sát kỹ hơn",
+      answer: "Dấu hiệu cảnh báo thường xuất hiện trong 24–48 giờ sau khi hết sốt. Nếu trẻ đau bụng nhiều, nôn liên tục, lừ đừ hoặc vật vã, chảy máu, tay chân lạnh hay khó thở, cần đưa đi khám ngay.",
+      summary: [
+        ["01", "Đừng nhìn riêng nhiệt độ", "Theo dõi toàn trạng, khả năng uống, số lần tiểu và các dấu hiệu cảnh báo."],
+        ["02", "Không dùng NSAID", "Tránh aspirin, ibuprofen và các thuốc chống viêm không steroid khi nghi sốt xuất huyết."],
+        ["03", "Chống muỗi tiếp tục đốt", "Cho trẻ nằm màn và phòng muỗi đốt để hạn chế virus lan sang người khác qua muỗi."]
+      ],
+      recognizeTitle: "Dấu hiệu thường gặp ở trẻ",
+      recognizeText: "Không có biểu hiện đơn lẻ nào đủ để tự chẩn đoán. Khi trẻ sốt và khu vực đang có ca sốt xuất huyết, gia đình nên cho trẻ được nhân viên y tế đánh giá.",
+      symptoms: [
+        ["Sốt", "Sốt cao đột ngột, có thể liên tục trong vài ngày; trẻ nhỏ thường quấy khóc hoặc mệt nhiều."],
+        ["Đau và mệt", "Đau đầu, đau sau mắt, đau cơ khớp; trẻ nhỏ có thể chỉ biểu hiện kém chơi và bỏ ăn."],
+        ["Tiêu hóa", "Buồn nôn, nôn hoặc khó chịu vùng bụng có thể xuất hiện."],
+        ["Da và niêm mạc", "Có thể nổi ban, chấm xuất huyết, chảy máu mũi hoặc chân răng, nhưng không phải trẻ nào cũng có xuất huyết."]
+      ],
+      phasesTitle: "Ba giai đoạn ba mẹ cần hiểu",
+      phases: [
+        ["Giai đoạn sốt", "Thường trong những ngày đầu: trẻ sốt, mệt, đau nhức, chán ăn hoặc buồn nôn. Cần khám để xác định nguyên nhân và nhận lịch theo dõi."],
+        ["Giai đoạn nguy hiểm", "Thường rơi vào ngày 3–7, quanh lúc hạ sốt và có thể kéo dài 24–48 giờ. Trẻ có thể xuất hiện thoát dịch, chảy máu hoặc sốc dù nhiệt độ đã giảm."],
+        ["Giai đoạn hồi phục", "Trẻ tỉnh hơn, ăn uống và tiểu tốt dần. Việc xác định đã qua nguy hiểm nên dựa vào khám và theo dõi, không chỉ dựa vào hết sốt."]
+      ],
+      phasesNote: "Ngày bệnh được tính từ ngày đầu tiên trẻ bắt đầu sốt. Hãy ghi rõ ngày và giờ để trao đổi chính xác khi tái khám.",
+      careTitle: "Chăm sóc tại nhà khi bác sĩ cho phép",
+      careSteps: [
+        ["Cho trẻ nghỉ", "Giữ phòng thoáng, mặc đồ nhẹ và hạn chế vận động mạnh trong thời gian theo dõi."],
+        ["Bù nước bằng đường uống", "Cho uống từng ít một, lặp lại thường xuyên. Dùng nước, sữa hoặc dung dịch điện giải phù hợp theo hướng dẫn của nhân viên y tế."],
+        ["Hạ sốt đúng thuốc", "Chỉ dùng paracetamol theo liều phù hợp cân nặng và chỉ dẫn của bác sĩ hoặc nhãn thuốc; không tự rút ngắn khoảng cách liều."],
+        ["Ghi nhật ký", "Ghi nhiệt độ, thời điểm uống thuốc, lượng uống, số lần tiểu, nôn, đau bụng, chảy máu và mức tỉnh táo."],
+        ["Tái khám theo hẹn", "Bác sĩ có thể yêu cầu khám lại hoặc xét nghiệm theo ngày bệnh. Không bỏ hẹn chỉ vì trẻ đã hạ sốt."]
+      ],
+      medicineTitle: "Tuyệt đối tránh aspirin và ibuprofen",
+      medicineText: "Các thuốc này có thể làm tăng nguy cơ chảy máu. Không tự dùng corticoid, kháng sinh, thuốc truyền miệng hoặc phối hợp nhiều loại thuốc cảm có chứa trùng hoạt chất.",
+      noInfusionTitle: "Không tự truyền dịch tại nhà",
+      noInfusionText: "Lượng và tốc độ dịch trong sốt xuất huyết phải được điều chỉnh theo giai đoạn bệnh, khám lâm sàng và xét nghiệm. Truyền không đúng có thể gây quá tải dịch và làm tình trạng nguy hiểm hơn.",
+      warningTitle: "Dấu hiệu cảnh báo cần đi viện ngay",
+      warningSigns: [
+        "Đau bụng nhiều hoặc ấn đau vùng bụng.",
+        "Nôn liên tục hoặc không thể uống đủ nước.",
+        "Chảy máu mũi, chân răng; nôn ra máu hoặc đi ngoài phân đen/có máu.",
+        "Trẻ lừ đừ, ngủ gà, khó đánh thức; hoặc bứt rứt, vật vã khác thường.",
+        "Tay chân lạnh, da tái hoặc lạnh ẩm, vã mồ hôi, trẻ khát nhiều và yếu đi.",
+        "Thở nhanh, khó thở hoặc cảm giác tình trạng xấu đi chỉ trong vài giờ.",
+        "Tiểu ít rõ rệt so với thường ngày."
+      ],
+      emergency: "Khó thở, tím tái, lơ mơ khó đánh thức, co giật, ngất, nôn ra máu hoặc đi ngoài ra máu là tình huống cấp cứu.",
+      trackerTitle: "Bảng theo dõi 6 mục tại nhà",
+      tracker: [
+        ["Ngày bệnh", "Hôm nay là ngày thứ mấy tính từ lần sốt đầu tiên?"],
+        ["Nhiệt độ", "Sốt hay đã hạ; lần dùng paracetamol gần nhất lúc nào?"],
+        ["Uống", "Trẻ uống được bao nhiêu lần, có nôn sau uống không?"],
+        ["Tiểu", "Số lần tiểu có giảm, nước tiểu có sẫm hơn không?"],
+        ["Tỉnh táo", "Trẻ chơi và giao tiếp như thường hay lừ đừ/vật vã?"],
+        ["Cảnh báo", "Có đau bụng, nôn nhiều, chảy máu, tay chân lạnh hoặc khó thở không?"]
+      ],
+      testsTitle: "Xét nghiệm có ý nghĩa gì?",
+      testsText: "Tùy ngày bệnh và biểu hiện, bác sĩ có thể chỉ định xét nghiệm phát hiện virus hoặc công thức máu, hematocrit và tiểu cầu. Một con số tiểu cầu đơn lẻ không cho biết toàn bộ mức độ nặng; bác sĩ cần đọc cùng diễn tiến, dấu hiệu sinh tồn và các xét nghiệm khác.",
+      preventionTitle: "Ngăn muỗi để bảo vệ cả nhà",
+      preventionSteps: [
+        ["Loại bỏ nước đọng mỗi tuần", "Đổ, chà rửa hoặc úp các vật chứa nước; chú ý bình hoa, khay nước, chậu cây và vật dụng ngoài ban công."],
+        ["Đậy kín dụng cụ chứa nước", "Không để muỗi tiếp cận nơi có thể đẻ trứng."],
+        ["Tránh muỗi đốt ban ngày lẫn ban đêm", "Mặc quần áo che da, dùng màn và sản phẩm chống muỗi phù hợp tuổi theo nhãn."],
+        ["Bảo vệ trẻ đang bệnh", "Trong tuần đầu, tránh để muỗi đốt trẻ rồi tiếp tục truyền virus cho người khác."]
+      ],
+      mythsTitle: "Ba hiểu lầm thường gặp",
+      myths: [
+        ["Hết sốt là khỏi", "Sai. Giai đoạn nguy hiểm có thể bắt đầu quanh lúc hạ sốt."],
+        ["Phải có chảy máu mới là sốt xuất huyết", "Sai. Trẻ vẫn có thể diễn tiến nặng dù chưa thấy xuất huyết rõ."],
+        ["Tiểu cầu thấp là phải tự tìm cách truyền", "Sai. Chỉ định điều trị dựa trên toàn bộ tình trạng và phải do bác sĩ quyết định."]
+      ],
+      closeTitle: "Ba mẹ cần nhớ",
+      close: "Khi con hạ sốt, hãy tiếp tục nhìn toàn trạng thay vì chỉ cất nhiệt kế. Đau bụng, nôn, chảy máu, thay đổi tỉnh táo, tay chân lạnh, khó thở hoặc tiểu ít đều đáng để đi khám ngay.",
+      quote: "Hạ sốt không đồng nghĩa hết nguy hiểm; theo dõi đúng trong 24–48 giờ tiếp theo có thể tạo khác biệt lớn.",
+      refsTitle: "Nguồn tham khảo y khoa",
+      disclaimer: "Nội dung nhằm mục đích giáo dục, không thay thế khám, xét nghiệm, chẩn đoán hoặc kế hoạch điều trị trực tiếp.",
+      tocTitle: "Trong bài này",
+      toc: [["#nhan-biet", "Dấu hiệu thường gặp"], ["#giai-doan", "Ba giai đoạn"], ["#cham-soc", "Chăm sóc tại nhà"], ["#canh-bao", "Dấu hiệu cảnh báo"], ["#phong-muoi", "Phòng muỗi"]],
+      sideTitle: "Hãy nhìn con, không chỉ nhìn nhiệt kế",
+      sideText: "Khi trẻ hạ sốt nhưng đau bụng, nôn, lừ đừ, tay chân lạnh hoặc tiểu ít, cần được khám ngay.",
+      sideButton: "Xem thêm bài cho ba mẹ"
+    } : {
+      eyebrow: "Child health",
+      title: "Dengue in children: why a falling fever still needs close watching",
+      dek: "A child may enter the critical phase as the fever settles. Watch abdominal pain, vomiting, bleeding, urine output, cold extremities, and alertness.",
+      readTime: "9 min read", updated: "Updated July 22, 2026", reviewed: "Reviewed against WHO, CDC & Vietnamese pediatric sources",
+      lead: "Dengue is a viral infection spread by Aedes mosquitoes. Early symptoms can resemble other viral fevers, while severe disease may begin as temperature falls.",
+      answerTitle: "Watch more closely as fever resolves", answer: "Warning signs often begin within 24–48 hours after fever goes away. Severe abdominal pain, persistent vomiting, bleeding, drowsiness, restlessness, cold skin, or breathing difficulty require prompt care.",
+      summary: [["01", "Look beyond temperature", "Track drinking, urine, alertness, and warning signs."], ["02", "Avoid NSAIDs", "Do not use aspirin, ibuprofen, or other NSAIDs when dengue is suspected."], ["03", "Prevent mosquito bites", "Use a bed net and repellents to reduce onward spread through mosquitoes."]],
+      recognizeTitle: "Common symptoms", recognizeText: "No single symptom confirms dengue; seek assessment when dengue is possible.", symptoms: [["Fever", "Sudden high fever and marked fatigue."], ["Pain", "Headache, eye pain, body aches, or reduced play in younger children."], ["Digestive", "Nausea, vomiting, or abdominal discomfort."], ["Skin and mucosa", "Rash or bleeding may occur, but bleeding is not required."]],
+      phasesTitle: "Three phases to understand", phases: [["Febrile phase", "Fever, aches, poor appetite, and nausea during early days."], ["Critical phase", "Often during days 3–7 around defervescence, sometimes lasting 24–48 hours; leakage, bleeding, or shock can occur."], ["Recovery phase", "Alertness, appetite, and urine output improve; clinical follow-up confirms recovery."]], phasesNote: "Count illness days from the first day of fever.",
+      careTitle: "Home care when a clinician approves", careSteps: [["Rest", "Keep activity light and the room comfortable."], ["Oral fluids", "Offer small frequent drinks and appropriate oral rehydration as advised."], ["Use the right fever medicine", "Use weight-appropriate acetaminophen/paracetamol only as directed."], ["Keep a diary", "Record temperature, medicine, drinking, urine, vomiting, pain, bleeding, and alertness."], ["Keep follow-up", "Do not skip review simply because fever has settled."]],
+      medicineTitle: "Avoid aspirin and ibuprofen", medicineText: "They may increase bleeding risk. Do not self-use steroids, antibiotics, or combination cold medicines.", noInfusionTitle: "Do not start IV fluids at home", noInfusionText: "Dengue fluids require clinical and laboratory guidance; incorrect treatment can cause fluid overload.",
+      warningTitle: "Warning signs needing immediate care", warningSigns: ["Severe abdominal pain or tenderness.", "Persistent vomiting or inability to drink.", "Nose or gum bleeding, blood in vomit or stool.", "Drowsiness, reduced responsiveness, marked restlessness, or irritability.", "Cold clammy pale skin, intense thirst, or increasing weakness.", "Fast or difficult breathing or rapid worsening.", "Clearly reduced urine output."], emergency: "Breathing difficulty, blue color, seizure, fainting, inability to wake, vomiting blood, or bloody stool is an emergency.",
+      trackerTitle: "Six things to record", tracker: [["Illness day", "Which day since fever began?"], ["Temperature", "Fever or resolved; when was medicine given?"], ["Fluids", "How often is the child drinking and vomiting?"], ["Urine", "Is output reduced or darker?"], ["Alertness", "Normal interaction or drowsy/restless?"], ["Warnings", "Any pain, vomiting, bleeding, cold limbs, or breathing trouble?"]],
+      testsTitle: "What tests can show", testsText: "Testing depends on illness day. Clinicians interpret viral tests, blood count, hematocrit, platelets, vital signs, and clinical trend together; one platelet count does not define severity.",
+      preventionTitle: "Prevent mosquito bites", preventionSteps: [["Remove standing water weekly", "Empty and scrub water-holding items."], ["Cover water containers", "Keep mosquitoes from laying eggs."], ["Prevent bites day and night", "Use clothing, nets, and age-appropriate repellents."], ["Protect the ill child", "Prevent mosquitoes from biting during the first week."]],
+      mythsTitle: "Three common myths", myths: [["No fever means recovery", "False: the critical phase may begin around defervescence."], ["Dengue always causes visible bleeding", "False: severe illness can occur without obvious bleeding."], ["Low platelets always mean transfusion", "False: treatment decisions require the full clinical picture."]],
+      closeTitle: "The key takeaway", close: "Continue watching the whole child after fever settles. Pain, vomiting, bleeding, altered alertness, cold extremities, breathing change, or reduced urine need prompt care.", quote: "A falling fever is not always the end; the next 24–48 hours matter.",
+      refsTitle: "Medical references", disclaimer: "Educational content only; not a substitute for examination, testing, diagnosis, or treatment planning.", tocTitle: "In this article", toc: [["#nhan-biet", "Symptoms"], ["#giai-doan", "Three phases"], ["#cham-soc", "Home care"], ["#canh-bao", "Warning signs"], ["#phong-muoi", "Prevention"]], sideTitle: "Watch the child, not only the thermometer", sideText: "Pain, vomiting, drowsiness, cold limbs, or low urine after fever settles need prompt care.", sideButton: "More parent articles"
+    };
+
+    return shell(`
+      <main class="parent-article dengue-article">
+        <section class="article-story-hero article-story-hero--dengue"><img src="/assets/articles/dengue-child-home-care-hero.webp" alt="${isVietnamese ? "Mẹ cho trẻ uống nước và kiểm tra trán khi trẻ đang nghỉ" : "A mother offers water and checks her resting child's forehead"}" width="1536" height="1024" fetchpriority="high"><div class="article-story-hero-overlay" aria-hidden="true"></div><div class="container article-story-hero-content"><a class="article-story-back" href="${localizedHref("/articles/")}">${icon("arrow")} ${isVietnamese ? "Bài viết" : "Articles"}</a><span class="article-story-kicker">${copy.eyebrow}</span><h1>${copy.title}</h1><p>${copy.dek}</p><div class="article-story-meta"><span>${copy.readTime}</span><span>${copy.updated}</span><span>${copy.reviewed}</span></div></div></section>
+        <section class="article-story-opening"><div class="container article-story-opening-inner"><p class="article-story-lead">${copy.lead}</p><div class="article-story-answer"><span>${icon("check")}</span><div><h2>${copy.answerTitle}</h2><p>${copy.answer}</p></div></div></div></section>
+        <section class="article-story-summary"><div class="container article-story-summary-grid">${copy.summary.map(([number, title, textValue]) => `<div><span>${number}</span><div><h2>${title}</h2><p>${textValue}</p></div></div>`).join("")}</div></section>
+        <section class="article-story-content"><div class="container article-story-layout"><article class="article-story-body">
+          <section id="nhan-biet" class="article-story-section"><h2>${copy.recognizeTitle}</h2><p>${copy.recognizeText}</p><div class="article-story-age-guide article-symptom-guide">${copy.symptoms.map(([title, textValue]) => `<div><strong>${title}</strong><p>${textValue}</p></div>`).join("")}</div></section>
+          <section id="giai-doan" class="article-story-section"><h2>${copy.phasesTitle}</h2><div class="article-story-steps article-dengue-phases">${copy.phases.map(([title, textValue], index) => `<div><span>${index + 1}</span><div><h3>${title}</h3><p>${textValue}</p></div></div>`).join("")}</div><p class="article-story-note">${copy.phasesNote}</p></section>
+          <section id="cham-soc" class="article-story-section"><h2>${copy.careTitle}</h2><div class="article-story-actions">${copy.careSteps.map(([title, textValue], index) => `<div><span>${String(index + 1).padStart(2, "0")}</span><div><h3>${title}</h3><p>${textValue}</p></div></div>`).join("")}</div><div class="article-antibiotic-note"><span>${icon("info")}</span><div><h3>${copy.medicineTitle}</h3><p>${copy.medicineText}</p></div></div><div class="article-dengue-fluid-note"><span>${icon("info")}</span><div><h3>${copy.noInfusionTitle}</h3><p>${copy.noInfusionText}</p></div></div></section>
+          <section id="canh-bao" class="article-story-section article-story-concern"><h2>${copy.warningTitle}</h2><ul>${copy.warningSigns.map((item) => `<li>${icon("info")}<span>${item}</span></li>`).join("")}</ul></section>
+          <section class="article-story-section article-story-emergency"><p>${copy.emergency}</p></section>
+          <section class="article-story-section"><h2>${copy.trackerTitle}</h2><div class="article-story-age-guide">${copy.tracker.map(([title, textValue]) => `<div><strong>${title}</strong><p>${textValue}</p></div>`).join("")}</div></section>
+          <section class="article-story-section"><h2>${copy.testsTitle}</h2><p>${copy.testsText}</p></section>
+          <section id="phong-muoi" class="article-story-section"><h2>${copy.preventionTitle}</h2><div class="article-story-actions">${copy.preventionSteps.map(([title, textValue], index) => `<div><span>${String(index + 1).padStart(2, "0")}</span><div><h3>${title}</h3><p>${textValue}</p></div></div>`).join("")}</div></section>
+          <section class="article-story-section"><h2>${copy.mythsTitle}</h2><div class="article-story-reasons">${copy.myths.map(([title, textValue]) => `<div><h3>${title}</h3><p>${textValue}</p></div>`).join("")}</div></section>
+          <section class="article-story-close"><h2>${copy.closeTitle}</h2><p>${copy.close}</p><blockquote>${copy.quote}</blockquote><div class="article-story-inline-cta"><a class="btn btn-primary" href="${localizedHref("/articles/")}">${copy.sideButton} ${icon("arrow")}</a></div></section>
+          <section class="article-story-references"><h2>${copy.refsTitle}</h2><ol><li><a href="https://www.who.int/news-room/fact-sheets/detail/dengue-and-severe-dengue" target="_blank" rel="noreferrer">WHO: Dengue and severe dengue</a></li><li><a href="https://www.cdc.gov/dengue/treatment/index.html" target="_blank" rel="noreferrer">CDC: Manage Dengue</a></li><li><a href="https://www.cdc.gov/dengue/hcp/clinical-care/index.html" target="_blank" rel="noreferrer">CDC: Clinical Care of Dengue</a></li><li><a href="https://benhviennhitrunguong.gov.vn/sot-xuat-huyet-vao-mua-chuyen-gia-canh-bao-dau-hieu-nguy-hiem.html" target="_blank" rel="noreferrer">Bệnh viện Nhi Trung ương: Dấu hiệu nguy hiểm của sốt xuất huyết ở trẻ</a></li></ol><p>${copy.disclaimer}</p></section>
+        </article><aside class="article-story-aside"><nav aria-label="${copy.tocTitle}"><strong>${copy.tocTitle}</strong>${copy.toc.map(([href, label]) => `<a href="${href}">${label}</a>`).join("")}</nav><div class="article-story-tool article-story-tool--warning"><span>${icon("brand")}</span><h2>${copy.sideTitle}</h2><p>${copy.sideText}</p><a class="btn btn-primary" href="${localizedHref("/articles/")}">${copy.sideButton} ${icon("arrow")}</a></div></aside></div></section>
+      </main>
+    `);
+  }
+
+  function handFootMouthArticlePage() {
+    const isVietnamese = activeLanguage === "vi";
+    const copy = isVietnamese ? {
+      eyebrow: "Sức khỏe trẻ em",
+      title: "Tay chân miệng ở trẻ: khi nào chăm tại nhà, khi nào phải đi viện?",
+      dek: "Loét miệng làm con đau và bỏ ăn thường khiến ba mẹ rất sốt ruột. Phần lớn trẻ sẽ tự hồi phục, nhưng một số dấu hiệu thần kinh, hô hấp hoặc tuần hoàn cần được nhận ra thật sớm.",
+      readTime: "8 phút đọc",
+      updated: "Cập nhật 22/07/2026",
+      reviewed: "Đối chiếu CDC, WHO & Bệnh viện Nhi Trung ương",
+      lead: "Tay chân miệng là bệnh do virus, rất dễ lây ở nhà trẻ và trường mầm non. Trẻ thường sốt, đau miệng rồi xuất hiện ban ở lòng bàn tay, lòng bàn chân; cũng có bé chỉ loét miệng hoặc nổi ban rất ít. Vì vậy, đừng đợi phải đủ cả ba vị trí mới nghĩ đến bệnh.",
+      answerTitle: "Đa số trẻ khỏi trong 7–10 ngày",
+      answer: "Nếu trẻ tỉnh táo, vẫn uống được, thở bình thường và không có dấu hiệu cảnh báo, bác sĩ có thể hướng dẫn chăm sóc tại nhà. Mục tiêu chính là giảm đau, đủ nước và theo dõi sát.",
+      summary: [
+        ["01", "Nhìn toàn trạng", "Khả năng uống, mức tỉnh táo và nhịp thở quan trọng hơn số lượng nốt ban."],
+        ["02", "Theo dõi sát", "Bệnh có thể thay đổi nhanh, nhất là trong những ngày đầu có sốt."],
+        ["03", "Phòng lây", "Rửa tay bằng xà phòng và làm sạch đồ chơi, bề mặt thường chạm." ]
+      ],
+      recognizeTitle: "Nhận biết tay chân miệng",
+      recognizeText: "Triệu chứng không phải lúc nào cũng xuất hiện cùng lúc. Sốt và đau họng có thể đến trước; sau đó 1–2 ngày mới thấy tổn thương miệng hoặc ban da.",
+      symptoms: [
+        ["Trong miệng", "Nốt đỏ hoặc bóng nước nhanh thành vết loét ở lưỡi, lợi hay mặt trong má; trẻ chảy dãi, đau khi nuốt, bỏ bú hoặc ăn ít."],
+        ["Trên da", "Nốt đỏ phẳng hoặc gồ, đôi khi có bóng nước, thường ở lòng bàn tay, lòng bàn chân, mông hoặc vùng tã; thường không ngứa nhiều."],
+        ["Toàn thân", "Sốt, mệt, quấy khóc, đau họng và kém ăn. Một số trẻ chỉ có ban hoặc chỉ loét miệng."]
+      ],
+      spreadTitle: "Bệnh lây như thế nào?",
+      spreadText: "Virus có thể có trong dịch tiết mũi họng, nước bọt, dịch bóng nước và phân. Trẻ dễ lây qua tiếp xúc gần, tay chưa rửa, đồ chơi hoặc bề mặt dùng chung.",
+      spread: [
+        ["Bàn tay", "Rửa tay với xà phòng ít nhất 20 giây, nhất là sau thay tã, đi vệ sinh và trước khi chuẩn bị thức ăn."],
+        ["Đồ dùng", "Không dùng chung cốc, thìa, khăn; vệ sinh đồ chơi, tay nắm cửa và bề mặt trẻ thường chạm."],
+        ["Tiếp xúc gần", "Hạn chế ôm hôn, tiếp xúc với nước bọt hoặc dịch bóng nước trong thời gian trẻ đang bệnh."]
+      ],
+      careTitle: "Chăm trẻ nhẹ tại nhà",
+      careSteps: [
+        ["Ưu tiên nước", "Cho trẻ uống từng ngụm nhỏ, nhiều lần. Có thể chọn nước mát, sữa hoặc thức ăn mềm, nguội nếu trẻ dễ chịu hơn."],
+        ["Giảm đau và sốt đúng cách", "Dùng thuốc phù hợp tuổi và cân nặng theo hướng dẫn của bác sĩ hoặc nhãn thuốc. Không dùng aspirin cho trẻ."],
+        ["Chăm miệng nhẹ nhàng", "Tránh thức ăn nóng, cay, chua hoặc cứng. Không chọc vỡ bóng nước và không tự bôi thuốc không rõ thành phần."],
+        ["Ghi lại diễn biến", "Theo dõi nhiệt độ, lượng uống, số lần tiểu, mức tỉnh táo, nhịp thở và biểu hiện giật mình khi ngủ."],
+        ["Tái khám đúng hẹn", "Làm theo kế hoạch bác sĩ đã dặn và đưa trẻ khám sớm hơn nếu xuất hiện bất kỳ dấu hiệu bất thường nào."]
+      ],
+      medicineTitle: "Kháng sinh không trị được virus tay chân miệng",
+      medicineText: "Không tự mua kháng sinh, thuốc kháng virus, corticoid hoặc các loại thuốc truyền miệng. Bác sĩ chỉ kê thuốc khi có chỉ định cụ thể hoặc bệnh kèm theo.",
+      ev71Title: "EV71 là gì?",
+      ev71Text: "EV71 (Enterovirus A71) là một trong nhiều virus có thể gây tay chân miệng. Chủng này có liên quan nhiều hơn đến biến chứng thần kinh và tim phổi, nhưng ba mẹ không thể xác định chủng virus bằng cách nhìn nốt ban. Điều hữu ích nhất vẫn là theo dõi dấu hiệu chuyển nặng và đưa trẻ đi khám kịp thời.",
+      ev71Note: "Không phải mọi ca tay chân miệng đều do EV71, và phần lớn trẻ mắc bệnh vẫn diễn tiến nhẹ.",
+      warningTitle: "Dấu hiệu cần đưa trẻ đi khám ngay",
+      warningSigns: [
+        "Sốt cao liên tục hoặc sốt khó hạ dù đã chăm sóc đúng hướng dẫn.",
+        "Trẻ mệt rõ, không chơi, bỏ uống, ngủ nhiều bất thường hoặc lơ mơ.",
+        "Giật mình bất thường và lặp lại, đặc biệt lúc bắt đầu ngủ hoặc gần cuối giấc ngủ.",
+        "Run tay chân, run người, ngồi không vững hoặc đi loạng choạng.",
+        "Thở nhanh, thở nông, rút lõm ngực, ngưng thở hoặc nhịp thở khác thường.",
+        "Vã mồ hôi, tay chân lạnh, da tái hoặc tình trạng xấu đi nhanh."
+      ],
+      emergency: "Nếu trẻ khó thở, tím tái, co giật, lơ mơ khó đánh thức hoặc ngưng thở, hãy đưa trẻ đến cơ sở cấp cứu ngay.",
+      checklistTitle: "Bảng theo dõi ngắn cho ba mẹ",
+      checklist: [
+        ["Nhiệt độ", "Sốt bao nhiêu, kéo dài bao lâu và đáp ứng sau hạ sốt?"],
+        ["Uống và tiểu", "Trẻ có uống được không, môi có khô và số lần tiểu có giảm không?"],
+        ["Thần kinh", "Có giật mình lặp lại, run, lảo đảo, ngủ gà hay khó đánh thức không?"],
+        ["Hô hấp", "Nhịp thở có nhanh, nông, rút lõm hoặc bất thường không?"]
+      ],
+      schoolTitle: "Khi nào trẻ có thể quay lại lớp?",
+      schoolText: "Trẻ chỉ nên trở lại khi hết sốt, đủ khỏe để tham gia sinh hoạt và không còn chảy dãi không kiểm soát do loét miệng. Gia đình vẫn cần hỏi cơ sở y tế và tuân thủ quy định của trường hoặc y tế địa phương khi đang có ổ dịch.",
+      preventTitle: "Giảm lây cho cả nhà",
+      preventSteps: [
+        ["Rửa tay đúng lúc", "Người chăm trẻ cũng phải rửa tay sau thay tã, vệ sinh miệng và xử lý quần áo bẩn."],
+        ["Làm sạch mỗi ngày", "Vệ sinh đồ chơi và bề mặt thường chạm; không chỉ lau qua bằng khăn dùng chung."],
+        ["Tách đồ cá nhân", "Dùng riêng khăn, cốc, thìa, bàn chải và vật dụng chăm sóc."],
+        ["Dạy trẻ che ho", "Dùng khăn giấy hoặc khuỷu tay, bỏ khăn đúng nơi và rửa tay sau đó."]
+      ],
+      closeTitle: "Ba mẹ cần nhớ",
+      close: "Đừng quá tập trung đếm nốt ban hay tự đoán EV71. Hãy nhìn con: trẻ có uống được không, có tỉnh táo không, thở có bình thường không và có giật mình, run hoặc đi loạng choạng không.",
+      quote: "Tay chân miệng nhẹ cần chăm đúng; dấu hiệu chuyển nặng cần đi viện sớm.",
+      refsTitle: "Nguồn tham khảo y khoa",
+      disclaimer: "Nội dung nhằm mục đích giáo dục, không thay thế khám, chẩn đoán hoặc hướng dẫn điều trị trực tiếp.",
+      tocTitle: "Trong bài này",
+      toc: [["#nhan-biet", "Nhận biết"], ["#cham-soc", "Chăm sóc tại nhà"], ["#ev71", "EV71"], ["#dau-hieu-nang", "Dấu hiệu nặng"], ["#phong-lay", "Phòng lây"]],
+      sideTitle: "Đang lo vì trẻ có dấu hiệu lạ?",
+      sideText: "Khi trẻ lừ đừ, giật mình bất thường, run, khó thở hoặc xấu đi nhanh, đừng chờ theo dõi thêm trên mạng.",
+      sideButton: "Xem thêm bài cho ba mẹ"
+    } : {
+      eyebrow: "Child health",
+      title: "Hand, foot and mouth disease: home care or hospital?",
+      dek: "Most children recover well, but neurologic, breathing, or circulation warning signs need early medical attention.",
+      readTime: "8 min read", updated: "Updated July 22, 2026", reviewed: "Reviewed against CDC, WHO & Vietnam National Children's Hospital",
+      lead: "Hand, foot and mouth disease is a contagious viral illness common in young children. Fever and mouth pain may appear before the familiar rash, and some children never develop all three classic locations.",
+      answerTitle: "Most children recover in 7–10 days", answer: "If a child is alert, drinking, breathing normally, and has no warning signs, a clinician may recommend supportive home care.",
+      summary: [["01", "Watch the child", "Drinking, alertness, and breathing matter more than the number of spots."], ["02", "Monitor closely", "Symptoms can change, especially during febrile days."], ["03", "Reduce spread", "Wash hands and clean shared surfaces and toys."]],
+      recognizeTitle: "How to recognize HFMD", recognizeText: "Symptoms may arrive in stages.", symptoms: [["Mouth", "Painful sores can affect the tongue, gums, and inner cheeks."], ["Skin", "Flat or raised spots, sometimes blistered, often affect palms, soles, buttocks, or the diaper area."], ["General", "Fever, sore throat, fussiness, and poor appetite are common."]],
+      spreadTitle: "How it spreads", spreadText: "Virus can spread through respiratory secretions, saliva, blister fluid, stool, hands, and shared surfaces.", spread: [["Hands", "Wash with soap for at least 20 seconds."], ["Objects", "Do not share cups, utensils, or towels; clean toys and surfaces."], ["Close contact", "Avoid contact with saliva and blister fluid during illness."]],
+      careTitle: "Caring for a mild case", careSteps: [["Prioritize fluids", "Offer small, frequent drinks and cool soft foods."], ["Treat pain and fever safely", "Use age- and weight-appropriate medicine as directed; never give aspirin to children."], ["Be gentle with the mouth", "Avoid hot, spicy, acidic, or hard food and do not pop blisters."], ["Record changes", "Track temperature, drinking, urine, alertness, breathing, and abnormal startles."], ["Follow up", "Return as advised or earlier if warning signs appear."]],
+      medicineTitle: "Antibiotics do not treat HFMD viruses", medicineText: "Do not self-prescribe antibiotics, antivirals, steroids, or unverified remedies.",
+      ev71Title: "What is EV71?", ev71Text: "Enterovirus A71 is one of several viruses that cause HFMD and is more strongly associated with neurologic and cardiopulmonary complications. The viral type cannot be identified by looking at the rash.", ev71Note: "Not every HFMD case is EV71, and most cases remain mild.",
+      warningTitle: "Warning signs that need prompt medical care", warningSigns: ["Persistent high fever or poor response to fever care.", "Marked fatigue, poor drinking, unusual sleepiness, or reduced responsiveness.", "Repeated abnormal startles, especially around sleep.", "Tremor, unsteady sitting, or unsteady walking.", "Fast, shallow, labored, or otherwise abnormal breathing.", "Cold clammy limbs, pallor, or rapid deterioration."], emergency: "Breathing difficulty, blue color, seizure, inability to wake, or apnea requires emergency care.",
+      checklistTitle: "A short parent checklist", checklist: [["Temperature", "How high and how long?"], ["Fluids and urine", "Is drinking or urine output falling?"], ["Neurologic signs", "Any repeated startle, tremor, unsteadiness, or drowsiness?"], ["Breathing", "Any fast, shallow, labored, or unusual breathing?"]],
+      schoolTitle: "When can a child return?", schoolText: "Return when fever-free, well enough to participate, and without uncontrolled drooling from mouth sores, while following local health and school rules.",
+      preventTitle: "Reduce spread at home", preventSteps: [["Wash hands", "Especially after diaper changes and mouth care."], ["Clean daily", "Disinfect shared toys and high-touch surfaces."], ["Separate personal items", "Use separate towels, cups, and utensils."], ["Cover coughs", "Use tissue or elbow and wash hands afterward."]],
+      closeTitle: "The key takeaway", close: "Do not focus only on counting spots or guessing EV71. Watch drinking, alertness, breathing, repeated startles, tremor, and balance.", quote: "Support mild illness well and act early when warning signs appear.",
+      refsTitle: "Medical references", disclaimer: "Educational content only; not a substitute for examination, diagnosis, or treatment advice.", tocTitle: "In this article", toc: [["#nhan-biet", "Symptoms"], ["#cham-soc", "Home care"], ["#ev71", "EV71"], ["#dau-hieu-nang", "Warning signs"], ["#phong-lay", "Prevention"]], sideTitle: "Worried about unusual symptoms?", sideText: "Do not wait online when a child is drowsy, repeatedly startling, trembling, struggling to breathe, or rapidly worsening.", sideButton: "More parent articles"
+    };
+
+    return shell(`
+      <main class="parent-article hand-foot-mouth-article">
+        <section class="article-story-hero article-story-hero--hand-foot-mouth">
+          <img src="/assets/articles/hand-foot-mouth-child-hero.webp" alt="${isVietnamese ? "Mẹ cùng bác sĩ kiểm tra miệng và lòng bàn tay của trẻ" : "A mother and clinician check a child's mouth and palm"}" width="1536" height="1024" fetchpriority="high">
+          <div class="article-story-hero-overlay" aria-hidden="true"></div>
+          <div class="container article-story-hero-content"><a class="article-story-back" href="${localizedHref("/articles/")}">${icon("arrow")} ${isVietnamese ? "Bài viết" : "Articles"}</a><span class="article-story-kicker">${copy.eyebrow}</span><h1>${copy.title}</h1><p>${copy.dek}</p><div class="article-story-meta"><span>${copy.readTime}</span><span>${copy.updated}</span><span>${copy.reviewed}</span></div></div>
+        </section>
+        <section class="article-story-opening"><div class="container article-story-opening-inner"><p class="article-story-lead">${copy.lead}</p><div class="article-story-answer"><span>${icon("check")}</span><div><h2>${copy.answerTitle}</h2><p>${copy.answer}</p></div></div></div></section>
+        <section class="article-story-summary"><div class="container article-story-summary-grid">${copy.summary.map(([number, title, textValue]) => `<div><span>${number}</span><div><h2>${title}</h2><p>${textValue}</p></div></div>`).join("")}</div></section>
+        <section class="article-story-content"><div class="container article-story-layout"><article class="article-story-body">
+          <section id="nhan-biet" class="article-story-section"><h2>${copy.recognizeTitle}</h2><p>${copy.recognizeText}</p><div class="article-story-age-guide article-symptom-guide">${copy.symptoms.map(([title, textValue]) => `<div><strong>${title}</strong><p>${textValue}</p></div>`).join("")}</div></section>
+          <section class="article-story-section"><h2>${copy.spreadTitle}</h2><p>${copy.spreadText}</p><div class="article-story-reasons">${copy.spread.map(([title, textValue]) => `<div><h3>${title}</h3><p>${textValue}</p></div>`).join("")}</div></section>
+          <section id="cham-soc" class="article-story-section"><h2>${copy.careTitle}</h2><div class="article-story-actions">${copy.careSteps.map(([title, textValue], index) => `<div><span>${String(index + 1).padStart(2, "0")}</span><div><h3>${title}</h3><p>${textValue}</p></div></div>`).join("")}</div><div class="article-antibiotic-note"><span>${icon("info")}</span><div><h3>${copy.medicineTitle}</h3><p>${copy.medicineText}</p></div></div></section>
+          <section id="ev71" class="article-story-section article-ev71-note"><span class="article-story-kicker">EV71</span><h2>${copy.ev71Title}</h2><p>${copy.ev71Text}</p><p class="article-story-note">${copy.ev71Note}</p></section>
+          <section id="dau-hieu-nang" class="article-story-section article-story-concern"><h2>${copy.warningTitle}</h2><ul>${copy.warningSigns.map((item) => `<li>${icon("info")}<span>${item}</span></li>`).join("")}</ul></section>
+          <section class="article-story-section article-story-emergency"><p>${copy.emergency}</p></section>
+          <section class="article-story-section"><h2>${copy.checklistTitle}</h2><div class="article-story-age-guide">${copy.checklist.map(([title, textValue]) => `<div><strong>${title}</strong><p>${textValue}</p></div>`).join("")}</div></section>
+          <section class="article-story-section"><h2>${copy.schoolTitle}</h2><p>${copy.schoolText}</p></section>
+          <section id="phong-lay" class="article-story-section"><h2>${copy.preventTitle}</h2><div class="article-story-steps">${copy.preventSteps.map(([title, textValue], index) => `<div><span>${index + 1}</span><div><h3>${title}</h3><p>${textValue}</p></div></div>`).join("")}</div></section>
+          <section class="article-story-close"><h2>${copy.closeTitle}</h2><p>${copy.close}</p><blockquote>${copy.quote}</blockquote><div class="article-story-inline-cta"><a class="btn btn-primary" href="${localizedHref("/articles/")}">${copy.sideButton} ${icon("arrow")}</a></div></section>
+          <section class="article-story-references"><h2>${copy.refsTitle}</h2><ol><li><a href="https://www.cdc.gov/hand-foot-mouth/about/index.html" target="_blank" rel="noreferrer">CDC: About Hand, Foot, and Mouth Disease</a></li><li><a href="https://benhviennhitrunguong.gov.vn/tay-chan-mieng-do-chung-virus-ev71-chuyen-bien-kho-luong-cha-me-can-chu-dong-nhan-biet.html" target="_blank" rel="noreferrer">Bệnh viện Nhi Trung ương: Nhận biết dấu hiệu tay chân miệng trở nặng</a></li><li><a href="https://www.who.int/teams/health-product-policy-and-standards/standards-and-specifications/norms-and-standards/vaccine-standardization/enterovirus-71" target="_blank" rel="noreferrer">WHO: Enterovirus 71</a></li></ol><p>${copy.disclaimer}</p></section>
+        </article><aside class="article-story-aside"><nav aria-label="${copy.tocTitle}"><strong>${copy.tocTitle}</strong>${copy.toc.map(([href, label]) => `<a href="${href}">${label}</a>`).join("")}</nav><div class="article-story-tool article-story-tool--warning"><span>${icon("brand")}</span><h2>${copy.sideTitle}</h2><p>${copy.sideText}</p><a class="btn btn-primary" href="${localizedHref("/articles/")}">${copy.sideButton} ${icon("arrow")}</a></div></aside></div></section>
+      </main>
+    `);
+  }
+
+  function growthHormoneDeficiencyArticlePage() {
+    const isVietnamese = activeLanguage === "vi";
+    const copy = isVietnamese ? {
+      eyebrow: "Tăng trưởng & nội tiết nhi",
+      title: "Trẻ chậm cao có phải thiếu hormone tăng trưởng? 7 dấu hiệu cần khám sớm",
+      dek: "Con thấp hơn bạn cùng tuổi chưa đồng nghĩa với thiếu GH. Điều đáng chú ý hơn là tốc độ tăng chiều cao chậm hoặc đường chiều cao tụt dần qua nhiều lần đo.",
+      readTime: "9 phút đọc",
+      updated: "Cập nhật 22/07/2026",
+      reviewed: "Đối chiếu PES, MedlinePlus & WHO",
+      lead: "Nhiều ba mẹ chỉ nhận ra con chậm cao khi đứng cạnh các bạn cùng lớp. Nhưng chiều cao chịu ảnh hưởng của di truyền, dinh dưỡng, bệnh mạn tính, nhịp dậy thì và nhiều yếu tố khác. Thiếu hormone tăng trưởng là một nguyên nhân hiếm, cần bác sĩ nội tiết nhi đánh giá đúng quy trình.",
+      answerTitle: "Một lần đo thấp chưa đủ để kết luận",
+      answer: "Hãy đo đúng và theo dõi đường chiều cao theo thời gian. Trẻ nằm thấp nhưng vẫn tăng đều có ý nghĩa khác với trẻ đang tụt qua các đường bách phân vị.",
+      summary: [
+        ["01", "Nhìn xu hướng", "Tốc độ tăng chiều cao và sự thay đổi đường tăng trưởng quan trọng hơn một số đo."],
+        ["02", "Không tự xét nghiệm", "GH tiết theo nhịp nên xét nghiệm GH ngẫu nhiên không dùng để chẩn đoán."],
+        ["03", "Khám đúng lúc", "Đánh giá sớm giúp tìm cả nguyên nhân nội tiết lẫn dinh dưỡng hoặc bệnh mạn tính."]
+      ],
+      whatTitle: "Thiếu hormone tăng trưởng là gì?",
+      whatText: "Hormone tăng trưởng (GH) được tuyến yên tiết ra và tham gia điều hòa sự phát triển của xương, cơ cùng chuyển hóa. Khi cơ thể thiếu GH, trẻ có thể tăng chiều cao chậm hơn mong đợi. Theo Pediatric Endocrine Society, tình trạng này hiếm gặp, ước tính dưới 1/3.000 đến 1/10.000 trẻ.",
+      whatNote: "Thấp hơn bạn bè không đồng nghĩa thiếu GH. Phần lớn trẻ thấp không mắc thiếu hormone tăng trưởng.",
+      signsTitle: "7 dấu hiệu gợi ý trẻ nên được đánh giá",
+      signs: [
+        ["Đường chiều cao dưới vùng thấp", "Chiều cao dưới bách phân vị 3 là một tín hiệu nên xem kỹ, nhưng chưa phải chẩn đoán."],
+        ["Tụt dần qua các đường bách phân vị", "Trẻ từng tăng đều nhưng khoảng cách với bạn cùng tuổi ngày càng xa là dấu hiệu đáng chú ý."],
+        ["Tăng chiều cao chậm kéo dài", "Nhiều lần đo đúng cách cho thấy chiều cao gần như đứng lại hoặc tăng ít hơn quỹ đạo trước đây."],
+        ["Vóc dáng cân đối nhưng trông nhỏ tuổi", "Trẻ thiếu GH thường có tỷ lệ cơ thể bình thường và khuôn mặt có thể trông trẻ hơn tuổi."],
+        ["Cân nặng không nhất thiết thấp", "Một số trẻ có cân nặng tương đối bảo tồn hoặc hơi tròn người so với chiều cao."],
+        ["Dậy thì muộn", "Ở trẻ lớn, chậm xuất hiện các dấu hiệu dậy thì cần được đánh giá cùng toàn bộ đường tăng trưởng."],
+        ["Có yếu tố nguy cơ liên quan tuyến yên", "Bất thường bẩm sinh vùng tuyến yên, chấn thương đầu, u hoặc điều trị vùng não là những thông tin bác sĩ cần biết."]
+      ],
+      signsNote: "Các dấu hiệu trên chỉ giúp nhận diện trẻ cần khám. Không có dấu hiệu đơn lẻ nào xác nhận thiếu GH.",
+      otherTitle: "Chậm cao còn có thể do nguyên nhân nào?",
+      others: [
+        ["Di truyền", "Bố mẹ thấp và trẻ vẫn đi đều theo quỹ đạo riêng."],
+        ["Chậm tăng trưởng thể tạng", "Trẻ phát triển và dậy thì muộn hơn bạn bè nhưng có thể bắt kịp về sau."],
+        ["Dinh dưỡng hoặc bệnh mạn tính", "Khẩu phần không đủ, bệnh tiêu hóa, thận, tim hoặc viêm mạn có thể ảnh hưởng tăng trưởng."],
+        ["Nội tiết khác", "Suy giáp, rối loạn dậy thì và các bệnh nội tiết khác cũng cần được loại trừ."],
+        ["Sai số khi đo", "Đo ở hai nơi, hai tư thế hoặc thiết bị khác nhau có thể tạo ra một xu hướng giả."]
+      ],
+      diagnosisTitle: "Bác sĩ chẩn đoán như thế nào?",
+      diagnosisText: "Không có một xét nghiệm đơn lẻ nào đủ để kết luận. Bác sĩ sẽ ghép nhiều lớp thông tin và chỉ định tùy từng trẻ.",
+      diagnosis: [
+        ["Đo và dựng lại đường tăng trưởng", "Kiểm tra ngày sinh, chiều cao, cân nặng, tốc độ tăng trưởng và chiều cao mục tiêu theo gia đình."],
+        ["Khám và xét nghiệm sàng lọc", "Đánh giá dinh dưỡng, bệnh mạn, tuyến giáp; IGF-1 và IGFBP-3 có thể hỗ trợ nhưng phải đọc theo tuổi và giai đoạn dậy thì."],
+        ["Tuổi xương", "X-quang bàn tay có thể cho biết mức trưởng thành của xương và còn bao nhiêu tiềm năng tăng trưởng."],
+        ["Nghiệm pháp kích thích GH", "Được bác sĩ chuyên khoa chỉ định khi phù hợp; kết quả cần diễn giải cùng toàn bộ bối cảnh vì nghiệm pháp không hoàn hảo."],
+        ["MRI vùng tuyến yên", "Có thể được chỉ định khi nghi ngờ tổn thương cấu trúc hoặc trước khi điều trị trong một số trường hợp."]
+      ],
+      randomTitle: "Vì sao không xét nghiệm GH ngẫu nhiên?",
+      randomText: "GH được tiết thành từng đợt trong ngày. Một mẫu máu bất kỳ có thể rất thấp ở trẻ hoàn toàn bình thường, vì vậy không dùng kết quả GH ngẫu nhiên để tự kết luận.",
+      trackTitle: "Ba mẹ theo dõi chiều cao và cân nặng bằng GrowthKid",
+      trackIntro: "Công cụ WHO trên GrowthKid giúp chuẩn hóa các lần đo và nhìn xu hướng dễ hơn. Đây là dữ liệu tham khảo hữu ích để mang theo khi đi khám.",
+      trackSteps: [
+        ["Đo đúng", "Cân trẻ với quần áo nhẹ; đo chiều cao không mang giày, đầu và lưng đúng tư thế. Nên dùng cùng thiết bị ở các lần sau."],
+        ["Nhập đủ thông tin", "Chọn ngày sinh, giới tính, ngày đo rồi nhập cân nặng và chiều cao. Tuổi theo tháng được tính tự động."],
+        ["Đọc cả hai chỉ số", "Xem chiều cao theo tuổi, cân nặng theo tuổi và BMI theo tuổi trong cùng bối cảnh."],
+        ["Lưu để nhìn đường đi", "Ghi lại nhiều lần đo, ưu tiên xu hướng thay vì phản ứng với một điểm bách phân vị."],
+        ["Mang dữ liệu đi khám", "Tải ảnh tóm tắt hoặc chụp biểu đồ để bác sĩ xem ngày đo, kỹ thuật đo và thay đổi theo thời gian."]
+      ],
+      trackButton: "Theo dõi tăng trưởng bằng chuẩn WHO",
+      chartButton: "Xem biểu đồ tăng trưởng",
+      visitTitle: "Khi nào nên đưa trẻ đi khám nội tiết nhi?",
+      visitSigns: [
+        "Chiều cao dưới bách phân vị 3 hoặc thấp rõ rệt so với trẻ cùng tuổi và giới tính.",
+        "Đường chiều cao tụt dần qua các lần đo, dù cân nặng có thể vẫn bình thường.",
+        "Tốc độ tăng chiều cao chậm kéo dài hoặc gần như đứng lại.",
+        "Trẻ chậm dậy thì, đau đầu dai dẳng, thay đổi thị lực hoặc có tiền sử bệnh vùng não - tuyến yên.",
+        "Ba mẹ lo lắng về tăng trưởng sau khi đã đo lại đúng cách."
+      ],
+      urgent: "Đau đầu dữ dội, nôn, thay đổi thị lực, lơ mơ hoặc co giật cần được khám cấp cứu; không chờ lịch theo dõi tăng trưởng.",
+      treatmentTitle: "Nếu đúng là thiếu GH, trẻ được điều trị ra sao?",
+      treatmentText: "Bác sĩ nội tiết nhi có thể chỉ định hormone tăng trưởng tái tổ hợp, thường dùng đường tiêm và theo dõi lâu dài. Liều, đáp ứng, tác dụng không mong muốn và các xét nghiệm kiểm tra phải được cá thể hóa. Không tự mua GH hoặc sản phẩm quảng cáo tăng chiều cao để dùng cho trẻ.",
+      closeTitle: "Ba mẹ cần nhớ",
+      close: "Điều hữu ích nhất không phải đoán bệnh từ chiều cao hiện tại, mà là tạo một chuỗi số đo chính xác. Khi đường tăng trưởng chậm lại, dữ liệu đó giúp bác sĩ đánh giá sớm và tránh bỏ sót nguyên nhân có thể điều trị.",
+      quote: "Đo đúng hôm nay, lưu lại ngày đo và nhìn xu hướng qua thời gian.",
+      refsTitle: "Nguồn tham khảo y khoa",
+      disclaimer: "Nội dung nhằm mục đích giáo dục, không thay thế khám, chẩn đoán hoặc chỉ định điều trị trực tiếp.",
+      tocTitle: "Trong bài này",
+      toc: [["#dau-hieu", "7 dấu hiệu"], ["#chan-doan", "Quy trình chẩn đoán"], ["#theo-doi", "Theo dõi bằng WHO"], ["#khi-nao-kham", "Khi nào cần khám"]],
+      toolTitle: "Theo dõi đường tăng trưởng của con",
+      toolText: "Nhập chiều cao và cân nặng theo ngày đo để xem z-score, bách phân vị và biểu đồ WHO."
+    } : {
+      eyebrow: "Growth & pediatric endocrinology",
+      title: "Could slow height growth be growth hormone deficiency? 7 signs to discuss early",
+      dek: "Being shorter than peers does not automatically mean GH deficiency. Growth velocity and a downward shift across height percentiles matter more.",
+      readTime: "9 min read", updated: "Updated July 22, 2026", reviewed: "Reviewed against PES, MedlinePlus & WHO",
+      lead: "Families often notice slow growth when a child stands beside classmates. Height is influenced by genetics, nutrition, chronic illness, puberty timing, and many other factors. Growth hormone deficiency is rare and requires a pediatric endocrine assessment.",
+      answerTitle: "One short measurement is not a diagnosis", answer: "Measure carefully and follow the height curve over time. A child who stays low on a steady path is different from one crossing down percentile lines.",
+      summary: [["01", "Follow the trend", "Growth velocity matters more than one measurement."], ["02", "Do not self-test", "Random GH levels cannot diagnose deficiency because secretion is pulsatile."], ["03", "Assess early", "A specialist can consider endocrine, nutritional, and chronic causes."]],
+      whatTitle: "What is growth hormone deficiency?", whatText: "Growth hormone is released by the pituitary gland and supports bone and tissue growth. Deficiency can slow height gain. The Pediatric Endocrine Society describes it as rare, affecting fewer than about 1 in 3,000 to 1 in 10,000 children.", whatNote: "Most short children do not have growth hormone deficiency.",
+      signsTitle: "7 signs that deserve assessment", signs: [["Height in the low range", "A height below the 3rd percentile is a cue for review, not a diagnosis."], ["Crossing percentile lines downward", "The gap from peers grows over time."], ["Persistently slow height gain", "Repeated accurate measurements show a slowing path."], ["Normal proportions but younger appearance", "Body proportions are often preserved."], ["Weight is not necessarily low", "Weight may be relatively preserved for height."], ["Delayed puberty", "Older children may need puberty and growth assessed together."], ["Pituitary risk factors", "Congenital changes, head injury, tumors, or brain treatment matter to the clinician."]], signsNote: "No single sign confirms GH deficiency.",
+      otherTitle: "Other causes of slow growth", others: [["Family pattern", "Short parents and a steady individual curve."], ["Constitutional delay", "Later growth and puberty timing."], ["Nutrition or chronic illness", "Dietary, gastrointestinal, kidney, heart, or inflammatory conditions."], ["Other endocrine causes", "Thyroid and puberty disorders must be considered."], ["Measurement error", "Different methods can create a false trend."]],
+      diagnosisTitle: "How clinicians evaluate growth", diagnosisText: "Diagnosis combines several layers of information rather than one test.", diagnosis: [["Rebuild the growth curve", "Verify dates, measurements, velocity, and family target height."], ["Examination and screening", "Review nutrition and chronic disease; IGF-1 and IGFBP-3 require age-aware interpretation."], ["Bone age", "A hand X-ray can estimate skeletal maturity."], ["GH stimulation testing", "Ordered and interpreted by a specialist when appropriate."], ["Pituitary MRI", "May be needed when structural disease is suspected."]],
+      randomTitle: "Why a random GH blood test does not work", randomText: "GH is released in pulses, so a random sample may be very low in a healthy child.",
+      trackTitle: "Track height and weight with GrowthKid", trackIntro: "GrowthKid's WHO tool helps families standardize measurements and review trends to share with a clinician.", trackSteps: [["Measure correctly", "Use light clothing, no shoes, and a consistent method."], ["Enter complete details", "Add birth date, sex, measurement date, weight, and height."], ["Review related indicators", "Read height, weight, and BMI in context."], ["Save the trend", "Focus on repeated measurements."], ["Bring data to the visit", "Download a summary or show the chart to the clinician."]], trackButton: "Track growth with WHO references", chartButton: "View growth charts",
+      visitTitle: "When to see a pediatric endocrinologist", visitSigns: ["Height below the 3rd percentile or clearly shorter than peers.", "A height curve that crosses percentile lines downward.", "Persistently slow or nearly stalled height gain.", "Delayed puberty, persistent headache, vision change, or pituitary history.", "Ongoing family concern after careful remeasurement."], urgent: "Severe headache, vomiting, vision change, drowsiness, or seizure requires urgent care.",
+      treatmentTitle: "How confirmed GH deficiency is treated", treatmentText: "A pediatric endocrinologist may prescribe recombinant growth hormone with individualized dosing and long-term monitoring. Do not self-medicate with GH or unproven height products.",
+      closeTitle: "The key takeaway", close: "Build an accurate series of measurements instead of guessing from today's height. A slowing curve gives the clinician useful information for early assessment.", quote: "Measure well, record the date, and follow the trend.",
+      refsTitle: "Medical references", disclaimer: "Educational content only; not a substitute for an examination, diagnosis, or treatment plan.", tocTitle: "In this article", toc: [["#dau-hieu", "Seven signs"], ["#chan-doan", "Assessment"], ["#theo-doi", "WHO tracking"], ["#khi-nao-kham", "When to seek care"]], toolTitle: "Follow your child's growth curve", toolText: "Enter dated height and weight measurements to view z-scores, percentiles, and WHO charts."
+    };
+
+    return shell(`
+      <main class="parent-article growth-hormone-article">
+        <section class="article-story-hero article-story-hero--growth-hormone">
+          <img src="/assets/articles/growth-hormone-deficiency-child-hero.webp" alt="${isVietnamese ? "Mẹ đo chiều cao cho trẻ trong khi bác sĩ xem biểu đồ tăng trưởng" : "A parent measures a child's height while a clinician reviews the growth chart"}" width="1536" height="1024" fetchpriority="high">
+          <div class="article-story-hero-overlay" aria-hidden="true"></div>
+          <div class="container article-story-hero-content">
+            <a class="article-story-back" href="${localizedHref("/articles/")}">${icon("arrow")} ${isVietnamese ? "Bài viết" : "Articles"}</a>
+            <span class="article-story-kicker">${copy.eyebrow}</span><h1>${copy.title}</h1><p>${copy.dek}</p>
+            <div class="article-story-meta"><span>${copy.readTime}</span><span>${copy.updated}</span><span>${copy.reviewed}</span></div>
+          </div>
+        </section>
+        <section class="article-story-opening"><div class="container article-story-opening-inner"><p class="article-story-lead">${copy.lead}</p><div class="article-story-answer"><span>${icon("check")}</span><div><h2>${copy.answerTitle}</h2><p>${copy.answer}</p></div></div></div></section>
+        <section class="article-story-summary"><div class="container article-story-summary-grid">${copy.summary.map(([number, title, textValue]) => `<div><span>${number}</span><div><h2>${title}</h2><p>${textValue}</p></div></div>`).join("")}</div></section>
+        <section class="article-story-content"><div class="container article-story-layout">
+          <article class="article-story-body">
+            <section class="article-story-section"><h2>${copy.whatTitle}</h2><p>${copy.whatText}</p><p class="article-story-note">${copy.whatNote}</p></section>
+            <section id="dau-hieu" class="article-story-section"><h2>${copy.signsTitle}</h2><div class="article-story-actions">${copy.signs.map(([title, textValue], index) => `<div><span>${String(index + 1).padStart(2, "0")}</span><div><h3>${title}</h3><p>${textValue}</p></div></div>`).join("")}</div><p class="article-story-note">${copy.signsNote}</p></section>
+            <section class="article-story-section"><h2>${copy.otherTitle}</h2><div class="article-story-reasons">${copy.others.map(([title, textValue]) => `<div><h3>${title}</h3><p>${textValue}</p></div>`).join("")}</div></section>
+            <section id="chan-doan" class="article-story-section"><h2>${copy.diagnosisTitle}</h2><p>${copy.diagnosisText}</p><div class="article-story-steps">${copy.diagnosis.map(([title, textValue], index) => `<div><span>${index + 1}</span><div><h3>${title}</h3><p>${textValue}</p></div></div>`).join("")}</div><div class="article-antibiotic-note"><span>${icon("info")}</span><div><h3>${copy.randomTitle}</h3><p>${copy.randomText}</p></div></div></section>
+            <section id="theo-doi" class="article-story-section article-growth-tracker"><h2>${copy.trackTitle}</h2><p>${copy.trackIntro}</p><div class="article-story-actions">${copy.trackSteps.map(([title, textValue], index) => `<div><span>${String(index + 1).padStart(2, "0")}</span><div><h3>${title}</h3><p>${textValue}</p></div></div>`).join("")}</div><div class="article-story-inline-cta"><a class="btn btn-primary" href="${localizedHref("/child-growth-calculator/")}">${copy.trackButton} ${icon("arrow")}</a><a class="btn btn-secondary" href="${localizedHref("/growth-charts/")}">${copy.chartButton}</a></div></section>
+            <section id="khi-nao-kham" class="article-story-section article-story-concern"><h2>${copy.visitTitle}</h2><ul>${copy.visitSigns.map((item) => `<li>${icon("info")}<span>${item}</span></li>`).join("")}</ul><p class="article-story-note">${copy.urgent}</p></section>
+            <section class="article-story-section"><h2>${copy.treatmentTitle}</h2><p>${copy.treatmentText}</p></section>
+            <section class="article-story-close"><h2>${copy.closeTitle}</h2><p>${copy.close}</p><blockquote>${copy.quote}</blockquote><div class="article-story-inline-cta"><a class="btn btn-primary" href="${localizedHref("/child-growth-calculator/")}">${copy.trackButton} ${icon("arrow")}</a></div></section>
+            <section class="article-story-references"><h2>${copy.refsTitle}</h2><ol>
+              <li><a href="https://pedsendo.org/patient-resource/growth-hormone-deficiency/" target="_blank" rel="noreferrer">Pediatric Endocrine Society: Growth Hormone Deficiency</a></li>
+              <li><a href="https://medlineplus.gov/ency/article/001176.htm" target="_blank" rel="noreferrer">MedlinePlus: Growth hormone deficiency - children</a></li>
+              <li><a href="https://medlineplus.gov/lab-tests/growth-hormone-tests/" target="_blank" rel="noreferrer">MedlinePlus: Growth Hormone Tests</a></li>
+              <li><a href="https://www.who.int/tools/child-growth-standards/standards/length-height-for-age" target="_blank" rel="noreferrer">WHO: Length/height-for-age standards</a></li>
+            </ol><p>${copy.disclaimer}</p></section>
+          </article>
+          <aside class="article-story-aside"><nav aria-label="${copy.tocTitle}"><strong>${copy.tocTitle}</strong>${copy.toc.map(([href, label]) => `<a href="${href}">${label}</a>`).join("")}</nav><div class="article-story-tool"><span>${icon("brand")}</span><h2>${copy.toolTitle}</h2><p>${copy.toolText}</p><a class="btn btn-primary" href="${localizedHref("/child-growth-calculator/")}">${copy.trackButton} ${icon("arrow")}</a></div></aside>
+        </div></section>
       </main>
     `);
   }
@@ -6220,12 +6884,16 @@
       privacy: "Privacy | GrowthKid",
       "medical-disclaimer": "Medical Disclaimer | GrowthKid",
       terms: "Terms | GrowthKid",
-      "baby-weight-percentile": "Baby Weight Percentile Calculator | GrowthKid",
-      "is-baby-weight-normal": "Is My Baby's Weight Normal? | GrowthKid",
-      "who-vs-cdc": "WHO vs CDC Growth Charts | GrowthKid",
-      "read-growth-chart": "How to Read a Growth Chart | GrowthKid",
+      "baby-weight-percentile": activeLanguage === "vi" ? "Tính bách phân vị cân nặng của trẻ | GrowthKid" : "Baby Weight Percentile Calculator | GrowthKid",
+      "is-baby-weight-normal": activeLanguage === "vi" ? "Cân nặng của con có bình thường không? | GrowthKid" : "Is My Baby's Weight Normal? | GrowthKid",
+      "who-vs-cdc": activeLanguage === "vi" ? "Biểu đồ tăng trưởng WHO và CDC khác nhau thế nào? | GrowthKid" : "WHO vs CDC Growth Charts | GrowthKid",
+      "read-growth-chart": activeLanguage === "vi" ? "Cách đọc biểu đồ tăng trưởng của trẻ | GrowthKid" : "How to Read a Growth Chart | GrowthKid",
       "tall-child-weight": activeLanguage === "vi" ? "Con cao to chưa chắc thừa cân | GrowthKid" : "A Tall, Big Child Is Not Automatically Overweight | GrowthKid",
       adenovirus: activeLanguage === "vi" ? "Adenovirus đang tăng: 7 dấu hiệu cần nhớ | GrowthKid" : "Adenovirus in Children: 7 Warning Signs | GrowthKid",
+      dengue: activeLanguage === "vi" ? "Sốt xuất huyết ở trẻ: dấu hiệu cảnh báo | GrowthKid" : "Dengue Fever in Children: Warning Signs | GrowthKid",
+      "hand-foot-mouth": activeLanguage === "vi" ? "Tay chân miệng ở trẻ: khi nào cần đi viện? | GrowthKid" : "Hand, Foot and Mouth Disease in Children | GrowthKid",
+      "growth-hormone-deficiency": activeLanguage === "vi" ? "Trẻ chậm cao có phải thiếu hormone tăng trưởng? | GrowthKid" : "Growth Hormone Deficiency in Children | GrowthKid",
+      "precocious-puberty": activeLanguage === "vi" ? "Dậy thì sớm ở trẻ: dấu hiệu và cách theo dõi | GrowthKid" : "Early Puberty in Children: Signs and Growth Tracking | GrowthKid",
       embed: "Child Growth Calculator Widget | GrowthKid",
       bmi: "BMI Calculator for Kids | GrowthKid",
       weight: "Weight-for-age Calculator | GrowthKid",
@@ -7660,6 +8328,10 @@
     else if (["baby-weight-percentile", "is-baby-weight-normal", "who-vs-cdc", "read-growth-chart"].includes(page)) app.innerHTML = seoQuestionPage(page);
     else if (page === "tall-child-weight") app.innerHTML = tallChildWeightArticlePage();
     else if (page === "adenovirus") app.innerHTML = adenovirusArticlePage();
+    else if (page === "dengue") app.innerHTML = dengueArticlePage();
+    else if (page === "hand-foot-mouth") app.innerHTML = handFootMouthArticlePage();
+    else if (page === "growth-hormone-deficiency") app.innerHTML = growthHormoneDeficiencyArticlePage();
+    else if (page === "precocious-puberty") app.innerHTML = precociousPubertyArticlePage();
     else if (page === "embed") app.innerHTML = embedPage();
     else app.innerHTML = homePage();
 
