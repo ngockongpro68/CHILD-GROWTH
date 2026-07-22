@@ -153,7 +153,7 @@
       "WHO-based growth check": "Đánh giá tăng trưởng dựa trên WHO",
       "Growth Curves": "Đường cong tăng trưởng",
       "Your measurement": "Điểm đo của bé",
-      "Median (0)": "Trung vị (0)",
+      "Median (0)": "Mức chuẩn (0 SD)",
       "Measured on": "Ngày đo",
       "Age at measurement": "Tuổi khi đo",
       "Growth check-in": "Tóm tắt tăng trưởng",
@@ -179,7 +179,7 @@
       "What are WHO Child Growth Standards?": "Chuẩn tăng trưởng trẻ em WHO là gì?",
       "They are international growth references developed from the WHO Multicentre Growth Reference Study for assessing young children's physical growth.": "Đây là bộ tham chiếu tăng trưởng quốc tế được phát triển từ nghiên cứu đa trung tâm của WHO để đánh giá tăng trưởng thể chất ở trẻ nhỏ.",
       "What does a z-score mean?": "Z-score có nghĩa là gì?",
-      "A z-score describes how far a measurement is from the reference median. Values near zero are close to the median.": "Z-score cho biết số đo lệch bao xa so với trung vị tham chiếu. Giá trị gần 0 nghĩa là gần trung vị.",
+      "A z-score describes how far a measurement is from the reference median. Values near zero are close to the median.": "Z-score cho biết số đo chênh lệch bao xa so với mức chuẩn tham chiếu. Giá trị gần 0 nghĩa là số đo gần mức chuẩn.",
       "When should parents talk to a clinician?": "Khi nào phụ huynh nên trao đổi với nhân viên y tế?",
       "A single result is only one signal. Discuss growth concerns, sudden trend changes, or extreme z-scores with a qualified healthcare professional.": "Một kết quả đơn lẻ chỉ là một tín hiệu. Hãy trao đổi các lo ngại tăng trưởng, thay đổi xu hướng đột ngột hoặc z-score quá xa với chuyên gia y tế.",
       "Concise educational copy for SEO and for parents who want context before interpreting a result.": "Nội dung giáo dục ngắn gọn cho SEO và cho phụ huynh cần bối cảnh trước khi đọc kết quả.",
@@ -216,7 +216,24 @@
       "Child growth calculator concept for parents and healthcare professionals. Educational use only and not a substitute for medical advice.": "Ý tưởng máy tính tăng trưởng dành cho phụ huynh và nhân viên y tế. Chỉ dùng cho mục đích giáo dục, không thay thế tư vấn y khoa.",
       "Measurement date must be after date of birth.": "Ngày đo phải sau ngày sinh.",
       "This prototype supports children from birth to 60 months.": "Bản mẫu này hỗ trợ trẻ từ sơ sinh đến 60 tháng.",
-      "Please enter weight and height.": "Vui lòng nhập cân nặng và chiều cao."
+      "Please enter weight and height.": "Vui lòng nhập cân nặng và chiều cao.",
+      "Born preterm": "Bé sinh non",
+      "Use age correction for a baby born before 37 completed weeks.": "Hiệu chỉnh tuổi cho bé sinh trước 37 tuần thai hoàn thành.",
+      "Gestational age at birth": "Tuổi thai khi sinh",
+      "Completed weeks": "Số tuần hoàn thành",
+      "Additional days": "Số ngày lẻ",
+      "weeks": "tuần",
+      "days": "ngày",
+      "Age is corrected to 40 weeks and applied until 24 months of chronological age.": "Tuổi được hiệu chỉnh về mốc 40 tuần và áp dụng đến 24 tháng tuổi thực.",
+      "Chronological age": "Tuổi thực",
+      "Corrected age": "Tuổi hiệu chỉnh",
+      "Reference age": "Tuổi dùng tra chuẩn",
+      "Reference level": "Mức chuẩn tham chiếu",
+      "Age correction applied": "Đã áp dụng hiệu chỉnh tuổi",
+      "Age correction is no longer applied after 24 months of chronological age.": "Không còn hiệu chỉnh sau 24 tháng tuổi thực.",
+      "Enter a valid gestational age from 20 weeks 0 days to 36 weeks 6 days.": "Vui lòng nhập tuổi thai hợp lệ từ 20 tuần 0 ngày đến 36 tuần 6 ngày.",
+      "The corrected age is before the estimated due date. Use a preterm growth chart and clinical follow-up instead of the WHO term chart.": "Bé chưa đến ngày dự sinh theo tuổi hiệu chỉnh. Hãy dùng biểu đồ chuyên biệt cho trẻ sinh non và theo dõi với nhân viên y tế thay cho biểu đồ WHO trẻ đủ tháng.",
+      "WHO results use corrected age. For very young preterm infants, clinicians may use a dedicated preterm chart during the transition period.": "Kết quả WHO đang dùng tuổi hiệu chỉnh. Với trẻ sinh non còn rất nhỏ, nhân viên y tế có thể dùng biểu đồ sinh non chuyên biệt trong giai đoạn chuyển tiếp."
     },
     es: {
       "Child Growth Calculator": "Calculadora de crecimiento infantil",
@@ -910,7 +927,7 @@
       "Sex-specific curves": "Đường chuẩn theo giới tính",
       "Growth references differ for boys and girls, so sex is part of the calculation.": "Tham chiếu tăng trưởng khác nhau giữa bé trai và bé gái, nên giới tính là một phần của phép tính.",
       "Z-score estimate": "Ước tính z-score",
-      "A z-score estimates how far a measurement is from the reference median.": "Z-score ước tính số đo lệch bao xa so với trung vị tham chiếu.",
+      "A z-score estimates how far a measurement is from the reference median.": "Z-score ước tính số đo chênh lệch bao xa so với mức chuẩn tham chiếu.",
       "Percentile view": "Hiển thị bách phân vị",
       "Percentiles make the result easier for parents to compare with chart lines.": "Bách phân vị giúp phụ huynh dễ so sánh kết quả với các đường trên biểu đồ.",
       "Measurement guide": "Hướng dẫn đo",
@@ -1176,7 +1193,7 @@
       "Embed the calculator": "Nhúng công cụ tính",
       "Clinics, newsletters, and parenting blogs can embed the calculator with a simple iframe.": "Phòng khám, newsletter và blog cha mẹ có thể nhúng công cụ bằng một iframe đơn giản.",
       "Copy embed code": "Sao chép mã nhúng",
-      "Download PNG": "Tải PNG",
+      "Download PNG": "Tải ảnh PNG",
       "Share snapshot": "Chia sẻ ảnh",
       "Save to trend": "Lưu vào xu hướng",
       "Shareable snapshot": "Ảnh chia sẻ",
@@ -2193,6 +2210,8 @@
       "Height": "Chi&#7873;u cao",
       "Head Circumference": "V&#242;ng &#273;&#7847;u",
       "Save result": "L&#432;u k&#7871;t qu&#7843;",
+      "Height percentile": "B&#225;ch ph&#226;n v&#7883; chi&#7873;u cao",
+      "Saved growth trend": "Bi&#7875;u &#273;&#7891; xu h&#432;&#7899;ng t&#259;ng tr&#432;&#7903;ng &#273;&#227; l&#432;u",
       "Share": "Chia s&#7867;",
       "More actions": "Th&#234;m l&#7921;a ch&#7885;n",
       "Calculator guidance": "H&#432;&#7899;ng d&#7851;n s&#7917; d&#7909;ng c&#244;ng c&#7909;",
@@ -2211,17 +2230,37 @@
   const referenceComparisonTranslations = {
     vi: {
       "WHO 50th percentile reference": "Mốc tham chiếu bách phân vị 50 của WHO",
-      "A quick comparison with WHO medians for age or height and sex. These are reference points, not required targets.": "So s&#225;nh nhanh v&#7899;i trung v&#7883; WHO theo tu&#7893;i ho&#7863;c theo chi&#7873;u cao v&#224; gi&#7899;i t&#237;nh. &#272;&#226;y l&#224; c&#225;c m&#7889;c tham chi&#7871;u, kh&#244;ng ph&#7843;i m&#7909;c ti&#234;u b&#7855;t bu&#7897;c.",
-      "A quick comparison with the WHO median for this age and sex. This is a reference point, not a required target.": "So s&#225;nh nhanh v&#7899;i trung v&#7883; WHO theo tu&#7893;i v&#224; gi&#7899;i t&#237;nh. &#272;&#226;y l&#224; m&#7889;c tham chi&#7871;u, kh&#244;ng ph&#7843;i m&#7909;c ti&#234;u b&#7855;t bu&#7897;c.",
+      "A quick comparison with WHO medians for age or height and sex. These are reference points, not required targets.": "So s&#225;nh nhanh v&#7899;i ch&#7881; s&#7889; chu&#7849;n tham chi&#7871;u c&#7911;a WHO theo tu&#7893;i ho&#7863;c theo chi&#7873;u cao v&#224; gi&#7899;i t&#237;nh. &#272;&#226;y l&#224; c&#225;c m&#7889;c tham chi&#7871;u, kh&#244;ng ph&#7843;i m&#7909;c ti&#234;u b&#7855;t bu&#7897;c.",
+      "A quick comparison with the WHO median for this age and sex. This is a reference point, not a required target.": "So s&#225;nh nhanh v&#7899;i ch&#7881; s&#7889; chu&#7849;n tham chi&#7871;u c&#7911;a WHO theo tu&#7893;i v&#224; gi&#7899;i t&#237;nh. &#272;&#226;y l&#224; m&#7889;c tham chi&#7871;u, kh&#244;ng ph&#7843;i m&#7909;c ti&#234;u b&#7855;t bu&#7897;c.",
       "Current": "Hi&#7879;n t&#7841;i",
       "Reference": "Tham chi&#7871;u",
+      "Reference weight standard": "C&#226;n n&#7863;ng chu&#7849;n tham chi&#7871;u",
+      "Reference height standard": "Chi&#7873;u cao chu&#7849;n tham chi&#7871;u",
+      "Reference weight-for-height standard": "C&#226;n n&#7863;ng theo chi&#7873;u cao chu&#7849;n tham chi&#7871;u",
+      "Reference BMI standard": "BMI chu&#7849;n tham chi&#7871;u",
       "Difference": "Ch&#234;nh l&#7879;ch",
       "WHO reference is not available for this age.": "WHO kh&#244;ng c&#243; m&#7889;c tham chi&#7871;u cho &#273;&#7897; tu&#7893;i n&#224;y.",
-      "Compared with WHO median": "So v&#7899;i trung v&#7883; WHO",
-      "At the WHO median": "&#7902; m&#7913;c trung v&#7883; WHO",
-      "below the WHO median": "th&#7845;p h&#417;n trung v&#7883; WHO",
-      "above the WHO median": "cao h&#417;n trung v&#7883; WHO",
+      "Compared with WHO median": "So v&#7899;i ch&#7881; s&#7889; chu&#7849;n tham chi&#7871;u WHO",
+      "Compared with reference weight": "So v&#7899;i c&#226;n n&#7863;ng chu&#7849;n",
+      "Compared with reference height": "So v&#7899;i chi&#7873;u cao chu&#7849;n",
+      "Compared with reference weight-for-height": "So v&#7899;i c&#226;n n&#7863;ng chu&#7849;n theo chi&#7873;u cao",
+      "Compared with reference BMI": "So v&#7899;i BMI chu&#7849;n",
+      "At the WHO median": "B&#7857;ng ch&#7881; s&#7889; chu&#7849;n tham chi&#7871;u WHO",
+      "below the WHO median": "th&#7845;p h&#417;n ch&#7881; s&#7889; chu&#7849;n tham chi&#7871;u WHO",
+      "above the WHO median": "cao h&#417;n ch&#7881; s&#7889; chu&#7849;n tham chi&#7871;u WHO",
       "WHO reference unavailable": "WHO kh&#244;ng c&#243; tham chi&#7871;u",
+      "WHO reference range (-2 to +2 SD)": "Kho&#7843;ng tham chi&#7871;u WHO (-2 &#273;&#7871;n +2 SD)",
+      "WHO median": "Ch&#7881; s&#7889; chu&#7849;n tham chi&#7871;u WHO",
+      "Standard weight range (-2 to +2 SD)": "Kho&#7843;ng c&#226;n n&#7863;ng chu&#7849;n (-2 &#273;&#7871;n +2 SD)",
+      "Standard height range (-2 to +2 SD)": "Kho&#7843;ng chi&#7873;u cao chu&#7849;n (-2 &#273;&#7871;n +2 SD)",
+      "Standard weight-for-height range (-2 to +2 SD)": "Kho&#7843;ng c&#226;n n&#7863;ng chu&#7849;n theo chi&#7873;u cao (-2 &#273;&#7871;n +2 SD)",
+      "Standard BMI range (-2 to +2 SD)": "Kho&#7843;ng BMI chu&#7849;n (-2 &#273;&#7871;n +2 SD)",
+      "Standard weight": "C&#226;n n&#7863;ng chu&#7849;n",
+      "Standard height": "Chi&#7873;u cao chu&#7849;n",
+      "Standard weight-for-height": "C&#226;n n&#7863;ng chu&#7849;n theo chi&#7873;u cao",
+      "Standard BMI": "BMI chu&#7849;n",
+      "Within range": "Trong kho&#7843;ng chu&#7849;n",
+      "Percentile and SD describe the same position on the WHO reference.": "B&#225;ch ph&#226;n v&#7883; v&#224; SD l&#224; hai c&#225;ch bi&#7875;u di&#7877;n c&#249;ng m&#7897;t v&#7883; tr&#237; tr&#234;n chu&#7849;n WHO.",
       "WHO weight-for-height reference data are available from birth to 5 years only.": "WHO ch&#7881; c&#243; tham chi&#7871;u c&#226;n n&#7863;ng theo chi&#7873;u cao t&#7915; s&#417; sinh &#273;&#7871;n 5 tu&#7893;i.",
       "WHO weight-for-height reference is not available for this measured length or height.": "WHO kh&#244;ng c&#243; tham chi&#7871;u c&#226;n n&#7863;ng cho chi&#7873;u d&#224;i ho&#7863;c chi&#7873;u cao &#273;&#227; nh&#7853;p."
     },
@@ -2580,8 +2619,8 @@
       intro: "Biểu đồ tăng trưởng là công cụ trực quan giúp ba mẹ và nhân viên y tế xem trẻ có đang đi tương đối ổn định theo đường phát triển của mình hay không.",
       points: ["Điểm hiện tại biểu thị một số đo tại một độ tuổi cụ thể.", "Các đường bách phân vị so sánh vị trí của trẻ với quần thể tham chiếu.", "Đường xu hướng qua nhiều lần khám hữu ích hơn một điểm đo riêng lẻ."],
       faq: [
-        ["Bách phân vị 50 có nghĩa là gì?", "Đó là trung vị của quần thể tham chiếu, không phải mục tiêu mà mọi trẻ đều phải đạt."],
-        ["Z-score là gì?", "Z-score ước tính số đo cách trung vị tham chiếu bao xa."],
+        ["Bách phân vị 50 có nghĩa là gì?", "Đó là vị trí ở giữa của quần thể tham chiếu, không phải mục tiêu mà mọi trẻ đều phải đạt."],
+        ["Z-score là gì?", "Z-score ước tính số đo chênh lệch bao xa so với mức chuẩn tham chiếu."],
         ["Khi nào cần lo lắng?", "Hãy trao đổi với nhân viên y tế khi đường tăng trưởng đổi hướng nhanh, chỉ số quá xa hoặc trẻ có triệu chứng bất thường."]
       ]
     }
@@ -2595,7 +2634,7 @@
     },
     calculator: {
       title: "Track your child's growth",
-      copy: "Enter measurements to see z-scores, percentiles, and a WHO growth chart.",
+      copy: "",
       eyebrow: "WHO-based growth assessment"
     },
     bmi: {
@@ -2686,6 +2725,8 @@
   const underFiveMaxMonths = 60;
   const who2007MaxMonths = 228;
   const who2007WeightMaxMonths = 120;
+  const fullTermGestationDays = 40 * 7;
+  const correctedAgeLimitMonths = 24;
 
   function readStoredLanguage() {
     try {
@@ -2937,7 +2978,6 @@
       ".education-card",
       ".content-panel",
       ".viral-card",
-      ".share-preview",
       ".trend-card",
       ".question-card",
       ".btn",
@@ -3189,9 +3229,42 @@
                 </div>
               </fieldset>
             </div>
+            <div class="prematurity-box">
+              <label class="preterm-toggle" for="preterm">
+                <input id="preterm" name="preterm" type="checkbox" value="yes" data-preterm-toggle>
+                <span class="preterm-switch" aria-hidden="true"></span>
+                <span class="preterm-toggle-copy">
+                  <strong>Born preterm</strong>
+                  <small>Use age correction for a baby born before 37 completed weeks.</small>
+                </span>
+              </label>
+              <div class="prematurity-details" data-preterm-details hidden>
+                <div class="prematurity-details-heading">
+                  <strong>Gestational age at birth</strong>
+                  <small>Age is corrected to 40 weeks and applied until 24 months of chronological age.</small>
+                </div>
+                <div class="field">
+                  <label for="gestationalWeeks">Completed weeks</label>
+                  <div class="input-with-unit">
+                    <input id="gestationalWeeks" name="gestationalWeeks" type="number" min="20" max="36" step="1" value="32" inputmode="numeric" disabled>
+                    <span>weeks</span>
+                  </div>
+                </div>
+                <div class="field">
+                  <label for="gestationalDays">Additional days</label>
+                  <div class="input-with-unit">
+                    <input id="gestationalDays" name="gestationalDays" type="number" min="0" max="6" step="1" value="0" inputmode="numeric" disabled>
+                    <span>days</span>
+                  </div>
+                </div>
+              </div>
+            </div>
             <div class="age-preview" id="agePreview" aria-live="polite">
               <span>Calculated age</span>
-              <strong data-age-value>Enter birth and measurement dates to calculate age.</strong>
+              <span class="age-preview-values">
+                <strong data-age-value>Enter birth and measurement dates to calculate age.</strong>
+                <small data-age-note hidden></small>
+              </span>
             </div>
           </fieldset>
           <fieldset class="calculator-form-section">
@@ -3239,51 +3312,6 @@
     `;
   }
 
-  function workspacePreviewContent(result) {
-    if (!result) {
-      return `
-        <div class="calculator-preview-empty">
-          <span class="calculator-preview-icon">${icon("chart")}</span>
-          <span class="eyebrow">Results preview</span>
-          <h2>Your growth summary will appear here</h2>
-          <p>Enter the child's information and current measurements, then view the result.</p>
-          <div class="calculator-preview-curve" aria-hidden="true">
-            <span></span><span></span><span></span><i></i>
-          </div>
-          <div class="calculator-preview-foot">
-            <span class="check-dot">&#10003;</span>
-            <span>No sample data is shown</span>
-          </div>
-        </div>
-      `;
-    }
-
-    const metric = highlightMetric(result);
-    const status = statusLabel(metric.status);
-    return `
-      <div class="calculator-preview-result">
-        <div class="calculator-preview-result-head">
-          <div>
-            <span class="eyebrow">Latest result</span>
-            <h2>${t(titleFor(metric.key))}</h2>
-          </div>
-          ${statusPill(metric.status)}
-        </div>
-        <div class="mini-chart calculator-preview-chart">${chartSvg(result, metric.key === "head" ? "height" : metric.key, true)}</div>
-        <div class="calculator-preview-metrics">
-          <div><span>${t("Z-score")}</span><strong>${metric.z === null ? "--" : signed(metric.z)}</strong></div>
-          <div><span>${t("Percentile")}</span><strong>${metric.percentile === null ? "--" : Math.round(metric.percentile)}</strong></div>
-          <div><span>${t("Status")}</span><strong>${t(compactStatusLabel(status))}</strong></div>
-        </div>
-        <p>${t("Full charts and interpretation are available below.")}</p>
-      </div>
-    `;
-  }
-
-  function workspacePreviewCard() {
-    return `<aside class="calculator-preview-card calculator-card" id="calculatorPreviewCard" aria-live="polite">${workspacePreviewContent(null)}</aside>`;
-  }
-
   function snapshotCard() {
     return `
       <aside class="snapshot-card calculator-card">
@@ -3320,7 +3348,6 @@
             </div>
             <div class="calculator-workspace-grid">
               ${calculatorCard(false, false)}
-              <div class="calculator-preview">${workspacePreviewCard()}</div>
             </div>
             <div class="calculator-reference-note">
               <span>${icon("info")}</span>
@@ -3350,7 +3377,7 @@
               <div class="calculator-intro-copy">
                 <span class="eyebrow">${cfg.eyebrow}</span>
                 <h1>${cfg.title}</h1>
-                <p class="page-copy">${cfg.copy}</p>
+                ${cfg.copy ? `<p class="page-copy">${cfg.copy}</p>` : ""}
               </div>
               <div class="calculator-standard-note" aria-label="WHO calculator highlights">
                 <span class="calculator-standard-icon">${icon("shield")}</span>
@@ -3359,7 +3386,6 @@
             </div>
             <div class="calculator-workspace-grid">
               ${calculatorCard(false, false)}
-              <div class="calculator-preview">${workspacePreviewCard()}</div>
             </div>
             <div class="calculator-reference-note">
               <span>${icon("info")}</span>
@@ -6267,34 +6293,12 @@
             </div>
             <div class="results-actions">
               <button class="btn btn-primary" id="shareSnapshot" type="button">${icon("share")} Share</button>
+              <button class="btn btn-secondary" id="downloadSnapshot" type="button">${icon("download")} Download PNG</button>
               <button class="btn btn-secondary" id="saveTrendPoint" type="button">${icon("chart")} Save result</button>
-              <div class="results-more" data-results-more>
-                <button class="btn btn-secondary results-more-trigger" type="button" aria-label="More actions" aria-expanded="false" aria-controls="resultsMoreMenu">
-                  ${icon("more")} <span>More actions</span>
-                </button>
-                <div class="results-more-menu" id="resultsMoreMenu">
-                  <button id="downloadReport" type="button">${icon("download")} Download report</button>
-                  <button id="downloadSnapshot" type="button">${icon("download")} Download PNG</button>
-                  <a href="${localizedHref("/growth-results/")}">${icon("arrow")} View results page</a>
-                </div>
-              </div>
             </div>
           </div>
           <div class="results-layout">
-            <aside class="side-panel">
-              <h2>Overview</h2>
-              <div class="legend">
-                <span class="legend-item"><span class="legend-swatch p97"></span>97th percentile</span>
-                <span class="legend-item"><span class="legend-swatch p85"></span>85th percentile</span>
-                <span class="legend-item"><span class="legend-swatch p50"></span>50th percentile</span>
-                <span class="legend-item"><span class="legend-swatch p15"></span>15th percentile</span>
-                <span class="legend-item"><span class="legend-swatch p3"></span>3rd percentile</span>
-                <span class="legend-item"><span class="legend-swatch child"></span>Your child</span>
-              </div>
-              <div class="disclaimer">Educational use only. The calculator uses WHO Child Growth Standards for 0-5 years and WHO Growth Reference 2007 for 5-19 years where WHO provides the indicator.</div>
-            </aside>
             <div>
-              <div class="result-grid" id="resultCards">${resultCards(result)}</div>
               <section class="reference-comparison" id="referenceComparison">${referenceComparison(result)}</section>
               <div class="chart-and-panel">
                 <section class="chart-card">
@@ -6307,12 +6311,22 @@
                       <button class="chart-tab ${chartIndicator === "bmi" ? "is-active" : ""}" data-chart="bmi" type="button">BMI</button>
                     </div>
                   </div>
+                  <div class="chart-reference-key">
+                    <p class="legend-note">${t("Percentile and SD describe the same position on the WHO reference.")}</p>
+                    <span class="legend-item"><span class="legend-swatch p99"></span>${percentileSdLabel(3)}</span>
+                    <span class="legend-item"><span class="legend-swatch p97"></span>${percentileSdLabel(2)}</span>
+                    <span class="legend-item"><span class="legend-swatch p85"></span>${percentileSdLabel(1)}</span>
+                    <span class="legend-item"><span class="legend-swatch p50"></span>${percentileSdLabel(0)}</span>
+                    <span class="legend-item"><span class="legend-swatch p15"></span>${percentileSdLabel(-1)}</span>
+                    <span class="legend-item"><span class="legend-swatch p3"></span>${percentileSdLabel(-2)}</span>
+                    <span class="legend-item"><span class="legend-swatch p01"></span>${percentileSdLabel(-3)}</span>
+                    <span class="legend-item"><span class="legend-swatch child"></span>Your child</span>
+                  </div>
                   <div class="growth-chart" id="growthChart">${chartSvg(result, chartIndicator, false)}</div>
                 </section>
                 <aside class="side-panel" id="interpretation">${interpretation(result, chartIndicator)}</aside>
               </div>
               <div class="post-results-grid">
-                <section class="share-preview" id="shareSnapshotPreview">${snapshotPreview(result)}</section>
                 <section class="trend-card" id="trendTracker">${trendTrackerInner(result)}</section>
                 <section class="question-card">${pediatricianChecklist()}</section>
               </div>
@@ -6320,30 +6334,6 @@
           </div>
         </div>
       </section>
-    `;
-  }
-
-  function snapshotPreview(result) {
-    const metric = highlightMetric(result);
-    const status = statusLabel(metric.status);
-    const statusText = compactStatusLabel(status);
-    const percentileLabel = metric.percentile === null ? "--" : `${t("Percentile")} ${Math.round(metric.percentile)}`;
-    return `
-      <div class="share-preview-top">
-        <div>
-          <span class="eyebrow">${t("Social snapshot")}</span>
-          <h2>${t("Growth check-in")}</h2>
-        </div>
-        ${statusPill(metric.status)}
-      </div>
-      <div class="snapshot-result">
-        <strong>${metric.percentile === null ? "--" : Math.round(metric.percentile)}</strong>
-        <div>
-          <span>${percentileLabel}</span>
-          <p>${t(titleFor(metric.key))} - ${t("Z-score")} ${metric.z === null ? "--" : signed(metric.z)}</p>
-        </div>
-      </div>
-      <p class="source-note">${t("Designed as a clean, name-free card for stories, messages, and private family sharing.")}</p>
     `;
   }
 
@@ -6398,41 +6388,27 @@
     `;
   }
 
-  function resultCards(result) {
-    return result.metrics.filter((metric) => metric.key !== "head" || metric.status !== "notEntered").map((metric) => `
-      <article class="result-card">
-        <div class="result-title">
-          <span class="icon-box">${icon(metric.icon)}</span>
-          <span>${t(titleFor(metric.key))}</span>
-        </div>
-        <div class="result-value">
-          <span>${t("Z-score")}</span>
-          <strong>${metric.z === null ? "--" : signed(metric.z)}</strong>
-        </div>
-        ${statusPill(metric.status)}
-        <div>
-          <span class="result-value"><span>${t("Percentile")}</span></span>
-          <span class="percentile">${metric.percentile === null ? "--" : ordinal(metric.percentile)}</span>
-        </div>
-        ${metricMedianGap(result, metric)}
-      </article>
-    `).join("");
-  }
-
   function referenceComparison(result) {
     const items = [
       referenceComparisonItem(result, "weight", result.weight, "kg"),
       referenceComparisonItem(result, "height", result.height, "cm"),
-      referenceComparisonItem(result, "wfh", result.weight, "kg")
+      referenceComparisonItem(result, "wfh", result.weight, "kg"),
+      referenceComparisonItem(result, "bmi", result.bmi, "kg/m\u00b2")
     ];
 
     return `
       <div class="reference-comparison-header">
         <div>
-          <h2>${t("WHO 50th percentile reference")}</h2>
+          <h2>${t("WHO reference")}</h2>
           <p>${t("A quick comparison with WHO medians for age or height and sex. These are reference points, not required targets.")}</p>
         </div>
       </div>
+      ${result.preterm && result.correctionApplied ? `
+        <div class="preterm-reference-note">
+          <span>${icon("info")}</span>
+          <p><strong>${t("Age correction applied")}:</strong> ${t("Corrected age")} ${ageLabel(result.ageMonths)}; ${t("Chronological age")} ${ageLabel(result.chronologicalAgeMonths)}; ${t("Gestational age at birth")} ${result.gestationalAgeWeeks} ${t("weeks")} ${result.gestationalAgeDays} ${t("days")}. ${t("WHO results use corrected age. For very young preterm infants, clinicians may use a dedicated preterm chart during the transition period.")}</p>
+        </div>
+      ` : ""}
       <div class="reference-comparison-grid">
         ${items.join("")}
       </div>
@@ -6441,13 +6417,20 @@
 
   function referenceComparisonItem(result, key, currentValue, unit) {
     const reference = idealReferenceValue(result, key);
-    const title = key === "weight" ? "Weight" : key === "height" ? "Height" : "Weight-for-height";
+    const details = {
+      weight: { title: "Weight", icon: "chart", referenceLabel: "Reference weight standard", comparisonLabel: "Compared with reference weight" },
+      height: { title: "Height", icon: "ruler", referenceLabel: "Reference height standard", comparisonLabel: "Compared with reference height" },
+      wfh: { title: "Weight-for-height", icon: "chart", referenceLabel: "Reference weight-for-height standard", comparisonLabel: "Compared with reference weight-for-height" },
+      bmi: { title: "BMI-for-age", icon: "sparkle", referenceLabel: "Reference BMI standard", comparisonLabel: "Compared with reference BMI" }
+    }[key];
+    const title = details ? details.title : key;
+    const itemIcon = details ? details.icon : "chart";
 
     if (!Number.isFinite(reference)) {
       return `
-        <article class="reference-card">
-          <div class="reference-card-title">
-            <span class="icon-box">${icon(key === "height" ? "ruler" : "chart")}</span>
+        <article class="reference-metric is-unavailable">
+          <div class="reference-metric-title">
+            <span class="icon-box">${icon(itemIcon)}</span>
             <strong>${t(title)}</strong>
           </div>
           <p class="reference-unavailable">${t("WHO reference is not available for this age.")}</p>
@@ -6456,20 +6439,34 @@
     }
 
     const difference = currentValue - reference;
+    const differenceTone = Math.abs(difference) < 0.05 ? "is-level" : difference < 0 ? "is-below" : "is-above";
     return `
-      <article class="reference-card">
-        <div class="reference-card-title">
-            <span class="icon-box">${icon(key === "height" ? "ruler" : "chart")}</span>
+      <article class="reference-metric">
+        <div class="reference-metric-title">
+          <span class="icon-box">${icon(itemIcon)}</span>
           <strong>${t(title)}</strong>
         </div>
-        <div class="reference-values">
-          <div><span>${t("Current")}</span><strong>${formatMeasurement(currentValue, unit)}</strong></div>
-          <div><span>${t("Reference")}</span><strong>${formatMeasurement(reference, unit)}</strong></div>
-          <div><span>${t("Difference")}</span><strong>${signedMeasurement(difference, unit)}</strong></div>
+        <div class="reference-metric-values">
+          <div class="reference-metric-primary">
+            <span>${t("Current")}</span>
+            ${measurementMarkup(currentValue, unit)}
+          </div>
+          <div class="reference-metric-standard">
+            <span>${t("Reference level")}</span>
+            ${measurementMarkup(reference, unit)}
+          </div>
         </div>
-        <p>${t("Compared with WHO median")}</p>
+        <div class="reference-metric-difference ${differenceTone}">
+          <span>${t("Difference")}</span>
+          <strong>${signedMeasurement(difference, unit)}</strong>
+        </div>
+        <p class="reference-metric-context">${t(details.comparisonLabel)}</p>
       </article>
     `;
+  }
+
+  function measurementMarkup(value, unit) {
+    return `<strong><b>${value.toFixed(1)}</b><small>${unit}</small></strong>`;
   }
 
   function idealReferenceValue(result, key) {
@@ -6479,19 +6476,6 @@
     }
     const value = referenceValue(result.sex || "boy", key, result.ageMonths || 0, 0);
     return Number.isFinite(value) ? value : null;
-  }
-
-  function metricMedianGap(result, metric) {
-    if (!metric || metric.z === null) return "";
-    const currentValue = metric.key === "height" ? result.height : metric.key === "bmi" ? result.bmi : result.weight;
-    const reference = idealReferenceValue(result, metric.key);
-    if (!Number.isFinite(currentValue) || !Number.isFinite(reference)) return "";
-    const unit = metric.key === "height" ? "cm" : metric.key === "bmi" ? "kg/m\u00b2" : "kg";
-    const difference = currentValue - reference;
-    const comparison = Math.abs(difference) < 0.05
-      ? t("At the WHO median")
-      : `${formatMeasurement(Math.abs(difference), unit)} ${t(difference < 0 ? "below the WHO median" : "above the WHO median")}`;
-    return `<p class="metric-median-gap">${comparison}</p>`;
   }
 
   function formatMeasurement(value, unit) {
@@ -6538,14 +6522,6 @@
       <h2>${t("Interpretation")}</h2>
       <p>${sentence}</p>
       <p>${t(statusDetail(metric.status, metric.key))}</p>
-      <div>
-        <h3>${t("About z-score")}</h3>
-        <ul>
-          <li>${t("Normal: -2 to +2.")}</li>
-          <li>${t("Monitor: below -2 or above +2.")}</li>
-          <li>${t("Consult: below -3 or above +3.")}</li>
-        </ul>
-      </div>
       <a class="btn btn-quiet" href="https://www.who.int/tools/child-growth-standards" target="_blank" rel="noreferrer">${t("Learn about WHO standards")} ${icon("arrow")}</a>
     `;
   }
@@ -6582,13 +6558,15 @@
     const height = Number(data.height);
     const head = data.head ? Number(data.head) : null;
     const sex = data.sex === "girl" ? "girl" : "boy";
-    const ageMonths = monthDiff(dob, measureDate);
+    const ageAdjustment = prematurityAgeAdjustment(data, dob, measureDate);
+    const ageMonths = ageAdjustment.referenceAgeMonths;
+    const chronologicalAgeMonths = ageAdjustment.chronologicalAgeMonths;
 
-    if (!Number.isFinite(ageMonths) || ageMonths < 0) {
+    if (!Number.isFinite(chronologicalAgeMonths) || chronologicalAgeMonths < 0) {
       throw new Error("Measurement date must be after date of birth.");
     }
 
-    if (ageMonths > who2007MaxMonths) {
+    if (chronologicalAgeMonths > who2007MaxMonths) {
       throw new Error("This calculator supports children from birth to 19 years (228 months).");
     }
 
@@ -6620,6 +6598,13 @@
       sex,
       ageMonths,
       ageLabel: ageLabel(ageMonths),
+      chronologicalAgeMonths,
+      correctedAgeMonths: ageAdjustment.correctedAgeMonths,
+      preterm: ageAdjustment.preterm,
+      correctionApplied: ageAdjustment.correctionApplied,
+      gestationalAgeWeeks: ageAdjustment.gestationalAgeWeeks,
+      gestationalAgeDays: ageAdjustment.gestationalAgeDays,
+      correctionDays: ageAdjustment.correctionDays,
       measureDate: toIsoDate(measureDate),
       referenceLabel: referenceLabel(ageMonths),
       weight,
@@ -6979,7 +6964,7 @@
     const sex = result.sex || "boy";
     const width = compact ? 560 : 760;
     const height = compact ? 310 : 520;
-    const padding = compact ? { left: 42, right: 24, top: 24, bottom: 38 } : { left: 56, right: 96, top: 32, bottom: 62 };
+    const padding = compact ? { left: 42, right: 24, top: 24, bottom: 38 } : { left: 56, right: 148, top: 32, bottom: 62 };
     const metric = result.metrics && result.metrics.find((item) => item.key === indicator);
 
     if (metric && metric.status === "notAvailable") {
@@ -6987,11 +6972,13 @@
     }
 
     const zLines = [
-      { z: 1.88, label: "97th", cls: "p97", color: "#ef4444" },
-      { z: 1, label: "85th", cls: "p85", color: "#f59e0b" },
-      { z: 0, label: "50th", cls: "p50", color: "#16a34a" },
-      { z: -1, label: "15th", cls: "p15", color: "#f59e0b" },
-      { z: -1.88, label: "3rd", cls: "p3", color: "#ef4444" }
+      { z: 3, color: "#991b1b" },
+      { z: 2, color: "#ef4444" },
+      { z: 1, color: "#f59e0b" },
+      { z: 0, color: "#16a34a" },
+      { z: -1, color: "#2563eb" },
+      { z: -2, color: "#4f46e5" },
+      { z: -3, color: "#7e22ce" }
     ];
     const domain = chartDomain(result, indicator);
     const ticks = chartTicks(domain);
@@ -7002,28 +6989,28 @@
     }
 
     const x = (months) => padding.left + ((months - domain.start) / (domain.end - domain.start)) * (width - padding.left - padding.right);
-    const scale = chartScale(sex, indicator, domain, result.ageMonths || 24);
+    const scale = chartScale(sex, indicator, domain, result.ageMonths ?? 24);
     const yForValue = (value) => chartValueToY(value, scale, padding.top, height - padding.bottom);
     const yForZ = (month, zValue) => {
-      const value = chartReferenceValue(sex, indicator, month, zValue, result.ageMonths || 24);
+      const value = chartReferenceValue(sex, indicator, month, zValue, result.ageMonths ?? 24);
       return yForValue(value);
     };
     const pathFor = (z) => {
       const points = [];
       for (let m = domain.start; m <= domain.end; m += domain.pathStep) {
-        const value = chartReferenceValue(sex, indicator, m, z, result.ageMonths || 24);
+        const value = chartReferenceValue(sex, indicator, m, z, result.ageMonths ?? 24);
         if (Number.isFinite(value)) points.push(`${x(m).toFixed(1)},${yForValue(value).toFixed(1)}`);
       }
       return points.map((point, index) => `${index === 0 ? "M" : "L"}${point}`).join(" ");
     };
 
     const gridY = Array.from({ length: 5 }, (_, index) => scale.min + ((scale.max - scale.min) * index) / 4);
-    const childMonth = clamp(result.ageMonths || 24, domain.start, domain.end);
+    const childMonth = clamp(result.ageMonths ?? 24, domain.start, domain.end);
     const childX = x(childMonth);
     const childReferenceValue = metric && Number.isFinite(metric.z)
-      ? chartReferenceValue(sex, indicator, childMonth, metric.z, result.ageMonths || 24)
+      ? chartReferenceValue(sex, indicator, childMonth, metric.z, result.ageMonths ?? 24)
       : childValue;
-    const childY = yForValue(childReferenceValue || chartReferenceValue(sex, indicator, childMonth, 0, result.ageMonths || 24));
+    const childY = yForValue(childReferenceValue || chartReferenceValue(sex, indicator, childMonth, 0, result.ageMonths ?? 24));
     const unit = indicator === "weight" ? "kg" : indicator === "height" ? "cm" : "BMI";
 
     return `
@@ -7041,7 +7028,7 @@
         <line x1="${padding.left}" y1="${padding.top}" x2="${padding.left}" y2="${height - padding.bottom}" stroke="#94a3b8" stroke-width="1.2"></line>
         ${zLines.map((line) => `
           <path d="${pathFor(line.z)}" fill="none" stroke="${line.color}" stroke-width="${line.z === 0 ? 2.4 : 1.6}" opacity="${line.z === 0 ? 0.95 : 0.72}"></path>
-          ${compact ? "" : `<text x="${width - padding.right + 16}" y="${yForZ(domain.end, line.z).toFixed(1)}" fill="#334155" font-size="12" dominant-baseline="middle">${line.label}</text>`}
+          ${compact ? "" : `<text x="${width - padding.right + 14}" y="${yForZ(domain.end, line.z).toFixed(1)}" fill="#334155" font-size="11" font-weight="700" dominant-baseline="middle">${compactPercentileSdLabel(line.z)}</text>`}
         `).join("")}
         ${metric && metric.z !== null ? `<circle cx="${childX.toFixed(1)}" cy="${childY.toFixed(1)}" r="${compact ? 5 : 6}" fill="#2563eb" stroke="#ffffff" stroke-width="3"></circle>` : ""}
         <text x="${padding.left}" y="${compact ? 20 : 22}" fill="#0f172a" font-size="${compact ? 14 : 16}" font-weight="800">${t(titleFor(indicator))} (${unit})</text>
@@ -7053,7 +7040,7 @@
   function weightHeightChartSvg(result, compact) {
     const width = compact ? 560 : 760;
     const height = compact ? 310 : 520;
-    const padding = compact ? { left: 48, right: 22, top: 28, bottom: 42 } : { left: 62, right: 86, top: 38, bottom: 66 };
+    const padding = compact ? { left: 48, right: 22, top: 28, bottom: 42 } : { left: 62, right: 148, top: 38, bottom: 66 };
     const metric = result.metrics && result.metrics.find((item) => item.key === "wfh");
     const rows = weightHeightRows(result.sex || "boy", result.ageMonths || 0);
     if (!rows || !metric || metric.status === "notAvailable") {
@@ -7061,11 +7048,13 @@
     }
 
     const zLines = [
-      { z: 2, label: "+2", color: "#ef4444" },
-      { z: 1, label: "+1", color: "#f97316" },
-      { z: 0, label: "0", color: "#16a34a" },
-      { z: -1, label: "-1", color: "#2563eb" },
-      { z: -2, label: "-2", color: "#ef4444" }
+      { z: 3, color: "#991b1b" },
+      { z: 2, color: "#ef4444" },
+      { z: 1, color: "#f59e0b" },
+      { z: 0, color: "#16a34a" },
+      { z: -1, color: "#2563eb" },
+      { z: -2, color: "#4f46e5" },
+      { z: -3, color: "#7e22ce" }
     ];
     const minHeight = rows[0][0];
     const maxHeight = rows[rows.length - 1][0];
@@ -7098,7 +7087,7 @@
         `).join("")}
         ${zLines.map((line) => `
           <path d="${pathFor(line.z)}" fill="none" stroke="${line.color}" stroke-width="${line.z === 0 ? 2.5 : 1.7}" opacity="${line.z === 0 ? 0.95 : 0.76}"></path>
-          ${compact ? "" : `<text x="${width - padding.right + 14}" y="${y(lmsValueAtZ({ l: rows[rows.length - 1][1], m: rows[rows.length - 1][2], s: rows[rows.length - 1][3] }, line.z)).toFixed(1)}" fill="#334155" font-size="12" dominant-baseline="middle">${line.label}</text>`}
+          ${compact ? "" : `<text x="${width - padding.right + 14}" y="${y(lmsValueAtZ({ l: rows[rows.length - 1][1], m: rows[rows.length - 1][2], s: rows[rows.length - 1][3] }, line.z)).toFixed(1)}" fill="#334155" font-size="11" font-weight="700" dominant-baseline="middle">${compactPercentileSdLabel(line.z)}</text>`}
         `).join("")}
         <circle cx="${childX.toFixed(1)}" cy="${childY.toFixed(1)}" r="${compact ? 5 : 7}" fill="#2563eb" stroke="#ffffff" stroke-width="3"></circle>
         <text x="${padding.left}" y="22" fill="#0f172a" font-size="${compact ? 14 : 16}" font-weight="800">${t("Weight-for-height")} (kg)</text>
@@ -7122,8 +7111,8 @@
   }
 
   function chartDomain(result, indicator) {
-    if ((result.ageMonths || 24) <= underFiveMaxMonths) {
-      if (indicator === "bmi" && (result.ageMonths || 24) >= 6) {
+    if ((result.ageMonths ?? 24) <= underFiveMaxMonths) {
+      if (indicator === "bmi" && (result.ageMonths ?? 24) >= 6) {
         return { start: 3, end: underFiveMaxMonths, step: 3, pathStep: 1 };
       }
       return { start: 0, end: underFiveMaxMonths, step: 3, pathStep: 2 };
@@ -7245,12 +7234,68 @@
   }
 
   function localizedResultMeta(result) {
-    return `<span>${t("Measurement on")} ${formatDate(result.measureDate)}</span><span>${sexLabel(result.sex)} - ${ageLabel(result.ageMonths)}</span><span>${t(result.referenceLabel || referenceLabel(result.ageMonths || 24))}</span>`;
+    const ageMeta = result.preterm && result.correctionApplied
+      ? `<span>${sexLabel(result.sex)}</span><span>${t("Corrected age")} ${ageLabel(result.ageMonths)}</span><span>${t("Chronological age")} ${ageLabel(result.chronologicalAgeMonths)}</span>`
+      : `<span>${sexLabel(result.sex)} - ${ageLabel(result.chronologicalAgeMonths ?? result.ageMonths)}</span>`;
+    const correctionMeta = result.preterm && !result.correctionApplied
+      ? `<span>${t("Age correction is no longer applied after 24 months of chronological age.")}</span>`
+      : "";
+    return `<span>${t("Measurement on")} ${formatDate(result.measureDate)}</span>${ageMeta}<span>${t(result.referenceLabel || referenceLabel(result.ageMonths ?? 24))}</span>${correctionMeta}`;
   }
 
   function monthDiff(start, end) {
     const msPerMonth = 365.2425 / 12 * 24 * 60 * 60 * 1000;
     return (end - start) / msPerMonth;
+  }
+
+  function prematurityAgeAdjustment(data, dob, measureDate) {
+    const chronologicalAgeMonths = monthDiff(dob, measureDate);
+    const preterm = data && (data.preterm === true || data.preterm === "yes" || data.preterm === "on");
+    if (!preterm) {
+      return {
+        preterm: false,
+        correctionApplied: false,
+        chronologicalAgeMonths,
+        correctedAgeMonths: null,
+        referenceAgeMonths: chronologicalAgeMonths,
+        gestationalAgeWeeks: null,
+        gestationalAgeDays: null,
+        correctionDays: 0
+      };
+    }
+
+    const gestationalAgeWeeks = Number(data.gestationalWeeks);
+    const gestationalAgeDays = Number(data.gestationalDays || 0);
+    const validGestation = Number.isInteger(gestationalAgeWeeks)
+      && Number.isInteger(gestationalAgeDays)
+      && gestationalAgeWeeks >= 20
+      && gestationalAgeWeeks <= 36
+      && gestationalAgeDays >= 0
+      && gestationalAgeDays <= 6;
+    if (!validGestation) {
+      throw new Error("Enter a valid gestational age from 20 weeks 0 days to 36 weeks 6 days.");
+    }
+
+    const gestationalAgeTotalDays = gestationalAgeWeeks * 7 + gestationalAgeDays;
+    const correctionDays = fullTermGestationDays - gestationalAgeTotalDays;
+    const correctionMonths = correctionDays / (365.2425 / 12);
+    const correctedAgeMonths = chronologicalAgeMonths - correctionMonths;
+    const correctionApplied = chronologicalAgeMonths < correctedAgeLimitMonths;
+
+    if (correctionApplied && correctedAgeMonths < 0) {
+      throw new Error("The corrected age is before the estimated due date. Use a preterm growth chart and clinical follow-up instead of the WHO term chart.");
+    }
+
+    return {
+      preterm: true,
+      correctionApplied,
+      chronologicalAgeMonths,
+      correctedAgeMonths,
+      referenceAgeMonths: correctionApplied ? correctedAgeMonths : chronologicalAgeMonths,
+      gestationalAgeWeeks,
+      gestationalAgeDays,
+      correctionDays
+    };
   }
 
   function ageLabel(months) {
@@ -7292,6 +7337,28 @@
 
   function signed(value) {
     return `${value > 0 ? "+" : ""}${value.toFixed(2)}`;
+  }
+
+  function sdLabel(z) {
+    return `${z > 0 ? "+" : ""}${z} SD`;
+  }
+
+  function percentileForSd(z) {
+    const values = { "3": 99.9, "2": 97.7, "1": 84.1, "0": 50, "-1": 15.9, "-2": 2.3, "-3": 0.1 };
+    return values[String(z)];
+  }
+
+  function formattedPercentileForSd(z) {
+    const value = percentileForSd(z);
+    return new Intl.NumberFormat(activeLanguage || "en", { maximumFractionDigits: 1 }).format(value);
+  }
+
+  function percentileSdLabel(z) {
+    return `${t("Percentile")} ${formattedPercentileForSd(z)} (${sdLabel(z)})`;
+  }
+
+  function compactPercentileSdLabel(z) {
+    return `P${formattedPercentileForSd(z)} (${sdLabel(z)})`;
   }
 
   function ordinal(value) {
@@ -7340,11 +7407,12 @@
   function enrichGrowthResult(result) {
     if (!result || !Number.isFinite(result.weight) || !Number.isFinite(result.height)) return result;
     const bmi = Number.isFinite(result.bmi) ? result.bmi : result.weight / Math.pow(result.height / 100, 2);
+    const chronologicalAgeMonths = Number.isFinite(result.chronologicalAgeMonths) ? result.chronologicalAgeMonths : result.ageMonths;
     const existing = Array.isArray(result.metrics) ? result.metrics.filter((item) => item && item.key !== "wfh") : [];
     const wfh = weightHeightMetric(result.sex || "boy", result.ageMonths || 0, result.weight, result.height);
     const orderedKeys = ["height", "weight", "wfh", "bmi", "head"];
     const metrics = [...existing, wfh].sort((left, right) => orderedKeys.indexOf(left.key) - orderedKeys.indexOf(right.key));
-    return { ...result, bmi, metrics };
+    return { ...result, bmi, chronologicalAgeMonths, metrics };
   }
 
   function saveResult(result) {
@@ -7404,6 +7472,13 @@
       sex: result.sex,
       ageMonths: result.ageMonths,
       ageLabel: ageLabel(result.ageMonths),
+      chronologicalAgeMonths: result.chronologicalAgeMonths,
+      correctedAgeMonths: result.correctedAgeMonths,
+      preterm: result.preterm,
+      correctionApplied: result.correctionApplied,
+      gestationalAgeWeeks: result.gestationalAgeWeeks,
+      gestationalAgeDays: result.gestationalAgeDays,
+      correctionDays: result.correctionDays,
       weight: result.weight,
       height: result.height,
       bmi: result.bmi,
@@ -7447,7 +7522,7 @@
     const path = points.map((point, index) => `${index === 0 ? "M" : "L"}${x(index).toFixed(1)},${y(point.heightPercentile || 50).toFixed(1)}`).join(" ");
 
     return `
-      <svg viewBox="0 0 ${width} ${height}" role="img" aria-label="Saved growth trend">
+      <svg viewBox="0 0 ${width} ${height}" role="img" aria-label="${t("Saved growth trend")}">
         <rect width="${width}" height="${height}" fill="#ffffff"></rect>
         ${[min, Math.round((min + max) / 2), max].map((value) => `
           <line x1="${pad.left}" y1="${y(value).toFixed(1)}" x2="${width - pad.right}" y2="${y(value).toFixed(1)}" stroke="#e2e8f0"></line>
@@ -7468,7 +7543,7 @@
       <div class="trend-table-wrap">
         <table class="trend-table">
           <thead>
-            <tr><th>Date</th><th>Age</th><th>Weight</th><th>Height</th><th>Height percentile</th></tr>
+            <tr><th>${t("Measurement Date")}</th><th>${t("Age")}</th><th>${t("Weight")}</th><th>${t("Height")}</th><th>${t("Height percentile")}</th></tr>
           </thead>
           <tbody>
             ${points.map((point) => `
@@ -7506,7 +7581,7 @@
     result = enrichGrowthResult(result);
     const canvas = document.createElement("canvas");
     canvas.width = 1080;
-    canvas.height = 1530;
+    canvas.height = 1710;
     const ctx = canvas.getContext("2d");
     const primary = highlightMetric(result);
     const resultItems = ["height", "weight", "wfh", "bmi"].map((key) => metricSnapshotItem(
@@ -7514,13 +7589,14 @@
       key,
       key === "height" ? `${result.height.toFixed(1)} cm` : key === "bmi" ? result.bmi.toFixed(1) : `${result.weight.toFixed(1)} kg`
     ));
+    const brandMark = await loadCanvasImage("/assets/brand-mark-blue.png");
 
     ctx.fillStyle = "#ffffff";
     ctx.fillRect(0, 0, canvas.width, canvas.height);
 
     ctx.strokeStyle = "#14b8a6";
     ctx.lineWidth = 2;
-    roundRect(ctx, 18, 18, 1044, 1494, 18);
+    roundRect(ctx, 18, 18, 1044, 1674, 18);
     ctx.stroke();
 
     ctx.fillStyle = "#eefcf8";
@@ -7533,10 +7609,7 @@
     ctx.closePath();
     ctx.fill();
 
-    ctx.fillStyle = "#2563eb";
-    roundRect(ctx, 54, 48, 54, 54, 14);
-    ctx.fill();
-    drawGrowthKidCanvasMark(ctx, 64, 57, 34);
+    if (brandMark) ctx.drawImage(brandMark, 54, 45, 60, 60);
     ctx.fillStyle = "#0f172a";
     ctx.font = "900 30px Inter, sans-serif";
     ctx.fillText("GrowthKid", 124, 74);
@@ -7568,7 +7641,7 @@
     ctx.stroke();
     ctx.fillStyle = "#0f766e";
     ctx.font = "850 15px Inter, sans-serif";
-    centerText(ctx, `${canvasText("Age at measurement")} ${compactAge}`, 478, 262);
+    centerText(ctx, `${canvasText(result.preterm && result.correctionApplied ? "Corrected age" : "Age at measurement")} ${compactAge}`, 478, 262);
 
     drawSnapshotHeaderDecoration(ctx, 710, 54);
 
@@ -7577,37 +7650,37 @@
 
     resultItems.forEach((item, index) => drawResultSnapshotTile(ctx, 44 + index * 250, 532, 242, 206, item, index));
 
-    drawSnapshotPanel(ctx, 44, 758, 992, 386);
+    drawSnapshotPanel(ctx, 44, 758, 992, 602);
     ctx.fillStyle = "#0f172a";
     ctx.font = "900 22px Inter, sans-serif";
     ctx.fillText(canvasText("Growth Curves"), 72, 794);
     drawGrowthChartLegend(ctx, 72, 814);
     drawZScoreLegend(ctx, 660, 788);
-    drawChartPreview(ctx, result, "height", 72, 852, 438, 122, "#14b8a6");
-    drawChartPreview(ctx, result, "weight", 570, 852, 438, 122, "#2563eb");
-    drawChartPreview(ctx, result, "wfh", 72, 1012, 438, 122, "#059669");
-    drawChartPreview(ctx, result, "bmi", 570, 1012, 438, 122, "#7c3aed");
+    drawChartPreview(ctx, result, "height", 72, 852, 438, 215, "#14b8a6");
+    drawChartPreview(ctx, result, "weight", 570, 852, 438, 215, "#2563eb");
+    drawChartPreview(ctx, result, "wfh", 72, 1105, 438, 215, "#059669");
+    drawChartPreview(ctx, result, "bmi", 570, 1105, 438, 215, "#7c3aed");
     ctx.fillStyle = "#64748b";
     ctx.font = "750 13px Inter, sans-serif";
-    centerText(ctx, `${canvasText("WHO standards")} - ${canvasText("Your child")} - ${canvasText("Educational use only - not medical advice")}`, 540, 1137);
+    centerText(ctx, `${canvasText("WHO standards")} - ${canvasText("Your child")} - ${canvasText("Educational use only - not medical advice")}`, 540, 1344);
 
-    drawSnapshotPanel(ctx, 44, 1164, 992, 198);
-    drawSnapshotAdvice(ctx, primary, 84, 1202);
+    drawSnapshotPanel(ctx, 44, 1380, 992, 110);
+    drawSnapshotAdvice(ctx, primary, 72, 1398);
 
     ctx.fillStyle = "#475569";
     ctx.font = "750 16px Inter, sans-serif";
-    drawWrappedText(ctx, canvasText("Name-free snapshot for family updates. Educational use only."), 72, 1430, 520, 22, 2);
+    drawWrappedText(ctx, canvasText("Name-free snapshot for family updates. Educational use only."), 72, 1570, 520, 22, 2);
     ctx.fillStyle = "#64748b";
     ctx.font = "750 15px Inter, sans-serif";
-    ctx.fillText(canvasText("Source: World Health Organization (WHO)"), 72, 1480);
+    ctx.fillText(canvasText("Source: World Health Organization (WHO)"), 72, 1620);
     ctx.fillStyle = "#2563eb";
     ctx.font = "900 24px Inter, sans-serif";
-    ctx.fillText("GrowthKid", 680, 1438);
+    ctx.fillText("GrowthKid", 680, 1578);
     ctx.fillStyle = "#64748b";
     ctx.font = "750 16px Inter, sans-serif";
-    ctx.fillText("growthkid.xyz", 680, 1464);
-    const qrImage = await loadCanvasImage("/assets/growthkid-growth-qr-code.png");
-    if (qrImage) drawSnapshotQr(ctx, qrImage, 866, 1358, 148);
+    ctx.fillText("growthkid.xyz", 680, 1604);
+    const qrImage = await loadCanvasImage("/assets/growthkid-nutrition-qr-code.png");
+    if (qrImage) drawSnapshotQr(ctx, qrImage, 866, 1538, 148);
     return canvas;
   }
 
@@ -7619,11 +7692,73 @@
       title: canvasText(titleFor(key)),
       value,
       percentile: metric.percentile === null || metric.percentile === undefined ? "--" : ordinal(metric.percentile),
-      percentileNumber: metric.percentile === null || metric.percentile === undefined ? "--" : String(Math.round(metric.percentile)),
+      percentileSd: metric.percentile === null || metric.percentile === undefined || metric.z === null || metric.z === undefined
+        ? "--"
+        : `${Math.round(metric.percentile)} (${signed(metric.z)} SD)`,
       z: metric.z === null || metric.z === undefined ? "--" : signed(metric.z),
       status: label,
-      medianGap: snapshotMedianGap(result, key)
+      medianGap: snapshotMedianGap(result, key),
+      difference: snapshotMetricDifference(result, key),
+      referenceRange: snapshotMetricReferenceRange(result, key),
+      referenceRangeLabel: snapshotMetricReferenceRangeLabel(key),
+      medianReference: snapshotMetricMedianReference(result, key)
     };
+  }
+
+  function snapshotMetricUnit(key) {
+    if (key === "height") return "cm";
+    if (key === "bmi") return "kg/m\u00b2";
+    return "kg";
+  }
+
+  function snapshotMetricCurrentValue(result, key) {
+    if (key === "height") return result.height;
+    if (key === "bmi") return result.bmi;
+    return result.weight;
+  }
+
+  function snapshotMetricDifference(result, key) {
+    const reference = idealReferenceValue(result, key);
+    const current = snapshotMetricCurrentValue(result, key);
+    if (!Number.isFinite(reference) || !Number.isFinite(current)) return "--";
+    return signedMeasurement(current - reference, snapshotMetricUnit(key));
+  }
+
+  function snapshotMetricReferenceRange(result, key) {
+    let lower;
+    let upper;
+    if (key === "wfh") {
+      const lms = weightHeightLmsAt(result.sex || "boy", result.ageMonths || 0, result.height);
+      lower = lmsValueAtZ(lms, -2);
+      upper = lmsValueAtZ(lms, 2);
+    } else {
+      lower = referenceValue(result.sex || "boy", key, result.ageMonths || 0, -2);
+      upper = referenceValue(result.sex || "boy", key, result.ageMonths || 0, 2);
+    }
+    if (!Number.isFinite(lower) || !Number.isFinite(upper)) return canvasText("WHO reference unavailable");
+    return `${lower.toFixed(1)}\u2013${upper.toFixed(1)} ${snapshotMetricUnit(key)}`;
+  }
+
+  function snapshotMetricReferenceRangeLabel(key) {
+    const labels = {
+      weight: "Standard weight range (-2 to +2 SD)",
+      height: "Standard height range (-2 to +2 SD)",
+      wfh: "Standard weight-for-height range (-2 to +2 SD)",
+      bmi: "Standard BMI range (-2 to +2 SD)"
+    };
+    return canvasText(labels[key] || "WHO reference range (-2 to +2 SD)");
+  }
+
+  function snapshotMetricMedianReference(result, key) {
+    const reference = idealReferenceValue(result, key);
+    if (!Number.isFinite(reference)) return canvasText("WHO reference unavailable");
+    const labels = {
+      weight: "Standard weight",
+      height: "Standard height",
+      wfh: "Standard weight-for-height",
+      bmi: "Standard BMI"
+    };
+    return `${canvasText(labels[key] || "WHO median")}: ${formatMeasurement(reference, snapshotMetricUnit(key))}`;
   }
 
   function snapshotMedianGap(result, key) {
@@ -7705,8 +7840,14 @@
   }
 
   function drawMeasurementSummary(ctx, result, x, y) {
+    const ageColumns = result.preterm && result.correctionApplied
+      ? [
+        { label: canvasText("Corrected age"), value: decodeHtmlEntities(ageLabel(result.ageMonths)), color: "#0f766e" },
+        { label: canvasText("Chronological age"), value: decodeHtmlEntities(ageLabel(result.chronologicalAgeMonths)), color: "#2563eb" }
+      ]
+      : [{ label: canvasText("Age"), value: decodeHtmlEntities(ageLabel(result.chronologicalAgeMonths ?? result.ageMonths)), color: "#0f766e" }];
     const columns = [
-      { label: canvasText("Age"), value: decodeHtmlEntities(ageLabel(result.ageMonths)), color: "#0f766e" },
+      ...ageColumns,
       { label: canvasText("Sex"), value: decodeHtmlEntities(sexLabel(result.sex)), color: "#2563eb" },
       { label: canvasText("Weight (kg)"), value: `${result.weight.toFixed(1)} kg`, color: "#0f766e" },
       { label: canvasText("Height (cm)"), value: `${result.height.toFixed(1)} cm`, color: "#2563eb" },
@@ -7743,7 +7884,7 @@
     const palette = palettes[index] || palettes[0];
     const status = statusLabel(item.status);
     const statusColor = status === "Normal" ? "#14b8a6" : status === "Monitor" ? "#d97706" : status === "Consult a healthcare professional" ? "#dc2626" : "#64748b";
-    const badgeText = status === "Normal" ? "Within range" : status === "Monitor" ? "Monitor" : status === "Consult a healthcare professional" ? "Consult" : status;
+    const badgeText = canvasText(status === "Normal" ? "Within range" : status === "Monitor" ? "Monitor" : status === "Consult a healthcare professional" ? "Consult" : status);
     ctx.save();
     ctx.shadowColor = "rgba(15, 23, 42, 0.06)";
     ctx.shadowBlur = 12;
@@ -7770,14 +7911,14 @@
     drawSnapshotMetricIcon(ctx, x + 52, y + 78, palette.fg, item.key);
 
     ctx.fillStyle = palette.fg;
-    ctx.font = "900 34px Inter, sans-serif";
-    centerText(ctx, item.z, x + width / 2 + 35, y + 84);
+    ctx.font = `900 ${item.difference.length > 10 ? 24 : 29}px Inter, sans-serif`;
+    centerText(ctx, item.difference, x + width / 2 + 35, y + 84);
 
     ctx.fillStyle = statusColor;
     roundRect(ctx, x + width / 2 - 8, y + 100, 124, 26, 13);
     ctx.fill();
     ctx.fillStyle = "#ffffff";
-    ctx.font = "850 12px Inter, sans-serif";
+    ctx.font = `850 ${badgeText.length > 16 ? 10 : 12}px Inter, sans-serif`;
     centerText(ctx, `✓ ${badgeText}`, x + width / 2 + 54, y + 118);
 
     ctx.strokeStyle = "#dbe4f0";
@@ -7788,14 +7929,14 @@
     ctx.stroke();
 
     ctx.fillStyle = "#334155";
-    ctx.font = "750 14px Inter, sans-serif";
-    centerText(ctx, canvasText("Percentile"), x + width / 2, y + 153);
+    ctx.font = `750 ${item.referenceRangeLabel.length > 34 ? 8.5 : 10.5}px Inter, sans-serif`;
+    centerText(ctx, item.referenceRangeLabel, x + width / 2, y + 153);
     ctx.fillStyle = palette.fg;
-    ctx.font = "900 22px Inter, sans-serif";
-    centerText(ctx, item.percentileNumber, x + width / 2, y + 174);
+    ctx.font = `900 ${item.referenceRange.length > 17 ? 15 : 17}px Inter, sans-serif`;
+    centerText(ctx, item.referenceRange, x + width / 2, y + 175);
     ctx.fillStyle = "#475569";
     ctx.font = "750 11px Inter, sans-serif";
-    centerText(ctx, item.medianGap, x + width / 2, y + 198);
+    centerText(ctx, item.medianReference, x + width / 2, y + 198);
   }
 
   function drawSnapshotMetricIcon(ctx, x, y, color, key) {
@@ -7851,7 +7992,7 @@
     roundRect(ctx, x + 38, y - 32, width - 76, 28, 14);
     ctx.fill();
     ctx.fillStyle = color;
-    ctx.font = "900 15px Inter, sans-serif";
+    ctx.font = `900 ${width >= 700 ? 18 : 15}px Inter, sans-serif`;
     centerText(ctx, canvasText(titleFor(indicator)), x + width / 2, y - 13);
     drawSocialSnapshotChart(ctx, result, indicator, x, y, width, height);
   }
@@ -7875,69 +8016,102 @@
 
   function drawZScoreLegend(ctx, x, y) {
     const items = [
-      ["+2", "#ef4444"],
-      ["+1", "#f97316"],
-      ["0", "#64748b"],
-      ["-1", "#14b8a6"],
-      ["-2", "#2563eb"]
+      ["+3SD", "#991b1b"],
+      ["+2SD", "#ef4444"],
+      ["+1SD", "#f59e0b"],
+      ["0SD", "#16a34a"],
+      ["-1SD", "#2563eb"],
+      ["-2SD", "#4f46e5"],
+      ["-3SD", "#7e22ce"]
     ];
     items.forEach((item, index) => {
-      const xx = x + index * 72;
+      const xx = x + index * 54;
       ctx.strokeStyle = item[1];
       ctx.lineWidth = 2;
       ctx.beginPath();
       ctx.moveTo(xx, y);
-      ctx.lineTo(xx + 24, y);
+      ctx.lineTo(xx + 15, y);
       ctx.stroke();
       ctx.fillStyle = "#334155";
-      ctx.font = "800 11px Inter, sans-serif";
-      ctx.fillText(item[0], xx + 30, y + 4);
+      ctx.font = "800 9px Inter, sans-serif";
+      ctx.fillText(item[0], xx + 19, y + 3);
     });
+  }
+
+  function snapshotChartDomain(result, indicator) {
+    const fullDomain = chartDomain(result, indicator);
+    const ageMonths = clamp(result.ageMonths || 0, fullDomain.start, fullDomain.end);
+    const windowSize = fullDomain.end <= underFiveMaxMonths ? 24 : 48;
+    const tickStep = windowSize / 4;
+    const maxStart = Math.max(fullDomain.start, fullDomain.end - windowSize);
+    const proposedStart = Math.round((ageMonths - windowSize / 2) / tickStep) * tickStep;
+    const start = clamp(proposedStart, fullDomain.start, maxStart);
+    const end = Math.min(fullDomain.end, start + windowSize);
+    return {
+      ...fullDomain,
+      start,
+      end,
+      pathStep: fullDomain.end <= underFiveMaxMonths ? 1 : 2,
+      ticks: Array.from({ length: 5 }, (_, index) => start + tickStep * index)
+    };
+  }
+
+  function drawSnapshotCurveLabel(ctx, text, x, y, color) {
+    ctx.save();
+    ctx.font = "850 8px Inter, sans-serif";
+    ctx.textAlign = "right";
+    ctx.lineJoin = "round";
+    ctx.lineWidth = 3;
+    ctx.strokeStyle = "#ffffff";
+    ctx.strokeText(text, x, y);
+    ctx.fillStyle = color;
+    ctx.fillText(text, x, y);
+    ctx.restore();
   }
 
   function drawSnapshotAdvice(ctx, metric, x, y) {
     const status = statusLabel(metric.status);
     ctx.fillStyle = "#14b8a6";
-    ctx.font = "900 26px Inter, sans-serif";
-    ctx.fillText(canvasText("Interpretation"), x + 180, y + 8);
+    ctx.font = "900 18px Inter, sans-serif";
+    ctx.fillText(canvasText("Interpretation"), x + 48, y + 13);
     ctx.fillStyle = "#0f766e";
     ctx.beginPath();
-    ctx.arc(x + 70, y + 58, 52, 0, Math.PI * 2);
+    ctx.arc(x + 19, y + 32, 18, 0, Math.PI * 2);
     ctx.strokeStyle = "#99f6e4";
-    ctx.lineWidth = 14;
+    ctx.lineWidth = 5;
     ctx.stroke();
     ctx.fillStyle = "#14b8a6";
-    ctx.font = "900 54px Inter, sans-serif";
-    centerText(ctx, "✓", x + 70, y + 78);
+    ctx.font = "900 23px Inter, sans-serif";
+    centerText(ctx, "✓", x + 19, y + 40);
 
     ctx.fillStyle = "#334155";
-    ctx.font = "750 17px Inter, sans-serif";
+    ctx.font = "750 14px Inter, sans-serif";
     const interpretationText = status === "Normal"
       ? `${canvasText("Normal")}: ${canvasText("Your child's growth is within the normal range.")}`
       : status === "Monitor"
         ? `${canvasText("Monitor")}: ${canvasText("Review the trend and measure again consistently.")}`
         : `${canvasText("Consult a healthcare professional")}.`;
-    drawWrappedText(ctx, interpretationText, x + 180, y + 44, 295, 26, 4);
+    drawWrappedText(ctx, interpretationText, x + 48, y + 42, 405, 20, 2);
 
     ctx.strokeStyle = "#dbe4f0";
     ctx.beginPath();
-    ctx.moveTo(x + 512, y);
-    ctx.lineTo(x + 512, y + 132);
+    ctx.moveTo(x + 492, y);
+    ctx.lineTo(x + 492, y + 72);
     ctx.stroke();
     ctx.fillStyle = "#14b8a6";
-    ctx.font = "900 26px Inter, sans-serif";
-    ctx.fillText(canvasText("Tips"), x + 560, y + 8);
+    ctx.font = "900 18px Inter, sans-serif";
+    ctx.fillText(canvasText("Tips"), x + 526, y + 13);
     const tips = [
       canvasText("Track trends over time."),
       canvasText("Use accurate weight and height measurements."),
       canvasText("Talk to a pediatrician if results change quickly.")
     ];
     ctx.fillStyle = "#334155";
-    ctx.font = "750 17px Inter, sans-serif";
+    ctx.font = "750 13px Inter, sans-serif";
     tips.forEach((tip, index) => {
-      const yy = y + 44 + index * 35;
-      ctx.fillText("✓", x + 560, yy);
-      drawWrappedText(ctx, tip, x + 588, yy, 330, 22, 1);
+      const yy = y + 36 + index * 20;
+      ctx.fillText("✓", x + 526, yy);
+      drawWrappedText(ctx, tip, x + 548, yy, 350, 18, 1);
     });
   }
 
@@ -7979,7 +8153,7 @@
     const domain = chartDomain(result, indicator);
     const points = [];
     for (let m = domain.start; m <= domain.end; m += domain.end > underFiveMaxMonths ? 12 : 6) {
-      const value = chartReferenceValue(sex, indicator, m, 0, result.ageMonths || 24);
+      const value = chartReferenceValue(sex, indicator, m, 0, result.ageMonths ?? 24);
       if (Number.isFinite(value)) points.push([m, value]);
     }
     const childValue = indicator === "bmi" ? result.bmi : result[indicator];
@@ -8012,9 +8186,9 @@
     });
     ctx.stroke();
 
-    const childMonth = clamp(result.ageMonths || 24, domain.start, domain.end);
+    const childMonth = clamp(result.ageMonths ?? 24, domain.start, domain.end);
     const childX = x(childMonth);
-    const childY = y(childValue || chartReferenceValue(sex, indicator, childMonth, 0, result.ageMonths || 24));
+    const childY = y(childValue || chartReferenceValue(sex, indicator, childMonth, 0, result.ageMonths ?? 24));
     ctx.fillStyle = "#0f172a";
     ctx.beginPath();
     ctx.arc(childX, childY, 10, 0, Math.PI * 2);
@@ -8032,24 +8206,28 @@
     const sex = result.sex || "boy";
     const metric = result.metrics.find((item) => item.key === indicator);
     if (metric && metric.status === "notAvailable") return;
-    const domain = chartDomain(result, indicator);
+    const domain = snapshotChartDomain(result, indicator);
     const bands = [
+      { z: 3, color: "#991b1b" },
       { z: 2, color: "#ef4444" },
-      { z: 1, color: "#f97316" },
+      { z: 1, color: "#f59e0b" },
       { z: 0, color: "#16a34a" },
       { z: -1, color: "#2563eb" },
-      { z: -2, color: "#ef4444" }
+      { z: -2, color: "#4f46e5" },
+      { z: -3, color: "#7e22ce" }
     ];
-    const plotLeft = left + 28;
-    const plotTop = top + 16;
-    const plotWidth = width - 34;
-    const plotHeight = height - 54;
+    const enlarged = width >= 700;
+    const axisFontSize = enlarged ? 13 : 10;
+    const plotLeft = left + (enlarged ? 48 : 28);
+    const plotTop = top + (enlarged ? 20 : 16);
+    const plotWidth = width - (enlarged ? 60 : 34);
+    const plotHeight = height - (enlarged ? 68 : 54);
     const x = (month) => plotLeft + ((month - domain.start) / (domain.end - domain.start)) * plotWidth;
-    const scale = chartScale(sex, indicator, domain, result.ageMonths || 24);
+    const scale = chartScale(sex, indicator, domain, result.ageMonths ?? 24);
     const yForValue = (value) => chartValueToY(value, scale, plotTop, plotTop + plotHeight);
 
     ctx.fillStyle = "#334155";
-    ctx.font = "800 10px Inter, sans-serif";
+    ctx.font = `800 ${axisFontSize}px Inter, sans-serif`;
     ctx.fillText(indicator === "weight" ? "kg" : indicator === "height" ? "cm" : "BMI", left, top + 2);
 
     ctx.strokeStyle = "#dbe4f0";
@@ -8059,7 +8237,7 @@
       const value = scale.min + ((scale.max - scale.min) * (4 - i)) / 4;
       const yy = yForValue(value);
       ctx.fillStyle = "#475569";
-      ctx.font = "800 10px Inter, sans-serif";
+      ctx.font = `800 ${axisFontSize}px Inter, sans-serif`;
       ctx.fillText(String(Math.round(value)), left + 4, yy + 3);
       ctx.strokeStyle = "#e2e8f0";
       ctx.beginPath();
@@ -8086,7 +8264,7 @@
 
     bands.forEach((band) => {
       ctx.strokeStyle = band.color;
-      ctx.lineWidth = band.z === 0 ? 2.2 : 1.4;
+      ctx.lineWidth = enlarged ? (band.z === 0 ? 3 : 2) : (band.z === 0 ? 2.2 : 1.4);
       ctx.lineCap = "round";
       ctx.lineJoin = "round";
       ctx.beginPath();
@@ -8094,7 +8272,7 @@
       const steps = 48;
       for (let step = 0; step <= steps; step += 1) {
         const m = domain.start + ((domain.end - domain.start) * step) / steps;
-        const value = chartReferenceValue(sex, indicator, m, band.z, result.ageMonths || 24);
+        const value = chartReferenceValue(sex, indicator, m, band.z, result.ageMonths ?? 24);
         if (!Number.isFinite(value)) continue;
         const px = x(m);
         const py = yForValue(value);
@@ -8107,14 +8285,20 @@
       }
       ctx.stroke();
     });
+    bands.forEach((band) => {
+      const value = chartReferenceValue(sex, indicator, domain.end, band.z, result.ageMonths ?? 24);
+      if (Number.isFinite(value)) {
+        drawSnapshotCurveLabel(ctx, sdLabel(band.z), plotLeft + plotWidth - 4, yForValue(value) + 3, band.color);
+      }
+    });
 
-    const childMonth = clamp(result.ageMonths || 24, domain.start, domain.end);
+    const childMonth = clamp(result.ageMonths ?? 24, domain.start, domain.end);
     const childX = x(childMonth);
     const childValue = indicator === "bmi" ? result.bmi : result[indicator];
     const childReferenceValue = metric && Number.isFinite(metric.z)
-      ? chartReferenceValue(sex, indicator, childMonth, metric.z, result.ageMonths || 24)
+      ? chartReferenceValue(sex, indicator, childMonth, metric.z, result.ageMonths ?? 24)
       : childValue;
-    const childY = yForValue(childReferenceValue || chartReferenceValue(sex, indicator, childMonth, 0, result.ageMonths || 24));
+    const childY = yForValue(childReferenceValue || chartReferenceValue(sex, indicator, childMonth, 0, result.ageMonths ?? 24));
     ctx.strokeStyle = "#94a3b8";
     ctx.setLineDash([4, 4]);
     ctx.lineWidth = 1;
@@ -8129,15 +8313,15 @@
     ctx.setLineDash([]);
     ctx.fillStyle = "#0f172a";
     ctx.beginPath();
-    ctx.arc(childX, childY, 5, 0, Math.PI * 2);
+    ctx.arc(childX, childY, enlarged ? 8 : 5, 0, Math.PI * 2);
     ctx.fill();
     ctx.strokeStyle = "#ffffff";
-    ctx.lineWidth = 2;
+    ctx.lineWidth = enlarged ? 3 : 2;
     ctx.stroke();
 
     ctx.fillStyle = "#334155";
-    ctx.font = "800 10px Inter, sans-serif";
-    const ageTicks = chartTicks(domain);
+    ctx.font = `800 ${axisFontSize}px Inter, sans-serif`;
+    const ageTicks = domain.ticks || chartTicks(domain);
     ageTicks.forEach((month) => {
       const xx = x(clamp(month, domain.start, domain.end));
       centerText(ctx, String(month), xx, plotTop + plotHeight + 16);
@@ -8146,22 +8330,32 @@
   }
 
   function drawWeightHeightSnapshotChart(ctx, result, left, top, width, height) {
-    const rows = weightHeightRows(result.sex || "boy", result.ageMonths || 0);
+    const sourceRows = weightHeightRows(result.sex || "boy", result.ageMonths || 0);
     const metric = result.metrics.find((item) => item.key === "wfh");
-    if (!rows || !metric || metric.status === "notAvailable") return;
+    if (!sourceRows || !sourceRows.length || !metric || metric.status === "notAvailable") return;
     const bands = [
+      { z: 3, color: "#991b1b" },
       { z: 2, color: "#ef4444" },
-      { z: 1, color: "#f97316" },
+      { z: 1, color: "#f59e0b" },
       { z: 0, color: "#16a34a" },
       { z: -1, color: "#2563eb" },
-      { z: -2, color: "#ef4444" }
+      { z: -2, color: "#4f46e5" },
+      { z: -3, color: "#7e22ce" }
     ];
-    const plotLeft = left + 34;
-    const plotTop = top + 12;
-    const plotWidth = width - 42;
-    const plotHeight = height - 50;
-    const minHeight = rows[0][0];
-    const maxHeight = rows[rows.length - 1][0];
+    const enlarged = width >= 700;
+    const axisFontSize = enlarged ? 13 : 10;
+    const plotLeft = left + (enlarged ? 48 : 34);
+    const plotTop = top + (enlarged ? 18 : 12);
+    const plotWidth = width - (enlarged ? 60 : 42);
+    const plotHeight = height - (enlarged ? 66 : 50);
+    const fullMinHeight = sourceRows[0][0];
+    const fullMaxHeight = sourceRows[sourceRows.length - 1][0];
+    const heightWindow = Math.min(25, fullMaxHeight - fullMinHeight);
+    const maxStart = Math.max(fullMinHeight, fullMaxHeight - heightWindow);
+    const proposedStart = Math.round((result.height - heightWindow / 2) / 5) * 5;
+    const minHeight = clamp(proposedStart, fullMinHeight, maxStart);
+    const maxHeight = minHeight + heightWindow;
+    const rows = sourceRows.filter((row) => row[0] >= minHeight && row[0] <= maxHeight);
     const values = rows.flatMap((row) => bands.map((band) => lmsValueAtZ({ l: row[1], m: row[2], s: row[3] }, band.z)));
     const minValue = Math.min(...values);
     const maxValue = Math.max(...values);
@@ -8171,7 +8365,7 @@
     const y = (value) => chartValueToY(value, scale, plotTop, plotTop + plotHeight);
 
     ctx.fillStyle = "#334155";
-    ctx.font = "800 10px Inter, sans-serif";
+    ctx.font = `800 ${axisFontSize}px Inter, sans-serif`;
     ctx.fillText("kg", left + 2, top + 2);
     for (let index = 0; index <= 4; index += 1) {
       const value = scale.min + ((scale.max - scale.min) * (4 - index)) / 4;
@@ -8195,7 +8389,7 @@
     }
     bands.forEach((band) => {
       ctx.strokeStyle = band.color;
-      ctx.lineWidth = band.z === 0 ? 2.2 : 1.4;
+      ctx.lineWidth = enlarged ? (band.z === 0 ? 3 : 2) : (band.z === 0 ? 2.2 : 1.4);
       ctx.beginPath();
       rows.forEach((row, index) => {
         const value = lmsValueAtZ({ l: row[1], m: row[2], s: row[3] }, band.z);
@@ -8203,6 +8397,14 @@
         else ctx.lineTo(x(row[0]), y(value));
       });
       ctx.stroke();
+    });
+    bands.forEach((band) => {
+      const lastRow = rows[rows.length - 1];
+      if (!lastRow) return;
+      const value = lmsValueAtZ({ l: lastRow[1], m: lastRow[2], s: lastRow[3] }, band.z);
+      if (Number.isFinite(value)) {
+        drawSnapshotCurveLabel(ctx, sdLabel(band.z), plotLeft + plotWidth - 4, y(value) + 3, band.color);
+      }
     });
     const childX = x(clamp(result.height, minHeight, maxHeight));
     const childY = y(result.weight);
@@ -8215,64 +8417,18 @@
     ctx.setLineDash([]);
     ctx.fillStyle = "#0f172a";
     ctx.beginPath();
-    ctx.arc(childX, childY, 5, 0, Math.PI * 2);
+    ctx.arc(childX, childY, enlarged ? 8 : 5, 0, Math.PI * 2);
     ctx.fill();
     ctx.strokeStyle = "#ffffff";
-    ctx.lineWidth = 2;
+    ctx.lineWidth = enlarged ? 3 : 2;
     ctx.stroke();
     ctx.fillStyle = "#334155";
-    ctx.font = "800 10px Inter, sans-serif";
+    ctx.font = `800 ${axisFontSize}px Inter, sans-serif`;
     for (let index = 0; index <= 5; index += 1) {
       const value = minHeight + ((maxHeight - minHeight) * index) / 5;
       centerText(ctx, String(Math.round(value)), x(value), plotTop + plotHeight + 16);
     }
     centerText(ctx, canvasText("Height (cm)"), plotLeft + plotWidth / 2, plotTop + plotHeight + 34);
-  }
-
-  function drawGrowthKidCanvasMark(ctx, x, y, size) {
-    const scale = size / 64;
-    ctx.save();
-    ctx.translate(x, y);
-    ctx.scale(scale, scale);
-    ctx.fillStyle = "#ffffff";
-    ctx.beginPath();
-    ctx.arc(34, 16, 6, 0, Math.PI * 2);
-    ctx.fill();
-    ctx.beginPath();
-    ctx.moveTo(18, 28);
-    ctx.bezierCurveTo(18, 24, 21.2, 20.8, 25.2, 20.8);
-    ctx.lineTo(42.8, 20.8);
-    ctx.bezierCurveTo(46.8, 20.8, 50, 24, 50, 28);
-    ctx.lineTo(50, 29.2);
-    ctx.bezierCurveTo(50, 31.6, 48, 33.6, 45.6, 33.6);
-    ctx.lineTo(38, 33.6);
-    ctx.lineTo(38, 38.8);
-    ctx.lineTo(46.8, 47.6);
-    ctx.bezierCurveTo(48.6, 49.4, 48.6, 52.2, 46.8, 54);
-    ctx.bezierCurveTo(45, 55.8, 42.2, 55.8, 40.4, 54);
-    ctx.lineTo(32, 45.6);
-    ctx.lineTo(23.6, 54);
-    ctx.bezierCurveTo(21.8, 55.8, 19, 55.8, 17.2, 54);
-    ctx.bezierCurveTo(15.4, 52.2, 15.4, 49.4, 17.2, 47.6);
-    ctx.lineTo(26, 38.8);
-    ctx.lineTo(26, 33.6);
-    ctx.lineTo(22.4, 33.6);
-    ctx.bezierCurveTo(20, 33.6, 18, 31.6, 18, 29.2);
-    ctx.closePath();
-    ctx.fill();
-    ctx.fillStyle = "#bfdbfe";
-    ctx.beginPath();
-    ctx.moveTo(55, 12);
-    ctx.lineTo(58, 19);
-    ctx.lineTo(65, 22);
-    ctx.lineTo(58, 25);
-    ctx.lineTo(55, 32);
-    ctx.lineTo(52, 25);
-    ctx.lineTo(45, 22);
-    ctx.lineTo(52, 19);
-    ctx.closePath();
-    ctx.fill();
-    ctx.restore();
   }
 
   function drawWrappedText(ctx, text, x, y, maxWidth, lineHeight, maxLines) {
@@ -8351,7 +8507,10 @@
 
   function resultSummaryText(result) {
     const metric = highlightMetric(result);
-    return `GrowthKid: ${sexLabel(result.sex)}, ${ageLabel(result.ageMonths)}, ${t(titleFor(metric.key))} ${metric.percentile === null ? "--" : ordinal(metric.percentile)}, ${t(statusLabel(metric.status))}.`;
+    const ageText = result.preterm && result.correctionApplied
+      ? `${t("Corrected age")} ${ageLabel(result.ageMonths)} (${t("Chronological age").toLowerCase()} ${ageLabel(result.chronologicalAgeMonths)})`
+      : ageLabel(result.chronologicalAgeMonths ?? result.ageMonths);
+    return `GrowthKid: ${sexLabel(result.sex)}, ${ageText}, ${t(titleFor(metric.key))} ${metric.percentile === null ? "--" : ordinal(metric.percentile)}, ${t(statusLabel(metric.status))}.`;
   }
 
   function downloadReport() {
@@ -8361,11 +8520,18 @@
       const percentile = metric.percentile === null ? "--" : ordinal(metric.percentile);
       return `${t(titleFor(metric.key))}: ${t("Z-score")} ${z}, ${t("Percentile")} ${percentile}, ${t("Status")} ${t(statusLabel(metric.status))}`;
     });
+    const ageLines = result.preterm && result.correctionApplied
+      ? [
+        `${t("Corrected age")}: ${ageLabel(result.ageMonths)}`,
+        `${t("Chronological age")}: ${ageLabel(result.chronologicalAgeMonths)}`,
+        `${t("Gestational age at birth")}: ${result.gestationalAgeWeeks} ${t("weeks")} ${result.gestationalAgeDays} ${t("days")}`
+      ]
+      : [`${t("Age")}: ${ageLabel(result.chronologicalAgeMonths ?? result.ageMonths)}`];
     const lines = [
       t("GrowthKid Growth Report"),
       `${t("Measurement on")}: ${formatDate(result.measureDate)}`,
       `${t("Sex")}: ${sexLabel(result.sex)}`,
-      `${t("Age")}: ${ageLabel(result.ageMonths)}`,
+      ...ageLines,
       "",
       t("Measurements"),
       `${t("Weight (kg)")}: ${result.weight.toFixed(1)}`,
@@ -8391,40 +8557,35 @@
 
   function renderResults(result) {
     const section = document.getElementById("results");
-    const cards = document.getElementById("resultCards");
     const referenceBox = document.getElementById("referenceComparison");
     const meta = document.getElementById("resultMeta");
     const chart = document.getElementById("growthChart");
     const interpretationBox = document.getElementById("interpretation");
     const title = document.getElementById("chartTitle");
-    const sharePreview = document.getElementById("shareSnapshotPreview");
-    const workspacePreview = document.getElementById("calculatorPreviewCard");
 
-    if (!section || !cards || !chart) return;
+    if (!section || !chart) return;
 
     section.style.display = "";
     resultsVisible = true;
     lastChartIndicator = "height";
-    cards.innerHTML = resultCards(result);
     if (referenceBox) referenceBox.innerHTML = referenceComparison(result);
     meta.innerHTML = localizedResultMeta(result);
     chart.innerHTML = chartSvg(result, "height", false);
     if (interpretationBox) interpretationBox.innerHTML = interpretation(result, "height");
     if (title) title.textContent = chartTitle("height");
-    if (sharePreview) sharePreview.innerHTML = snapshotPreview(result);
-    if (workspacePreview) {
-      workspacePreview.innerHTML = workspacePreviewContent(result);
-      workspacePreview.classList.add("has-result");
-    }
     refreshTrendTracker(result);
     document.querySelectorAll(".chart-tab").forEach((tab) => tab.classList.toggle("is-active", tab.dataset.chart === "height"));
     section.scrollIntoView({ behavior: "smooth", block: "start" });
   }
 
   function bindTrendButtons() {
+    const saveButton = document.getElementById("saveTrendPoint");
+    if (saveButton) {
+      saveButton.onclick = saveTrendPointFromCurrent;
+    }
     const clearButton = document.getElementById("clearTrend");
     if (clearButton) {
-      clearButton.addEventListener("click", clearTrendPoints);
+      clearButton.onclick = clearTrendPoints;
     }
   }
 
@@ -8445,13 +8606,6 @@
         group.classList.remove("is-open");
         group.querySelector(":scope > button")?.setAttribute("aria-expanded", "false");
       };
-      const resultsMore = document.querySelector("[data-results-more]");
-      const resultsMoreTrigger = resultsMore?.querySelector(".results-more-trigger");
-      const closeResultsMore = () => {
-        resultsMore?.classList.remove("is-open");
-        resultsMoreTrigger?.setAttribute("aria-expanded", "false");
-      };
-
       navDisclosures.forEach((group) => {
         const trigger = group.querySelector(":scope > button");
         if (!trigger) return;
@@ -8470,17 +8624,10 @@
         menuButton.setAttribute("aria-expanded", String(isOpen));
       }, { signal });
 
-      resultsMoreTrigger?.addEventListener("click", () => {
-        const willOpen = !resultsMore.classList.contains("is-open");
-        resultsMore.classList.toggle("is-open", willOpen);
-        resultsMoreTrigger.setAttribute("aria-expanded", String(willOpen));
-      }, { signal });
-
       document.addEventListener("click", (event) => {
         navDisclosures.forEach((group) => {
           if (!group.contains(event.target)) closeNavDisclosure(group);
         });
-        if (resultsMore && !resultsMore.contains(event.target)) closeResultsMore();
         if (!mobileMenu.contains(event.target) && !menuButton.contains(event.target)) closeMenu();
       }, { signal });
 
@@ -8488,12 +8635,9 @@
         if (event.key === "Escape") {
           const openDisclosure = navDisclosures.find((group) => group.classList.contains("is-open"));
           const mobileMenuWasOpen = mobileMenu.classList.contains("is-open");
-          const resultsMoreWasOpen = Boolean(resultsMore?.classList.contains("is-open"));
           navDisclosures.forEach(closeNavDisclosure);
-          closeResultsMore();
           closeMenu();
           if (mobileMenuWasOpen) menuButton.focus();
-          else if (resultsMoreWasOpen) resultsMoreTrigger?.focus();
           else openDisclosure?.querySelector(":scope > button")?.focus();
         }
       }, { signal });
@@ -8535,6 +8679,7 @@
     const form = document.getElementById("growthForm");
     if (form) {
       bindDateInputs(form);
+      bindPrematurityControls(form);
       bindAgePreview(form);
       bindMobileCalculateButton(form);
       form.addEventListener("submit", (event) => {
@@ -8551,6 +8696,9 @@
             errorBox.textContent = t(error.message);
             errorBox.classList.add("is-visible");
           }
+          const results = document.getElementById("results");
+          if (results) results.style.display = "none";
+          resultsVisible = false;
         }
       });
     }
@@ -8628,11 +8776,6 @@
       });
     });
 
-    const downloadButton = document.getElementById("downloadReport");
-    if (downloadButton) {
-      downloadButton.addEventListener("click", downloadReport);
-    }
-
     const downloadSnapshotButton = document.getElementById("downloadSnapshot");
     if (downloadSnapshotButton) {
       downloadSnapshotButton.addEventListener("click", downloadSnapshot);
@@ -8641,11 +8784,6 @@
     const shareSnapshotButton = document.getElementById("shareSnapshot");
     if (shareSnapshotButton) {
       shareSnapshotButton.addEventListener("click", shareSnapshot);
-    }
-
-    const saveTrendButton = document.getElementById("saveTrendPoint");
-    if (saveTrendButton) {
-      saveTrendButton.addEventListener("click", saveTrendPointFromCurrent);
     }
 
     bindTrendButtons();
@@ -8704,27 +8842,71 @@
 
   function updateAgePreview(form) {
     const value = form.querySelector("[data-age-value]");
+    const note = form.querySelector("[data-age-note]");
+    const label = form.querySelector("#agePreview > span:first-child");
     if (!value) return;
     const dob = parseInputDate(form.elements.dob?.value);
     const measureDate = parseInputDate(form.elements.measureDate?.value);
     if (!Number.isFinite(dob.getTime()) || !Number.isFinite(measureDate.getTime())) {
       value.textContent = decodeHtmlEntities(t("Enter birth and measurement dates to calculate age."));
       value.classList.remove("is-error");
+      if (label) label.textContent = decodeHtmlEntities(t("Calculated age"));
+      if (note) note.hidden = true;
       return;
     }
-    const ageMonths = monthDiff(dob, measureDate);
-    if (!Number.isFinite(ageMonths) || ageMonths < 0) {
+    const chronologicalAgeMonths = monthDiff(dob, measureDate);
+    if (!Number.isFinite(chronologicalAgeMonths) || chronologicalAgeMonths < 0) {
       value.textContent = decodeHtmlEntities(t("Measurement date must be after date of birth."));
       value.classList.add("is-error");
+      if (note) note.hidden = true;
       return;
     }
-    value.textContent = decodeHtmlEntities(ageLabel(ageMonths));
-    value.classList.remove("is-error");
+    try {
+      const data = Object.fromEntries(new FormData(form).entries());
+      const adjustment = prematurityAgeAdjustment(data, dob, measureDate);
+      value.textContent = decodeHtmlEntities(ageLabel(adjustment.referenceAgeMonths));
+      value.classList.remove("is-error");
+      if (adjustment.preterm && adjustment.correctionApplied) {
+        if (label) label.textContent = decodeHtmlEntities(t("Corrected age"));
+        if (note) {
+          note.textContent = decodeHtmlEntities(`${t("Chronological age")}: ${ageLabel(adjustment.chronologicalAgeMonths)} · ${t("Gestational age at birth")}: ${adjustment.gestationalAgeWeeks} ${t("weeks")} ${adjustment.gestationalAgeDays} ${t("days")}`);
+          note.hidden = false;
+        }
+      } else {
+        if (label) label.textContent = decodeHtmlEntities(t(adjustment.preterm ? "Chronological age" : "Calculated age"));
+        if (note) {
+          note.textContent = adjustment.preterm ? decodeHtmlEntities(t("Age correction is no longer applied after 24 months of chronological age.")) : "";
+          note.hidden = !adjustment.preterm;
+        }
+      }
+    } catch (error) {
+      value.textContent = decodeHtmlEntities(t(error.message));
+      value.classList.add("is-error");
+      if (label) label.textContent = decodeHtmlEntities(t("Corrected age"));
+      if (note) note.hidden = true;
+    }
+  }
+
+  function bindPrematurityControls(form) {
+    const toggle = form.querySelector("[data-preterm-toggle]");
+    const details = form.querySelector("[data-preterm-details]");
+    if (!toggle || !details) return;
+    const inputs = details.querySelectorAll("input");
+    const sync = () => {
+      details.hidden = !toggle.checked;
+      inputs.forEach((input) => {
+        input.disabled = !toggle.checked;
+        input.required = toggle.checked;
+      });
+      updateAgePreview(form);
+    };
+    toggle.addEventListener("change", sync);
+    sync();
   }
 
   function bindAgePreview(form) {
     const update = () => updateAgePreview(form);
-    form.querySelectorAll('[name="dob"], [name="measureDate"]').forEach((input) => {
+    form.querySelectorAll('[name="dob"], [name="measureDate"], [name="gestationalWeeks"], [name="gestationalDays"]').forEach((input) => {
       input.addEventListener("input", update);
       input.addEventListener("change", update);
     });
