@@ -1945,6 +1945,16 @@ body.nutrition-detail-open {
 }
 
 @media (max-width: 620px) {
+  .nutrition-hero-copy > p,
+  .nutrition-hero-actions {
+    display: none;
+  }
+
+  .nutrition-medical-note,
+  .nutrition-catalog-toolbar {
+    display: none;
+  }
+
   .nutrition-hero h1 {
     font-size: 2.15rem;
   }
@@ -1987,11 +1997,7 @@ body.nutrition-detail-open {
   }
 
   .nutrition-category-summary {
-    align-items: start;
-  }
-
-  .nutrition-category-summary > strong {
-    white-space: normal;
+    display: none;
   }
 
   .nutrition-catalog-toolbar {
