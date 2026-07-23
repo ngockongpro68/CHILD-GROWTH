@@ -6648,11 +6648,16 @@
   }
 
   function normalizeChildName(value) {
-    return String(value || "")
+    const cleaned = String(value || "")
       .replace(/[\u0000-\u001f\u007f]/g, "")
       .replace(/\s+/g, " ")
       .trim()
       .slice(0, 40);
+    if (!cleaned) return "";
+
+    return cleaned
+      .toLocaleLowerCase()
+      .replace(/(^|[\s'’.-])(\p{L})/gu, (_, separator, letter) => `${separator}${letter.toLocaleUpperCase()}`);
   }
 
   function formatDateInputValue(value) {
@@ -7628,10 +7633,16 @@
   async function createSnapshotCanvas(result) {
     if (document.fonts && document.fonts.ready) await document.fonts.ready;
     result = enrichGrowthResult(result);
+    const snapshotScale = 2;
+    const snapshotWidth = 1080;
+    const snapshotHeight = 1710;
     const canvas = document.createElement("canvas");
-    canvas.width = 1080;
-    canvas.height = 1710;
+    canvas.width = snapshotWidth * snapshotScale;
+    canvas.height = snapshotHeight * snapshotScale;
     const ctx = canvas.getContext("2d");
+    ctx.scale(snapshotScale, snapshotScale);
+    ctx.imageSmoothingEnabled = true;
+    ctx.imageSmoothingQuality = "high";
     const childName = normalizeChildName(result.childName);
     const primary = highlightMetric(result);
     const resultItems = ["height", "weight", "wfh", "bmi"].map((key) => metricSnapshotItem(
@@ -7642,7 +7653,7 @@
     const brandMark = await loadCanvasImage("/assets/brand-mark-blue.png");
 
     ctx.fillStyle = "#ffffff";
-    ctx.fillRect(0, 0, canvas.width, canvas.height);
+    ctx.fillRect(0, 0, snapshotWidth, snapshotHeight);
 
     ctx.strokeStyle = "#14b8a6";
     ctx.lineWidth = 2;
@@ -7673,31 +7684,77 @@
     ctx.fillStyle = "#334155";
     ctx.font = "750 28px Inter, sans-serif";
     ctx.fillText(canvasText("WHO-based growth check"), 56, 210);
-    if (childName) {
-      ctx.fillStyle = "#2563eb";
-      ctx.font = "850 20px Inter, sans-serif";
-      ctx.fillText(fitCanvasText(ctx, `${canvasText("Child")}: ${childName}`, 560), 56, 234);
-    }
-
     const roundedAgeMonths = Math.round(result.ageMonths || 0);
     const compactAge = `${roundedAgeMonths} ${canvasText(roundedAgeMonths === 1 ? "month" : "months")}`;
-    const headerChipY = childName ? 248 : 236;
-    ctx.fillStyle = "#ecfdf5";
-    roundRect(ctx, 54, headerChipY, 286, 40, 20);
-    ctx.fill();
-    ctx.strokeStyle = "#99f6e4";
-    ctx.stroke();
-    ctx.fillStyle = "#0f766e";
-    ctx.font = "850 15px Inter, sans-serif";
-    centerText(ctx, `${canvasText("Measured on")} ${formatDate(result.measureDate)}`, 197, headerChipY + 26);
-    ctx.fillStyle = "#ecfdf5";
-    roundRect(ctx, 356, headerChipY, 244, 40, 20);
-    ctx.fill();
-    ctx.strokeStyle = "#99f6e4";
-    ctx.stroke();
-    ctx.fillStyle = "#0f766e";
-    ctx.font = "850 15px Inter, sans-serif";
-    centerText(ctx, `${canvasText(result.preterm && result.correctionApplied ? "Corrected age" : "Age at measurement")} ${compactAge}`, 478, headerChipY + 26);
+
+    if (childName) {
+      ctx.save();
+      ctx.fillStyle = "rgba(255, 255, 255, 0.96)";
+      roundRect(ctx, 54, 216, 376, 72, 16);
+      ctx.fill();
+      ctx.strokeStyle = "#c7d2fe";
+      ctx.lineWidth = 1.5;
+      ctx.stroke();
+
+      ctx.fillStyle = "#2563eb";
+      roundRect(ctx, 54, 232, 4, 40, 2);
+      ctx.fill();
+
+      ctx.fillStyle = "#1e3a8a";
+      ctx.beginPath();
+      ctx.arc(88, 252, 23, 0, Math.PI * 2);
+      ctx.fill();
+      ctx.fillStyle = "#ffffff";
+      ctx.font = "900 23px Inter, sans-serif";
+      centerText(ctx, Array.from(childName)[0] || "", 88, 260);
+
+      ctx.fillStyle = "#64748b";
+      ctx.font = "850 12px Inter, sans-serif";
+      ctx.fillText(canvasText("Child").toLocaleUpperCase(languageMeta().locale), 122, 240);
+      ctx.fillStyle = "#172554";
+      ctx.font = "900 27px Inter, sans-serif";
+      ctx.fillText(fitCanvasText(ctx, childName, 286), 122, 270);
+
+      const drawProfileMeta = (text, y) => {
+        ctx.fillStyle = "rgba(248, 250, 252, 0.96)";
+        roundRect(ctx, 448, y, 252, 32, 16);
+        ctx.fill();
+        ctx.strokeStyle = "#dbeafe";
+        ctx.lineWidth = 1.25;
+        ctx.stroke();
+        ctx.fillStyle = "#334155";
+        ctx.font = "850 14px Inter, sans-serif";
+        centerText(ctx, fitCanvasText(ctx, text, 224), 574, y + 21);
+      };
+      drawProfileMeta(`${canvasText("Measured on")} ${formatDate(result.measureDate)}`, 216);
+      drawProfileMeta(
+        `${canvasText(result.preterm && result.correctionApplied ? "Corrected age" : "Age at measurement")} ${compactAge}`,
+        256
+      );
+      ctx.restore();
+    } else {
+      ctx.fillStyle = "#ecfdf5";
+      roundRect(ctx, 54, 236, 286, 40, 20);
+      ctx.fill();
+      ctx.strokeStyle = "#99f6e4";
+      ctx.stroke();
+      ctx.fillStyle = "#0f766e";
+      ctx.font = "850 15px Inter, sans-serif";
+      centerText(ctx, `${canvasText("Measured on")} ${formatDate(result.measureDate)}`, 197, 262);
+      ctx.fillStyle = "#ecfdf5";
+      roundRect(ctx, 356, 236, 244, 40, 20);
+      ctx.fill();
+      ctx.strokeStyle = "#99f6e4";
+      ctx.stroke();
+      ctx.fillStyle = "#0f766e";
+      ctx.font = "850 15px Inter, sans-serif";
+      centerText(
+        ctx,
+        `${canvasText(result.preterm && result.correctionApplied ? "Corrected age" : "Age at measurement")} ${compactAge}`,
+        478,
+        262
+      );
+    }
 
     drawSnapshotHeaderDecoration(ctx, 710, 54);
 
@@ -8761,6 +8818,7 @@
     const form = document.getElementById("growthForm");
     if (form) {
       bindDateInputs(form);
+      bindChildNameInput(form);
       bindPrematurityControls(form);
       bindAgePreview(form);
       bindMobileCalculateButton(form);
@@ -8879,6 +8937,17 @@
       });
     }
 
+  }
+
+  function bindChildNameInput(form) {
+    const input = form.querySelector("#childName");
+    if (!input) return;
+
+    const normalizeValue = () => {
+      input.value = normalizeChildName(input.value);
+    };
+    input.addEventListener("change", normalizeValue);
+    input.addEventListener("blur", normalizeValue);
   }
 
   function bindDateInputs(scope) {

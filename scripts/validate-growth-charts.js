@@ -53,7 +53,7 @@ function createAuditApi() {
   const appSource = fs.readFileSync(appPath, "utf8");
   const auditSource = appSource.replace(
     "  initialize();\n})();",
-    "  window.__growthAudit = { calculateGrowthData, chartSvg, drawSocialSnapshotChart, idealReferenceValue, referenceValue, monthDiff };\n})();"
+    "  window.__growthAudit = { calculateGrowthData, chartSvg, drawSocialSnapshotChart, idealReferenceValue, referenceValue, monthDiff, normalizeChildName };\n})();"
   );
   if (auditSource === appSource) throw new Error("Could not expose the growth audit API.");
   vm.runInContext(auditSource, sandbox);
@@ -103,6 +103,9 @@ let calendarCases = 0;
 let calculationCases = 0;
 let chartCases = 0;
 let snapshotChartCases = 0;
+
+assert(api.normalizeChildName("  nGUYỄN   thị-minh  ") === "Nguyễn Thị-Minh", "Child names are not normalized to title case.");
+assert(api.normalizeChildName("tran ngoc") === "Tran Ngoc", "Unaccented child names are not normalized to title case.");
 
 for (let year = 2010; year <= 2020; year += 1) {
   for (let month = 1; month <= 12; month += 1) {
