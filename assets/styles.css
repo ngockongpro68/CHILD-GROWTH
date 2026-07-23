@@ -3342,6 +3342,10 @@ button {
     grid-template-columns: repeat(4, minmax(0, 1fr));
   }
 
+  .reference-comparison-grid.is-fenton {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
   .pn-layout {
     grid-template-columns: minmax(320px, 0.72fr) minmax(0, 1fr);
     align-items: start;

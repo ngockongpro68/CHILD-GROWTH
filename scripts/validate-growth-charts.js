@@ -6,6 +6,7 @@ const root = path.resolve(__dirname, "..");
 const appPath = path.join(root, "assets", "app.js");
 const who2007Path = path.join(root, "assets", "who-2007-reference.js");
 const weightHeightPath = path.join(root, "assets", "who-weight-height-reference.js");
+const fentonPath = path.join(root, "assets", "fenton-2013-reference.js");
 
 function createAuditApi() {
   const sandbox = {
@@ -49,11 +50,12 @@ function createAuditApi() {
   vm.createContext(sandbox);
   vm.runInContext(fs.readFileSync(who2007Path, "utf8"), sandbox);
   vm.runInContext(fs.readFileSync(weightHeightPath, "utf8"), sandbox);
+  vm.runInContext(fs.readFileSync(fentonPath, "utf8"), sandbox);
 
   const appSource = fs.readFileSync(appPath, "utf8");
   const auditSource = appSource.replace(
     "  initialize();\n})();",
-    "  window.__growthAudit = { calculateGrowthData, chartSvg, drawSocialSnapshotChart, idealReferenceValue, referenceValue, monthDiff, normalizeChildName };\n})();"
+    "  window.__growthAudit = { calculateGrowthData, chartSvg, drawSocialSnapshotChart, idealReferenceValue, referenceValue, fentonReferenceValue, monthDiff, normalizeChildName };\n})();"
   );
   if (auditSource === appSource) throw new Error("Could not expose the growth audit API.");
   vm.runInContext(auditSource, sandbox);
@@ -67,6 +69,12 @@ function pad(value) {
 function addMonthsIso(year, month, day, months) {
   const totalMonths = month - 1 + months;
   return `${year + Math.floor(totalMonths / 12)}-${pad(totalMonths % 12 + 1)}-${pad(day)}`;
+}
+
+function addDaysIso(isoDate, days) {
+  const date = new Date(`${isoDate}T00:00:00Z`);
+  date.setUTCDate(date.getUTCDate() + days);
+  return date.toISOString().slice(0, 10);
 }
 
 function assert(condition, message) {
@@ -103,6 +111,7 @@ let calendarCases = 0;
 let calculationCases = 0;
 let chartCases = 0;
 let snapshotChartCases = 0;
+let fentonCases = 0;
 
 assert(api.normalizeChildName("  nGUYỄN   thị-minh  ") === "Nguyễn Thị-Minh", "Child names are not normalized to title case.");
 assert(api.normalizeChildName("tran ngoc") === "Tran Ngoc", "Unaccented child names are not normalized to title case.");
@@ -193,7 +202,69 @@ for (const sex of ["boy", "girl"]) {
   }
 }
 
+const fentonBoundaryCases = [
+  { pmaDays: 158, gaWeeks: 22, gaDays: 4, expectedFenton: true, expectLengthHead: false },
+  { pmaDays: 165, gaWeeks: 23, gaDays: 4, expectedFenton: true, expectLengthHead: true },
+  { pmaDays: 349, gaWeeks: 30, gaDays: 0, expectedFenton: true, expectLengthHead: true },
+  { pmaDays: 350, gaWeeks: 30, gaDays: 0, expectedFenton: true, expectLengthHead: true },
+  { pmaDays: 351, gaWeeks: 30, gaDays: 0, expectedFenton: false, expectLengthHead: true }
+];
+
+for (const sex of ["boy", "girl"]) {
+  for (const testCase of fentonBoundaryCases) {
+    const dob = "2024-01-01";
+    const birthGestationDays = testCase.gaWeeks * 7 + testCase.gaDays;
+    const measureDate = addDaysIso(dob, testCase.pmaDays - birthGestationDays);
+    const fentonWeight = api.fentonReferenceValue(sex, "weight", Math.min(testCase.pmaDays, 350), 0);
+    const fentonHeight = api.fentonReferenceValue(sex, "height", Math.max(165, Math.min(testCase.pmaDays, 350)), 0);
+    const fentonHead = api.fentonReferenceValue(sex, "head", Math.max(165, Math.min(testCase.pmaDays, 350)), 0);
+    const result = api.calculateGrowthData({
+      dob,
+      measureDate,
+      sex,
+      weight: String(fentonWeight || 0.6),
+      height: String(fentonHeight || 30),
+      head: String(fentonHead || 22),
+      preterm: "yes",
+      gestationalWeeks: String(testCase.gaWeeks),
+      gestationalDays: String(testCase.gaDays)
+    });
+
+    assert(result.usesFenton === testCase.expectedFenton, `${sex} at PMA ${testCase.pmaDays} used the wrong reference.`);
+    assert(Math.round(result.postmenstrualAgeDays) === testCase.pmaDays, `${sex} PMA ${testCase.pmaDays} was calculated as ${result.postmenstrualAgeDays}.`);
+    if (testCase.expectedFenton) {
+      const weightMetric = result.metrics.find((metric) => metric.key === "weight");
+      const heightMetric = result.metrics.find((metric) => metric.key === "height");
+      const headMetric = result.metrics.find((metric) => metric.key === "head");
+      assert(weightMetric.status !== "notAvailable", `${sex} PMA ${testCase.pmaDays} is missing Fenton weight.`);
+      assert((heightMetric.status !== "notAvailable") === testCase.expectLengthHead, `${sex} PMA ${testCase.pmaDays} length availability is incorrect.`);
+      assert((headMetric.status !== "notAvailable") === testCase.expectLengthHead, `${sex} PMA ${testCase.pmaDays} head availability is incorrect.`);
+      assert(result.metrics.find((metric) => metric.key === "wfh").status === "notAvailable", "Fenton must not report weight-for-length.");
+      assert(result.metrics.find((metric) => metric.key === "bmi").status === "notAvailable", "Fenton must not report BMI-for-age.");
+
+      for (const indicator of ["weight", "height", "head"]) {
+        const metric = result.metrics.find((item) => item.key === indicator);
+        const svg = api.chartSvg(result, indicator, false);
+        assert(!/NaN|Infinity|undefined|>null</.test(svg), `${sex} PMA ${testCase.pmaDays} ${indicator} contains an invalid SVG value.`);
+        if (metric.status !== "notAvailable") {
+          assert(svg.includes("Fenton 2013"), `${sex} PMA ${testCase.pmaDays} ${indicator} is missing its Fenton chart.`);
+          api.drawSocialSnapshotChart(
+            createCanvasAuditContext(`${sex} PMA ${testCase.pmaDays} ${indicator}`),
+            result,
+            indicator,
+            20,
+            20,
+            720,
+            300
+          );
+        }
+      }
+    }
+    fentonCases += 1;
+  }
+}
+
 console.log(
   `Growth chart check passed: ${calendarCases} calendar ages, ${calculationCases} growth results, `
-  + `${chartCases} web charts, and ${snapshotChartCases} snapshot charts.`
+  + `${chartCases} web charts, ${snapshotChartCases} snapshot charts, and ${fentonCases} Fenton boundary cases.`
 );

@@ -2206,6 +2206,9 @@
     vi: {
       "Child information": "Th&#244;ng tin c&#7911;a tr&#7867;",
       "Basic details used to select the right WHO reference.": "Th&#244;ng tin c&#417; b&#7843;n &#273;&#7875; ch&#7885;n &#273;&#250;ng b&#7843;ng tham chi&#7871;u WHO.",
+      "Basic details used to select the right growth reference.": "Th&#244;ng tin c&#417; b&#7843;n &#273;&#7875; ch&#7885;n &#273;&#250;ng b&#7843;ng tham chi&#7871;u t&#259;ng tr&#432;&#7903;ng.",
+      "Use Fenton before 50 weeks postmenstrual age, then WHO with age correction.": "D&#249;ng Fenton tr&#432;&#7899;c 50 tu&#7847;n tu&#7893;i sau kinh ch&#243;t, sau &#273;&#243; d&#249;ng WHO v&#7899;i tu&#7893;i hi&#7879;u ch&#7881;nh.",
+      "Fenton 2013 is used through 50 weeks postmenstrual age. Corrected age is then used with WHO until 24 months of chronological age.": "Fenton 2013 &#273;&#432;&#7907;c d&#249;ng &#273;&#7871;n 50 tu&#7847;n tu&#7893;i sau kinh ch&#243;t. Sau &#273;&#243; d&#249;ng tu&#7893;i hi&#7879;u ch&#7881;nh v&#7899;i WHO &#273;&#7871;n 24 th&#225;ng tu&#7893;i th&#7921;c.",
       "Current measurements": "S&#7889; &#273;o hi&#7879;n t&#7841;i",
       "Use measurements taken on the selected date.": "Nh&#7853;p c&#225;c s&#7889; &#273;o &#273;&#432;&#7907;c ghi nh&#7853;n trong ng&#224;y &#273;&#227; ch&#7885;n.",
       "Calculated age": "Tu&#7893;i t&#7841;i ng&#224;y &#273;o",
@@ -2225,6 +2228,31 @@
       "Practical reminders for more reliable measurements.": "C&#225;c l&#432;u &#253; th&#7921;c h&#224;nh &#273;&#7875; s&#7889; &#273;o &#273;&#225;ng tin c&#7853;y h&#417;n.",
       "Short answers before interpreting a growth result.": "Gi&#7843;i &#273;&#225;p ng&#7855;n tr&#432;&#7899;c khi di&#7877;n gi&#7843;i k&#7871;t qu&#7843;.",
       "Open supporting information": "M&#7903; th&#244;ng tin h&#7895; tr&#7907;"
+      ,
+      "Postmenstrual age": "Tu&#7893;i sau kinh ch&#243;t",
+      "Postmenstrual age (weeks)": "Tu&#7893;i sau kinh ch&#243;t (tu&#7847;n)",
+      "Fenton 2013 reference": "Tham chi&#7871;u Fenton 2013",
+      "Fenton 2013 preterm growth reference": "Tham chi&#7871;u t&#259;ng tr&#432;&#7903;ng tr&#7867; sinh non Fenton 2013",
+      "Fenton 2013 applied": "&#272;ang &#225;p d&#7909;ng Fenton 2013",
+      "A sex-specific comparison by postmenstrual age for a baby born preterm. These are reference points, not required targets.": "So s&#225;nh theo gi&#7899;i t&#237;nh v&#224; tu&#7893;i sau kinh ch&#243;t d&#224;nh cho tr&#7867; sinh non. &#272;&#226;y l&#224; m&#7889;c tham chi&#7871;u, kh&#244;ng ph&#7843;i m&#7909;c ti&#234;u b&#7855;t bu&#7897;c.",
+      "GrowthKid switches to WHO after 50 weeks postmenstrual age and continues using corrected age when appropriate.": "GrowthKid t&#7921; chuy&#7875;n sang WHO sau 50 tu&#7847;n tu&#7893;i sau kinh ch&#243;t v&#224; ti&#7871;p t&#7909;c d&#249;ng tu&#7893;i hi&#7879;u ch&#7881;nh khi ph&#249; h&#7907;p.",
+      "Fenton reference is not available for this measurement at the selected postmenstrual age.": "Fenton ch&#432;a c&#243; tham chi&#7871;u cho s&#7889; &#273;o n&#224;y &#7903; tu&#7893;i sau kinh ch&#243;t &#273;&#227; ch&#7885;n.",
+      "Fenton 2013 weight reference is available from 22 weeks 4 days to 50 weeks postmenstrual age.": "Tham chi&#7871;u c&#226;n n&#7863;ng Fenton 2013 c&#243; t&#7915; 22 tu&#7847;n 4 ng&#224;y &#273;&#7871;n 50 tu&#7847;n tu&#7893;i sau kinh ch&#243;t.",
+      "Fenton 2013 length and head circumference references are available from 23 weeks 4 days to 50 weeks postmenstrual age.": "Tham chi&#7871;u chi&#7873;u d&#224;i v&#224; v&#242;ng &#273;&#7847;u Fenton 2013 c&#243; t&#7915; 23 tu&#7847;n 4 ng&#224;y &#273;&#7871;n 50 tu&#7847;n tu&#7893;i sau kinh ch&#243;t.",
+      "Fenton 2013 does not provide a weight-for-length reference.": "Fenton 2013 kh&#244;ng cung c&#7845;p tham chi&#7871;u c&#226;n n&#7863;ng theo chi&#7873;u d&#224;i.",
+      "Fenton 2013 does not provide a BMI-for-age reference.": "Fenton 2013 kh&#244;ng cung c&#7845;p tham chi&#7871;u BMI theo tu&#7893;i.",
+      "Fenton 2013 reference data could not be loaded. Please refresh and try again.": "Kh&#244;ng t&#7843;i &#273;&#432;&#7907;c d&#7919; li&#7879;u Fenton 2013. Vui l&#242;ng t&#7843;i l&#7841;i trang.",
+      "Fenton 2013 starts at 22 weeks 4 days postmenstrual age. Please use specialist neonatal follow-up for an earlier age.": "Fenton 2013 b&#7855;t &#273;&#7847;u t&#7915; 22 tu&#7847;n 4 ng&#224;y tu&#7893;i sau kinh ch&#243;t. Tu&#7893;i s&#7899;m h&#417;n c&#7847;n &#273;&#432;&#7907;c theo d&#245;i chuy&#234;n khoa s&#417; sinh.",
+      "Reference head circumference standard": "V&#242;ng &#273;&#7847;u chu&#7849;n tham chi&#7871;u",
+      "Compared with reference head circumference": "So v&#7899;i v&#242;ng &#273;&#7847;u chu&#7849;n",
+      "Standard head circumference range (-2 to +2 SD)": "Kho&#7843;ng v&#242;ng &#273;&#7847;u chu&#7849;n (-2 &#273;&#7871;n +2 SD)",
+      "Standard head circumference": "V&#242;ng &#273;&#7847;u chu&#7849;n",
+      "Length (cm)": "Chi&#7873;u d&#224;i (cm)",
+      "Fenton 2013 preterm growth assessment": "&#272;&#225;nh gi&#225; t&#259;ng tr&#432;&#7903;ng sinh non Fenton 2013",
+      "Preterm growth by postmenstrual age": "T&#259;ng tr&#432;&#7903;ng sinh non theo tu&#7893;i sau hi&#7879;u ch&#7881;nh Fenton",
+      "Source: Fenton 2013 preterm growth reference": "Ngu&#7891;n: Tham chi&#7871;u t&#259;ng tr&#432;&#7903;ng sinh non Fenton 2013"
+      ,
+      "Supports Fenton 2013 for preterm infants through 50 weeks postmenstrual age, WHO Child Growth Standards for 0-5 years, and WHO Growth Reference 2007 for 5-19 years. Weight-for-age is available to 10 years in WHO 2007.": "H&#7895; tr&#7907; Fenton 2013 cho tr&#7867; sinh non &#273;&#7871;n 50 tu&#7847;n tu&#7893;i sau kinh ch&#243;t, Chu&#7849;n t&#259;ng tr&#432;&#7903;ng tr&#7867; em WHO 0-5 tu&#7893;i v&#224; Tham chi&#7871;u t&#259;ng tr&#432;&#7903;ng WHO 2007 cho 5-19 tu&#7893;i. C&#226;n n&#7863;ng theo tu&#7893;i c&#243; &#273;&#7871;n 10 tu&#7893;i trong WHO 2007."
     }
   };
 
@@ -2727,11 +2755,15 @@
 
   const who2007 = window.GROWTHKID_WHO_2007 || null;
   const whoWeightHeight = window.GROWTHKID_WHO_WEIGHT_HEIGHT || null;
+  const fenton2013 = window.GROWTHKID_FENTON_2013 || null;
   const underFiveMaxMonths = 60;
   const who2007MaxMonths = 228;
   const who2007WeightMaxMonths = 120;
   const fullTermGestationDays = 40 * 7;
   const correctedAgeLimitMonths = 24;
+  const fentonMinPmaDays = 22 * 7 + 4;
+  const fentonLengthHeadMinPmaDays = 23 * 7 + 4;
+  const fentonMaxPmaDays = 50 * 7;
 
   function readStoredLanguage() {
     try {
@@ -3215,7 +3247,7 @@
           <fieldset class="calculator-form-section">
             <legend>
               <span class="form-section-number">1</span>
-              <span><strong>Child information</strong><small>Basic details used to select the right WHO reference.</small></span>
+              <span><strong>Child information</strong><small>Basic details used to select the right growth reference.</small></span>
             </legend>
             <div class="form-grid form-grid-child">
               <div class="field field-child-name">
@@ -3244,13 +3276,13 @@
                 <span class="preterm-switch" aria-hidden="true"></span>
                 <span class="preterm-toggle-copy">
                   <strong>Born preterm</strong>
-                  <small>Use age correction for a baby born before 37 completed weeks.</small>
+                  <small>Use Fenton before 50 weeks postmenstrual age, then WHO with age correction.</small>
                 </span>
               </label>
               <div class="prematurity-details" data-preterm-details hidden>
                 <div class="prematurity-details-heading">
                   <strong>Gestational age at birth</strong>
-                  <small>Age is corrected to 40 weeks and applied until 24 months of chronological age.</small>
+                  <small>Fenton 2013 is used through 50 weeks postmenstrual age. Corrected age is then used with WHO until 24 months of chronological age.</small>
                 </div>
                 <div class="field">
                   <label for="gestationalWeeks">Completed weeks</label>
@@ -3316,7 +3348,7 @@
         </div>
         <button class="btn btn-primary calc-submit" type="submit">Calculate Growth ${icon("arrow")}</button>
         <div class="form-error" id="formError"></div>
-        ${compact || !showSourceNote ? "" : '<p class="source-note">Supports WHO Child Growth Standards for 0-5 years and WHO Growth Reference 2007 for 5-19 years. Weight-for-age is available to 10 years in WHO 2007.</p>'}
+        ${compact || !showSourceNote ? "" : '<p class="source-note">Supports Fenton 2013 for preterm infants through 50 weeks postmenstrual age, WHO Child Growth Standards for 0-5 years, and WHO Growth Reference 2007 for 5-19 years. Weight-for-age is available to 10 years in WHO 2007.</p>'}
       </form>
     `;
   }
@@ -6287,7 +6319,8 @@
   function resultsBlock(forceVisible) {
     const result = readSavedResult() || sampleResult();
     const hiddenClass = forceVisible || resultsVisible ? "" : " style=\"display:none\"";
-    const chartIndicator = lastChartIndicator || "height";
+    const chartIndicators = result.usesFenton ? ["weight", "height", "head"] : ["weight", "height", "wfh", "bmi"];
+    const chartIndicator = chartIndicators.includes(lastChartIndicator) ? lastChartIndicator : "height";
 
     return `
       <section class="results-section" id="results"${hiddenClass}>
@@ -6314,14 +6347,15 @@
                   <div class="chart-card-header">
                     <h2 id="chartTitle">${chartTitle(chartIndicator)}</h2>
                     <div class="chart-tabs">
-                      <button class="chart-tab ${chartIndicator === "weight" ? "is-active" : ""}" data-chart="weight" type="button">Weight</button>
-                      <button class="chart-tab ${chartIndicator === "height" ? "is-active" : ""}" data-chart="height" type="button">Height</button>
-                      <button class="chart-tab ${chartIndicator === "wfh" ? "is-active" : ""}" data-chart="wfh" type="button">Weight-for-height</button>
-                      <button class="chart-tab ${chartIndicator === "bmi" ? "is-active" : ""}" data-chart="bmi" type="button">BMI</button>
+                      ${chartIndicators.map((key) => `<button class="chart-tab ${chartIndicator === key ? "is-active" : ""}" data-chart="${key}" type="button">${t(titleFor(key))}</button>`).join("")}
                     </div>
                   </div>
                   <div class="chart-reference-key">
-                    <p class="legend-note">${t("Percentile and SD describe the same position on the WHO reference.")}</p>
+                    <p class="legend-note">${result.usesFenton
+                      ? (activeLanguage === "vi"
+                        ? "Bách phân vị và SD là hai cách biểu diễn cùng một vị trí trên tham chiếu Fenton 2013."
+                        : "Percentile and SD describe the same position on the Fenton 2013 reference.")
+                      : t("Percentile and SD describe the same position on the WHO reference.")}</p>
                     <span class="legend-item"><span class="legend-swatch p99"></span>${percentileSdLabel(3)}</span>
                     <span class="legend-item"><span class="legend-swatch p97"></span>${percentileSdLabel(2)}</span>
                     <span class="legend-item"><span class="legend-swatch p85"></span>${percentileSdLabel(1)}</span>
@@ -6398,27 +6432,40 @@
   }
 
   function referenceComparison(result) {
-    const items = [
-      referenceComparisonItem(result, "weight", result.weight, "kg"),
-      referenceComparisonItem(result, "height", result.height, "cm"),
-      referenceComparisonItem(result, "wfh", result.weight, "kg"),
-      referenceComparisonItem(result, "bmi", result.bmi, "kg/m\u00b2")
-    ];
+    const items = result.usesFenton
+      ? [
+        referenceComparisonItem(result, "weight", result.weight, "kg"),
+        referenceComparisonItem(result, "height", result.height, "cm"),
+        referenceComparisonItem(result, "head", result.head, "cm")
+      ]
+      : [
+        referenceComparisonItem(result, "weight", result.weight, "kg"),
+        referenceComparisonItem(result, "height", result.height, "cm"),
+        referenceComparisonItem(result, "wfh", result.weight, "kg"),
+        referenceComparisonItem(result, "bmi", result.bmi, "kg/m\u00b2")
+      ];
 
     return `
       <div class="reference-comparison-header">
         <div>
-          <h2>${t("WHO reference")}</h2>
-          <p>${t("A quick comparison with WHO medians for age or height and sex. These are reference points, not required targets.")}</p>
+          <h2>${t(result.usesFenton ? "Fenton 2013 reference" : "WHO reference")}</h2>
+          <p>${t(result.usesFenton
+            ? "A sex-specific comparison by postmenstrual age for a baby born preterm. These are reference points, not required targets."
+            : "A quick comparison with WHO medians for age or height and sex. These are reference points, not required targets.")}</p>
         </div>
       </div>
-      ${result.preterm && result.correctionApplied ? `
+      ${result.usesFenton ? `
+        <div class="preterm-reference-note">
+          <span>${icon("info")}</span>
+          <p><strong>${t("Fenton 2013 applied")}:</strong> ${t("Postmenstrual age")} ${postmenstrualAgeLabel(result.postmenstrualAgeDays)}; ${t("Chronological age")} ${ageLabel(result.chronologicalAgeMonths)}; ${t("Gestational age at birth")} ${result.gestationalAgeWeeks} ${t("weeks")} ${result.gestationalAgeDays} ${t("days")}. ${t("GrowthKid switches to WHO after 50 weeks postmenstrual age and continues using corrected age when appropriate.")}</p>
+        </div>
+      ` : result.preterm && result.correctionApplied ? `
         <div class="preterm-reference-note">
           <span>${icon("info")}</span>
           <p><strong>${t("Age correction applied")}:</strong> ${t("Corrected age")} ${ageLabel(result.ageMonths)}; ${t("Chronological age")} ${ageLabel(result.chronologicalAgeMonths)}; ${t("Gestational age at birth")} ${result.gestationalAgeWeeks} ${t("weeks")} ${result.gestationalAgeDays} ${t("days")}. ${t("WHO results use corrected age. For very young preterm infants, clinicians may use a dedicated preterm chart during the transition period.")}</p>
         </div>
       ` : ""}
-      <div class="reference-comparison-grid">
+      <div class="reference-comparison-grid ${result.usesFenton ? "is-fenton" : ""}">
         ${items.join("")}
       </div>
     `;
@@ -6429,20 +6476,21 @@
     const details = {
       weight: { title: "Weight", icon: "chart", referenceLabel: "Reference weight standard", comparisonLabel: "Compared with reference weight" },
       height: { title: "Height", icon: "ruler", referenceLabel: "Reference height standard", comparisonLabel: "Compared with reference height" },
+      head: { title: "Head circumference", icon: "shield", referenceLabel: "Reference head circumference standard", comparisonLabel: "Compared with reference head circumference" },
       wfh: { title: "Weight-for-height", icon: "chart", referenceLabel: "Reference weight-for-height standard", comparisonLabel: "Compared with reference weight-for-height" },
       bmi: { title: "BMI-for-age", icon: "sparkle", referenceLabel: "Reference BMI standard", comparisonLabel: "Compared with reference BMI" }
     }[key];
     const title = details ? details.title : key;
     const itemIcon = details ? details.icon : "chart";
 
-    if (!Number.isFinite(reference)) {
+    if (!Number.isFinite(reference) || !Number.isFinite(currentValue)) {
       return `
         <article class="reference-metric is-unavailable">
           <div class="reference-metric-title">
             <span class="icon-box">${icon(itemIcon)}</span>
             <strong>${t(title)}</strong>
           </div>
-          <p class="reference-unavailable">${t("WHO reference is not available for this age.")}</p>
+          <p class="reference-unavailable">${t(result.usesFenton ? "Fenton reference is not available for this measurement at the selected postmenstrual age." : "WHO reference is not available for this age.")}</p>
         </article>
       `;
     }
@@ -6479,6 +6527,10 @@
   }
 
   function idealReferenceValue(result, key) {
+    if (result.usesFenton) {
+      const lms = fentonLmsAt(result.sex || "boy", key, result.postmenstrualAgeDays);
+      return lms ? fentonDisplayValue(key, lms.m) : null;
+    }
     if (key === "wfh") {
       if ((result.ageMonths ?? 0) > underFiveMaxMonths) return null;
       const lms = weightHeightLmsAt(result.sex || "boy", result.ageMonths || 0, result.height);
@@ -6532,7 +6584,9 @@
       <h2>${t("Interpretation")}</h2>
       <p>${sentence}</p>
       <p>${t(statusDetail(metric.status, metric.key))}</p>
-      <a class="btn btn-quiet" href="https://www.who.int/tools/child-growth-standards" target="_blank" rel="noreferrer">${t("Learn about WHO standards")} ${icon("arrow")}</a>
+      <a class="btn btn-quiet" href="${result.usesFenton ? "https://pmc.ncbi.nlm.nih.gov/articles/PMC3637477/" : "https://www.who.int/tools/child-growth-standards"}" target="_blank" rel="noreferrer">${result.usesFenton
+        ? (activeLanguage === "vi" ? "Tìm hiểu Fenton 2013" : "Learn about Fenton 2013")
+        : t("Learn about WHO standards")} ${icon("arrow")}</a>
     `;
   }
 
@@ -6590,20 +6644,56 @@
     }
 
     const bmi = weight / Math.pow(height / 100, 2);
-    const metrics = [
-      metric("height", "Height-for-age", "ruler", sex, ageMonths, height),
-      metric("weight", "Weight-for-age", "chart", sex, ageMonths, weight),
-      weightHeightMetric(sex, ageMonths, weight, height),
-      metric("bmi", "BMI-for-age", "spark", sex, ageMonths, bmi),
-      head ? metric("head", "Head circumference", "shield", sex, ageMonths, head) : unavailableMetric(
-        "head",
-        "Head circumference",
-        "shield",
-        null,
-        "notEntered",
-        "Add this measurement to calculate a z-score and percentile."
-      )
-    ];
+    const metrics = ageAdjustment.usesFenton
+      ? [
+        fentonMetric("height", "Length-for-postmenstrual-age", "ruler", sex, ageAdjustment.postmenstrualAgeDays, height),
+        fentonMetric("weight", "Weight-for-postmenstrual-age", "chart", sex, ageAdjustment.postmenstrualAgeDays, weight),
+        unavailableMetric(
+          "wfh",
+          "Weight-for-height",
+          "chart",
+          weight,
+          "notAvailable",
+          "Fenton 2013 does not provide a weight-for-length reference."
+        ),
+        unavailableMetric(
+          "bmi",
+          "BMI-for-age",
+          "spark",
+          bmi,
+          "notAvailable",
+          "Fenton 2013 does not provide a BMI-for-age reference."
+        ),
+        head ? fentonMetric(
+          "head",
+          "Head circumference-for-postmenstrual-age",
+          "shield",
+          sex,
+          ageAdjustment.postmenstrualAgeDays,
+          head
+        ) : unavailableMetric(
+          "head",
+          "Head circumference",
+          "shield",
+          null,
+          "notEntered",
+          "Add this measurement to calculate a z-score and percentile."
+        )
+      ]
+      : [
+        metric("height", "Height-for-age", "ruler", sex, ageMonths, height),
+        metric("weight", "Weight-for-age", "chart", sex, ageMonths, weight),
+        weightHeightMetric(sex, ageMonths, weight, height),
+        metric("bmi", "BMI-for-age", "spark", sex, ageMonths, bmi),
+        head ? metric("head", "Head circumference", "shield", sex, ageMonths, head) : unavailableMetric(
+          "head",
+          "Head circumference",
+          "shield",
+          null,
+          "notEntered",
+          "Add this measurement to calculate a z-score and percentile."
+        )
+      ];
 
     return {
       childName,
@@ -6617,8 +6707,11 @@
       gestationalAgeWeeks: ageAdjustment.gestationalAgeWeeks,
       gestationalAgeDays: ageAdjustment.gestationalAgeDays,
       correctionDays: ageAdjustment.correctionDays,
+      usesFenton: ageAdjustment.usesFenton,
+      postmenstrualAgeDays: ageAdjustment.postmenstrualAgeDays,
+      postmenstrualAgeWeeks: ageAdjustment.postmenstrualAgeWeeks,
       measureDate: toIsoDate(measureDate),
-      referenceLabel: referenceLabel(ageMonths),
+      referenceLabel: ageAdjustment.usesFenton ? "Fenton 2013 preterm growth reference" : referenceLabel(ageMonths),
       weight,
       height,
       bmi,
@@ -6923,6 +7016,73 @@
     return base > 0 ? lms.m * Math.pow(base, 1 / lms.l) : null;
   }
 
+  function fentonRows(sex, key) {
+    return fenton2013 && fenton2013.data && fenton2013.data[sex] && fenton2013.data[sex][key];
+  }
+
+  function fentonLmsAt(sex, key, postmenstrualAgeDays) {
+    const rows = fentonRows(sex, key);
+    if (!rows || !rows.length || !Number.isFinite(postmenstrualAgeDays)) return null;
+    if (postmenstrualAgeDays < rows[0][0] || postmenstrualAgeDays > rows[rows.length - 1][0]) return null;
+
+    const lowerIndex = Math.floor(postmenstrualAgeDays) - rows[0][0];
+    const lower = rows[clamp(lowerIndex, 0, rows.length - 1)];
+    const upper = rows[Math.min(rows.length - 1, lowerIndex + 1)];
+    const ratio = clamp(postmenstrualAgeDays - lower[0], 0, 1);
+    return {
+      l: lower[1] + (upper[1] - lower[1]) * ratio,
+      m: lower[2] + (upper[2] - lower[2]) * ratio,
+      s: lower[3] + (upper[3] - lower[3]) * ratio
+    };
+  }
+
+  function fentonInputValue(key, value) {
+    return key === "weight" ? value * 1000 : value;
+  }
+
+  function fentonDisplayValue(key, value) {
+    return key === "weight" ? value / 1000 : value;
+  }
+
+  function fentonMetric(key, label, iconName, sex, postmenstrualAgeDays, value) {
+    const lms = fentonLmsAt(sex, key, postmenstrualAgeDays);
+    if (!lms) {
+      const reason = key === "weight"
+        ? "Fenton 2013 weight reference is available from 22 weeks 4 days to 50 weeks postmenstrual age."
+        : "Fenton 2013 length and head circumference references are available from 23 weeks 4 days to 50 weeks postmenstrual age.";
+      return unavailableMetric(key, label, iconName, value, "notAvailable", reason);
+    }
+
+    const z = clamp(lmsZScore(fentonInputValue(key, value), lms), -4, 4);
+    return {
+      key,
+      label,
+      icon: iconName,
+      value,
+      z,
+      percentile: zToPercentile(z),
+      status: statusForMetric(key, z, 0),
+      reference: "fenton2013"
+    };
+  }
+
+  function fentonReferenceValue(sex, key, postmenstrualAgeDays, z) {
+    const lms = fentonLmsAt(sex, key, postmenstrualAgeDays);
+    const value = lmsValueAtZ(lms, z);
+    return Number.isFinite(value) ? fentonDisplayValue(key, value) : null;
+  }
+
+  function exactCalendarDays(start, end) {
+    const startUtc = Date.UTC(start.getFullYear(), start.getMonth(), start.getDate());
+    const endUtc = Date.UTC(end.getFullYear(), end.getMonth(), end.getDate());
+    return Math.round((endUtc - startUtc) / 86400000);
+  }
+
+  function postmenstrualAgeLabel(days) {
+    const totalDays = Math.max(0, Math.round(days || 0));
+    return `${Math.floor(totalDays / 7)} ${t("weeks")} ${totalDays % 7} ${t("days")}`;
+  }
+
   function referenceValue(sex, key, months, z) {
     if (months > underFiveMaxMonths && key !== "head") {
       const lms = who2007LmsAt(sex, key, months);
@@ -6985,6 +7145,7 @@
   }
 
   function chartSvg(result, indicator, compact) {
+    if (result.usesFenton) return fentonChartSvg(result, indicator, compact);
     if (indicator === "wfh") return weightHeightChartSvg(result, compact);
     const sex = result.sex || "boy";
     const width = compact ? 560 : 760;
@@ -7062,6 +7223,72 @@
         ${metric && metric.z !== null ? `<circle cx="${childX.toFixed(1)}" cy="${childY.toFixed(1)}" r="${compact ? 5 : 6}" fill="#2563eb" stroke="#ffffff" stroke-width="3"></circle>` : ""}
         <text x="${padding.left}" y="${compact ? 20 : 22}" fill="#0f172a" font-size="${compact ? 14 : 16}" font-weight="800">${t(titleFor(indicator))} (${unit})</text>
         <text x="${(width - padding.right + padding.left) / 2}" y="${height - 4}" text-anchor="middle" fill="#64748b" font-size="12">${t("Age (months)")}</text>
+      </svg>
+    `;
+  }
+
+  function fentonChartSvg(result, indicator, compact) {
+    const width = compact ? 560 : 760;
+    const height = compact ? 310 : 520;
+    const padding = compact ? { left: 48, right: 24, top: 28, bottom: 44 } : { left: 62, right: 118, top: 38, bottom: 68 };
+    const metric = result.metrics && result.metrics.find((item) => item.key === indicator);
+    const rows = fentonRows(result.sex || "boy", indicator);
+    if (!rows || !metric || metric.status === "notAvailable" || metric.status === "notEntered") {
+      return unavailableChartSvg(indicator, compact, metric && metric.reason);
+    }
+
+    const zLines = [
+      { z: 3, color: "#991b1b" },
+      { z: 2, color: "#ef4444" },
+      { z: 1, color: "#f59e0b" },
+      { z: 0, color: "#16a34a" },
+      { z: -1, color: "#2563eb" },
+      { z: -2, color: "#4f46e5" },
+      { z: -3, color: "#7e22ce" }
+    ];
+    const minDay = rows[0][0];
+    const maxDay = rows[rows.length - 1][0];
+    const values = rows.flatMap((row) => zLines.map((line) => {
+      const value = lmsValueAtZ({ l: row[1], m: row[2], s: row[3] }, line.z);
+      return fentonDisplayValue(indicator, value);
+    }));
+    const minValue = Math.min(...values);
+    const maxValue = Math.max(...values);
+    const span = maxValue - minValue || 1;
+    const scale = { min: Math.max(0, minValue - span * 0.04), max: maxValue + span * 0.04 };
+    const x = (day) => padding.left + ((day - minDay) / (maxDay - minDay)) * (width - padding.left - padding.right);
+    const y = (value) => chartValueToY(value, scale, padding.top, height - padding.bottom);
+    const pathFor = (z) => rows.map((row, index) => {
+      const value = fentonDisplayValue(indicator, lmsValueAtZ({ l: row[1], m: row[2], s: row[3] }, z));
+      return `${index === 0 ? "M" : "L"}${x(row[0]).toFixed(1)},${y(value).toFixed(1)}`;
+    }).join(" ");
+    const weekTicks = [24, 28, 32, 36, 40, 44, 48, 50].filter((week) => week * 7 >= minDay);
+    const yTicks = Array.from({ length: 5 }, (_, index) => scale.min + ((scale.max - scale.min) * index) / 4);
+    const childDay = clamp(result.postmenstrualAgeDays, minDay, maxDay);
+    const childValue = indicator === "weight" ? result.weight : result[indicator];
+    const childReferenceValue = fentonReferenceValue(result.sex || "boy", indicator, childDay, metric.z);
+    const childX = x(childDay);
+    const childY = clamp(y(childReferenceValue ?? childValue), padding.top + 8, height - padding.bottom - 8);
+    const unit = indicator === "weight" ? "kg" : "cm";
+
+    return `
+      <svg viewBox="0 0 ${width} ${height}" role="img" aria-label="${indicator} Fenton 2013 growth chart">
+        <rect x="0" y="0" width="${width}" height="${height}" fill="#ffffff"></rect>
+        ${yTicks.map((value) => `
+          <line x1="${padding.left}" y1="${y(value).toFixed(1)}" x2="${width - padding.right}" y2="${y(value).toFixed(1)}" stroke="#e2e8f0" stroke-width="1"></line>
+          <text x="${padding.left - 10}" y="${y(value).toFixed(1)}" text-anchor="end" dominant-baseline="middle" fill="#64748b" font-size="12">${indicator === "weight" ? value.toFixed(1) : Math.round(value)}</text>
+        `).join("")}
+        ${weekTicks.map((week) => `
+          <line x1="${x(week * 7).toFixed(1)}" y1="${padding.top}" x2="${x(week * 7).toFixed(1)}" y2="${height - padding.bottom}" stroke="#eef2f7" stroke-width="1"></line>
+          <text x="${x(week * 7).toFixed(1)}" y="${height - 22}" text-anchor="middle" fill="#64748b" font-size="12">${week}</text>
+        `).join("")}
+        ${zLines.map((line) => `
+          <path d="${pathFor(line.z)}" fill="none" stroke="${line.color}" stroke-width="${line.z === 0 ? 2.5 : 1.7}" opacity="${line.z === 0 ? 0.95 : 0.76}"></path>
+          ${compact ? "" : `<text x="${width - padding.right + 12}" y="${y(fentonReferenceValue(result.sex || "boy", indicator, maxDay, line.z)).toFixed(1)}" fill="#334155" font-size="11" font-weight="700" dominant-baseline="middle">${sdLabel(line.z)}</text>`}
+        `).join("")}
+        <circle cx="${childX.toFixed(1)}" cy="${childY.toFixed(1)}" r="${compact ? 5 : 7}" fill="#2563eb" stroke="#ffffff" stroke-width="3"></circle>
+        <text x="${padding.left}" y="22" fill="#0f172a" font-size="${compact ? 14 : 16}" font-weight="800">${t(titleFor(indicator))} (${unit}) · Fenton 2013</text>
+        <text x="${(width - padding.right + padding.left) / 2}" y="${height - 5}" text-anchor="middle" fill="#64748b" font-size="12">${t("Postmenstrual age (weeks)")}</text>
       </svg>
     `;
   }
@@ -7266,7 +7493,9 @@
     const childMeta = normalizeChildName(result.childName)
       ? `<span>${t("Child's name")}: ${escapeHtml(normalizeChildName(result.childName))}</span>`
       : "";
-    const ageMeta = result.preterm && result.correctionApplied
+    const ageMeta = result.usesFenton
+      ? `<span>${sexLabel(result.sex)}</span><span>${t("Postmenstrual age")} ${postmenstrualAgeLabel(result.postmenstrualAgeDays)}</span><span>${t("Chronological age")} ${ageLabel(result.chronologicalAgeMonths)}</span>`
+      : result.preterm && result.correctionApplied
       ? `<span>${sexLabel(result.sex)}</span><span>${t("Corrected age")} ${ageLabel(result.ageMonths)}</span><span>${t("Chronological age")} ${ageLabel(result.chronologicalAgeMonths)}</span>`
       : `<span>${sexLabel(result.sex)} - ${ageLabel(result.chronologicalAgeMonths ?? result.ageMonths)}</span>`;
     const correctionMeta = result.preterm && !result.correctionApplied
@@ -7298,6 +7527,7 @@
 
   function prematurityAgeAdjustment(data, dob, measureDate) {
     const chronologicalAgeMonths = monthDiff(dob, measureDate);
+    const chronologicalAgeDays = exactCalendarDays(dob, measureDate);
     const preterm = data && (data.preterm === true || data.preterm === "yes" || data.preterm === "on");
     if (!preterm) {
       return {
@@ -7306,6 +7536,9 @@
         chronologicalAgeMonths,
         correctedAgeMonths: null,
         referenceAgeMonths: chronologicalAgeMonths,
+        usesFenton: false,
+        postmenstrualAgeDays: null,
+        postmenstrualAgeWeeks: null,
         gestationalAgeWeeks: null,
         gestationalAgeDays: null,
         correctionDays: 0
@@ -7325,21 +7558,31 @@
     }
 
     const gestationalAgeTotalDays = gestationalAgeWeeks * 7 + gestationalAgeDays;
+    const postmenstrualAgeDays = gestationalAgeTotalDays + chronologicalAgeDays;
+    const postmenstrualAgeWeeks = postmenstrualAgeDays / 7;
     const correctionDays = fullTermGestationDays - gestationalAgeTotalDays;
     const correctionMonths = correctionDays / (365.2425 / 12);
     const correctedAgeMonths = chronologicalAgeMonths - correctionMonths;
     const correctionApplied = chronologicalAgeMonths < correctedAgeLimitMonths;
+    const usesFenton = postmenstrualAgeDays <= fentonMaxPmaDays;
 
-    if (correctionApplied && correctedAgeMonths < 0) {
-      throw new Error("The corrected age is before the estimated due date. Use a preterm growth chart and clinical follow-up instead of the WHO term chart.");
+    if (usesFenton && !fenton2013) {
+      throw new Error("Fenton 2013 reference data could not be loaded. Please refresh and try again.");
+    }
+
+    if (usesFenton && postmenstrualAgeDays < fentonMinPmaDays) {
+      throw new Error("Fenton 2013 starts at 22 weeks 4 days postmenstrual age. Please use specialist neonatal follow-up for an earlier age.");
     }
 
     return {
       preterm: true,
       correctionApplied,
+      usesFenton,
       chronologicalAgeMonths,
       correctedAgeMonths,
-      referenceAgeMonths: correctionApplied ? correctedAgeMonths : chronologicalAgeMonths,
+      referenceAgeMonths: usesFenton ? Math.max(0, correctedAgeMonths) : correctionApplied ? correctedAgeMonths : chronologicalAgeMonths,
+      postmenstrualAgeDays,
+      postmenstrualAgeWeeks,
       gestationalAgeWeeks,
       gestationalAgeDays,
       correctionDays
@@ -7645,10 +7888,14 @@
     ctx.imageSmoothingQuality = "high";
     const childName = normalizeChildName(result.childName);
     const primary = highlightMetric(result);
-    const resultItems = ["height", "weight", "wfh", "bmi"].map((key) => metricSnapshotItem(
+    const snapshotKeys = result.usesFenton ? ["height", "weight", "head"] : ["height", "weight", "wfh", "bmi"];
+    const resultItems = snapshotKeys.map((key) => metricSnapshotItem(
       result,
       key,
-      key === "height" ? `${result.height.toFixed(1)} cm` : key === "bmi" ? result.bmi.toFixed(1) : `${result.weight.toFixed(1)} kg`
+      key === "height" ? `${result.height.toFixed(1)} cm`
+        : key === "head" ? (result.head ? `${result.head.toFixed(1)} cm` : "--")
+          : key === "bmi" ? result.bmi.toFixed(1)
+            : `${result.weight.toFixed(1)} kg`
     ));
     const brandMark = await loadCanvasImage("/assets/brand-mark-blue.png");
 
@@ -7676,16 +7923,18 @@
     ctx.fillText("GrowthKid", 124, 74);
     ctx.fillStyle = "#64748b";
     ctx.font = "750 13px Inter, sans-serif";
-    ctx.fillText(canvasText("WHO-based growth assessment"), 126, 96);
+    ctx.fillText(canvasText(result.usesFenton ? "Fenton 2013 preterm growth assessment" : "WHO-based growth assessment"), 126, 96);
 
     ctx.fillStyle = "#0f172a";
     ctx.font = "900 60px Inter, sans-serif";
     ctx.fillText(canvasText("Growth Snapshot"), 54, 164);
     ctx.fillStyle = "#334155";
     ctx.font = "750 28px Inter, sans-serif";
-    ctx.fillText(canvasText("WHO-based growth check"), 56, 210);
+    ctx.fillText(canvasText(result.usesFenton ? "Preterm growth by postmenstrual age" : "WHO-based growth check"), 56, 210);
     const roundedAgeMonths = Math.round(result.ageMonths || 0);
-    const compactAge = `${roundedAgeMonths} ${canvasText(roundedAgeMonths === 1 ? "month" : "months")}`;
+    const compactAge = result.usesFenton
+      ? postmenstrualAgeLabel(result.postmenstrualAgeDays)
+      : `${roundedAgeMonths} ${canvasText(roundedAgeMonths === 1 ? "month" : "months")}`;
 
     if (childName) {
       ctx.save();
@@ -7728,7 +7977,7 @@
       };
       drawProfileMeta(`${canvasText("Measured on")} ${formatDate(result.measureDate)}`, 216);
       drawProfileMeta(
-        `${canvasText(result.preterm && result.correctionApplied ? "Corrected age" : "Age at measurement")} ${compactAge}`,
+        `${canvasText(result.usesFenton ? "Postmenstrual age" : result.preterm && result.correctionApplied ? "Corrected age" : "Age at measurement")} ${compactAge}`,
         256
       );
       ctx.restore();
@@ -7750,7 +7999,7 @@
       ctx.font = "850 15px Inter, sans-serif";
       centerText(
         ctx,
-        `${canvasText(result.preterm && result.correctionApplied ? "Corrected age" : "Age at measurement")} ${compactAge}`,
+        `${canvasText(result.usesFenton ? "Postmenstrual age" : result.preterm && result.correctionApplied ? "Corrected age" : "Age at measurement")} ${compactAge}`,
         478,
         262
       );
@@ -7761,7 +8010,17 @@
     drawSnapshotPanel(ctx, 44, 304, 992, 204);
     drawMeasurementSummary(ctx, result, 72, 332);
 
-    resultItems.forEach((item, index) => drawResultSnapshotTile(ctx, 44 + index * 250, 532, 242, 206, item, index));
+    const snapshotTileGap = 10;
+    const snapshotTileWidth = (992 - snapshotTileGap * (resultItems.length - 1)) / resultItems.length;
+    resultItems.forEach((item, index) => drawResultSnapshotTile(
+      ctx,
+      44 + index * (snapshotTileWidth + snapshotTileGap),
+      532,
+      snapshotTileWidth,
+      206,
+      item,
+      index
+    ));
 
     drawSnapshotPanel(ctx, 44, 758, 992, 602);
     ctx.fillStyle = "#0f172a";
@@ -7771,11 +8030,15 @@
     drawZScoreLegend(ctx, 660, 788);
     drawChartPreview(ctx, result, "height", 72, 852, 438, 215, "#14b8a6");
     drawChartPreview(ctx, result, "weight", 570, 852, 438, 215, "#2563eb");
-    drawChartPreview(ctx, result, "wfh", 72, 1105, 438, 215, "#059669");
-    drawChartPreview(ctx, result, "bmi", 570, 1105, 438, 215, "#7c3aed");
+    if (result.usesFenton) {
+      drawChartPreview(ctx, result, "head", 164, 1105, 752, 215, "#7c3aed");
+    } else {
+      drawChartPreview(ctx, result, "wfh", 72, 1105, 438, 215, "#059669");
+      drawChartPreview(ctx, result, "bmi", 570, 1105, 438, 215, "#7c3aed");
+    }
     ctx.fillStyle = "#64748b";
     ctx.font = "750 13px Inter, sans-serif";
-    centerText(ctx, `${canvasText("WHO standards")} - ${canvasText("Your child")} - ${canvasText("Educational use only - not medical advice")}`, 540, 1344);
+    centerText(ctx, `${canvasText(result.usesFenton ? "Fenton 2013 reference" : "WHO standards")} - ${canvasText("Your child")} - ${canvasText("Educational use only - not medical advice")}`, 540, 1344);
 
     drawSnapshotPanel(ctx, 44, 1380, 992, 110);
     drawSnapshotAdvice(ctx, primary, 72, 1398);
@@ -7795,7 +8058,7 @@
     );
     ctx.fillStyle = "#64748b";
     ctx.font = "750 15px Inter, sans-serif";
-    ctx.fillText(canvasText("Source: World Health Organization (WHO)"), 72, 1620);
+    ctx.fillText(canvasText(result.usesFenton ? "Source: Fenton 2013 preterm growth reference" : "Source: World Health Organization (WHO)"), 72, 1620);
     ctx.fillStyle = "#2563eb";
     ctx.font = "900 24px Inter, sans-serif";
     ctx.fillText("GrowthKid", 680, 1578);
@@ -7823,19 +8086,20 @@
       medianGap: snapshotMedianGap(result, key),
       difference: snapshotMetricDifference(result, key),
       referenceRange: snapshotMetricReferenceRange(result, key),
-      referenceRangeLabel: snapshotMetricReferenceRangeLabel(key),
+      referenceRangeLabel: snapshotMetricReferenceRangeLabel(result, key),
       medianReference: snapshotMetricMedianReference(result, key)
     };
   }
 
   function snapshotMetricUnit(key) {
-    if (key === "height") return "cm";
+    if (key === "height" || key === "head") return "cm";
     if (key === "bmi") return "kg/m\u00b2";
     return "kg";
   }
 
   function snapshotMetricCurrentValue(result, key) {
     if (key === "height") return result.height;
+    if (key === "head") return result.head;
     if (key === "bmi") return result.bmi;
     return result.weight;
   }
@@ -7850,7 +8114,10 @@
   function snapshotMetricReferenceRange(result, key) {
     let lower;
     let upper;
-    if (key === "wfh") {
+    if (result.usesFenton) {
+      lower = fentonReferenceValue(result.sex || "boy", key, result.postmenstrualAgeDays, -2);
+      upper = fentonReferenceValue(result.sex || "boy", key, result.postmenstrualAgeDays, 2);
+    } else if (key === "wfh") {
       const lms = weightHeightLmsAt(result.sex || "boy", result.ageMonths || 0, result.height);
       lower = lmsValueAtZ(lms, -2);
       upper = lmsValueAtZ(lms, 2);
@@ -7858,40 +8125,42 @@
       lower = referenceValue(result.sex || "boy", key, result.ageMonths || 0, -2);
       upper = referenceValue(result.sex || "boy", key, result.ageMonths || 0, 2);
     }
-    if (!Number.isFinite(lower) || !Number.isFinite(upper)) return canvasText("WHO reference unavailable");
+    if (!Number.isFinite(lower) || !Number.isFinite(upper)) return canvasText(result.usesFenton ? (activeLanguage === "vi" ? "Không có tham chiếu Fenton" : "Fenton reference unavailable") : "WHO reference unavailable");
     return `${lower.toFixed(1)}\u2013${upper.toFixed(1)} ${snapshotMetricUnit(key)}`;
   }
 
-  function snapshotMetricReferenceRangeLabel(key) {
+  function snapshotMetricReferenceRangeLabel(result, key) {
     const labels = {
-      weight: "Standard weight range (-2 to +2 SD)",
-      height: "Standard height range (-2 to +2 SD)",
+      weight: result.usesFenton ? (activeLanguage === "vi" ? "Khoảng cân nặng chuẩn tham chiếu (-2 đến +2 SD)" : "Fenton 2013 weight range (-2 to +2 SD)") : "Standard weight range (-2 to +2 SD)",
+      height: result.usesFenton ? (activeLanguage === "vi" ? "Khoảng chiều cao chuẩn tham chiếu (-2 đến +2 SD)" : "Fenton 2013 height range (-2 to +2 SD)") : "Standard height range (-2 to +2 SD)",
       wfh: "Standard weight-for-height range (-2 to +2 SD)",
-      bmi: "Standard BMI range (-2 to +2 SD)"
+      bmi: "Standard BMI range (-2 to +2 SD)",
+      head: result.usesFenton ? (activeLanguage === "vi" ? "Khoảng vòng đầu chuẩn tham chiếu (-2 đến +2 SD)" : "Fenton 2013 head circumference range (-2 to +2 SD)") : "Standard head circumference range (-2 to +2 SD)"
     };
-    return canvasText(labels[key] || "WHO reference range (-2 to +2 SD)");
+    return canvasText(labels[key] || (result.usesFenton ? (activeLanguage === "vi" ? "Khoảng tham chiếu Fenton (-2 đến +2 SD)" : "Fenton reference range (-2 to +2 SD)") : "WHO reference range (-2 to +2 SD)"));
   }
 
   function snapshotMetricMedianReference(result, key) {
     const reference = idealReferenceValue(result, key);
-    if (!Number.isFinite(reference)) return canvasText("WHO reference unavailable");
+    if (!Number.isFinite(reference)) return canvasText(result.usesFenton ? (activeLanguage === "vi" ? "Không có tham chiếu Fenton" : "Fenton reference unavailable") : "WHO reference unavailable");
     const labels = {
-      weight: "Standard weight",
-      height: "Standard height",
+      weight: result.usesFenton ? (activeLanguage === "vi" ? "Cân nặng chuẩn" : "Fenton 2013 weight") : "Standard weight",
+      height: result.usesFenton ? (activeLanguage === "vi" ? "Chiều cao chuẩn" : "Fenton 2013 height") : "Standard height",
       wfh: "Standard weight-for-height",
-      bmi: "Standard BMI"
+      bmi: "Standard BMI",
+      head: result.usesFenton ? (activeLanguage === "vi" ? "Vòng đầu chuẩn" : "Fenton 2013 head circumference") : "Standard head circumference"
     };
-    return `${canvasText(labels[key] || "WHO median")}: ${formatMeasurement(reference, snapshotMetricUnit(key))}`;
+    return `${canvasText(labels[key] || (result.usesFenton ? (activeLanguage === "vi" ? "Trung vị Fenton" : "Fenton median") : "WHO median"))}: ${formatMeasurement(reference, snapshotMetricUnit(key))}`;
   }
 
   function snapshotMedianGap(result, key) {
     const reference = idealReferenceValue(result, key);
-    const current = key === "height" ? result.height : key === "bmi" ? result.bmi : result.weight;
-    if (!Number.isFinite(reference) || !Number.isFinite(current)) return canvasText("WHO reference unavailable");
+    const current = key === "height" ? result.height : key === "head" ? result.head : key === "bmi" ? result.bmi : result.weight;
+    if (!Number.isFinite(reference) || !Number.isFinite(current)) return canvasText(result.usesFenton ? (activeLanguage === "vi" ? "Không có tham chiếu Fenton" : "Fenton reference unavailable") : "WHO reference unavailable");
     const difference = current - reference;
-    if (Math.abs(difference) < 0.05) return canvasText("At the WHO median");
+    if (Math.abs(difference) < 0.05) return canvasText(result.usesFenton ? (activeLanguage === "vi" ? "Ngang trung vị Fenton" : "At the Fenton median") : "At the WHO median");
     const unit = key === "height" ? "cm" : key === "bmi" ? "kg/m\u00b2" : "kg";
-    return `${Math.abs(difference).toFixed(1)} ${unit} ${canvasText(difference < 0 ? "below the WHO median" : "above the WHO median")}`;
+    return `${Math.abs(difference).toFixed(1)} ${unit} ${canvasText(difference < 0 ? (result.usesFenton ? (activeLanguage === "vi" ? "thấp hơn trung vị Fenton" : "below the Fenton median") : "below the WHO median") : (result.usesFenton ? (activeLanguage === "vi" ? "cao hơn trung vị Fenton" : "above the Fenton median") : "above the WHO median"))}`;
   }
 
   function centerText(ctx, text, x, y) {
@@ -7963,18 +8232,32 @@
   }
 
   function drawMeasurementSummary(ctx, result, x, y) {
-    const ageColumns = result.preterm && result.correctionApplied
+    const ageColumns = result.usesFenton
+      ? [
+        { label: canvasText("Postmenstrual age"), value: decodeHtmlEntities(postmenstrualAgeLabel(result.postmenstrualAgeDays)), color: "#0f766e" },
+        { label: canvasText("Chronological age"), value: decodeHtmlEntities(ageLabel(result.chronologicalAgeMonths)), color: "#2563eb" }
+      ]
+      : result.preterm && result.correctionApplied
       ? [
         { label: canvasText("Corrected age"), value: decodeHtmlEntities(ageLabel(result.ageMonths)), color: "#0f766e" },
         { label: canvasText("Chronological age"), value: decodeHtmlEntities(ageLabel(result.chronologicalAgeMonths)), color: "#2563eb" }
       ]
       : [{ label: canvasText("Age"), value: decodeHtmlEntities(ageLabel(result.chronologicalAgeMonths ?? result.ageMonths)), color: "#0f766e" }];
+    const measurementColumns = result.usesFenton
+      ? [
+        { label: canvasText("Weight (kg)"), value: `${result.weight.toFixed(1)} kg`, color: "#0f766e" },
+        { label: canvasText("Length (cm)"), value: `${result.height.toFixed(1)} cm`, color: "#2563eb" },
+        { label: canvasText("Head Circumference (cm)"), value: result.head ? `${result.head.toFixed(1)} cm` : "--", color: "#7c3aed" }
+      ]
+      : [
+        { label: canvasText("Weight (kg)"), value: `${result.weight.toFixed(1)} kg`, color: "#0f766e" },
+        { label: canvasText("Height (cm)"), value: `${result.height.toFixed(1)} cm`, color: "#2563eb" },
+        { label: canvasText("BMI"), value: result.bmi.toFixed(1), color: "#7c3aed" }
+      ];
     const columns = [
       ...ageColumns,
       { label: canvasText("Sex"), value: decodeHtmlEntities(sexLabel(result.sex)), color: "#2563eb" },
-      { label: canvasText("Weight (kg)"), value: `${result.weight.toFixed(1)} kg`, color: "#0f766e" },
-      { label: canvasText("Height (cm)"), value: `${result.height.toFixed(1)} cm`, color: "#2563eb" },
-      { label: canvasText("BMI"), value: result.bmi.toFixed(1), color: "#7c3aed" }
+      ...measurementColumns
     ];
     columns.forEach((item, index) => {
       const col = index % 3;
@@ -8322,6 +8605,10 @@
   }
 
   function drawSocialSnapshotChart(ctx, result, indicator, left, top, width, height) {
+    if (result.usesFenton) {
+      drawFentonSnapshotChart(ctx, result, indicator, left, top, width, height);
+      return;
+    }
     if (indicator === "wfh") {
       drawWeightHeightSnapshotChart(ctx, result, left, top, width, height);
       return;
@@ -8454,6 +8741,95 @@
       centerText(ctx, String(month), xx, plotTop + plotHeight + 16);
     });
     centerText(ctx, t("Age (months)"), plotLeft + plotWidth / 2, plotTop + plotHeight + 34);
+  }
+
+  function drawFentonSnapshotChart(ctx, result, indicator, left, top, width, height) {
+    const rows = fentonRows(result.sex || "boy", indicator);
+    const metric = result.metrics.find((item) => item.key === indicator);
+    if (!rows || !metric || metric.status === "notAvailable" || metric.status === "notEntered") return;
+    const bands = [
+      { z: 3, color: "#991b1b" },
+      { z: 2, color: "#ef4444" },
+      { z: 1, color: "#f59e0b" },
+      { z: 0, color: "#16a34a" },
+      { z: -1, color: "#2563eb" },
+      { z: -2, color: "#4f46e5" },
+      { z: -3, color: "#7e22ce" }
+    ];
+    const enlarged = width >= 700;
+    const axisFontSize = enlarged ? 13 : 10;
+    const plotLeft = left + (enlarged ? 48 : 34);
+    const plotTop = top + (enlarged ? 20 : 16);
+    const plotWidth = width - (enlarged ? 60 : 42);
+    const plotHeight = height - (enlarged ? 68 : 54);
+    const minDay = rows[0][0];
+    const maxDay = rows[rows.length - 1][0];
+    const values = rows.flatMap((row) => bands.map((band) => fentonDisplayValue(
+      indicator,
+      lmsValueAtZ({ l: row[1], m: row[2], s: row[3] }, band.z)
+    )));
+    const minValue = Math.min(...values);
+    const maxValue = Math.max(...values);
+    const span = maxValue - minValue || 1;
+    const scale = { min: Math.max(0, minValue - span * 0.04), max: maxValue + span * 0.04 };
+    const x = (day) => plotLeft + ((day - minDay) / (maxDay - minDay)) * plotWidth;
+    const y = (value) => chartValueToY(value, scale, plotTop, plotTop + plotHeight);
+
+    ctx.fillStyle = "#334155";
+    ctx.font = `800 ${axisFontSize}px Inter, sans-serif`;
+    ctx.fillText(indicator === "weight" ? "kg" : "cm", left + 2, top + 2);
+    for (let index = 0; index <= 4; index += 1) {
+      const value = scale.min + ((scale.max - scale.min) * (4 - index)) / 4;
+      const yy = y(value);
+      ctx.fillStyle = "#475569";
+      ctx.fillText(indicator === "weight" ? value.toFixed(1) : String(Math.round(value)), left + 3, yy + 3);
+      ctx.strokeStyle = "#e2e8f0";
+      ctx.lineWidth = 1;
+      ctx.beginPath();
+      ctx.moveTo(plotLeft, yy);
+      ctx.lineTo(plotLeft + plotWidth, yy);
+      ctx.stroke();
+    }
+    bands.forEach((band) => {
+      ctx.strokeStyle = band.color;
+      ctx.lineWidth = enlarged ? (band.z === 0 ? 3 : 2) : (band.z === 0 ? 2.2 : 1.4);
+      ctx.beginPath();
+      rows.forEach((row, index) => {
+        const value = fentonDisplayValue(indicator, lmsValueAtZ({ l: row[1], m: row[2], s: row[3] }, band.z));
+        if (index === 0) ctx.moveTo(x(row[0]), y(value));
+        else ctx.lineTo(x(row[0]), y(value));
+      });
+      ctx.stroke();
+      const endValue = fentonReferenceValue(result.sex || "boy", indicator, maxDay, band.z);
+      drawSnapshotCurveLabel(ctx, sdLabel(band.z), plotLeft + plotWidth - 4, y(endValue) + 3, band.color);
+    });
+    const childDay = clamp(result.postmenstrualAgeDays, minDay, maxDay);
+    const childX = x(childDay);
+    const childY = clamp(
+      y(fentonReferenceValue(result.sex || "boy", indicator, childDay, metric.z)),
+      plotTop + 8,
+      plotTop + plotHeight - 8
+    );
+    ctx.strokeStyle = "#94a3b8";
+    ctx.setLineDash([4, 4]);
+    ctx.beginPath();
+    ctx.moveTo(childX, plotTop);
+    ctx.lineTo(childX, plotTop + plotHeight);
+    ctx.stroke();
+    ctx.setLineDash([]);
+    ctx.fillStyle = "#0f172a";
+    ctx.beginPath();
+    ctx.arc(childX, childY, enlarged ? 8 : 5, 0, Math.PI * 2);
+    ctx.fill();
+    ctx.strokeStyle = "#ffffff";
+    ctx.lineWidth = enlarged ? 3 : 2;
+    ctx.stroke();
+    ctx.fillStyle = "#334155";
+    ctx.font = `800 ${axisFontSize}px Inter, sans-serif`;
+    [24, 28, 32, 36, 40, 44, 48, 50].filter((week) => week * 7 >= minDay).forEach((week) => {
+      centerText(ctx, String(week), x(week * 7), plotTop + plotHeight + 16);
+    });
+    centerText(ctx, canvasText("Postmenstrual age (weeks)"), plotLeft + plotWidth / 2, plotTop + plotHeight + 34);
   }
 
   function drawWeightHeightSnapshotChart(ctx, result, left, top, width, height) {
@@ -8645,7 +9021,9 @@
   function resultSummaryText(result) {
     const metric = highlightMetric(result);
     const childName = normalizeChildName(result.childName);
-    const ageText = result.preterm && result.correctionApplied
+    const ageText = result.usesFenton
+      ? `${t("Postmenstrual age")} ${postmenstrualAgeLabel(result.postmenstrualAgeDays)} (${t("Chronological age").toLowerCase()} ${ageLabel(result.chronologicalAgeMonths)})`
+      : result.preterm && result.correctionApplied
       ? `${t("Corrected age")} ${ageLabel(result.ageMonths)} (${t("Chronological age").toLowerCase()} ${ageLabel(result.chronologicalAgeMonths)})`
       : ageLabel(result.chronologicalAgeMonths ?? result.ageMonths);
     return `GrowthKid: ${childName ? `${childName}, ` : ""}${sexLabel(result.sex)}, ${ageText}, ${t(titleFor(metric.key))} ${metric.percentile === null ? "--" : ordinal(metric.percentile)}, ${t(statusLabel(metric.status))}.`;
@@ -8658,7 +9036,14 @@
       const percentile = metric.percentile === null ? "--" : ordinal(metric.percentile);
       return `${t(titleFor(metric.key))}: ${t("Z-score")} ${z}, ${t("Percentile")} ${percentile}, ${t("Status")} ${t(statusLabel(metric.status))}`;
     });
-    const ageLines = result.preterm && result.correctionApplied
+    const ageLines = result.usesFenton
+      ? [
+        `${t("Postmenstrual age")}: ${postmenstrualAgeLabel(result.postmenstrualAgeDays)}`,
+        `${t("Chronological age")}: ${ageLabel(result.chronologicalAgeMonths)}`,
+        `${t("Gestational age at birth")}: ${result.gestationalAgeWeeks} ${t("weeks")} ${result.gestationalAgeDays} ${t("days")}`,
+        `${t("Reference")}: ${t("Fenton 2013 reference")}`
+      ]
+      : result.preterm && result.correctionApplied
       ? [
         `${t("Corrected age")}: ${ageLabel(result.ageMonths)}`,
         `${t("Chronological age")}: ${ageLabel(result.chronologicalAgeMonths)}`,
@@ -8701,6 +9086,7 @@
     const chart = document.getElementById("growthChart");
     const interpretationBox = document.getElementById("interpretation");
     const title = document.getElementById("chartTitle");
+    const tabs = section && section.querySelector(".chart-tabs");
 
     if (!section || !chart) return;
 
@@ -8712,9 +9098,31 @@
     chart.innerHTML = chartSvg(result, "height", false);
     if (interpretationBox) interpretationBox.innerHTML = interpretation(result, "height");
     if (title) title.textContent = chartTitle("height");
+    if (tabs) {
+      const chartIndicators = result.usesFenton ? ["weight", "height", "head"] : ["weight", "height", "wfh", "bmi"];
+      tabs.innerHTML = chartIndicators.map((key) => `<button class="chart-tab ${key === "height" ? "is-active" : ""}" data-chart="${key}" type="button">${t(titleFor(key))}</button>`).join("");
+      bindGrowthChartTabs();
+    }
     refreshTrendTracker(result);
     document.querySelectorAll(".chart-tab").forEach((tab) => tab.classList.toggle("is-active", tab.dataset.chart === "height"));
     section.scrollIntoView({ behavior: "smooth", block: "start" });
+  }
+
+  function bindGrowthChartTabs() {
+    document.querySelectorAll(".chart-tab").forEach((button) => {
+      button.onclick = () => {
+        const indicator = button.dataset.chart;
+        lastChartIndicator = indicator;
+        const result = readSavedResult() || sampleResult();
+        const chart = document.getElementById("growthChart");
+        const title = document.getElementById("chartTitle");
+        const interpretationBox = document.getElementById("interpretation");
+        document.querySelectorAll(".chart-tab").forEach((tab) => tab.classList.toggle("is-active", tab === button));
+        if (chart) chart.innerHTML = chartSvg(result, indicator, false);
+        if (title) title.textContent = chartTitle(indicator);
+        if (interpretationBox) interpretationBox.innerHTML = interpretation(result, indicator);
+      };
+    });
   }
 
   function bindTrendButtons() {
@@ -8901,20 +9309,7 @@
       renderBilirubin();
     }
 
-    document.querySelectorAll(".chart-tab").forEach((button) => {
-      button.addEventListener("click", () => {
-        const indicator = button.dataset.chart;
-        lastChartIndicator = indicator;
-        const result = readSavedResult() || sampleResult();
-        const chart = document.getElementById("growthChart");
-        const title = document.getElementById("chartTitle");
-        const interpretationBox = document.getElementById("interpretation");
-        document.querySelectorAll(".chart-tab").forEach((tab) => tab.classList.toggle("is-active", tab === button));
-        if (chart) chart.innerHTML = chartSvg(result, indicator, false);
-        if (title) title.textContent = chartTitle(indicator);
-        if (interpretationBox) interpretationBox.innerHTML = interpretation(result, indicator);
-      });
-    });
+    bindGrowthChartTabs();
 
     const downloadSnapshotButton = document.getElementById("downloadSnapshot");
     if (downloadSnapshotButton) {
@@ -9015,9 +9410,17 @@
     try {
       const data = Object.fromEntries(new FormData(form).entries());
       const adjustment = prematurityAgeAdjustment(data, dob, measureDate);
-      value.textContent = decodeHtmlEntities(ageLabel(adjustment.referenceAgeMonths));
+      value.textContent = decodeHtmlEntities(adjustment.usesFenton
+        ? postmenstrualAgeLabel(adjustment.postmenstrualAgeDays)
+        : ageLabel(adjustment.referenceAgeMonths));
       value.classList.remove("is-error");
-      if (adjustment.preterm && adjustment.correctionApplied) {
+      if (adjustment.usesFenton) {
+        if (label) label.textContent = decodeHtmlEntities(t("Postmenstrual age"));
+        if (note) {
+          note.textContent = decodeHtmlEntities(`${t("Fenton 2013 reference")} · ${t("Chronological age")}: ${ageLabel(adjustment.chronologicalAgeMonths)} · ${t("Gestational age at birth")}: ${adjustment.gestationalAgeWeeks} ${t("weeks")} ${adjustment.gestationalAgeDays} ${t("days")}`);
+          note.hidden = false;
+        }
+      } else if (adjustment.preterm && adjustment.correctionApplied) {
         if (label) label.textContent = decodeHtmlEntities(t("Corrected age"));
         if (note) {
           note.textContent = decodeHtmlEntities(`${t("Chronological age")}: ${ageLabel(adjustment.chronologicalAgeMonths)} · ${t("Gestational age at birth")}: ${adjustment.gestationalAgeWeeks} ${t("weeks")} ${adjustment.gestationalAgeDays} ${t("days")}`);
