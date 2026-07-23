@@ -1951,7 +1951,8 @@ body.nutrition-detail-open {
   }
 
   .nutrition-medical-note,
-  .nutrition-catalog-toolbar {
+  .nutrition-catalog-toolbar,
+  .nutrition-filters {
     display: none;
   }
 
