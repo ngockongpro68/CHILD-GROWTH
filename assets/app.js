@@ -47,6 +47,8 @@
       "Built for a fast parent workflow while still matching the mental model healthcare professionals expect.": "Tối ưu cho thao tác nhanh của phụ huynh nhưng vẫn giữ cách trình bày quen thuộc với nhân viên y tế.",
       "Enter measurements to calculate z-scores and percentiles.": "Nhập số đo để tính z-score và bách phân vị.",
       "Date of Birth": "Ngày sinh",
+      "Child's name": "Tên bé",
+      "Child": "Bé",
       "Sex": "Giới tính",
       "Boy": "Bé trai",
       "Girl": "Bé gái",
@@ -171,6 +173,7 @@
       "Designed as a clean, name-free card for stories, messages, and private family sharing.": "Thiết kế gọn, không có tên trẻ, phù hợp để gửi tin nhắn, đăng story hoặc chia sẻ riêng trong gia đình.",
       "A quick growth check, made easy to share": "Một tóm tắt tăng trưởng gọn gàng, dễ chia sẻ",
       "Name-free snapshot for family updates. Educational use only.": "Ảnh tóm tắt không kèm tên trẻ. Chỉ dùng cho mục đích tham khảo.",
+      "The child's name is included by choice. Educational use only.": "Tên bé được hiển thị theo lựa chọn của gia đình. Chỉ dùng cho mục đích tham khảo.",
       "WHO-based": "Theo chuẩn WHO",
       "Child growth FAQ": "FAQ tăng trưởng trẻ em",
       "BMI calculator FAQ": "FAQ máy tính BMI",
@@ -1325,6 +1328,8 @@
       "Track Your Child's Growth Using WHO Growth Standards": "Theo dõi tăng trưởng của trẻ theo chuẩn WHO",
       "Measure growth, calculate z-scores, and monitor development in seconds.": "Nhập số đo, xem điểm z và theo dõi xu hướng phát triển chỉ trong vài giây.",
       "Date of Birth": "Ngày sinh",
+      "Child's name": "Tên bé",
+      "Child": "Bé",
       "Measurement Date": "Ngày đo",
       "Sex": "Giới tính",
       "Boy": "Bé trai",
@@ -3213,6 +3218,10 @@
               <span><strong>Child information</strong><small>Basic details used to select the right WHO reference.</small></span>
             </legend>
             <div class="form-grid form-grid-child">
+              <div class="field field-child-name">
+                <label for="childName">Child's name <span class="field-optional">Optional</span></label>
+                <input id="childName" name="childName" type="text" maxlength="40" autocomplete="off" placeholder="Optional">
+              </div>
               <div class="field">
                 <label for="dob">Date of Birth</label>
                 <div class="date-input-wrap">
@@ -6471,6 +6480,7 @@
 
   function idealReferenceValue(result, key) {
     if (key === "wfh") {
+      if ((result.ageMonths ?? 0) > underFiveMaxMonths) return null;
       const lms = weightHeightLmsAt(result.sex || "boy", result.ageMonths || 0, result.height);
       return lms ? lms.m : null;
     }
@@ -6554,6 +6564,7 @@
   function calculateGrowthData(data) {
     const dob = parseInputDate(data.dob);
     const measureDate = parseInputDate(data.measureDate);
+    const childName = normalizeChildName(data.childName);
     const weight = Number(data.weight);
     const height = Number(data.height);
     const head = data.head ? Number(data.head) : null;
@@ -6595,6 +6606,7 @@
     ];
 
     return {
+      childName,
       sex,
       ageMonths,
       ageLabel: ageLabel(ageMonths),
@@ -6633,6 +6645,14 @@
       return new Date(NaN);
     }
     return date;
+  }
+
+  function normalizeChildName(value) {
+    return String(value || "")
+      .replace(/[\u0000-\u001f\u007f]/g, "")
+      .replace(/\s+/g, " ")
+      .trim()
+      .slice(0, 40);
   }
 
   function formatDateInputValue(value) {
@@ -7010,7 +7030,11 @@
     const childReferenceValue = metric && Number.isFinite(metric.z)
       ? chartReferenceValue(sex, indicator, childMonth, metric.z, result.ageMonths ?? 24)
       : childValue;
-    const childY = yForValue(childReferenceValue || chartReferenceValue(sex, indicator, childMonth, 0, result.ageMonths ?? 24));
+    const childY = clamp(
+      yForValue(childReferenceValue || chartReferenceValue(sex, indicator, childMonth, 0, result.ageMonths ?? 24)),
+      padding.top + 8,
+      height - padding.bottom - 8
+    );
     const unit = indicator === "weight" ? "kg" : indicator === "height" ? "cm" : "BMI";
 
     return `
@@ -7072,7 +7096,7 @@
     const xTicks = Array.from({ length: 6 }, (_, index) => minHeight + ((maxHeight - minHeight) * index) / 5);
     const yTicks = Array.from({ length: 5 }, (_, index) => scale.min + ((scale.max - scale.min) * index) / 4);
     const childX = x(clamp(result.height, minHeight, maxHeight));
-    const childY = y(result.weight);
+    const childY = clamp(y(result.weight), padding.top + 8, height - padding.bottom - 8);
 
     return `
       <svg viewBox="0 0 ${width} ${height}" role="img" aria-label="weight-for-height growth chart">
@@ -7099,7 +7123,7 @@
   function unavailableChartSvg(indicator, compact, reason) {
     const width = compact ? 560 : 760;
     const height = compact ? 310 : 520;
-    const message = t(reason || "WHO reference is not available for the selected age range.");
+    const message = decodeHtmlEntities(t(reason || "WHO reference is not available for the selected age range."));
     return `
       <svg viewBox="0 0 ${width} ${height}" role="img" aria-label="${indicator} growth chart unavailable">
         <rect x="0" y="0" width="${width}" height="${height}" fill="#ffffff"></rect>
@@ -7234,18 +7258,37 @@
   }
 
   function localizedResultMeta(result) {
+    const childMeta = normalizeChildName(result.childName)
+      ? `<span>${t("Child's name")}: ${escapeHtml(normalizeChildName(result.childName))}</span>`
+      : "";
     const ageMeta = result.preterm && result.correctionApplied
       ? `<span>${sexLabel(result.sex)}</span><span>${t("Corrected age")} ${ageLabel(result.ageMonths)}</span><span>${t("Chronological age")} ${ageLabel(result.chronologicalAgeMonths)}</span>`
       : `<span>${sexLabel(result.sex)} - ${ageLabel(result.chronologicalAgeMonths ?? result.ageMonths)}</span>`;
     const correctionMeta = result.preterm && !result.correctionApplied
       ? `<span>${t("Age correction is no longer applied after 24 months of chronological age.")}</span>`
       : "";
-    return `<span>${t("Measurement on")} ${formatDate(result.measureDate)}</span>${ageMeta}<span>${t(result.referenceLabel || referenceLabel(result.ageMonths ?? 24))}</span>${correctionMeta}`;
+    return `${childMeta}<span>${t("Measurement on")} ${formatDate(result.measureDate)}</span>${ageMeta}<span>${t(result.referenceLabel || referenceLabel(result.ageMonths ?? 24))}</span>${correctionMeta}`;
   }
 
   function monthDiff(start, end) {
-    const msPerMonth = 365.2425 / 12 * 24 * 60 * 60 * 1000;
-    return (end - start) / msPerMonth;
+    let completedMonths = (end.getFullYear() - start.getFullYear()) * 12 + end.getMonth() - start.getMonth();
+    let anchor = addCalendarMonths(start, completedMonths);
+    if (anchor > end) {
+      completedMonths -= 1;
+      anchor = addCalendarMonths(start, completedMonths);
+    }
+
+    const nextAnchor = addCalendarMonths(start, completedMonths + 1);
+    const monthLength = nextAnchor - anchor;
+    const elapsed = end - anchor;
+    return completedMonths + (monthLength > 0 ? clamp(elapsed / monthLength, 0, 1) : 0);
+  }
+
+  function addCalendarMonths(date, months) {
+    const target = new Date(date.getFullYear(), date.getMonth() + months, 1);
+    const lastDay = new Date(target.getFullYear(), target.getMonth() + 1, 0).getDate();
+    target.setDate(Math.min(date.getDate(), lastDay));
+    return target;
   }
 
   function prematurityAgeAdjustment(data, dob, measureDate) {
@@ -7406,13 +7449,14 @@
 
   function enrichGrowthResult(result) {
     if (!result || !Number.isFinite(result.weight) || !Number.isFinite(result.height)) return result;
+    const childName = normalizeChildName(result.childName);
     const bmi = Number.isFinite(result.bmi) ? result.bmi : result.weight / Math.pow(result.height / 100, 2);
     const chronologicalAgeMonths = Number.isFinite(result.chronologicalAgeMonths) ? result.chronologicalAgeMonths : result.ageMonths;
     const existing = Array.isArray(result.metrics) ? result.metrics.filter((item) => item && item.key !== "wfh") : [];
     const wfh = weightHeightMetric(result.sex || "boy", result.ageMonths || 0, result.weight, result.height);
     const orderedKeys = ["height", "weight", "wfh", "bmi", "head"];
     const metrics = [...existing, wfh].sort((left, right) => orderedKeys.indexOf(left.key) - orderedKeys.indexOf(right.key));
-    return { ...result, bmi, chronologicalAgeMonths, metrics };
+    return { ...result, childName, bmi, chronologicalAgeMonths, metrics };
   }
 
   function saveResult(result) {
@@ -7451,6 +7495,7 @@
       ...point,
       id: typeof point.id === "string" ? point.id.slice(0, 160) : `${measureDate}-${ageMonths}-${weight}-${height}`,
       measureDate,
+      childName: normalizeChildName(point.childName),
       sex: point.sex === "female" ? "female" : "male",
       ageMonths,
       ageLabel: ageLabel(ageMonths),
@@ -7466,8 +7511,10 @@
 
   function trendPointFromResult(result) {
     const heightMetric = result.metrics.find((metric) => metric.key === "height") || {};
+    const childName = normalizeChildName(result.childName);
     return {
-      id: `${result.measureDate}-${result.sex}-${result.weight}-${result.height}-${result.head || ""}`,
+      id: `${childName || "child"}-${result.measureDate}-${result.sex}-${result.weight}-${result.height}-${result.head || ""}`,
+      childName,
       measureDate: result.measureDate,
       sex: result.sex,
       ageMonths: result.ageMonths,
@@ -7539,15 +7586,17 @@
   }
 
   function trendTable(points) {
+    const hasChildNames = points.some((point) => normalizeChildName(point.childName));
     return `
       <div class="trend-table-wrap">
         <table class="trend-table">
           <thead>
-            <tr><th>${t("Measurement Date")}</th><th>${t("Age")}</th><th>${t("Weight")}</th><th>${t("Height")}</th><th>${t("Height percentile")}</th></tr>
+            <tr>${hasChildNames ? `<th>${t("Child's name")}</th>` : ""}<th>${t("Measurement Date")}</th><th>${t("Age")}</th><th>${t("Weight")}</th><th>${t("Height")}</th><th>${t("Height percentile")}</th></tr>
           </thead>
           <tbody>
             ${points.map((point) => `
               <tr>
+                ${hasChildNames ? `<td>${escapeHtml(normalizeChildName(point.childName) || "—")}</td>` : ""}
                 <td>${formatDate(point.measureDate)}</td>
                 <td>${point.ageLabel}</td>
                 <td>${point.weight.toFixed(1)} kg</td>
@@ -7583,6 +7632,7 @@
     canvas.width = 1080;
     canvas.height = 1710;
     const ctx = canvas.getContext("2d");
+    const childName = normalizeChildName(result.childName);
     const primary = highlightMetric(result);
     const resultItems = ["height", "weight", "wfh", "bmi"].map((key) => metricSnapshotItem(
       result,
@@ -7623,25 +7673,31 @@
     ctx.fillStyle = "#334155";
     ctx.font = "750 28px Inter, sans-serif";
     ctx.fillText(canvasText("WHO-based growth check"), 56, 210);
+    if (childName) {
+      ctx.fillStyle = "#2563eb";
+      ctx.font = "850 20px Inter, sans-serif";
+      ctx.fillText(fitCanvasText(ctx, `${canvasText("Child")}: ${childName}`, 560), 56, 234);
+    }
 
     const roundedAgeMonths = Math.round(result.ageMonths || 0);
     const compactAge = `${roundedAgeMonths} ${canvasText(roundedAgeMonths === 1 ? "month" : "months")}`;
+    const headerChipY = childName ? 248 : 236;
     ctx.fillStyle = "#ecfdf5";
-    roundRect(ctx, 54, 236, 286, 40, 20);
+    roundRect(ctx, 54, headerChipY, 286, 40, 20);
     ctx.fill();
     ctx.strokeStyle = "#99f6e4";
     ctx.stroke();
     ctx.fillStyle = "#0f766e";
     ctx.font = "850 15px Inter, sans-serif";
-    centerText(ctx, `${canvasText("Measured on")} ${formatDate(result.measureDate)}`, 197, 262);
+    centerText(ctx, `${canvasText("Measured on")} ${formatDate(result.measureDate)}`, 197, headerChipY + 26);
     ctx.fillStyle = "#ecfdf5";
-    roundRect(ctx, 356, 236, 244, 40, 20);
+    roundRect(ctx, 356, headerChipY, 244, 40, 20);
     ctx.fill();
     ctx.strokeStyle = "#99f6e4";
     ctx.stroke();
     ctx.fillStyle = "#0f766e";
     ctx.font = "850 15px Inter, sans-serif";
-    centerText(ctx, `${canvasText(result.preterm && result.correctionApplied ? "Corrected age" : "Age at measurement")} ${compactAge}`, 478, 262);
+    centerText(ctx, `${canvasText(result.preterm && result.correctionApplied ? "Corrected age" : "Age at measurement")} ${compactAge}`, 478, headerChipY + 26);
 
     drawSnapshotHeaderDecoration(ctx, 710, 54);
 
@@ -7669,7 +7725,17 @@
 
     ctx.fillStyle = "#475569";
     ctx.font = "750 16px Inter, sans-serif";
-    drawWrappedText(ctx, canvasText("Name-free snapshot for family updates. Educational use only."), 72, 1570, 520, 22, 2);
+    drawWrappedText(
+      ctx,
+      canvasText(childName
+        ? "The child's name is included by choice. Educational use only."
+        : "Name-free snapshot for family updates. Educational use only."),
+      72,
+      1570,
+      520,
+      22,
+      2
+    );
     ctx.fillStyle = "#64748b";
     ctx.font = "750 15px Inter, sans-serif";
     ctx.fillText(canvasText("Source: World Health Organization (WHO)"), 72, 1620);
@@ -8298,7 +8364,11 @@
     const childReferenceValue = metric && Number.isFinite(metric.z)
       ? chartReferenceValue(sex, indicator, childMonth, metric.z, result.ageMonths ?? 24)
       : childValue;
-    const childY = yForValue(childReferenceValue || chartReferenceValue(sex, indicator, childMonth, 0, result.ageMonths ?? 24));
+    const childY = clamp(
+      yForValue(childReferenceValue || chartReferenceValue(sex, indicator, childMonth, 0, result.ageMonths ?? 24)),
+      plotTop + 8,
+      plotTop + plotHeight - 8
+    );
     ctx.strokeStyle = "#94a3b8";
     ctx.setLineDash([4, 4]);
     ctx.lineWidth = 1;
@@ -8407,7 +8477,7 @@
       }
     });
     const childX = x(clamp(result.height, minHeight, maxHeight));
-    const childY = y(result.weight);
+    const childY = clamp(y(result.weight), plotTop + 8, plotTop + plotHeight - 8);
     ctx.strokeStyle = "#94a3b8";
     ctx.setLineDash([4, 4]);
     ctx.beginPath();
@@ -8451,6 +8521,16 @@
         lines += 1;
       }
     });
+  }
+
+  function fitCanvasText(ctx, text, maxWidth) {
+    const value = String(text || "");
+    if (ctx.measureText(value).width <= maxWidth) return value;
+    let fitted = value;
+    while (fitted && ctx.measureText(`${fitted}…`).width > maxWidth) {
+      fitted = fitted.slice(0, -1);
+    }
+    return fitted ? `${fitted.trimEnd()}…` : "";
   }
 
   function roundRect(ctx, x, y, width, height, radius) {
@@ -8507,10 +8587,11 @@
 
   function resultSummaryText(result) {
     const metric = highlightMetric(result);
+    const childName = normalizeChildName(result.childName);
     const ageText = result.preterm && result.correctionApplied
       ? `${t("Corrected age")} ${ageLabel(result.ageMonths)} (${t("Chronological age").toLowerCase()} ${ageLabel(result.chronologicalAgeMonths)})`
       : ageLabel(result.chronologicalAgeMonths ?? result.ageMonths);
-    return `GrowthKid: ${sexLabel(result.sex)}, ${ageText}, ${t(titleFor(metric.key))} ${metric.percentile === null ? "--" : ordinal(metric.percentile)}, ${t(statusLabel(metric.status))}.`;
+    return `GrowthKid: ${childName ? `${childName}, ` : ""}${sexLabel(result.sex)}, ${ageText}, ${t(titleFor(metric.key))} ${metric.percentile === null ? "--" : ordinal(metric.percentile)}, ${t(statusLabel(metric.status))}.`;
   }
 
   function downloadReport() {
@@ -8529,6 +8610,7 @@
       : [`${t("Age")}: ${ageLabel(result.chronologicalAgeMonths ?? result.ageMonths)}`];
     const lines = [
       t("GrowthKid Growth Report"),
+      ...(normalizeChildName(result.childName) ? [`${t("Child's name")}: ${normalizeChildName(result.childName)}`] : []),
       `${t("Measurement on")}: ${formatDate(result.measureDate)}`,
       `${t("Sex")}: ${sexLabel(result.sex)}`,
       ...ageLines,

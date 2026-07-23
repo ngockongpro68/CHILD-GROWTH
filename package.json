@@ -6,7 +6,8 @@
   "scripts": {
     "start": "node server.js",
     "dev": "node server.js",
-    "build": "node scripts/security-audit.js && node scripts/validate-nutrition-images.js && node scripts/build.js",
+    "build": "node scripts/security-audit.js && node scripts/validate-growth-charts.js && node scripts/validate-nutrition-images.js && node scripts/build.js",
+    "validate:growth-charts": "node scripts/validate-growth-charts.js",
     "validate:nutrition-images": "node scripts/validate-nutrition-images.js",
     "preview:dist": "node scripts/preview-dist.js",
     "security:audit": "node scripts/security-audit.js"
